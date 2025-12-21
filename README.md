@@ -160,7 +160,7 @@ Kharkov, Ukraine, (380)572-9053-02, **Ian Balter**
 or write to:
 
 **Fido:** [2:461/33.27](mailto:Dima.Orlov@p27.f33.n461.z2.fidonet.org)  
-**E-mail:** [do@infocom.kharkov.ua](mailto:do@infocom.kharkov.ua), [krivs@isracom.net.il](mailto:krivs@isracom.net.il)
+**E-mail:** [dimorlus@gmail.com](mailto:dimorlus@gmail.com)
 
 ## Download
 
