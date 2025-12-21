@@ -1,0 +1,15 @@
+/* ascodes.h */
+#define  ASC_IDLE      100
+#define  TX_START      200
+#define  TX_NEWFILE    201
+#define  TX_READ_DISK  202
+#define  TX_WAIT4_XON  203
+#define  TX_SEND_DATA  204
+#define  TX_PACE       205
+#define  TX_DONE       206
+#define  RX_START      300
+#define  RX_OPEN_FILE  301
+#define  RX_READY      302
+#define  RX_GET_DATA   303
+#define  RX_WRITE_DISK 304
+#define  RX_DONE       305

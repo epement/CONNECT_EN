@@ -1,0 +1,15 @@
+void CheckAll(void);
+void UncheckAll(void);
+void SetBaud(int);
+void SetThePort(int);
+void SetParity(int);
+void SetStopBits(int);
+void SetWordLength(int);
+int GetBaud(void);
+int GetParity(void);
+int GetStopBits(void);
+int GetWordLength(void);
+int GetPort(void);
+void SetText(LPSTR);
+void SetTitle(void);
+void RestorePSL(int);

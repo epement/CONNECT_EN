@@ -1,0 +1,57 @@
+eax in   eax      ebx      ecx      edx
+00000000 00000002 756E6547 6C65746E 49656E69
+00000001 000006D6 00000816 00000180 AFE9F9BF
+00000002 02B3B001 000000F0 00000000 2C04307D
+80000000 80000004 00000000 00000000 00000000
+80000001 00000000 00000000 00000000 00000000
+80000002 20202020 20202020 65746E49 2952286C
+80000003 6E655020 6D756974 20295228 7270204D
+80000004 7365636F 20726F73 30362E31 007A4847
+
+Vendor ID: GenuineIntel CPUID level: 2
+Intel-specific functions:
+Version: 000006D6
+Type 0 - Original OEM
+Family 6 - Pentium Pro
+Model 13 - Intel(R) Pentium(R) M
+Stepping 6
+Reserved 0
+Brand index: 22 [not in table]
+Extended brand string: Intel(R)Pentium(R) M processor 1.60GHz
+CLFLUSH instruction cache line size: 8
+Feature flags: AFE9F9BF
+FPU    Floating Point Unit
+VME    Virtual 8086 Mode Enhancements
+DE     Debugging Extensions
+PSE    Page Size Extensions
+TSC    Time Stamp Counter
+MSR    Model Specific Registers
+MCE    Machine Check Exception
+CX8    COMPXCHG8B Instruction
+SEP    Fast System Call
+MTRR   Memory Type Range Registers
+PGE    PTE Global Flag
+MCA    Machine Check Architecture
+CMOV   Conditional Move and Compare Instructions
+FGPAT  Page Attribute Table
+CLFSH  CFLUSH instruction
+DS     Debug store
+ACPI   Thermal Monitor and Clock Ctrl
+MMX    MMX instruction set
+FXSR   Fast FP/MMX Streaming SIMD Extensions save/restore
+SSE    Streaming SIMD Extensions instruction set
+SSE2   SSE2 extensions
+SS     Self Snoop
+TM     Thermal monitor
+31     reserved
+
+TLB and cache info:
+B0 unknown TLB/cache descriptor
+B3 unknown TLB/cache descriptor
+02 Instruction TLB: 4MB pages, 4-way set assoc, 2 entries
+F0 unknown TLB/cache descriptor
+7D unknown TLB/cache descriptor
+30 unknown TLB/cache descriptor
+04 Data TLB: 4MB pages, 4-way set assoc, 8 entries
+2C unknown TLB/cache descriptor
+

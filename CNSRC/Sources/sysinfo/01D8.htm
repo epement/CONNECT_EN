@@ -1,0 +1,41 @@
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=CP866">
+<title>DOS Fn 440dH CL=46H: IOCTL Set Media ID
+</title>
+</head>
+
+<body bgcolor=White>
+<a href=index.htm>Contents</a> | <a href=index_of_keywords.htm>Keywords</a>
+<hr>
+<h2>DOS Fn 440dH CL=46H: IOCTL Set Media ID
+</h2>
+
+<pre>                                                         Compatibility: <font style="color: Red;">4.0+</font>
+ Expects: <font style="color: Red;">AX</font>    440dH
+          <font style="color: Red;">BX</font>    drive (0=default, 1=A, 2=B, etc.)
+          <font style="color: Red;">CL</font>    46H
+          <font style="color: Red;">CH</font>    08H (device category: block device)
+          <font style="color: Red;">DS:DX</font> addr of an <a href="01EE.htm">IoctlMediaIdRec</a> containing desired settings
+          ──────────────────────────────────────────────────────────────────
+ Returns: <font style="color: Red;">AX</font>    <a href="015B.htm">error code</a>  if CF is set to CY
+          ──────────────────────────────────────────────────────────────────
+    Info: Sets the volume label, serial number, and file system ID for the
+          specified drive.
+
+          This writes directly to the <a href="0151.htm">boot sector</a> of the disk.
+
+          You may wish to use Fn <a href="01DD.htm">440dH 66H</a> (query Media ID) to pre-fill the
+          <a href="01EE.htm">IoctlMediaIdRec</a>, then just change one or two settings before
+          calling this fn.
+
+See Also: Fn <a href="01BD.htm">44H</a> (IOCTL)
+          Fn <a href="01D4.htm">440dH</a> (generic IOCTL for block devices)
+          Fn <a href="01DD.htm">440dH 66H</a> (query media ID)
+          <a href="01E7.htm">Generic IOCTL Data Packets</a>
+          <a href="0005.htm">DOS Functions</a>
+                                    <font style="color: Green;">-&diams;-</font>
+
+
+</pre>
+</body></html>

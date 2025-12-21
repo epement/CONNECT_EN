@@ -1,0 +1,12 @@
+NAME        Term
+DESCRIPTION 'Term Program'
+EXETYPE     WINDOWS
+CODE        PRELOAD MOVEABLE DISCARDABLE
+DATA        PRELOAD MOVEABLE MULTIPLE
+STACKSIZE   8192
+HEAPSIZE    8192
+EXPORTS
+   MainWndProc   @1
+   AboutDlgProc  @2
+   AcceptDlgProc @3
+   ProgressProc  @4

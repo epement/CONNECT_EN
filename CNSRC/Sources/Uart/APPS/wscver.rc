@@ -1,0 +1,12 @@
+#include "windows.h"
+#include "message.h"
+
+VersionIcon ICON msc.ico
+
+VersionMenu MENU
+
+BEGIN
+  MENUITEM   "Get_Version",  MSG_INFO
+  MENUITEM   "Exit",         MSG_EXIT
+END
+

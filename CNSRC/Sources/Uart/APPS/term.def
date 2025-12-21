@@ -1,0 +1,13 @@
+NAME        Term
+DESCRIPTION 'Term Program'
+EXETYPE     WINDOWS
+STUB        'WINSTUB.EXE'
+CODE        PRELOAD MOVEABLE DISCARDABLE
+DATA        PRELOAD MOVEABLE MULTIPLE
+STACKSIZE   4096
+HEAPSIZE    4096
+EXPORTS
+   MainWndProc   @1
+   AboutDlgProc  @2
+   AcceptDlgProc @3
+   ProgressProc  @4

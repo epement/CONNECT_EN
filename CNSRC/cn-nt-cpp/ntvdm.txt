@@ -1,0 +1,62 @@
+  http://groups.google.com/group/comp.os.ms-windows.programmer.vxd/browse_thread/thread/5ab4dba956e7a10d/72084261254db697?lnk=st#72084261254db697
+Группы новостей: comp.os.ms-windows.programmer.vxd
+От: "Vladimir Burlik" <vbur...@absolute.com> - Поиск сообщений этого автора
+Дата: 1997/06/09
+Тема: Re: Calling a 32 -bit DLL from a 16 -bit MS-DOS application
+
+Writing a VDD
+http://www.osronline.com/ddkx/other/vdd_9dno.htm
+
+Such kind of calls are made by generation of exceptions. Here are
+some assembler examples for such calls for MS-DOS apps.
+;----------------------------------------------------------
+RegisterModule  MACRO
+
+                dw      0C4C4h
+                db      58h
+                db      0
+
+                endm
+;----------------------------------------------------------
+UnRegisterModule MACRO
+
+                dw      0C4C4h
+                db      58h
+                db      1
+
+                endm
+
+;----------------------------------------------------------
+
+DispatchCall    MACRO
+
+                dw      0C4C4h
+                db      58h
+                db      2
+
+                endm
+
+;----------------------------------------------------------
+VDDUnSimulate16 MACRO
+
+                dw      0C4C4h
+                db      0FEh
+
+                endm
+
+;----------------------------------------------------------
+Examples:
+
+                mov     si, offset cs:DLLNAME
+                mov     di, offset cs:INITFUNC
+                mov     bx, offset cs:DISPFUNC
+                mov     bp, offset cs:MyFunc ; callback function (if you need it)
+
+RegisterModule
+
+   After this call you'll receive handle, which is being used for all
+another calls(in AX).
+ Regards
+Vladimir Burlik
+;--------------------------------------------------------------
+ tuha wrote in article <01bc7178$fb7515e0$df8cd...@drituha.abb.fi>...

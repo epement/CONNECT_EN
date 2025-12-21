@@ -1,0 +1,80 @@
+Start:
+  if InitRS("COM2,9600,8,2,N") <> 1 then goto ErrIn Rem Инициализация последовательного порта
+  DTR(1);RTS(1)
+  PrintS("[2JMONITOR =>",1);
+MainLoop:
+  sChars==0
+  if (Char = KeyPrs())==0 then GoTo Receive else GoTo KBD
+Receive:
+  if ChkRS() == 0 then GoTo MainLoop
+  if (Code = Receiv(Char,1,1)) <> 0 then goto NotOK Rem Прием
+  if Char == 1 then GoTo SendFile
+  if Char == 2 then GoTo ReceiveFile
+  PrintV(Char,1,"c")
+  if Char == $73 then sChars = sChars+1
+  if sChars == 50 then GoTo MainLoop
+  GoTo Receive
+KBD:
+  if Char == 5 then if (Code = Send($415b1b,3)) <> 0 then goto NotOK  rem Up    [A
+  if Char == 24 then if (Code = Send($425b1b,3)) <> 0 then goto NotOK rem Down  [B
+  if Char == 4 then if (Code = Send($435b1b,3)) <> 0 then goto NotOK  rem Right [C
+  if Char == 19 then if (Code = Send($445b1b,3)) <> 0 then goto NotOK rem Left  [D
+  if (Code = Send(Char,1)) <> 0 then goto NotOK
+  GoTo MainLoop
+SendFile:
+  if (Code = Send(Char,1)) <> 0 then goto NotOK Rem Echo
+  PrintS("");PrintS("Введите имя передаваемого файла");
+  PrintS("Передается файл ",1)
+  Size = 0 Rem Режим чтения файла
+  PrintS(Open(File,"",Size)) Rem Открытие передаваемого файла
+  if Size <> 0 then goto L3
+    Prints("Пустой файл")
+    GoTo MainLoop
+  L3:
+  GetBuf(Buff,Size) Rem Выделение памяти для передаваемого файла
+  RDBlk(File,Buff,Size)Rem Загрузка передаваемого файла
+  Close(File) Rem Закрытие передаваемого файла
+  PrintS("Передача ... ",1)
+  IndBar(1,Size)
+  if (Code = Send(Size,2)) <> 0 then goto NotOK Rem Передача длины
+  if (Code = SndBlk(Buff,Size)) <> 0 then goto NotOk Rem  Передача Файла
+  PrintS("Конец передачи",0,1)
+  IndBar(0)
+  DisBuf(Buff) Rem Освобождение памяти
+  GoTo MainLoop Rem Возврат из подпрограммы передачи
+ReceiveFile:
+  if (Code = Send(Char,1)) <> 0 then goto NotOK Rem Echo
+  PrintS("");Prints("Прием ... ",1)
+  if (Code = Receiv(Size,2,1)) <> 0 then goto NotOK Rem Прием длины файла
+  if Size == 0 then GoTo MainLoop
+  IndBar(1,Size)
+  GetBuf(Buff,Size) Rem Выделение памяти для принимаемого файла
+  if (Code = RecBlk(Buff,Size,1)) <> 0 then goto NotOK Rem Прием файла в выделенный буфер
+  PrintS("Конец приема")
+  IndBar(0)
+  PrintS("Введите имя файла для данных")
+  PrintS("Записывается в файл ",1)
+  PrintS(Open(File,"",1)) Rem Открытие файла для принятых данных
+  WrBlk(File,Buff,Size) Rem Запись принятых данных в файл
+  Close(File) Rem Закрытие файла принятых данных
+  DisBuf(Buff) Rem Освобождение памяти
+  GoTo MainLoop Rem Возврат из подпрограммы приема
+Rem ----------------------------------------------------------------------
+ErrIn:
+ PrintS("");PrintS("Ошибка инициализации")
+ Stop()
+NotOK:
+ if Code == 1 then goto Esc else goto Error
+Esc:
+ PrintS("");PrintS("Нажата Esc");
+ stop()
+ErrorEcho:
+ PrintS("Эхо ",1)
+ PrintV(Echo)
+Error:
+ Send($2E2E2E2E,4);
+ PrintS("Ошибка обмена ",1);
+ PrintV(Code)
+ GoTo Start
+Quit:
+

@@ -1,0 +1,35 @@
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=CP866">
+<title>DOS Fn 440dH CL=66H: IOCTL Query Media ID
+</title>
+</head>
+
+<body bgcolor=White>
+<a href=index.htm>Contents</a> | <a href=index_of_keywords.htm>Keywords</a>
+<hr>
+<h2>DOS Fn 440dH CL=66H: IOCTL Query Media ID
+</h2>
+
+<pre>                                                         Compatibility: <font style="color: Red;">4.0+</font>
+ Expects: <font style="color: Red;">AX</font>    440dH
+          <font style="color: Red;">BX</font>    drive (0=default, 1=A, 2=B, etc.)
+          <font style="color: Red;">CL</font>    66H
+          <font style="color: Red;">CH</font>    08H (device category: block device)
+          <font style="color: Red;">DS:DX</font> addr of an <a href="01EE.htm">IoctlMediaIdRec</a> to receive the data
+          ──────────────────────────────────────────────────────────────────
+ Returns: <font style="color: Red;">AX</font>    <a href="015B.htm">error code</a>  if CF is set to CY
+          <font style="color: Red;">DS:DX</font> buffer is filled with requested info
+          ──────────────────────────────────────────────────────────────────
+    Info: Obtains the current volume label, serial number, and file system
+          ID for the specified drive.
+
+See Also: Fn <a href="01BD.htm">44H</a> (IOCTL)
+          Fn <a href="01D4.htm">440dH</a> (generic IOCTL for block devices)
+          Fn <a href="01D8.htm">440dH 46H</a> (set media ID)
+          <a href="0005.htm">DOS Functions</a>
+                                    <font style="color: Green;">-&diams;-</font>
+
+
+</pre>
+</body></html>

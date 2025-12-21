@@ -1,0 +1,171 @@
+----------  03-05-06, 12:13:57 
+- 12:13:57  Scanning the directory C:
+- 12:13:57  Scanning the directory C:\012
+- 12:13:57  Scanning the directory C:\012\Scanner
+- 12:13:57  Scanning the directory C:\012\Scanner\Genius
+- 12:13:57  Scanning the directory C:\012\Scanner\HP
+- 12:13:57  Scanning the directory C:\Archive
+- 12:13:57  Scanning the directory C:\Archive\AsyncPro_INST
+- 12:13:57  Scanning the directory C:\Archive\AVRPROJ
+- 12:13:57  Scanning the directory C:\Archive\AVRPROJ\TEST
+- 12:13:57  Scanning the directory C:\Archive\AVRPROJ\TEST\EXE
+- 12:13:57  Scanning the directory C:\Archive\AVRPROJ\TEST\LIST
+- 12:13:57  Scanning the directory C:\Archive\AVRPROJ\TEST\OBJ
+- 12:13:57  Scanning the directory C:\Archive\AVRPROJ\TEST\save
+- 12:13:57  Scanning the directory C:\Archive\B3000
+- 12:13:57  Scanning the directory C:\Archive\BALLAST
+- 12:13:57  Scanning the directory C:\Archive\BALLAST\APRO
+- 12:13:57  Scanning the directory C:\Archive\BALLAST\EXE
+- 12:13:57  Scanning the directory C:\Archive\BALLAST\EXE\UPS
+- 12:13:57  Scanning the directory C:\Archive\BALLAST\PAS
+- 12:13:57  Scanning the directory C:\Archive\BALLAST\TPRO
+- 12:13:57  Scanning the directory C:\Archive\BURN
+- 12:13:57  Scanning the directory C:\Archive\C51
+- 12:13:57  Scanning the directory C:\Archive\C51\BIN
+- 12:13:57  Scanning the directory C:\Archive\C51\DOC
+- 12:13:57  Scanning the directory C:\Archive\C51\INCLUDE
+- 12:13:57  Scanning the directory C:\Archive\C51\LIB
+- 12:13:57  Scanning the directory C:\Archive\C51\SOURCE
+- 12:13:57  Scanning the directory C:\Archive\C51\STARTUP
+- 12:13:57  Scanning the directory C:\Archive\C51\WORK
+- 12:13:57  Scanning the directory C:\Archive\C51\WORK\PROGRSRC
+- 12:13:57  Scanning the directory C:\Archive\C51\WORK\PROGRSRC\PROGRSRC
+- 12:13:57  Scanning the directory C:\Archive\C51\WORK\PROGRSRC\PROGRSRC\C51
+- 12:13:57  Scanning the directory C:\Archive\C51\WORK\PROGRSRC\PROGRSRC\C51\LST
+- 12:13:57  Scanning the directory C:\Archive\C51\WORK\SWITCH
+- 12:13:57  Scanning the directory C:\Archive\cc51
+- 12:13:57  Scanning the directory C:\Archive\cc51\bin
+- 12:13:57  Scanning the directory C:\Archive\cc51\examples
+- 12:13:57  Scanning the directory C:\Archive\cc51\examples\xvw
+- 12:13:57  Scanning the directory C:\Archive\cc51\include
+- 12:13:57  Scanning the directory C:\Archive\diskette
+- 12:13:57  Scanning the directory C:\Archive\IAR Systems
+- 12:13:57  Scanning the directory C:\Archive\IAR Systems\Embedded Workbench 3.2
+- 12:13:57  Scanning the directory C:\...\IAR Systems\Embedded Workbench 3.2\avr
+- 12:13:57  Scanning the directory C:\...\Embedded Workbench 3.2\avr\bin
+- 12:13:57  Scanning the directory C:\...\Embedded Workbench 3.2\avr\config
+- 12:13:57  Scanning the directory C:\...\Embedded Workbench 3.2\avr\doc
+- 12:13:57  Scanning the directory C:\...\Embedded Workbench 3.2\avr\doc\dlib
+- 12:13:57  Scanning the directory C:\...\Embedded Workbench 3.2\avr\inc
+- 12:13:57  Scanning the directory C:\...\Embedded Workbench 3.2\avr\inc\clib
+- 12:13:58  Scanning the directory C:\...\Embedded Workbench 3.2\avr\inc\dlib
+- 12:13:58  Scanning the directory C:\...\Embedded Workbench 3.2\avr\layouts
+- 12:13:58  Scanning the directory C:\...\Embedded Workbench 3.2\avr\lib
+- 12:13:58  Scanning the directory C:\...\Embedded Workbench 3.2\avr\lib\clib
+- 12:13:58  Scanning the directory C:\...\Embedded Workbench 3.2\avr\lib\dlib
+- 12:13:58  Scanning the directory C:\...\Embedded Workbench 3.2\avr\src
+- 12:13:58  Scanning the directory C:\...\Embedded Workbench 3.2\avr\src\cspy
+- 12:13:58  Scanning the directory C:\...\Embedded Workbench 3.2\avr\src\lib
+- 12:13:58  Scanning the directory C:\...\avr\src\lib\clib
+- 12:13:58  Scanning the directory C:\...\avr\src\lib\dlib
+- 12:13:58  Scanning the directory C:\...\avr\src\template
+- 12:13:58  Scanning the directory C:\...\Embedded Workbench 3.2\avr\tutor
+- 12:13:58  Scanning the directory C:\...\avr\tutor\CHARGER
+- 12:13:58  Scanning the directory C:\...\avr\tutor\CHARGER\2333_C
+- 12:13:58  Scanning the directory C:\...\avr\tutor\CHARGER\tiny15_asm
+- 12:13:58  Scanning the directory C:\...\Embedded Workbench 3.2\avr\tutor\Debug
+- 12:13:58  Scanning the directory C:\...\avr\tutor\Debug\Exe
+- 12:13:58  Scanning the directory C:\...\avr\tutor\Debug\List
+- 12:13:58  Scanning the directory C:\...\avr\tutor\Debug\Obj
+- 12:13:58  Scanning the directory C:\...\avr\tutor\Release
+- 12:13:58  Scanning the directory C:\...\avr\tutor\Release\Exe
+- 12:13:58  Scanning the directory C:\...\avr\tutor\Release\List
+- 12:13:58  Scanning the directory C:\...\avr\tutor\Release\Obj
+- 12:13:58  Scanning the directory C:\...\avr\tutor\settings
+- 12:13:58  Scanning the directory C:\...\Embedded Workbench 3.2\avr\tutor1
+- 12:13:58  Scanning the directory C:\...\Embedded Workbench 3.2\common
+- 12:13:58  Scanning the directory C:\...\Embedded Workbench 3.2\common\bin
+- 12:13:58  Scanning the directory C:\...\Embedded Workbench 3.2\common\doc
+- 12:13:58  Scanning the directory C:\...\Embedded Workbench 3.2\common\src
+- 12:13:58  Scanning the directory C:\...\common\src\xlink
+- 12:13:58  Scanning the directory C:\Archive\IAR Systems\Ew23
+- 12:13:58  Scanning the directory C:\Archive\IAR Systems\Ew23\avr
+- 12:13:58  Scanning the directory C:\Archive\IAR Systems\Ew23\avr\bin
+- 12:13:58  Scanning the directory C:\Archive\IAR Systems\Ew23\avr\config
+- 12:13:58  Scanning the directory C:\Archive\IAR Systems\Ew23\avr\doc
+- 12:13:58  Scanning the directory C:\...\IAR Systems\Ew23\avr\doc\EC++Library
+- 12:13:58  Scanning the directory C:\Archive\IAR Systems\Ew23\avr\inc
+- 12:13:58  Scanning the directory C:\Archive\IAR Systems\Ew23\avr\lib
+- 12:13:59  Scanning the directory C:\Archive\IAR Systems\Ew23\avr\src
+- 12:13:59  Scanning the directory C:\Archive\IAR Systems\Ew23\avr\src\clib
+- 12:13:59  Scanning the directory C:\Archive\IAR Systems\Ew23\avr\src\clib\inc
+- 12:13:59  Scanning the directory C:\Archive\IAR Systems\Ew23\avr\src\clib\src
+- 12:13:59  Scanning the directory C:\Archive\IAR Systems\Ew23\avr\src\cspy
+- 12:13:59  Scanning the directory C:\Archive\IAR Systems\Ew23\avr\src\eclib
+- 12:13:59  Scanning the directory C:\Archive\IAR Systems\Ew23\avr\src\eclib\inc
+- 12:13:59  Scanning the directory C:\Archive\IAR Systems\Ew23\avr\src\eclib\src
+- 12:13:59  Scanning the directory C:\Archive\IAR Systems\Ew23\avr\src\lib
+- 12:13:59  Scanning the directory C:\Archive\IAR Systems\Ew23\avr\src\simple
+- 12:13:59  Scanning the directory C:\Archive\IAR Systems\Ew23\avr\src\template
+- 12:13:59  Scanning the directory C:\Archive\IAR Systems\Ew23\avr\tutor
+- 12:13:59  Scanning the directory C:\Archive\IAR Systems\Ew23\avr\tutor\CHARGER
+- 12:13:59  Scanning the directory C:\...\Ew23\avr\tutor\CHARGER\2333_C
+- 12:13:59  Scanning the directory C:\...\Ew23\avr\tutor\CHARGER\tiny15_asm
+- 12:13:59  Scanning the directory C:\Archive\IAR Systems\Ew23\avr\tutor\Debug
+- 12:13:59  Scanning the directory C:\...\IAR Systems\Ew23\avr\tutor\Debug\Exe
+- 12:13:59  Scanning the directory C:\...\IAR Systems\Ew23\avr\tutor\Debug\List
+- 12:13:59  Scanning the directory C:\...\IAR Systems\Ew23\avr\tutor\Debug\Obj
+- 12:13:59  Scanning the directory C:\Archive\IAR Systems\Ew23\avr\tutor\Release
+- 12:13:59  Scanning the directory C:\...\IAR Systems\Ew23\avr\tutor\Release\Exe
+- 12:13:59  Scanning the directory C:\...\Ew23\avr\tutor\Release\List
+- 12:13:59  Scanning the directory C:\...\IAR Systems\Ew23\avr\tutor\Release\Obj
+- 12:13:59  Scanning the directory C:\Archive\Lamp1
+- 12:13:59  Scanning the directory C:\Archive\Lamp1\1000
+- 12:13:59  Scanning the directory C:\Archive\Lamp1\400
+- 12:13:59  Scanning the directory C:\Archive\Lamp1\400hfl
+- 12:13:59  Scanning the directory C:\Archive\Lamp1\LOGFILES
+- 12:13:59  Scanning the directory C:\Archive\Lamp1\PC
+- 12:13:59  Scanning the directory C:\Archive\Lamp1\Reg
+- 12:13:59  Scanning the directory C:\Archive\Lamp1\save
+- 12:13:59  Scanning the directory C:\Archive\Lamp1\save1
+- 12:13:59  Scanning the directory C:\ATP
+- 12:13:59  Scanning the directory C:\BC
+- 12:13:59  Scanning the directory C:\BC\BIN
+- 12:13:59  Scanning the directory C:\BC\CRTL
+- 12:13:59  Scanning the directory C:\BC\CRTL\CLIB
+- 12:13:59  Scanning the directory C:\BC\CRTL\EMU
+- 12:13:59  Scanning the directory C:\BC\CRTL\IOSTREAM
+- 12:14:00  Scanning the directory C:\BC\CRTL\MATH
+- 12:14:00  Scanning the directory C:\BC\CRTL\RTLINC
+- 12:14:00  Scanning the directory C:\BC\CRTL\WINLIB
+- 12:14:00  Scanning the directory C:\BC\CRTL\WINLIB\INDEP
+- 12:14:00  Scanning the directory C:\BC\DOC
+- 12:14:00  Scanning the directory C:\BC\EXAMPLES
+- 12:14:00  Scanning the directory C:\BC\EXAMPLES\TCALC
+- 12:14:00  Scanning the directory C:\BC\INCLUDE
+- 12:14:00  Scanning the directory C:\BC\INCLUDE\SYS
+- 12:14:00  Scanning the directory C:\BC\LIB
+- 12:14:00  Scanning the directory C:\BC\LIB\STARTUP
+- 12:14:00  Scanning the directory C:\Borland
+- 12:14:00  Scanning the directory C:\Borland\BCC55
+- 12:14:00  Scanning the directory C:\Borland\BCC55\Bin
+- 12:14:00  Scanning the directory C:\Borland\BCC55\Examples
+- 12:14:00  Scanning the directory C:\Borland\BCC55\Examples\StdLib
+- 12:14:00  Scanning the directory C:\Borland\BCC55\Help
+- 12:14:00  Scanning the directory C:\Borland\BCC55\Help\cpp-faq
+- 12:14:00  Scanning the directory C:\Borland\BCC55\Help\cpp-faq\cpp-faq
+- 12:14:00  Scanning the directory C:\Borland\BCC55\Help\win32hlp
+- 12:14:00  Scanning the directory C:\Borland\BCC55\Include
+- 12:14:00  Scanning the directory C:\Borland\BCC55\Include\Gl
+- 12:14:00  Scanning the directory C:\Borland\BCC55\Include\Rw
+- 12:14:00  Scanning the directory C:\Borland\BCC55\Include\Sys
+- 12:14:00  Scanning the directory C:\Borland\BCC55\Lib
+- 12:14:00  Scanning the directory C:\Borland\BCC55\Lib\PSDK
+- 12:14:00  Scanning the directory C:\BP
+- 12:14:00  Scanning the directory C:\BP\BGI
+- 12:14:00  Scanning the directory C:\BP\BIN
+- 12:14:00  Scanning the directory C:\BP\DOC
+- 12:14:00  Scanning the directory C:\BP\EXAMPLES
+- 12:14:00  Scanning the directory C:\BP\EXAMPLES\CHESS
+- 12:14:00  Scanning the directory C:\BP\EXAMPLES\DOCDEMOS
+- 12:14:00  Scanning the directory C:\BP\EXAMPLES\DOCDEMOS\HELPEX
+- 12:14:01  Scanning the directory C:\BP\EXAMPLES\DOCDEMOS\OWL
+- 12:14:01  Scanning the directory C:\BP\EXAMPLES\DOCDEMOS\TV
+- 12:14:01  Scanning the directory C:\BP\EXAMPLES\DOS
+- 12:14:01  Scanning the directory C:\BP\EXAMPLES\DOS\BGI
+- 12:14:01  Scanning the directory C:\BP\EXAMPLES\DOS\BREAKOUT
+- 12:14:01  Scanning the directory C:\BP\EXAMPLES\DOS\TVDEBUG
+- 12:14:01  Scanning the directory C:\BP\EXAMPLES\DOS\TVDEMO
+- 12:14:01  Scanning the directory C:\BP\EXAMPLES\DOS\TVFM
+- 12:14:01  Testing whether or not the disk in drive C: is available and ready.
+- 12:14:01  Reading the directory C:.

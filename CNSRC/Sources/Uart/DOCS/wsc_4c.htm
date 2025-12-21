@@ -1,0 +1,1744 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"  
+"http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Windows Standard Serial Comm Library for C/C++</TITLE>
+<STYLE TYPE="text/css">
+<!-- 
+  H1, H2, H3, H4, H5, H6
+	{ color: ;	}
+  -->
+</STYLE>
+</HEAD>
+<BODY BGCOLOR="white">
+<BASEFONT SIZE=3>
+
+<B><CENTER><FONT SIZE="5">  <P>Windows Standard</P>
+
+<P>Serial Communications</P>
+
+<P>for C/C++</P>
+
+<P>Programmer's Manual</FONT></P>
+
+<P><BR>
+(WSC_4C)</P>
+
+<P><BR>
+Version 4.1</P>
+
+<P>August 12,  2004</P>
+
+<P><BR>
+<BR>
+This software is provided as-is.<BR>
+There are no warranties, expressed or implied.</P>
+
+<P><BR>
+<BR>
+Copyright (C) 2004<BR>
+All rights reserved</P>
+
+<P><BR>
+<BR>
+MarshallSoft Computing, Inc.<BR>
+Post Office Box 4543<BR>
+Huntsville AL 35815</P>
+
+<BR>
+<BLOCKQUOTE>
+  <P>Voice : 1.256.881.4630</P>
+
+  <P>FAX :  1.256.880.0925</P>
+
+  <P>email : info@marshallsoft.com</P>
+
+  <P>web : www.marshallsoft.com</P>
+
+  <P><BR>
+  </P>
+
+</BLOCKQUOTE>
+
+<P>MARSHALLSOFT is a registered trademark of MarshallSoft Computing.</P>
+
+<P><BR>
+</CENTER></B><HR><I>TABLE OF CONTENTS</I></P>
+
+<BR>
+<BLOCKQUOTE>
+<FONT SIZE=3 STYLE="font-size:12pt;"><STRONG>1 <A HREF="#Section_1">Introduction</A></STRONG></FONT><BR>
+  <BLOCKQUOTE>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>1.1 <A HREF="#Section_1.1">Features</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>1.2 <A HREF="#Section_1.2">Documentation Set</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>1.3 <A HREF="#Section_1.3">Example Program</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>1.4 <A HREF="#Section_1.4">Installation</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>1.5 <A HREF="#Section_1.5">Uninstalling</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>1.6 <A HREF="#Section_1.6">Limitations on COM Ports</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>1.7 <A HREF="#Section_1.7">Ordering</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>1.8 <A HREF="#Section_1.8">Updates</A></STRONG></FONT><BR>
+  </BLOCKQUOTE>
+<FONT SIZE=3 STYLE="font-size:12pt;"><STRONG>2 <A HREF="#Section_2">Library Overview</A></STRONG></FONT><BR>
+  <BLOCKQUOTE>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>2.1 <A HREF="#Section_2.1">Dynamic Link Libraries</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>2.2 <A HREF="#Section_2.2">Console Mode</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>2.3 <A HREF="#Section_2.3">Using the Library</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>2.4 <A HREF="#Section_2.4">Static Linking</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>2.5 <A HREF="#Section_2.5">Large Memory Model in Win16</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>2.6 <A HREF="#Section_2.6">Win32 STDCALL and DECLSPEC</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>2.7 <A HREF="#Section_2.7">Using Threads</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>2.8 <A HREF="#Section_2.8">Calling WSC from C++</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>2.9 <A HREF="#Section_2.9">Adding WSC To Your Existing Program</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>2.10 <A HREF="#Section_2.10">Error Display</A></STRONG></FONT><BR>
+  </BLOCKQUOTE>
+<FONT SIZE=3 STYLE="font-size:12pt;"><STRONG>3 <A HREF="#Section_3">Compiler Issues</A></STRONG></FONT><BR>
+  <BLOCKQUOTE>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>3.1 <A HREF="#Section_3.1">Compiling Using an IDE</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>3.2 <A HREF="#Section_3.2">Command Line Tool Setup</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>3.3 <A HREF="#Section_3.3">Command Line Batch Files</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>3.4 <A HREF="#Section_3.4">Command Line Makefiles</A></STRONG></FONT><BR>
+  </BLOCKQUOTE>
+<FONT SIZE=3 STYLE="font-size:12pt;"><STRONG>4 <A HREF="#Section_4">Supported Compilers</A></STRONG></FONT><BR>
+  <BLOCKQUOTE>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>4.1 <A HREF="#Section_4.1">Microsoft Visual C/C++</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>4.2 <A HREF="#Section_4.2">Microsoft C/C++ .NET</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>4.3 <A HREF="#Section_4.3">Microsoft C# (C-Sharp)</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>4.4 <A HREF="#Section_4.4">Microsoft C/C++ (16-bit)</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>4.5 <A HREF="#Section_4.5">Borland C/C++</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>4.6 <A HREF="#Section_4.6">Turbo C/C++ for Windows</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>4.7 <A HREF="#Section_4.7">Borland C++ Builder</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>4.8 <A HREF="#Section_4.8">Watcom C/C++</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>4.9 <A HREF="#Section_4.9">Lcc-Win32 C/C++</A></STRONG></FONT><BR>
+  </BLOCKQUOTE>
+<FONT SIZE=3 STYLE="font-size:12pt;"><STRONG>5 <A HREF="#Section_5">Compiling Programs</A></STRONG></FONT><BR>
+  <BLOCKQUOTE>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>5.1 <A HREF="#Section_5.1">Compiling WSC Source Code</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>5.2 <A HREF="#Section_5.2">Compiling Example Programs</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>5.3 <A HREF="#Section_5.3">Static Libraries</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>5.4 <A HREF="#Section_5.4">Your Key Code (License Key)</A></STRONG></FONT><BR>
+  </BLOCKQUOTE>
+<FONT SIZE=3 STYLE="font-size:12pt;"><STRONG>6 <A HREF="#Section_6">Example Programs</A></STRONG></FONT><BR>
+<FONT SIZE=3 STYLE="font-size:12pt;"><STRONG>7 <A HREF="#Section_7">More Examples</A></STRONG></FONT><BR>
+<FONT SIZE=3 STYLE="font-size:12pt;"><STRONG>8 <A HREF="#Section_8">Revision History</A></STRONG></FONT><BR>
+</BLOCKQUOTE>
+<A NAME="Section_1"> </A>
+<H2>1  Introduction</H2>
+
+<P>The Windows Standard Serial Communications Library  (WSC4C) is the easiest way to write 
+serial communication applications in C/C++.  WSC is a serial communications dynamic link 
+library (DLL) that uses the standard Windows API (Application Programmer's Interface).</P>
+
+
+<P>The WSC component library uses a simple interface to communicate with any device 
+connected to a serial port.  WSC4C includes 22 C/C++ example programs demonstrating serial 
+communication functions.  Microsoft Foundation Class (MFC), Borland C++ Builder (BCB) and 
+Microsoft Visual C++ .NET examples are also included.</P>
+
+<P>WSC4C supports and has been tested with Microsoft Visual C/C++ (all versions including 
+.NET), Borland C/C++, Turbo C/C++ for Windows, Borland C++ Builder, Watcom C/C++, and 
+LCC-Win32 compilers.  It can also be used with most other C/C++ Windows compilers.</P>
+
+<P>Both Win16 and Win32 DLLs are provided.  The WSC DLLs  (WSC16.DLL and WSC32.DLL) can be used from any language (Visual Basic, (VB.NET), Delphi, Visual FoxPro, Xbase++, dBase, as well as Access and Excel, etc.) capable of calling the Windows API.  WSC4C can be run under Windows 3.1, 95/98/ME, and NT/2000/XP.  MarshallSoft provides separate products for WIN/CE for eVC (WSC4eVC) and for eVB (WSC4eVB).  Evaluation versions for these may be downloaded from our web site at
+</P>
+
+<PRE>
+     http://www.marshallsoft.com/serial-communication-library.htm
+</PRE>
+
+<P><BR>
+Our goal is to provide a robust serial communication component library that you and your 
+customers can depend upon.  A fully functional evaluation version is available.  Contact 
+us if you have any questions.</P>
+
+<A NAME="Section_1.1"> </A>
+<H2>1.1 Features</H2>
+
+<P>Some of the many features of the Windows Serial Communications Library are:</P>
+
+<UL>
+  <LI>Can control any serial device connected to the serial port.</LI>
+
+  <LI>Can be used from GUI mode or console mode programs.</LI>
+
+  <LI>Can control multiple ports simultaneously.</LI>
+
+  <LI>Includes over 32 functions plus modem control.</LI>
+
+  <LI>Comes with ANSI emulation and ASCII, XMODEM and YMODEM.</LI>
+
+  <LI>Is fully thread safe.</LI>
+
+  <LI>Supports Windows 95/98/Me/NT/2000/XP, and Windows 3.1 (16-bit only).</LI>
+
+  <LI>Implemented as a standard Windows DLL, which will work with all versions of 
+  Windows.</LI>
+
+  <LI>Can send Windows messages on completion of events (incoming character, etc.)</LI>
+
+  <LI>Includes 16-bit (WSC16.DLL) and 32-bit (WSC32.DLL) versions.</LI>
+
+  <LI>Supports most Windows C/C++ compilers  (Microsoft all versions, Borland, Watcom, 
+  LCC-WIN32, etc.).</LI>
+
+  <LI>Can be used with Microsoft Visual .NET</LI>
+
+  <LI>Can be used with Microsoft Foundation Class (MFC), and Borland C++ Builder 
+  programs.</LI>
+
+  <LI>Does not depend on support libraries. Makes calls to core Windows API functions 
+  only.</LI>
+
+  <LI>Can be used with any program (in any language) capable of calling Windows API functions such
+  as Visual Basic, VB.NET, Visual FoxPro, Delphi, Xbase++, dBASE, COBOL, Access and Excel.</LI>
+
+  <LI>Can be purchased with or without source code.
+  </LI>
+  <LI>
+  Updates are free for one year (Updates to source code are separate).
+  </LI>
+  <LI>
+  Royalty free: there are no run-time fees.
+  </LI>
+  <LI>
+  Evaluation version is fully functional.
+  <BR><BR>
+  <BR>
+  <BR>
+  </LI>
+</UL>
+<P>
+A good selection of C/C++ example programs with full source code is included.  Refer to Section 6 for more details on each of the example programs.
+</P>
+<P>
+<BR>
+
+<PRE>
+     [PROGRAM]    [DESCRIPTION]
+     WSCVER     :  Program that displays the WSC version number.
+     SIMPLE     :  A simple terminal emulator.
+     SELFTEST   :  Performs COM port functionality testing.
+     MODEM      :  Same as SIMPLE but controls flow control, modem lines, etc.
+     TERM       :  Terminal emulator with XMODEM, YMODEM, and ANSI support.
+     BCB        :  Borland C++ Builder (32-bit C++) example.
+     MFC_PGM    :  Microsoft Foundation Class (MFC) C++ example program.
+     CONSOLE    :  A Win32 console mode program similar to SIMPLE.
+     FINDER     :  Finds a modem connected to one of your serial ports.
+     ECHOPORT   :  Multi-threaded console mode program echoes all input.
+     EVENT      :  Blocking version of SIMPLE. Uses SioEvent.
+     XMS , XMR  :  Console mode XMODEM programs.
+     YMS , YMR  :  Console mode YMODEM programs.
+     RS485      :  RS485 version of CONSOLE.
+     DEVICE     :  Program to communicate with serial device.
+     HOST       :  Simple one-line host program.
+     DIAL       :  Dials up host (or BBS).
+     HELLO      :  Example program which uses the C++ fSio class.
+     VC_VERSION :  Visual C++ .Net version of the WSC version program (WSCVER).
+     VC_SIMPLE  :  Visual C++ .Net version of the simple terminal program (SIMPLE).
+</PRE>
+
+</P>
+
+<BR>
+<A NAME="Section_1.2"> </A>
+<H2>1.2  Documentation Set</H2>
+
+<P>The complete set of documentation consists of four manuals in three formats.  This is 
+the first manual (WSC_4C) in the set.</P>
+
+<UL>
+  <LI>WSC_4C Programmer's Manual</FONT>   (WSC_4C.DOC, WSC_4C.TXT, WSC_4C.HTM)</LI>
+
+  <LI>WSC User's Manual   (WSC_USR.DOC, WSC_USR.TXT, WSC_USR.HTM)</LI>
+
+  <LI>WSC Reference Manual   (WSC_REF.DOC, WSC_REF.TXT, WSC_REF.HTM)</LI>
+
+  <LI>SERIAL User's Manual   (SERIAL.DOC, SERIAL.TXT, SERIAL.HTM)</LI>
+
+</UL>
+
+<P>The WSC_4C Programmer's Manual</FONT> is the language specific (C/C++) manual and provides 
+information needed to compile your programs in a C/C++ environment.</P>
+
+
+<P>The WSC User's Manual (WSC_USR) discusses language independent serial communications 
+programming issues including modem control.  Ordering information is also provided in the 
+manual.</P>
+
+
+<P>The WSC Reference Manual (WSC_REF) contains details on each individual WSC function.</P>
+
+
+<P>The Serial Communications Manual (SERIAL) contains background information on serial port hardware.
+</P>
+<P>
+Each manual comes in three formats:
+<BR>
+</P>
+<UL>
+  <LI>
+  Microsoft Word (files ending in .DOC). The best format for printing manuals.
+  </LI>
+  <LI>
+  Hyper Text (files ending in .HTM). Use any web browser to read.
+  </LI>
+  <LI>
+  ASCII Text (files ending in .TXT).
+  </LI>
+</UL>
+<P>
+Use Microsoft Word or Microsoft WordPad to print the document files.
+</P>
+<P>
+The following example demonstrates some of the library functions.
+</P>
+<A NAME="Section_1.3"> </A>
+<H2>1.3  Example Program</H2>
+
+<PRE>
+
+     #include &lt;windows.h&gt;
+     #include &lt;stdio.h&gt;
+     #include "wsc.h"
+   
+     void main(void)
+     {int  Code;
+      SioKeyCode(0); // 0 is evaluation version key code
+      // reset (open) COM1
+      Code =  SioReset(COM1,1024,1024);
+      if(Code&lt;0)
+        {char Temp[80];
+         // display error message
+         SioWinError((LPSTR)Temp,80);
+         printf("ERROR %d : %s\n",Code,(LPSTR)Temp);
+         SioDone(COM1);
+         exit(1);
+        }
+      // set DTR
+      printf("Setting DTR\n");
+      SioDTR(COM1,'S');
+      // wait for user to quit
+      printf("Type any character to exit.\n");
+      getch();
+      // close port
+      SioDone(COM1);
+     } /* end main */
+</PRE>
+
+<P>In the console mode program above, the SioDTR function is called to set the DTR 
+line.</P>
+
+<A NAME="Section_1.4"> </A>
+<H2>1.4  Installation</H2>
+<OL type="1" start="1">
+  <LI VALUE="1">
+  Before installation of WSC4C, your Windows C/C++ compiler should already be installed on 
+  your system and tested.  In particular, include command line tools when installing your 
+  compiler if you want to compile using command line makefiles.  If you need help with 
+  makefiles, see MAKEFILE.TXT.
+  <BR><BR></LI>
+
+  <LI VALUE="2">
+  Unzip WSC4C41.ZIP (or WSCxxxx.ZIP where xxxx is your Customer ID) using any Windows 
+  unzip program.
+  <BR><BR></LI>
+
+  <LI VALUE="3">
+  Run the installation program SETUP.EXE which will install all WSC4C files, including 
+  copying WSC16.DLL and WSC32.DLL to your Windows directory.  No Windows system files are 
+  modified. Note that no DLL registration is required.</LI>
+
+</OL>
+
+<P>All recent WIN32 C/C++ compilers support the "declspec" keyword.  Microsoft Visual C++ (version 4.0 and up), Borland (version 5.0 and up), Watcom (version 11.0 and up), and Lcc-Win32 compilers support the "declspec" keyword.  If you have an older Win32 compiler, you can get the legacy DLL's from our web site at
+</P>
+
+<PRE>
+   
+      www.marshallsoft.com/wsc4c.htm
+   
+</PRE>
+
+<BR>
+<A NAME="Section_1.5"> </A>
+<H2>1.5  Uninstalling</H2>
+
+<P>Uninstalling WSC4C is very easy.  WSC does not modify the registry.  First, delete the 
+WSC project directory created when installing WSC4C.  Second, delete WSC16.DLL and 
+WSC32.DLL from your Windows directory, typically C:\WINDOWS for Windows 3.1/95/98/Me/XP 
+and C:\WINNT for
+Windows NT/2000.  That's it!</P>
+
+<A NAME="Section_1.6"> </A>
+<H2>1.6  Limitations on COM Ports</H2>
+
+<P>The 32-bit version of WSC4C (WSC32.DLL) can use any port from COM1 to COM32, provided 
+that the port is known to Windows 95/98/NT/2000/Me/XP and there is physical hardware 
+present.  More ports (256) can easily be added by recompiling the registered version of 
+WSC32.C.</P>
+
+<A NAME="Section_1.7"> </A>
+<H2>1.7  Ordering</H2>
+
+<P>WSC4C can be registered for $105 (or $155 with source code to all of the library DLL's).  See Section <A HREF="#Section_1.4">1.4</A> "Ordering" in the WSC User's Manual (WSC_USR) for details on ordering.  Also See INVOICE.TXT or http://www.marshallsoft.com/order.htm
+</P>
+<A NAME="Section_1.8"> </A>
+<H2>1.8  Updates</H2>
+<P>
+When you register WSC4C you will receive a set of registered DLLs plus a license file (WSCxxxx.LIC) that can be used to update your registered DLL's for a period of one year from purchase.  Updates can be downloaded from
+</P>
+
+<PRE>
+   
+     http://www.marshallsoft.com/oem.htm
+   
+</PRE>
+
+<P>After one year, your license must be updated if you want to be able to download 
+updates. Your license can be updated for $30 if ordered within one year of the original 
+purchase (or previous update).  After one year, licenses can be updated for $55.  Updates 
+to the source code can be purchased for $25.  Note that the registered DLL's never 
+expire.</P>
+
+<A NAME="Section_2"> </A>
+<H2>2  Library Overview</H2>
+<A NAME="Section_2.1"> </A>
+<H2>2.1  Dynamic Link Libraries</H2>
+
+<P>The WSC4C serial communication library component includes both Win16 and a Win32 
+dynamic link library (DLL).  A DLL is characterized by the fact that it need not be loaded 
+until required by an application program and that only one copy of the DLL is necessary 
+regardless of the number of application programs that use it.  Contrast this to the 
+traditional static library that is bound to each and every application that uses it at 
+link time.</P>
+
+
+<P>An important advantage that DLL's have over other "popular" library formats such as VBX 
+or OCX is that DLL's are callable by all Windows applications.  Since DLL's are the 
+building blocks of the Windows Operating System, they will not be replaced by a "newer 
+technology".</P>
+
+<A NAME="Section_2.2"> </A>
+<H2>2.2  Console Mode</H2>
+
+<P>WSC4C functions can be called from Win32 console mode programs.  A "console mode" 
+program is a Windows 95/98/NT/2000/Me/XP WIN32 command line program running in a command 
+window.  Although console mode programs look like DOS programs, they are WIN32 programs 
+that have access to the Win32 API and the entire Windows address space.  Programming using 
+console mode programs reduces the complexity of using GUI code.  All console mode programs 
+can be converted to GUI mode by adding the necessary Windows interface code</P>
+
+<A NAME="Section_2.3"> </A>
+<H2>2.3  Using the Library</H2>
+
+<P>The WSC4C has been tested on multiple computers running Windows 95/98/Me/XP, and 
+Windows NT/2000.</P>
+
+<P>The WSC4C library has also been tested with several C/C++ compilers, including 
+Microsoft Visual C/C++ (all versions including .NET), Borland C/C++, Borland C++ Builder, 
+Turbo C/C++ for Windows, and Watcom C/C++.</P>
+
+<P>The SETUP installation program will copy the Lib's and DLL's to your Windows directory.  Refer to Section <A HREF="#Section_1.4">1.4</A> "Installation".</P>
+
+<P>"Legacy DLL's" required by Borland C/C++ 4.0/4.5 and Watcom 10.5/10.6 can be downloaded 
+from our web site at www.marshallsoft.com/wsc4c.htm</P>
+
+<A NAME="Section_2.4"> </A>
+<H2>2.4  Static Linking</H2>
+
+<P>The registered user can easily compile WSC16.C (or WSC32.C) into their application, so that the WSC DLL's are not needed.  The makefiles STATIC16._M_ and STATIC32._M_ compile WSC to create versions of SIMPLE which don't require the use of WSC16.DLL or WSC32.DLL.</P>
+<P>
+Static libraries require WSC32.OBJ (included in the registered package) or WSC32.C (or WSC16.C) included with the WSC source code .  Refer to section <A HREF="#Section_5.3">5.3</A> "Static Libraries".
+</P>
+<A NAME="Section_2.5"> </A>
+<H2>2.5  Large Memory Model in Win16</H2>
+<P>
+WSC16.DLL can be used from Win16 programs written in any memory model.  Two examples are included in this archive for compiling  SIMPLE.C for the large memory model.
+</P>
+
+<PRE>
+     [FILE]            [DESCRIPTION]
+     SIMPLE16._ML   :  Large memory model makefile for Microsoft
+     SIMPLE16._BL   :  Large memory model makefile for Borland.
+</PRE>
+
+<P>
+</P>
+<A NAME="Section_2.6"> </A>
+<H2>2.6  Win32 STDCALL and DECLSPEC</H2>
+<P>
+WSC32 is compiled using the _stdcall and _declspec keywords.  This means that WSC4C uses the same calling conventions and file naming conventions as the Win32 API.  In particular, function names are NOT decorated.  There are no leading underscores nor trailing "@size" strings added to function names.
+</P>
+<P>
+Microsoft Visual C/C++ users can look at the WSC32 function names using the dumpbin.exe executable:
+</P>
+
+<PRE>
+     dumpbin /exports wsc32.dll
+</PRE>
+
+<P>
+<BR>
+Some older compilers such as Borland C/C++ 4.0/4.5 and Watcom 10.5/10.6 do not support the "declspec" keyword.  DLL's for these compilers can be downloaded from
+</P>
+
+<PRE>
+     http://www.marshallsoft.com/wsc4c.htm
+</PRE>
+
+<P>
+<BR>
+</P>
+<A NAME="Section_2.7"> </A>
+<H2>2.7 Using Threads</H2>
+<P>
+WSC4C is thread safe.  Refer to the ECHOPORT.C example program, which demonstrates the use of multiple threads.  ECHOPORT also demonstrates the use of the WIN32 Sleep() function.
+</P>
+<P>
+Also examine the EVENT.C example program, which uses both threads and the SioEvent function.
+</P>
+<A NAME="Section_2.8"> </A>
+<H2>2.8  Calling WSC from C++</H2>
+<P>
+Like Windows itself, WSC functions are coded in ANSI C, but they can be called directly from both ANSI C programs and from C++ programs.
+</P>
+<P>
+WSC functions can also be called using the C++ class wrapper fSio.  Refer to HELLO.CPP for an example.
+</P>
+<A NAME="Section_2.9"> </A>
+<H2>2.9  Adding WSC To Your Existing Program</H2>
+<P>
+In order to add WSC to your existing program, (1) add
+</P>
+
+<PRE>
+#include "wsc.h"
+</PRE>
+
+<P>to your source code,  (2) link with WSC32.LIB (for MSVC), WSC32BCB.LIB (Borland C/C++ 
+and C++ Builder), WSC32.LIB (Watcom), or WSC32LCC (Win32/LCC), and recompile from 
+source.</P>
+
+<P>Refer also to Section <A HREF="#Section_4">4.0</A> below.</P>
+
+<A NAME="Section_2.10"> </A>
+<H2>2.10 Error Display</H2>
+
+<P>The error message text associated with WSC error codes can be displayed by calling 
+SioError (see sioerror.c and paint.c) in GUI mode applications or SayError (see 
+SayError.c) in console mode applications.  Each sample program contains examples of error 
+processing.</P>
+
+<A NAME="Section_3"> </A>
+<H2>3  Compiler Issues</H2>
+
+<P>WSC programs can be compiled using an IDE or command line compiler tools. The following 
+sections provide general compiler information.</P>
+
+<A NAME="Section_3.1"> </A>
+<H2>3.1  Compiling Using an IDE</H2>
+
+<P>All current windows compilers have an "Integrated Development Environment" (IDE) for building application programs in the Windows environment.</P>
+
+<P>Note that not only do IDE's vary between the different compiler manufacturers, but they also vary from version to version for the same compiler.
+</P>
+<A NAME="Section_3.1.1"> </A>
+<H3>3.1.1  Compiling Example Programs with an IDE</H3>
+<P>
+Most of the example programs can be compiled from your compiler's IDE.  For Visual C/C++, "project makefiles" are used since they can be used by all versions of Visual C/C++ (v4.0, v5.0, and v6.0).  When
+opening the workspace, select Makesfiles(.mak) for the file type.
+</P>
+<A NAME="Section_3.1.1"> </A>
+<H3>3.1.1  Compiling New Projects with an IDE</H3>
+<P>
+Creating a project makefile for the examples that have only command line makefiles is fairly straight forward.  All of the IDE's use the concept of a file hierarchy.  For example, the WSCVER example program file hierarchy in the IDE (for 32-bit) should look like:
+</P>
+
+<PRE>
+       WSCVER.EXE
+          +++ WSCVER.C
+          +++ WSC32.LIB
+</PRE>
+
+<P>Replace WSC32.LIB above with WSC16.LIB for 16-bit applications, with WSC32BCB.LIB if 
+using Borland C++ Builder, and with WSC32LCC.LIB if using Lcc-Win32.</P>
+
+
+<P>The order of the files is not significant.  Refer to Section 4 below for a particular 
+IDE.</P>
+
+<A NAME="Section_3.2"> </A>
+<H2>3.2  Command Line Tool Setup</H2>
+
+<P>Many software developers overlook the power of using command line compilers.  There are 
+a number of very significant advantages to using the command line version of your C/C++ 
+compiler.  Among these are:</P>
+
+<UL>
+  <LI>Easy of use:  Once set up, typing a single key can compile one or more 
+  programs.</LI>
+
+  <LI>Power:  Using the command line allows the use of batch files, automating complicated 
+  builds.</LI>
+
+  <LI>Compatibility:  Command line makefiles (unlike IDE project files) are normally 
+  compatible from one version of your compiler to the next.</LI>
+
+</UL>
+
+<P>If you want to compile from the command line, your command line compiler tools must be set up properly.  Note that you have an option of installing the command line tools (or not) when your compiler is first installed.  Refer to your compiler manufacturer's manual for details.
+</P>
+<P>
+If necessary, you can increase the size of your environment table space  (to 1024 for example) by adding
+</P>
+<P>
+<BR>
+
+<PRE>
+     SHELL=C:\COMMAND.COM /e:1024 /p
+</PRE>
+
+</P>
+<P>
+<BR>
+to CONFIG.SYS in C:\ and then rebooting.  Yes, this works for all versions of Windows, including Windows NT, 2000, and XP
+</P>
+<P>
+For all compilers, your path should point to the compiler's BIN directory.  For example, to add "C:\BC50\BIN" to your existing path, use
+</P>
+<P>
+<BR>
+
+<PRE>
+     PATH C:\BC50\BIN;%PATH%
+</PRE>
+
+</P>
+<P>
+<BR>
+</P>
+<A NAME="Section_3.2.1"> </A>
+<H3>3.2.1 Microsoft</H3>
+<P>
+Set LIB and INCLUDE environment variables.  For example,
+</P>
+
+<PRE>
+     SET INCLUDE=C:\MSVC\INCLUDE
+     SET LIB=C:\MSVC\LIB
+</PRE>
+
+<P>
+</P>
+<A NAME="Section_3.2.2"> </A>
+<H3>3.2.2 Borland</H3>
+<P>
+Check that TURBOC.CFG, BCC32.CFG, TLINK.CFG, and TLINK32.CFG all have the correct information in them, as they should have when your compiler was installed.  For example, assuming your BC compiler is installed at C:\BC5, the INCLUDE (-I) and LIB (-L) paths are specified by:
+</P>
+
+<PRE>
+     -IC:\BC5\INCLUDE
+     -LC:\BC5\LIB
+</PRE>
+
+<P>
+BRCC (the Borland Resource Compiler) doesn't use the *.CFG files.  Set the INCLUDE environment variable or BRCC will not be able to find the INCLUDE files (such as WINDOWS.H).  For example,
+</P>
+<P>
+<BR>
+
+<PRE>
+     SET INCLUDE=C:\BC5\INCLUDE
+</PRE>
+
+</P>
+<P>
+<BR>
+Clear the LIB environment variable (so it is not present when SET is typed at the command line) with
+</P>
+<P>
+<BR>
+
+<PRE>
+     SET LIB=
+</PRE>
+
+</P>
+<P>
+<BR>
+</P>
+<A NAME="Section_3.2.3"> </A>
+<H3>3.2.3 Watcom</H3>
+<P>
+Set the WATCOM environment variables to point to your compilers include (H) and BIN directories.  For example,
+</P>
+
+<PRE>
+     SET INCLUDE=C:\WC11\H;C:\WC11\H\NT
+     SET WATCOM=C:\WC11
+     SET EDPATH=C:\WC11\EDDAT
+     SET WWINHELP=E:\BINW
+</PRE>
+
+<P>
+</P>
+<A NAME="Section_3.2.4"> </A>
+<H3>3.2.4 LCC-Win32</H3>
+<P>
+The LCC environment variables are set like the others.  For example,
+</P>
+
+<PRE>
+     SET INCLUDE=C:\LCC\INCLUDE
+     SET LIB=C:\LCC\LIB
+</PRE>
+
+<P>After making the above changes for your compiler, type PATH at the command line prompt 
+to verify the search path, and type SET at the command line prompt to verify the INCLUDE 
+and LIB environment variables.</P>
+
+<A NAME="Section_3.3"> </A>
+<H2>3.3  Command Line Batch Files</H2>
+
+<P>If your compiler installation includes command line tools, then all of the example 
+programs can be compiled directly from the command line.  These same compiler commands can 
+also be placed in a batch file.</P>
+
+<P>See SIMPLE$.BAT for an example of a command line batch file for Lcc-Win32.  Similarly, 
+command line batch files can be created for all of the example programs.</P>
+
+<A NAME="Section_3.4"> </A>
+<H2>3.4  Command Line Makefiles</H2>
+
+<P>Command line makefiles originated on UNIX systems.  They are the standard way that C/C++ programs are constructed in command line environments.  The advantage of makefiles (as compared to an integrated development environment) is that all compiler switches are always coded within the makefile and the makefile can be run with a single keystroke.  Refer to Section <A HREF="#Section_4">4.0</A> for in
+</P>
+<P>
+Command line makefiles are provided for Microsoft, Borland, Watcom, and LCC-Win32 command line compilers.  They can be found in the APPS sub-directory:
+</P>
+
+<PRE>
+     borland50.zip     Borland C/C++ 5.0 makefiles.
+     borland55.zip     Borland C/C++ 5.5 makefiles.
+     c-builder.zip     Borland C++ Builder project makefiles.
+     lcc-win32.zip     LCC-WIN32 project command files.
+     microsoft60.zip   Microsoft C/C++ (v1.52, v4.0, v5.0, v6.0) makefiles.
+     watcom11.zip      Watcom C/C++ 11 makefiles.
+</PRE>
+
+<P>
+<BR>
+</P>
+<A NAME="Section_4"> </A>
+<H2>4.0  Supported Compilers</H2>
+<P>
+WSC4C has been tested with Microsoft Visual C/C++ (all versions including Visual C++ .Net), Borland C/C++ , Borland C++ Builder, Borland Turbo C/C++, Watcom C/C++, and Lcc-Win32.  Other Windows C/C++ compilers may work as well.  Refer also to Section 5, "Compiling Example Programs".
+</P>
+<A NAME="Section_4.1"> </A>
+<H2>4.1  Microsoft Visual C/C++ (all versions)</H2>
+<P>
+Microsoft Visual C/C++ programs can be compiled from either the command line or from within the Microsoft development environment.  All MSVC programs are Win32 only.
+</P>
+<A NAME="Section_4.1.1"> </A>
+<H3>4.1.1 Microsoft Command Line Makefiles</H3>
+<P>
+Programs can be compiled using command line makefiles.  All Microsoft Win16 command line makefiles end with "16._m_" while Win32 command line makefiles end with '32._m_".  To compile using a makefile, use the Microsoft NMAKE utility. For example,
+</P>
+
+<PRE>
+     NMAKE -f SIMPLE16._M_
+     NMAKE -f SIMPLE32._M_
+
+WSC can be used with Microsoft Foundation Class (MFC) programs.  Use the MFCPGM32.MAK makefile to compile the MFC_PGM example program.
+
+     NMAKE -f MFCPGM32.MAK
+</PRE>
+
+<P>
+The file, microsoft60.zip, contains the Microsoft C/C++ (v1.52, v4.0, v5.0, v6.0) command line makefiles.
+</P>
+<A NAME="Section_4.1.2"> </A>
+<H3>4.1.2  Microsoft Developer Studio (VC v4.0)</H3>
+<P>
+To open an existing project, choose "File", then "Open Workspace", and then select "Makefiles" from the list of file types.  Several of the example programs have Microsoft Visual Studio C/C++ project makefiles, ending with ".MAK" , such as
+</P>
+
+<PRE>
+     WSCVER.MAK
+     SIMPLE.MAK
+</PRE>
+
+<P>To create a new project in MSVC v4.0, choose "File", then "New", then "Project 
+Workspace".  Select "Application" or "Console Application" for "Type:" and your project 
+name for "Name:".  Choose Win32 for platform.  Then select "Create".   Select "Insert", 
+then "Files into Project".  Add all filenames including any resource file (.RC) and 
+WSC32.LIB.  Lastly, select "Build", then "Rebuild All".</P>
+
+<BLOCKQUOTE>
+  <P>NOTE: Be sure to specify /YX rather than /Yu in your project settings [Build, 
+  Settings..., C/C++].</P>
+
+</BLOCKQUOTE>
+<A NAME="Section_4.1.3"> </A>
+<H3>4.1.3  Visual Studio (VC v5.0 and v6.0)</H3>
+
+<P>To create a new project in MSVC v5.0 or v6.0, choose "File", then "New", then "Win32 
+Application" or "Win32 Console Application " and your project name.  Check "Create new 
+workspace".  Select "Project", then "Add to Project".  Add all filenames including any 
+resource file (.RC) and WSC32.LIB. Lastly, select "Rebuild All".</P>
+
+<P>If the compiler complains that it cannot find "_main", "Console Application" was chosen but the program being compiled is a GUI application.  If the compiler complains that it cannot find "WinMain", "Application" was chosen but the program being compiled is a Console Mode application.
+</P>
+<BLOCKQUOTE>
+  <P>
+  NOTE: Be sure to specify /YX rather than /Yu in your project settings [Build, Settings..., C/C++].<BR>
+  </P>
+</BLOCKQUOTE>
+<A NAME="Section_4.2"> </A>
+<H2>4.2 Microsoft Visual C/C++ .NET</H2>
+<P>
+All Visual Studio VC.Net projects end with extension ".vcproj". For example,
+</P>
+
+<PRE>
+     vc_version.vcproj
+     vc_simple.vcproj
+     vc_xms.vcproj
+     vc_xmr.vcproj
+</PRE>
+
+<P>
+In order to open an existing Visual C++ .Net project, choose "File", "Open", and then "Project" from the Visual Studio menu.  Specify the directory containing the Visual C++ .Net project files (for example, C:\WSC4C\APPS).
+</P>
+<P>
+In order to call WSC functions from Visual C++ .Net programs, do the following to your existing Visual C++ .Net project:
+<BR>
+</P>
+<OL type="1" start="1">
+  <LI VALUE="1">
+  Add
+  </LI>
+</OL>
+
+<PRE>
+     #include "wsc.h"
+     #include "keycode.h"
+   
+after your existing #include statements.
+</PRE>
+
+<BR>
+<OL type="1" start="2">
+  <LI VALUE="2">
+  Open the project properties window under "Project" on the main menu. If your project is named "MyProject", then select "MyProject properties".
+  <BR><BR>
+  </LI>
+  <LI VALUE="3">
+  Select "Configuration Properties", "Linker", "Input", "Additional Dependencies", then type in "WSC32.LIB" into the edit box. Note that WSC32.LIB must be in your project directory along with all of your source files.
+  <BR><BR>
+  </LI>
+  <LI VALUE="4">
+  Rebuild.
+  </LI>
+</OL>
+<BLOCKQUOTE>
+  <P>
+  NOTE:  If using pre-compiled headers, the include statement<BR>
+  </P>
+</BLOCKQUOTE>
+
+<PRE>
+     #include "stdafx.h"
+   
+must be the first include statement in your program.
+</PRE>
+
+<P>
+<BR>
+</P>
+<A NAME="Section_4.3"> </A>
+<H2>4.3  Microsoft C# (C-Sharp)</H2>
+<P>
+WSC functions can be called from C# (C-sharp) in the same manner as Win32 API functions.
+</P>
+<P>
+All C# projects end with extension ".csproj". For example,
+</P>
+<P>
+cs_vers.csproj
+</P>
+<P>
+In order to open an existing C# project, choose "File", "Open", and then "Project" from the Microsoft C# Development Environment..  Specify the directory containing the C# project files (for example, C:\WSC4C\APPS).
+</P>
+<P>
+In order to call WSC functions from your C# programs, do the following to your existing C# source code:
+</P>
+<P>
+Add the contents of file wsc_funs.cs to source code after
+</P>
+<P>
+<BR>
+
+<PRE>
+     public class wsc : System.Windows.Forms.Form
+</PRE>
+
+</P>
+
+<P><BR>
+Add the constants from wsc_cons.cs to your program as they are needed.</P>
+
+<P>Look at the cs_vers program in the APPS directory for an example.</P>
+
+<P>Note that if pointers are to be passed to C# programs, the C# programs must be compiled 
+in "unsafe" mode. This is necessary only when calling those functions (such as SioPuts, 
+SioGets, SioWinError) that pass pointers.</P>
+
+<A NAME="Section_4.4"> </A>
+<H2>4.4  Microsoft C/C++ (16-bit only)</H2>
+
+<P>Microsoft (16-bit)  C/C++ programs can be compiled from either the command line or from 
+within the Microsoft development environment.</P>
+
+<P>The last Win16 Microsoft compiler was version 1.52.  All Microsoft Visual C/C++ compilers (beginning with Visual C/C++ version 4.0) compile Win32 programs ONLY.  MSVC 1.52 was distributed with MSVC 4.0</A>.</P>
+
+<P>Earlier version of Microsoft C/C++ that predate Visual C/C++ can also be used to compile the example programs.</P>
+
+<BR>
+<A NAME="Section_4.4.1"> </A>
+<H3>4.4.1  Microsoft Command Line Makefiles</H3>
+<P>
+All Microsoft Win16 makefiles end with "16._m_".  Note that many of the example programs are console mode programs, and cannot be compiled as Win16 programs since Win16 does not support console mode.
+To compile, use the Microsoft NMAKE utility:
+</P>
+<P>
+<BR>
+
+<PRE>
+     NMAKE -f SIMPLE16._M_
+</PRE>
+
+</P>
+<P>
+<BR>
+WSC can be used with Microsoft Foundation Class (MFC) programs.  Use the MFCPGM16.MAK makefile to compile the MFC_PGM example program.
+</P>
+<P>
+<BR>
+
+<PRE>
+     NMAKE -f MFCPGM16.MAK
+</PRE>
+
+</P>
+
+<P>Use Visual C/C++ to compile 32-bit MFC programs.</P>
+
+<P>The file, microsoft60.zip, contains the Microsoft C/C++ (v1.52, v4.0, v5.0, v6.0) 
+command line makefiles.</P>
+
+<BR>
+<A NAME="Section_4.5"> </A>
+<H2>4.5  Borland C/C++</H2>
+
+<P>Borland C/C++ version 5.0 programs can be compiled from either the command line (using makefiles ending with "._b_") or from within the Borland development environment using Borland v5.0 or above.</P>
+
+<P>In order to use WSC with Borland C/C++ Version 4.0 or Version 4.5, you will have to download the legacy DLLs for Borland from our web site at http://www.marshallsoft.com/wsc4c.htm.</P>
+
+<P>Borland C/C++ Version 5.5 (which can be downloaded from www.borland.com) is a free 
+Win32 console mode compiler (no IDE).  Makefiles for BC v5.5 end with "._i_", and (like 
+Borland C++ Builder) use ILINK32 rather than TLINK32.  Be careful with linker response 
+files (*.RSP) -- they must NOT end with a carriage return / line feed!
+</P>
+<P>
+Borland programs always link with WSC32BCB.LIB.
+</P>
+<A NAME="Section_4.5.1"> </A>
+<H3>4.5.1 Borland Command Line Makefiles</H3>
+<P>
+Programs can be compiled using command line makefiles.  All Borland Win16 command line makefiles end with "16._b_" while Borland Win32 command line makefiles end with "32._b_" (or "32._i_" for Borland 5.5).  To compile using a makefile, use the Borland MAKE utility. For example,
+</P>
+
+<PRE>
+     MAKE -f SIMPLE16._B_
+     MAKE -f SIMPLE32._B_
+
+The file, borland50.zip, contains the Borland C/C++ 5.0 command line makefiles, and
+the file, borland55.zip, contains the Borland C/C++ 5.5 command line makefiles.
+</PRE>
+
+<P>
+</P>
+<A NAME="Section_4.5.2"> </A>
+<H3>4.5.2  Borland IDE</H3>
+<P>
+To create a new project, first turn off LINKER case sensitivities:  Choose "Options", "Projects", "Linker", "General".  Turn off the "case sensitive link" and "case sensitive exports and imports" boxes.
+</P>
+<P>
+Next, choose "Files", then "New Project".  Use the INS (Insert) key to pop up a dialog box into which the project file names are entered.  Lastly, add WSC32BCB.LIB to your project.  WSC32BCB.LIB can also be created from WSC32.DLL using the Borland IMPLIB utility:
+</P>
+
+<PRE>
+   
+     IMPLIB WSC32BCB.LIB WSC32.DLL
+   
+</PRE>
+
+<P>Select "GUI" or "Console" for the "Target Model:".  Only "Static" or "Dynamic" should 
+be checked for "Standard Libraries:"</P>
+
+<BLOCKQUOTE>
+  <P>NOTE1: If, after linking in the IDE, you get unresolved external references to the 
+  library functions in which each function name is all upper case, then you have NOT turned 
+  off case sensitivity as described above.</P>
+
+  <P>NOTE2: If you get errors compiling the windows header file "WINDOWS.H", turn on 
+  "Borland Extensions" in "Options", "Project", "Compiler", "Source".</P>
+
+</BLOCKQUOTE>
+<A NAME="Section_4.6"> </A>
+<H2>4.6  Borland Turbo C/C++ for Windows</H2>
+
+<P>Borland Turbo C/C++ for Windows does not have command line tools, so all programs must 
+be compiled from the Turbo C/C++ integrated environment.</P>
+
+<P>Follow the same directions as above (Borland IDE), except that the "Target Model:" can 
+be any listed.</P>
+
+<A NAME="Section_4.7"> </A>
+<H2>4.7  Borland C++ Builder</H2>
+
+<P>Borland C++ Builder does not have command line tools, so all programs must be compiled from the Borland C++ Builder integrated environment.  Compile the BCB example program BCB_PRJ with BCB_PRJ.MAK if running BCB version 1 through 3, and compile with BCB_PRJ.BPR if running BCB version 4 or above.
+</P>
+<P>
+To load the BCB_PRJ example project, Choose "File" / "Open Project" on the menu bar.  Load BCB_PRJ.MAK (or BCB_PRJ.BPR).  Then, choose "Build All" from "Project" to create the executable.
+</P>
+<P>
+Note that WSC32BCB.LIB is the LIB file used with Borland C++ Builder.  WSC32BCB .LIB can be created from WSC32.DLL by using the Borland IMPLIB program:
+</P>
+<P>
+<BR>
+
+<PRE>
+     IMPLIB WSC32BCB.LIB WSC32.DLL
+</PRE>
+
+</P>
+<P>
+The file c-builder.zip contains the Borland C++ Builder project makefiles.
+</P>
+<A NAME="Section_4.8"> </A>
+<H2>4.8  Watcom C/C++</H2>
+<P>
+Watcom C/C++ programs can be compiled from either the command line or from within the Watcom development environment.
+</P>
+<P>
+Watcom v10.5and v10.6 do not recognize the "declspec" keyword, and there require "legacy DLL's", which can be downloaded from www.marshallsoft.com/wsc4c.htm.
+</P>
+<A NAME="Section_4.8.1"> </A>
+<H3>4.8.1  Watcom Command Line Makefiles</H3>
+<P>
+Win32 programs can be compiled using command line makefiles.  All Watcom command line makefiles end with "32._w_" for Win32 makefiles.  To compile using a makefile, use the Watcom WMAKE utility. For example,
+</P>
+<P>
+<BR>
+
+<PRE>
+     WMAKE -f SIMPLE32._W_
+</PRE>
+
+</P>
+<P>
+<BR>
+Win32 programs can also be compiled using command line batch files.   See SIMPLE$.BAT for an example of a console mode command line batch file and SIMPLE$.BAT for an example of a GUI mode command line batch file.  To run these command line batch files from the command line, type
+</P>
+<P>
+<BR>
+
+<PRE>
+     SIMPLE32
+</PRE>
+
+</P>
+<P>
+The file, watcom11.zip, contains the Watcom C/C++ 11 command line makefiles.
+</P>
+<A NAME="Section_4.8.2"> </A>
+<H3>4.8.2  Watcom IDE</H3>
+<P>
+To create a new project, choose "File", then "New Project".  Enter the project name and then choose Win32 as the target.  Use the INS (Insert) key to pop up a dialog box into which the project file names are entered.
+</P>
+<P>
+Select "Options" from the main window, then "C Compiler Switches", then "10".  Memory Models and Processor Switches".  Check "80386 Stack based calling [-3s]", then check "32-bit Flat model [-mf]".
+</P>
+<A NAME="Section_4.9"> </A>
+<H2>4.9  LCC-Win32 C/C++</H2>
+<P>
+Lcc-Win32 C/C++ programs can be compiled from either the command line or from within the development environment.
+</P>
+<P>
+Lcc-Win32 is a freeware C compiler developed and distributed by Jacob Navia at
+</P>
+<P>
+<BR>
+
+<PRE>
+     http://www.cs.virginia.edu/~lcc-win32/
+</PRE>
+
+</P>
+<P>
+<BR>
+To use our DLL's with Lcc-Win32, you must link with WSC32LCC.LIB.  This file can also be re-created using the Lcc-Win32 utility BUILDLIB.
+</P>
+<P>
+<BR>
+
+<PRE>
+     buildlib wsc32.lcc wsc32lcc.lib
+</PRE>
+
+</P>
+<P>
+<BR>
+Then, compile and link as normal.  For example, to compile the CONSOLE example program,
+</P>
+
+<PRE>
+     lcc -DWIN32 console.c
+     lcclnk console.obj wsc32.lib -subsystem:console
+</PRE>
+
+<P>
+<BR>
+To compile the GUI mode example SIMPLE,
+</P>
+
+<PRE>
+     lcc -DWIN32 simple.c
+     lcc -DWIN32 about.c
+     lcc -DWIN32 line.c
+     lcc -DWIN32 paint.c
+     lcc -DWIN32 sioerror.c
+     lrc simple.rc
+     lcclnk simple.obj about.obj line.obj paint.obj sioerror.lib wsc32lcc.lib simple.res -subsystem:windows
+</PRE>
+
+<P><BR>
+See CONSOLE.BAT for an example of a console mode command line batch file and SIMPLE$.BAT 
+for an example of a GUI mode command line batch file.</P>
+
+<P>Command files are used for Lcc-Win32 rather than makefiles since the makefile that 
+comes with LCC-Win32 does not work well (unlike the actual compiler).</P>
+
+<P>The file, lcc-win32.zip, contains the LCC-WIN32 project command files.</P>
+
+<A NAME="Section_5"> </A>
+<H2>5  Compiling Programs</H2>
+<BR>
+<A NAME="Section_5.1"> </A>
+<H2>5.1  Compiling WSC Source Code</H2>
+
+<P>This section applies only to those who have purchased source code for WSC.</P>
+
+<P>WSC16.DLL and WSC32.DLL have been compiled using Microsoft Visual C/C++, and are 
+callable from applications written using Microsoft, Borland, or Watcom compilers.  If you 
+recompile WSC32.C using Borland or Watcom compilers, then the resulting WSC32.DLL can only 
+be used by applications compiled with the same compiler, unless the "_stdcall" and 
+"_declspec" keywords are specified.</P>
+
+<P>For Microsoft C, type:
+</P>
+
+<PRE>
+     NMAKE -f WSC16._M_
+     NMAKE -f WSC32._M_
+
+For Borland C, type:
+
+     MAKE -f WSC16._B_
+     MAKE -f WSC32._B_
+
+For Watcom C, type:
+
+     WMAKE -f WSC16._W_
+     WMAKE -f WSC32._W_
+</PRE>
+
+<BR>
+<A NAME="Section_5.2"> </A>
+<H2>5.2  Compiling Example Programs</H2>
+
+<P>The example programs can be compiled by using either the command line compiler or the 
+compiler integrated development environment (IDE).  Most compiler vendors provide both IDE 
+and command line tools, although some compilers are command line only (Borland C/C++ 5.5 
+and LCC-Win32) or IDE only (Borland C/C++ Builder).</P>
+
+<P>Refer also to Section 4, "Supported Compilers".</P>
+
+<A NAME="Section_5.2.1"> </A>
+<H3>5.2.1  Compiling Using Visual C/C++ (VC v4.0, v5.0, and v6.0)</H3>
+
+<P>Microsoft Visual C/C++ (v4.0, v5.0, v6.0) compiles only 32-bit programs.</P>
+
+<P>Programs can be compiled with Microsoft Visual C/C++ using either Developer Studio / 
+Visual Studio or the command line compiler. Project makefiles (files ending in ".MAK") are 
+provided for Developer Studio / Visual Studio.  Command line makefiles (files ending in 
+"._M_") are provided for use with the command line compiler (eg:  NMAKE -f 
+SIMPLE32._M_).</P>
+
+<A NAME="Section_5.2.2"> </A>
+<H3>5.2.2  Compiling Using 16-bit Visual C/C++ (VC v1.52)</H3>
+
+<P>Microsoft Visual C/C++ v1.52 compiles only 16-bit applications.  Command line makefiles 
+are provided with several 16-bit example programs (eg:  NMAKE -f SIMPLE16._M_).</P>
+
+<A NAME="Section_5.2.3"> </A>
+<H3>5.2.3  Compiling Using Visual C/C++ .Net</H3>
+
+<P>Microsoft Visual C/C++  &gt;NET compiles only 32-bit programs.</P>
+
+<P>Programs can be compiled with Microsoft Visual C/C++ .NET using either Visual Studio 
+.NET or the command line compiler.  Project files (files ending in ".VCPROJ") are provided 
+for Visual Studio (eg:  VC_SIMPLE.VCPROJ).</P>
+
+<P>Command line makefiles (files ending in "._M_") are provided for use with the VC.NET 
+command line compiler (eg:  NMAKE -f SIMPLE32._M_).</P>
+
+<A NAME="Section_5.2.4"> </A>
+<H3>5.2.4  Compiling Using Borland C/C++ 5.0</H3>
+
+<P>Borland C/C++ 5.0 can compile both 32-bit and 16-bit programs.</P>
+
+<P>Programs can be compiled with Borland C/C++  using either the Borland IDE or the 
+command line compiler.  Several Project files (files ending in ".IDE") are provided for 
+the Borland IDE (unzip BC50-IDE.ZIP)and command line makefiles (files ending in "._B_") 
+for the Borland command line compiler. For example (MAKE -f SIMPLE32._B_)
+</P>
+
+<A NAME="Section_5.2.5"> </A>
+<H3>5.2.5  Compiling Using Borland C/C++ 5.5</H3>
+
+<P>Borland C/C++ 5.5 is a command line compiler that can compile both 32-bit programs 
+only.  Command line makefiles (ending in "._I_") are provided  For example (MAKE -f 
+SIMPLE32._I_)</P>
+
+<A NAME="Section_5.2.6"> </A>
+<H3>5.2.6  Compiling Using Borland C++ Builder</H3>
+
+<P>Borland C++ Builder (BCB) is an IDE that features "drag and drop" forms building (like 
+Delphi and Visual Basic).</P>
+
+<P>BCB compiles 32-bit programs only.  Compile the BCB example program BCB_PRJ with 
+BCB_PRJ.MAK if running BCB version 1 through 3, and compile with BCB_PRJ.BPR if running 
+BCB version 4 or above.</P>
+
+<P>The file c-builder.zip contains the Borland C++ Builder project makefiles.</P>
+
+<A NAME="Section_5.2.7"> </A>
+<H3>5.2.7  Compiling Using Watcom 11</H3>
+
+<P>Programs can be compiled with Watcom 11 using either the Watcom IDE or the command line 
+compiler.  Several command line makefiles (files ending in "._W_") for the Watcom command 
+line compiler. For example (eg: WMAKE -f SIMPLE32._W_)</P>
+
+<A NAME="Section_5.2.8"> </A>
+<H3>5.2.8  Compiling Using LCC-WIN32</H3>
+
+<P>LCC-Win32 compiles only 32-bit C (not C++) programs.</P>
+
+
+<P>Command line batch files (ending with "$.bat) are provided for several of the projects. 
+ For example, to compile SIMPLE using LCC-Win32, type SIMPLE$.BAT on the command line.</P>
+
+<BR>
+<A NAME="Section_5.3"> </A>
+<H2>5.3  Static Libraries</H2>
+
+<P>The registered user can also statically link WSC16.OBJ or WSC32.OBJ with their 
+application, rather than making calls to the DLL's.  To create an application which links 
+WSC16.OBJ or WSC32.OBJ statically:</P>
+
+<OL type="1" start="1">
+  <LI VALUE="1">
+  All application code that includes WSC.H must define STATIC_LIBRARY before including 
+  WSC.H</LI>
+
+  <LI VALUE="2">
+  Your application must link with WINSOCK.DLL (for WIN16) or with WSOCK32 (for 
+  WIN32).</LI>
+
+</OL>
+
+<P>If using Microsoft Developer Studio, make these changes:</P>
+
+<OL type="1" start="1">
+  <LI VALUE="1">
+  To your project file:  Do not add WSC32.LIB to your project file.</LI>
+
+  <LI VALUE="2">
+  To the settings:  (See "Build Settings" or "Project/Settings")
+  (2a)  C/C++ Tab: Add  STATIC_LIBRARY to "preprocessor definitions:".
+  (2b)  Link Tab: Add wsock32.lib and wsc32.obj to "object/library modules:"</LI>
+
+  <LI VALUE="3">
+  Add  #include "wsc.h" to all source files that make calls to WSC functions.</LI>
+
+</OL>
+
+<P>Alternatively, WSC16.C and WSC32.C can be edited so that they can be compiled and linked like any other program file. In order to do this, remove all code from WSC16.C and WSC32.C (provided when the source code is purchased) from
+</P>
+<P>
+<BR>
+
+<PRE>
+     #ifndef STATIC_LIBRARY
+</PRE>
+
+</P>
+<P>
+<BR>
+through the following
+</P>
+
+<PRE>
+     #endif
+</PRE>
+
+<BR>
+<A NAME="Section_5.4"> </A>
+<H2>5.4  Key Codes (License Key)</H2>
+
+<P>WSC16.DLL and WSC32.DLL have a keycode encoded within them.  Your keycode is a 9 or 10 
+digit decimal number (unless it is 0), and will be found in the file KEYCODE.H.  The 
+keycode for the evaluation (shareware) version is 0.  You will receive a new key code and 
+a set of  new DLL's when registering.</P>
+
+<P>If you get an error message (value -108) when calling SioKeyCode, it means that the 
+keycode in your application does not match the keycode in the DLL.  After registering, it 
+is best to remove the evaluation version of the WSC32.DLL and WSC16.DLL from the Windows 
+search path., or delete them.</P>
+
+<BR>
+<A NAME="Section_6"> </A>
+<H2>6   Example Programs</H2>
+
+<P>Many of the example programs are written in Win32 console mode.  This was done in order to provide the clearest possible code, without the complication and complexity of GUI code.  All console mode programs can be converted to GUI mode by adding the necessary Windows interface code.  Example programs are located in the APPS directory.  Refer to Section <A HREF="#Section_4">4.0</A> for help with compiling and using makefiles.
+</P>
+
+
+<P>Makefiles are classified as follows:</P>
+
+<UL>
+  <LI>*._m_ Microsoft C/C++ makefile (command line).</LI>
+
+  <LI>*._b_ Borland C/C++ 5.0 makefile (command line).</LI>
+
+  <LI>*._i_ Borland C/C++ 5.5 makefile (command line).</LI>
+
+  <LI>*._w_ Watcom C/C++ makefile (command line).</LI>
+
+</UL>
+
+<P>Microsoft Visual C/C++ Developer Studio files end in ".MAK" and can be loaded with 
+"Open Workspace" and include: simple.mak, modem.mak, term.mak, console.mak, event.mak, 
+rs485.mak, xms.mak, xmr.mak, yms.mak, ymr.mak, finder.mak, echoport.mak, host.mak, 
+device.mak, wscver.mak, dial.mak, &amp; hello.mak.</P>
+
+
+<P>Other files ending with .MAK (and .BPR) include:</P>
+
+<UL>
+  <LI>MFCPGM16.MAK  Microsoft Foundations Class (MFC) makefile (Win16).</LI>
+
+  <LI>MFCPGM32.MAK  Microsoft Foundations Class (MFC) makefile (Win32).</LI>
+
+  <LI>BCB_PRJ.MAK   Borland C++ Builder makefile (BCB version 1 through 3).</LI>
+
+  <LI>BCB_PRJ.BPR   Borland C++ Builder makefile (BCB version 4 and above).</LI>
+
+</UL>
+<A NAME="Section_6.1"> </A>
+<H2>6.1  WSCVER</H2>
+
+<P>The first example program is the GUI program WSCVER (WSC Version) that displays the WSC 
+library version number.</P>
+
+
+<P>There are command line makefiles for Microsoft (WSCVER32._M_), Borland (WSCVER32._B_), 
+and Watcom (WSCVER32._W_), as well as a Microsoft Developer Studio makefile (WSCVER.MAK), 
+and a Lcc-Win32 command file (SIMPLE$.BAT).</P>
+
+
+<P>Open project VC_VERSION.VCPROJ if using Visual C/C++ NET.</P>
+
+<A NAME="Section_6.2"> </A>
+<H2>6.2  SIMPLE</H2>
+
+<P>SIMPLE is a very simple GUI mode communications program using WSC4C.  Everything typed 
+on the keyboard is sent to the serial port, and everything incoming from the serial port 
+is displayed on the screen.</P>
+
+<P>The easiest way to test SIMPLE is to connect to a modem.  Typing "AT" should result in 
+an "OK" being displayed.</P>
+
+<P>Open project VC_SIMPLE.VCPROJ if using Visual C/C++ NET.</P>
+
+<A NAME="Section_6.3"> </A>
+<H2>6.3  SELFTEST</H2>
+
+<P>SELFTEST is a GUI mode program that performs serial port I/O functionality testing 
+using a loopback adapter.  Refer to LOOPBACK.TXT for an explanation of how to make a 
+loopback adapter (without tools!).</P>
+
+<BR>
+<A NAME="Section_6.4"> </A>
+<H2>6.4  MODEM</H2>
+
+<P>MODEM is a GUI mode program that is similar to SELFTEST, but with enhanced capability.  
+It can set flow control (hardware, software, or none), DTR line (set or clear), RTS line 
+(set or clear), display the transmit &amp; receive queue sizes, detect a break signal, 
+detect changes in DSR and CTS.  It can also check for various line errors such as parity 
+error, framing error, data overrun, receive queue overflow, and transmit buffer full.
+</P>
+
+<A NAME="Section_6.5"> </A>
+<H2>6.5  TERM</H2>
+
+<P>TERM is a simple GUI mode ANSI terminal emulator suitable for calling up a BBS and 
+downloading or uploading files using XMODEM or YMODEM.  The TERM program uses MIO16.DLL 
+(or MIO32.DLL) for modem control commands, and XYDRV16.DLL (or XYDRV32.DLL) for XMODEM 
+&amp; YMODEM file transfer.</P>
+
+<P>Selecting "Dial" from the menu bar will result in a pop-up dialog requesting the phone 
+number to dial. Once entered, the number is dialed, and the program will wait for up to 60 
+seconds for the "CONNECT" string from the modem.  This wait can be terminated at any time 
+by choosing "BREAK" on the menu bar.</P>
+
+<P>Once logged on, files can be uploaded or downloaded by selecting "Send" or "Receive" 
+from the menu bar. To abort a file transfer, choose "BREAK" from the menu bar then type a 
+series of Ctrl-X (^X)  characters from the keyboard.</P>
+
+<P>TERM uses ANSI.C, which provides ANSI terminal emulator support.</P>
+
+<A NAME="Section_6.6"> </A>
+<H2>6.6  BCB_PGM</H2>
+
+<P>
+BCB_PGM is a Borland C++ Builder example GUI mode program similar to SIMPLE.  BCB_PRJ.MAK is the BCB makefile necessary for building BCB_PGM.EXE.
+</P>
+<A NAME="Section_6.7"> </A>
+<H2>6.7  MFC_PGM</H2>
+<P>
+MFC_PGM is a Microsoft Foundation Class C++ (GUI mode) program similar to SIMPLE.  MFCPGM16.MAK is the Win16 makefile and MFCPGM32.MAK is the Win32 makefile.  File NAFXCW.LIB may have to be copied from MFC\LIB on your Microsoft Visual C/C++ CD disk.
+</P>
+<A NAME="Section_6.8"> </A>
+<H2>6.8  CONSOLE</H2>
+<P>
+The CONSOLE program is a console mode program similar to SIMPLE.  It also demonstrates how to acquire and manipulate the standard input handle so that a "KeyPress" function can be implemented.
+</P>
+<P>
+CONSOLE takes the port and baud rate as arguments.  For example, to start CONSOLE on COM1 at 38,400 baud:
+</P>
+<P>
+<BR>
+
+<PRE>
+     CONSOLE 1 38400
+</PRE>
+
+</P>
+
+<BR>
+<A NAME="Section_6.9"> </A>
+<H2>6.9  FINDER</H2>
+
+<P>The FINDER program is a console mode program that searches for a connected modem.  Your 
+modem must be connected to one of COM1 through COM4, and the modem must be turned on.  
+FINDER takes no arguments.</P>
+
+<BR>
+<A NAME="Section_6.10"> </A>
+<H2>6.10  ECHOPORT</H2>
+
+<P>The ECHOPORT console mode program which demonstrates the use of threads.  Connect COM1 
+and/or COM2 to another computer or serial device using a NULL modem cable. ECHOPORT will 
+echo back to the remote anything that it receives on the serial port.  ECHOPORT takes no 
+arguments.</P>
+
+<A NAME="Section_6.11"> </A>
+<H2>6.11  EVENT</H2>
+
+<P>The EVENT console mode program demonstrates the use of SioEvent in efficiently waiting 
+for serial input.  No polling or timer is required.  EVENT operates like SIMPLE.  Recall 
+that SioEvent blocks until the requested event occurs, which is why SioEvent is called 
+from a thread rather than the main application code.</P>
+
+<A NAME="Section_6.12"> </A>
+<H2>6.12  XMS, XMR, YMS, YMR</H2>
+
+<P>XMS (XMODEM Send) and XMR (XMODEM Receive) are console mode programs that send and 
+receive files using the XMODEM protocol.  YMS (YMODEM Send) and YMR (YMODEM Receive) are 
+console mode programs that send and receive files using the YMODEM protocol.</P>
+
+<P>Open project VC_XMS.VCPROJ or VC_XMR.VCPROJ if using Visual C/C++ NET</P>
+
+<A NAME="Section_6.13"> </A>
+<H2>6.13  RS485</H2>
+
+<P>The RS485 example console mode program operates like SIMPLE, except that it assumes an 
+RS485 port.  RTS is set before transmitting data, and cleared after the last bit of the 
+last byte has been sent.</P>
+
+<A NAME="Section_6.14"> </A>
+<H2>6.14  DEVICE</H2>
+
+<P>The DEVICE console mode program is designed for talking to an arbitrary serial device.  
+Use this program as a guide when communicating with all serial devices other than modems 
+and other computers.</P>
+
+<A NAME="Section_6.15"> </A>
+<H2>6.15  HOST</H2>
+
+<P>The HOST console mode program is a simple example of a one-line BBS, which is capable of answering an incoming call.  HOST uses both WSC32.DLL and MIO32.DLL.  Start HOST from the command line passing the port and baud rate.  For example,
+</P>
+<P>
+<BR>
+
+<PRE>
+     HOST 1 19200
+</PRE>
+
+</P>
+<P>
+<BR>
+</P>
+<A NAME="Section_6.16"> </A>
+<H2>6.16  DIAL</H2>
+<P>
+The DIAL console mode example program uses the MIO module to dial up using the port, baud rate, and phone number specified by the user on the command line.  For example
+</P>
+<P>
+<BR>
+
+<PRE>
+     DIAL 1 38400 "1,256,880,9748"
+</PRE>
+
+</P>
+
+<BR>
+<A NAME="Section_6.17"> </A>
+<H2>6.17  HOST</H2>
+
+<P>The HOST console mode program answers an incoming modem call. It functions as a very 
+simple BBS (Bulletin Board System) program.</P>
+
+<BR>
+<A NAME="Section_7"> </A>
+<H2>7  More Examples</H2>
+
+<P>We have other examples programs including programs for controlling voice modems (which 
+use the Rockwell voice/data chip set), an example of handling continuously incoming data, 
+and others.  Please
+contact us if you need an example program.</P>
+
+<A NAME="Section_8"> </A>
+<H2>8   Revision History</H2>
+<BLOCKQUOTE>
+  <P>Version 1.0: September 6, 1996.<BR>
+  </P>
+
+</BLOCKQUOTE>
+<UL>
+  <LI>The initial release of WSC4C.</LI>
+
+</UL>
+<BLOCKQUOTE>
+  <P>Version 2.0: January 25, 1997.</P>
+
+</BLOCKQUOTE>
+<UL>
+  <LI>Includes Win32 libraries [Microsoft, Borland, Watcom].</LI>
+
+  <LI>Added XMODEM &amp; YMODEM DLL (XYDRIVER.DLL).</LI>
+
+  <LI>Added TERM example program.</LI>
+
+</UL>
+<BLOCKQUOTE>
+  <P>Version 2.1: June 2, 1997.<BR>
+  </P>
+
+</BLOCKQUOTE>
+<UL>
+  <LI>Added ANSI terminal emulator support.</LI>
+
+  <LI>Added "expires" option to SioInfo(). [Evaluation version ONLY].</LI>
+
+  <LI>Added SioRead function.</LI>
+
+  <LI>Added Borland C Builder example program.</LI>
+
+</UL>
+<BLOCKQUOTE>
+  <P>Version 2.2: October 1, 1997.<BR>
+  </P>
+
+</BLOCKQUOTE>
+<UL>
+  <LI>Fixed problem in XYDRV.C (renamed from XYDRIVER.C)</LI>
+
+  <LI>Added xyGetFileName function to XYDRV.</LI>
+
+  <LI>WSC4C supports up to 16 ports.</LI>
+
+  <LI>WSC4C runs under Windows NT.</LI>
+
+  <LI>Added Microsoft Foundation Class (MFC) Example.</LI>
+
+  <LI>Added ASCII protocol.</LI>
+
+</UL>
+<BLOCKQUOTE>
+  <P>Version 2.3: July 15, 1998.<BR>
+  </P>
+
+</BLOCKQUOTE>
+<UL>
+  <LI>Multiple changes to XYDRV for added capability.</LI>
+
+  <LI>SioTimer() function added to WSC16 and WSC32.</LI>
+
+  <LI>FINDER example modem search program added.</LI>
+
+  <LI>CONSOLE example console mode program added.</LI>
+
+  <LI>ECHOPORT example multi-thread program added.</LI>
+
+  <LI>SioBaud &amp; SioParms can be called before SioReset.</LI>
+
+  <LI>WSC32.C modified so that the number of supported ports can be easily increased.</LI>
+
+</UL>
+<BLOCKQUOTE>
+  <P>Version 2.4: May 17, 1999.</P>
+
+</BLOCKQUOTE>
+<UL>
+  <LI>SioEvent function added (WIN32 only).</LI>
+
+  <LI>New xyDriver code.</LI>
+
+  <LI>New XMODEM example programs (XMS and XMR).</LI>
+
+  <LI>New RS485 example program.</LI>
+
+  <LI>Specify default DTR &amp; RTS behavior with SioReset.</LI>
+
+</UL>
+<BLOCKQUOTE>
+  <P>Version 3.0: July 12,  2000.</P>
+
+</BLOCKQUOTE>
+<UL>
+  <LI>Added SioMessage function.</LI>
+
+  <LI>New WORD and HTML documentation.</LI>
+
+  <LI>New example programs.
+  <BR><BR>
+  <BR></LI>
+
+</UL>
+<BLOCKQUOTE>
+  <P>Version 3.1: April 19,  2001.</P>
+
+</BLOCKQUOTE>
+<UL>
+  <LI>RESETDEV Win API call not called (allows USB/serial converters).</LI>
+
+  <LI>SioPutc and SioPuts return immediately.</LI>
+
+  <LI>WSC32.C can be recompiled for Win/CE.</LI>
+
+</UL>
+<BLOCKQUOTE>
+  <P>Version 3.2:  July 17, 2002.<BR>
+  </P>
+
+</BLOCKQUOTE>
+<UL>
+  <LI>Modified so can be compiled for Windows CE [USE_WIN_CE].</LI>
+
+  <LI>Default for RESETDEV is "not called". SioDebug('R') to enable.</LI>
+
+  <LI>SioGetc &amp; SioGets zero unused bits (DataBits 5,6,7).</LI>
+
+  <LI>Corrected problem with SioBaud(-1, BaudRateCode).</LI>
+
+  <LI>SioDebug returns -1 if no match.</LI>
+
+  <LI>Added SioDebug('W') toggle SioPuts wait for I/O completion.</LI>
+
+  <LI>Added code to detect active threads &amp; to close thread handles.</LI>
+
+  <LI>Added USE_THREADS, so can compile version of WSC32.C without threads.</LI>
+
+  <LI>Comm handle not saved in SioReset unless it is good.</LI>
+
+  <LI>SioEvent returns mask that caused the event.</LI>
+
+  <LI>Added SioInfo('B') to get build number.</LI>
+
+</UL>
+<BLOCKQUOTE>
+  <P>Version 3.3:  October 28, 2003.<BR>
+  </P>
+
+</BLOCKQUOTE>
+<UL>
+  <LI>Can now order either with or without source code to the DLLs.</LI>
+
+  <LI>Added SioSetInteger function to set port specific integer parameters.</LI>
+
+  <LI>Added SioKeyCode function to pass the key code to the DLL.</LI>
+
+  <LI>Added SioGetReg function to return the registration string.</LI>
+
+  <LI>Added "Burst Size" parameter for setting the TX burst size.</LI>
+
+  <LI>Added ability to signal blocked thread which was blocked by SioEvent.</LI>
+
+</UL>
+<BLOCKQUOTE>
+  <P>Version 4.0:  November 12, 2003.<BR>
+  </P>
+
+</BLOCKQUOTE>
+<UL>
+  <LI>Added support for Microsoft VC.Net</LI>
+
+</UL>
+<BLOCKQUOTE>
+  <P>Version 4.1:  August 12, 2004<BR>
+  </P>
+
+</BLOCKQUOTE>
+<UL>
+  <LI>Fixed problem with SioTxClear.</LI>
+
+  <LI>Added overlapped I/O (for non-Win95) so can signal threads to exit w/o killing 
+  them.</LI>
+
+  <LI>Increased default burst size to 256.</LI>
+
+  <LI>SioFlow returns WSC_RANGE if cannot recognize parameter.</LI>
+
+  <LI>Added support for Microsoft C#.</LI>
+
+  <LI>Adjusted XModem/YModem timing for faster transfers.
+  <BR><BR>
+  <BR></LI>
+
+</UL>
+</BODY>
+</HTML>

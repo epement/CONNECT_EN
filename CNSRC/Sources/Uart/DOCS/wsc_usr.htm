@@ -1,0 +1,1103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"  
+"http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Windows Standard Serial Comm Library Users Manual</TITLE>
+<STYLE TYPE="text/css">
+<!-- 
+  H1, H2, H3, H4, H5, H6
+	{ color: ;	}
+  -->
+</STYLE>
+</HEAD>
+<BODY BGCOLOR="white">
+<BASEFONT SIZE=3>
+
+<B><CENTER><FONT SIZE="5"> <P>Windows Standard</P>
+
+<P>Serial Communications</P>
+
+<P>Users Manual</P></FONT>
+
+<P><BR>
+(WSC_USR)</P>
+
+<P><BR>
+Version 4.1</P>
+
+<P><BR>
+August 12,  2004</P>
+
+<P><BR>
+<BR>
+<BR>
+This software is provided as-is.<BR>
+There are no warranties, expressed or implied.</P>
+
+<P><BR>
+<BR>
+Copyright (C) 2004<BR>
+All rights reserved</P>
+
+<P><BR>
+<BR>
+MarshallSoft Computing, Inc.<BR>
+Post Office Box 4543<BR>
+Huntsville AL 35815 USA</P>
+
+<BR>
+<BLOCKQUOTE>
+  <P>Voice : 1.256.881.4630</P>
+
+  <P>FAX   : 1.256.880.0925</P>
+
+  <P>email : info@marshallsoft.com</P>
+
+  <P>web : http://www.marshallsoft.com</P>
+
+  <P><BR>
+  </P>
+
+</BLOCKQUOTE>
+
+<P>MARSHALLSOFT is a registered trademark of MarshallSoft Computing.</P>
+
+<P></CENTER></B><HR><I>TABLE OF CONTENTS</I></P>
+
+<BR>
+<BLOCKQUOTE>
+<FONT SIZE=3 STYLE="font-size:12pt;"><STRONG>1 <A HREF="#Section_1">Introduction</A></STRONG></FONT><BR>
+  <BLOCKQUOTE>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>1.1 <A HREF="#Section_1.1">Documentation Set</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>1.2 <A HREF="#Section_1.2">User Support</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>1.3 <A HREF="#Section_1.3">Ordering</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>1.4 <A HREF="#Section_1.4">Updates</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>1.5 <A HREF="#Section_1.5">Customer ID</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>1.6 <A HREF="#Section_1.6">License File</A></STRONG></FONT><BR>
+  </BLOCKQUOTE>
+<FONT SIZE=3 STYLE="font-size:12pt;"><STRONG>2 <A HREF="#Section_2">Applications Notes</A></STRONG></FONT><BR>
+  <BLOCKQUOTE>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>2.1 <A HREF="#Section_2.1">Key Codes (License Key)</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>2.2 <A HREF="#Section_2.2">Dynamic Link Libraries</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>2.3 <A HREF="#Section_2.3">GUI and Console Mode</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>2.4 <A HREF="#Section_2.4">Using the Library</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>2.5 <A HREF="#Section_2.5">Using WSC with Other Languages</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>2.6 <A HREF="#Section_2.6">UARTs and Serial Ports</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>2.7 <A HREF="#Section_2.7">USB Ports</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>2.8 <A HREF="#Section_2.8">PCMCIA Modems</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>2.9 <A HREF="#Section_2.9">Threads</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>2.10 <A HREF="#Section_2.10">SioPuts Notes</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>2.11 <A HREF="#Section_2.11">RS422 and RS485 Ports</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>2.12 <A HREF="#Section_2.12">Hardware Flow Control &amp; Blocking</A></STRONG></FONT><BR>
+  </BLOCKQUOTE>
+<FONT SIZE=3 STYLE="font-size:12pt;"><STRONG>3 <A HREF="#Section_3">Modem I/O (MIO)</A></STRONG></FONT><BR>
+  <BLOCKQUOTE>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>3.1 <A HREF="#Section_3.1">MIO Introduction</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>3.2 <A HREF="#Section_3.2">MIO Function Summary</A></STRONG></FONT><BR>
+  </BLOCKQUOTE>
+<FONT SIZE=3 STYLE="font-size:12pt;"><STRONG>4 <A HREF="#Section_4">XMODEM and YMODEM (XYM)</A></STRONG></FONT><BR>
+  <BLOCKQUOTE>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>4.1 <A HREF="#Section_4.1">XYM Introduction</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>4.2 <A HREF="#Section_4.2">XYM Function Summary</A></STRONG></FONT><BR>
+  </BLOCKQUOTE>
+<FONT SIZE=3 STYLE="font-size:12pt;"><STRONG>5 <A HREF="#Section_5">ASCII File Transfer</A></STRONG></FONT><BR>
+  <BLOCKQUOTE>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>5.1 <A HREF="#Section_5.1">ASCII Protocol</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>5.2 <A HREF="#Section_5.2">ASCII Function Summary</A></STRONG></FONT><BR>
+  </BLOCKQUOTE>
+<FONT SIZE=3 STYLE="font-size:12pt;"><STRONG>6 <A HREF="#Section_6">Versions of WSC</A></STRONG></FONT><BR>
+  <BLOCKQUOTE>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>6.1 <A HREF="#Section_6.1">Evaluation Version</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>6.2 <A HREF="#Section_6.2">Academic Version</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>6.3 <A HREF="#Section_6.3">Professional Version</A></STRONG></FONT><BR>
+  </BLOCKQUOTE>
+<FONT SIZE=3 STYLE="font-size:12pt;"><STRONG>7 <A HREF="#Section_7">Problems</A></STRONG></FONT><BR>
+<FONT SIZE=3 STYLE="font-size:12pt;"><STRONG>8 <A HREF="#Section_8">Legal Issues</A></STRONG></FONT><BR>
+  <BLOCKQUOTE>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>8.1 <A HREF="#Section_8.1">Registration</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>8.2 <A HREF="#Section_8.2">License</A></STRONG></FONT><BR>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>8.3 <A HREF="#Section_8.3">Warranty</A></STRONG></FONT><BR>
+  </BLOCKQUOTE>
+<FONT SIZE=3 STYLE="font-size:12pt;"><STRONG>9 <A HREF="#Section_9">Summary</A></STRONG></FONT><BR>
+  <BLOCKQUOTE>
+<FONT SIZE=2 STYLE="font-size:10pt;"><STRONG>9.1 <A HREF="#Section_9.1">WSC Function Summary</A></STRONG></FONT><BR>
+  </BLOCKQUOTE>
+</BLOCKQUOTE>
+<A NAME="Section_1"> </A>
+<H2>1  Introduction</H2>
+
+<P>MarshallSoft Windows Standard Serial Communications Library  (WSC) is a serial 
+communication component DLL library.  WSC uses the standard Windows API (Application 
+Programmer's Interface) to communicate with any device connected to a serial port.</P>
+
+<P>This manual applies to the Windows Standard Serial Communication Library (WSC) for all 
+supported languages. We have versions of WSC for C/C++ (WSC4C), Delphi (WSC4D), Visual 
+Basic &amp; VB.NET (WSC4VB), PowerBASIC (WSC4PB), Visual FoxPro (WSC4FP), Visual dBase 
+(WSC4DB), Alaska Xbase++ (WSC4XB), and COBOL (WSC4CB).  All versions of WSC use the same 
+DLLs (WSC16.DLL or WSC32.DLL), however, the examples provided for each version are written 
+in the specified computer language.  Development time is shortened because programmers 
+need only learn one interface.</P>
+
+<P>WSC will run under Windows 95/98/Me/ NT/2000/XP, and Windows 3.1 (16-bit only).  MarshallSoft provides separate products for WIN/CE for eVC (WSC4eVC) and for eVB (WSC4eVB).  Evaluation versions for these may be downloaded from our web site at
+</P>
+
+<PRE>
+     http://www.marshallsoft.com/serial-communication-library.htm
+</PRE>
+
+<P>
+We also have declaration files and example programs for a few other languages (such as MATLAB).
+We also offer a GPS specific library.  See
+</P>
+
+<PRE>
+     http://www.marshallsoft.com/gps-communication-library.htm
+</PRE>
+
+<P>Check http://www.marshallsoft.com for the latest version of our serial communication 
+software.</P>
+
+<A NAME="Section_1.1"> </A>
+<H2>1.1  Documentation Set</H2>
+
+<P>The complete set of documentation consists of four manuals in three formats. This is 
+the second manual (WSC_USR) in the set.</P>
+
+<UL>
+  <LI>WSC_4x Programmer's Manual   (WSC_4x.DOC, WSC_4x.TXT, WSC_4x.HTM)</LI>
+
+  <LI>WSC User's Manual   (WSC_USR.DOC, WSC_USR.TXT, WSC_USR.HTM)</LI>
+
+  <LI>WSC Reference Manual   (WSC_REF.DOC, WSC_REF.TXT, WSC_REF.HTM)</LI>
+
+  <LI>Serial User's Manual   (SERIAL.DOC, SERIAL.TXT, SERIAL.HTM)</LI>
+
+</UL>
+
+<P>Each manual comes in three formats:</P>
+
+<UL>
+  <LI>Microsoft Word (files ending in .DOC). The best format for printing manuals.</LI>
+
+  <LI>Hyper Text (files ending in .HTM). Use any web browser to read.</LI>
+
+  <LI>ASCII Text (files ending in .TXT).</LI>
+
+</UL>
+
+<P>The WSC_4x Programmer's Manual is the language dependent manual and provides 
+information needed to compile your programs as well as the examples in the specified 
+environment.  The "x" in WSC_4x Programmer's Manual specifies the host language such as C 
+for C/C++, VB for Visual Basic, etc.  The language specific manuals are as follows:
+</P>
+
+<PRE>
+[NAME]       [DESCRIPTION]
+WSC_4C    :  WSC Programmer's Manual for C/C++
+WSC_4D    :  WSC Programmer's Manual for Delphi
+WSC_4VB   :  WSC Programmer's Manual for Visual Basic
+WSC_4PB   :  WSC Programmer's Manual for PowerBASIC
+WSC_4FP   :  WSC Programmer's Manual for Visual FoxPro
+WSC_4DB   :  WSC Programmer's Manual for Visual dBase
+WSC_4XB   :  WSC Programmer's Manual for Xbase++
+</PRE>
+
+The WSC User's Manual (WSC_USR) discusses language independent serial communications programming issues including modem control.  Ordering information is also provided in the manual.  Read this manual after reading the WSC_4x Programmer's Manual.
+The WSC Reference Manual (WSC_REF) contains details on each individual WSC function.
+The Serial Communications Manual (SERIAL) contains background information on serial port hardware.
+Use Microsoft Word or Microsoft WordPad to print the document files.
+<A NAME="Section_1.2"> </A>
+<H2>1.2  User Support</H2>
+We want you to be successful in developing your applications using WSC!  We are committed to providing the best library that we can.  If you have any suggestions or comments, please let us know.
+If you are having a problem using WSC, refer to Section <A HREF="#Section_7">7.0</A> "Problems".  If you still cannot resolve your problem, email us at
+
+<PRE>
+     support@marshallsoft.com
+</PRE>
+
+<P>
+You can also reach us at +1.256.881.4630 between 7:00 AM and 7:00 PM CST Monday through Friday.  You can also often reach us on Saturday.
+</P>
+<P>
+The latest versions of our products are available on our web site at
+</P>
+
+<PRE>
+      http://www.marshallsoft.com/products.htm
+
+and on our anonymous FTP site at
+
+     ftp://ftp.marshallsoft.com/pub
+
+Registered users can update to the latest DLL's at
+
+      http://www.marshallsoft.com/oem.htm
+</PRE>
+
+<P>
+<BR>
+<BR>
+</P>
+<A NAME="Section_1.3"> </A>
+<H2>1.3  Ordering</H2>
+<P>
+WSC may be purchased for $105 (USD) for electronic (email) delivery, or $155 (USD) with source code for the DLL.
+</P>
+<P>
+The fastest and easiest way to order is on our web site at
+</P>
+
+<PRE>
+     http://www.marshallsoft.com/order.htm
+</PRE>
+
+<P>You can also order by completing INVOICE.TXT (contained within the WSC zip file) and 
+emailing (order@marshallsoft.com), mailing (see our address at top), or faxing 
+(+1.256.880.0925) it to us.</P>
+
+<P>Multiple copy discounts (3 or more) and site licenses are available.  Please call for 
+details.</P>
+
+<P>We accept American Express, VISA, MasterCard, Discover, checks in US dollars drawn on a 
+US bank, International Postal Money Orders, and purchase orders (POs) within the USA from 
+recognized US schools and companies listed in Dun &amp; Bradstreet.</P>
+
+<P>For credit card orders, be sure to include the account number, the expiration date, the 
+exact name on the
+credit card, and the complete card billing address (the address to which the credit card 
+bill is mailed - not the bank's address). Please include the cardholder's signature on 
+faxed orders. If the software is to be sent electronically, we will need the cardholder's 
+email address.   Note that all information is kept confidential and is not stored on a 
+server.
+</P>
+
+
+<P>Print the file INVOICE.TXT if a "Pro Forma" invoice is needed.  The registered package 
+includes:</P>
+
+<UL>
+  <LI>WSC16 and WSC32 Library without the evaluation version popup window.</LI>
+
+  <LI>Free downloadable updates to the registered DLLs for one year.</LI>
+
+  <LI>Free telephone and email support for one year.</LI>
+
+</UL>
+<A NAME="Section_1.3.1"> </A>
+<H3>1.3.1  Source Code</H3>
+
+<P>There are two ways to order Source Code for WSC.</P>
+
+<OL type="1" start="1">
+  <LI VALUE="1">
+  Source Code can be ordered at the same time as the Developer's License for $155 (for 
+  both).
+  <BR><BR></LI>
+
+  <LI VALUE="2">
+  Source Code can be ordered within one year of purchasing a Developer's License for $50.  
+  After one year, a Developer's License update ($30 or $55) must be purchased prior to 
+  purchasing the source code ($50).</LI>
+
+</OL>
+<A NAME="Section_1.3.2"> </A>
+<H3>1.3.2  Academic Discount</H3>
+
+
+<P>We offer an "academic price" of 30% off the normal price for prepaid email orders to 
+faculty and full time students currently enrolled in any accredited high school, college, 
+or university.  To qualify for the discount, your school must have a web site and you must 
+have an email address at your school.</P>
+
+<P>When ordering, ask for the "academic discount", or enter "student at" (or "faculty at") 
+and your schools web site address (URL) in the comments field of the order form on our web 
+site order page. Your order will be sent to your email address at your school.</P>
+
+<P>This offer is not retroactive and cannot be used with any other discount.  Products 
+bought with academic pricing are for educational purposes only.</P>
+
+
+<P><BR></P>
+
+<A NAME="Section_1.3.3"> </A>
+<H3>1.3.3  Disk Only</H3>
+
+<P>When ordering WSC, a 3.5" HD disk can be purchased for $5 for delivery to the, US, 
+Canada, and Mexico. For all other destinations, the disk is $8.  A CD can be purchased 
+instead for $3 more.  See also INVOICE.TXT or http://www.marshallsoft.com/order.htm</P>
+
+<A NAME="Section_1.3.4"> </A>
+<H3>1.3.4  Disk and Printed Manuals</H3>
+
+<P>Printed manuals (see Section 1.1 "Documentation Set") are the same as in the WSC evaluation distribution.  Printed manuals can be purchased for $20 for delivery to the US, Canada, and Mexico.  For all other destinations, printed manuals are $25.  The software is provided on a 3.5" HD disk.</P>
+
+
+<P>See INVOICE.TXT or http://www.marshallsoft.com/order.htm</P>
+
+<P>Delivery is via Air Mail, however, products can also be shipped overnight for an 
+additional cost.  Call us for quicker delivery.  Note that all software can be delivered 
+quickly electronically.</P>
+
+<A NAME="Section_1.4"> </A>
+<H2>1.4 Updates</H2>
+
+<P>When you register WSC you will receive a set of registered DLLs plus a license file 
+(WSCxxxx.LIC) that can be used to update your registered DLL's (does not include source 
+code) for a period of one year from purchase.  Updates can be downloaded from</P>
+
+<BLOCKQUOTE>
+  <P>http://www.marshallsoft.com/oem.htm</P>
+
+</BLOCKQUOTE>
+
+<P>After one year, your license must be updated if you want to be able to download 
+updates. Your license can be updated for $30 if ordered within one year from the original 
+purchase (or previous update).  After one year, licenses can be updated for $55. Source 
+code can be updated for $25 in addition to the license update.</P>
+
+
+<P>Note that the registered WSC DLL's do not expire.</P>
+
+<P>Also see the file UPDATES.TXT.</P>
+
+<A NAME="Section_1.5"> </A>
+<H2>1.5  Customer ID</H2>
+
+<P>Your customer ID is the 4 digits following the product name (WSC) in your license file. 
+For example, customer 1234 would receive license file WSC1234.LIC.</P>
+
+<A NAME="Section_1.6"> </A>
+<H2>1.6 License File</H2>
+
+<P>When you register WSC you will receive a license file named WSCxxxx.LIC, where "xxxx" is your 4-digit customer ID.  The license file is an encrypted binary file used for updating WSC as explained in Section <A HREF="#Section_1.5">1.5</A> "Updates".  The license file is required in order to create (or update) your registered DLL's.</P>
+
+<BR>
+<A NAME="Section_2"> </A>
+<H2>2  Application Notes</H2>
+<A NAME="Section_2.1"> </A>
+<H2>2.1 Key Codes (License Key)</H2>
+
+<P>When you register WSC, you will receive a new set of DLL's and a key code for your 
+DLL's.  Pass this keycode as the argument to SioKeyCode.  The keycode will be found in the 
+file named "KEYCODE".  The registered keycode is a 9 or 10 digit number.  It is not your 
+Customer ID.  The keycode for the evaluation (shareware) version is 0.
+</P>
+
+<A NAME="Section_2.2"> </A>
+<H2>2.2  Dynamic Link Libraries</H2>
+
+<P>WSC includes both Win16 [WSC16.DLL] and Win32 [WSC32.DLL] dynamic link libraries (DLL). 
+ A DLL is characterized by the fact that it need not be loaded until required by an 
+application program and that only one copy of the DLL is necessary regardless of the 
+number of application programs that use it.  Contrast this to a static library that is 
+bound at link time to each and every application that uses it.  Note that registered 
+users</P>
+
+<P>The WSC DLL's make calls only to the core Windows DLL's and do not depend on support 
+DLL's. They
+can be called from any language capable of making calls to the Windows API, and will work 
+with all versions
+of your compiler</P>
+
+<A NAME="Section_2.3"> </A>
+<H2>2.3  GUI and Console Mode</H2>
+
+<P>WSC functions can be called from WIN32 console mode programs as well as GUI programs.  
+A "console mode" program is a Windows 95/98/Me/NT/2000/XP WIN32 command line program 
+running in a command window.  Although console mode programs look like DOS programs, they 
+are WIN32 programs which have access to the entire Windows address space.
+</P>
+<A NAME="Section_2.4"> </A>
+<H2>2.4 Using the Library</H2>
+<P>
+The best way to get familiar with WSC is to try out one of the example programs.  The example programs are described in the WSC_4x Programmer's Manual:
+</P>
+
+<PRE>
+[NAME]       [DESCRIPTION]
+WSC_4C    :  WSC Programmer's Manual for C/C++
+WSC_4D    :  WSC Programmer's Manual for Delphi
+WSC_4VB   :  WSC Programmer's Manual for Visual Basic
+WSC_4PB   :  WSC Programmer's Manual for PowerBASIC
+WSC_4CB   :  WSC Programmer's Manual for COBOL
+WSC_4FP   :  WSC Programmer's Manual for Visual FoxPro
+WSC_4DB   :  WSC Programmer's Manual for Visual dBase
+WSC_4XB   :  WSC Programmer's Manual for Xbase++
+</PRE>
+
+<P>
+<BR>
+</P>
+<A NAME="Section_2.5"> </A>
+<H2>2.5  Using WSC with Other Languages</H2>
+<P>
+The Windows Standard Serial Communications DLL functions can be called from any program written in any computer language capable of calling Windows (3.1, 95/98/Me/2000/NT/XP) API functions.  WSC16.DLL is required for all Win16 applications, and WSC32.DLL is required for all Win32 (Windows 95/98/Me/2000/NT/XP) applications.
+</P>
+<P>
+Declaration files have been defined for the following languages:
+</P>
+
+<PRE>
+[LANGUAGE]              [FILE]
+C/C++ (&amp; .NET)          WSC.H
+Visual Basic (&amp; VB.NET) WSC16.BAS, WSC32.BAS, WSC32.VB (VB.Net)
+VBA (Excel, Access)     WSC32.BAS
+PowerBASIC              WSC32.PBI
+Borland Delphi          WSC16.PAS and WSC32.PAS
+Fujitsu COBOL           WSC32.CBI
+ABSOFT FORTRAN          WSC32.INC
+Visual FoxPro           WSC32.FOX
+Visual dBase            WSC16.CC and WSC32.CC
+Alaska Xbase++          WSC32.CH
+</PRE>
+
+<P>Additional declaration files will be added.  Give us a call if you need a declaration 
+not listed above.</P>
+
+<P>If you have interfaced WSC to an unusual language, email us the declaration file!</P>
+
+<A NAME="Section_2.6"> </A>
+<H2>2.6  UARTs and Serial Ports</H2>
+
+<P>Bytes are moved from the UARTs FIFO buffer to the receive memory buffer by the Windows 
+Interrupt Service Routine (ISR), asynchronous to your code.  Similarly, the Windows ISR 
+moves bytes from your transmit queue to the UARTs transmit FIFO buffer.</P>
+
+<P>Refer to the SERIAL User's Manual  (SERIAL.DOC, SERIAL.TXT or SERIAL.HTM) for more 
+information regarding UARTs and serial ports.</P>
+
+<A NAME="Section_2.7"> </A>
+<H2>2.7  USB Ports</H2>
+
+<P>WSC will work with most USB ports that have a "USB to Serial Port" converter cable 
+installed, including the Windows driver that comes with the cable.  The USB port must 
+appear as a serial port to the Windows API, and hence to WSC.</P>
+
+<P>The driver that comes with the "USB to Serial Port" converter should appear as a serial port driver to Windows itself.  The driver converts from serial port data (including all RS232 signals) to USB data, which is converted back to serial data by the adapter attached to the USB port.
+</P>
+<P>
+We have tested the "USB to Serial CONVERTER Cable" by D-Link (www.dlink.com) and found it to work well with WSC.
+</P>
+<P>
+The drivers for some USB to Serial converters do not implement the RESETDEV Windows API command.  For this reason, beginning in WSC version 3.1, SioReset will not call the RESETDEV command unless it is specifically requested by calling:
+</P>
+
+<PRE>
+     SioDebug('R') --C/C++ and Delphi.
+     SioDebug(ASC("R")) -- BASIC, FoxPro, dBase, Xbase++, etc.
+</PRE>
+
+<P>
+before calling SioReset.
+</P>
+<A NAME="Section_2.8"> </A>
+<H2>2.8  PCMCIA Modems</H2>
+<P>
+WSC will work with most PCMCIA modems (card modems for laptops).  The PCMCIA drivers that come with the modem card must be properly installed.
+</P>
+<P>
+The PCMCIA modem must appear as a normal serial port modem to Windows.  The PCMCIA modem should come with several drivers, including a serial port driver and a modem driver.
+</P>
+<P>
+We have tested the "Venus K56Flex V.90" PCMCIA card and found it to work properly with WSC.
+</P>
+<A NAME="Section_2.9"> </A>
+<H2>2.9  Threads</H2>
+<P>
+WSC is thread safe.  Note that calling
+</P>
+
+<PRE>
+     // block awaiting incoming character
+     SioEvent(Port, EV_RXCHAR)
+
+will block the thread that SioEvent is called from.  The blocking can be stopped by calling (from another thread)
+
+    SioSetInteger(Port, 'S', 1)       [C/C++, Delphi]
+    SioSetInteger(Port, ASC("S"), 1)  [BASIC, FoxPro, dBASE, Xbase++]
+</PRE>
+
+<P>Refer to the WSC Reference Manual (WSC_REF) for more information on the SioEvent  
+function.</P>
+
+<A NAME="Section_2.10"> </A>
+<H2>2.10  SioPuts Notes</H2>
+<BLOCKQUOTE>
+  <P>The SioPuts function can operate in two ways:  (1) "wait for completion" and (2) 
+  "immediate return".</P>
+
+</BLOCKQUOTE>
+
+<P>In the first (default) way ("wait for completion"), SioPuts will not return to the 
+caller until the entire contents of the buffer (passed to SioPuts) has been accepted by 
+the UART.  This means that the entire contents of the buffer will be transmitted, except 
+perhaps for the last 16 bytes (for an 16550) in the UART's transmit FIFO, when SioPuts 
+returns.</P>
+
+<P>In the second way ("immediate return"), the contents of the buffer (passed to SioPuts) 
+is queued in the transmit (TX) buffer within Windows, after which SioPuts returns.  This 
+means that SioPuts will return immediately, before any data is passed to the UART for 
+transmission.  This allows the calling program code to continue processing at the same 
+time that the serial data is being transmitted.
+</P>
+<P>
+In all cases, the value returned by SioPuts must be checked by the caller to determine the number of bytes actually accepted.
+</P>
+<P>
+To enable the second method of operation (immediate return) for SioPuts , call
+</P>
+
+<PRE>
+    SioSetInteger(Port, 'W', 1)       [C/C++, Delphi]
+    SioSetInteger(Port, ASC("W"), 1)   [VB, PowerBASIC, FoxPro, dBASE, Xbase++]
+</PRE>
+
+<BR>
+<A NAME="Section_2.11"> </A>
+<H2>2.11  RS485 and 422 Ports</H2>
+
+<P>WSC can be used with multi-drop serial lines such as RS422 and RS485 serial ports.  
+However, most RS422/485 serial ports require that RTS be raised before transmitting, and 
+dropped before anyone else on the multidrop line can transmit. This usually means that one 
+wants to determine when the last bit of the last byte has been transmitted.</P>
+
+<BLOCKQUOTE>
+  <P>Since Windows NT/2000/XP does not allow direct access to hardware, one must wait long 
+  enough for the last bit to be sent.  Once the TX queue becomes empty [SioTxQue(Port) = 0], 
+  up to 16 bytes may remain in the TX FIFO in the UART (for a 16550 UART with 16-byte 
+  FIFO's).  Thus, one must wait about one millisecond per 1000 characters at 9600 baud, or 
+  16 milliseconds for 16 bytes.</P>
+
+</BLOCKQUOTE>
+
+<P>In Windows 95/98/Me, the SioRead function can be used to determine when the last bit of the last byte has been transmitted, once the TX queue is empty.  That is, once SioTxQue(Port) returns 0, the last bit has been transmitted when
+</P>
+
+<PRE>
+     0x60 &amp; SioRead(Port, 5))) == 0x60      [C/C++]
+     IF (&amp;H0060 AND Code) = &amp;H0060          [VB,PowerBASIC]
+     If ($60 AND SioRead(Port, 5)) = $60    [Delphi]
+</PRE>
+
+<BR>
+<A NAME="Section_2.12"> </A>
+<H2>2.12  Hardware Flow Control &amp; Blocking</H2>
+
+<P>If hardware flow control is set, and CTS is 0, your application will block until CTS is 
+raised by the serial device (modem, etc.).  To prevent blocking because there is no modem 
+connected, do this:</P>
+
+<OL type="1" start="1">
+  <LI VALUE="1">
+  Call SioReset and check return code.</LI>
+
+  <LI VALUE="2">
+  Set DTR</LI>
+
+  <LI VALUE="3">
+  If DSR is 0, then you are NOT connected to a modem.</LI>
+
+  <LI VALUE="4">
+  If CTS is 0, then the modem has NOT enabled hardware flow control.</LI>
+
+  <LI VALUE="5">
+  If DSR &amp; CTS are not 0, set hardware flow control.</LI>
+
+</OL>
+
+<P>Another way to avoid blocking is to put the serial code in a Win32 thread. The thread 
+may block but your invoking code will not.</P>
+
+<A NAME="Section_3"> </A>
+<H2>3  Modem I/O (MIO)</H2>
+<A NAME="Section_3.1"> </A>
+<H2>3.1  MIO Introduction</H2>
+
+
+<P>The Modem I/O functions ease communicating with modems using AT commands.</P>
+
+
+<P>The MIO functions are broken down into parts called states, and control is returned to 
+Windows between executing each state.  This allows other code to run while waiting for MIO 
+functions to complete.</P>
+
+
+<P>For example (C/C++ Example):</P>
+
+<OL type="1" start="1">
+  <LI VALUE="1">
+  Send the string to the MIO driver by executing:</LI>
+
+</OL>
+<BLOCKQUOTE>
+  <P>Code = mioSendTo(Port,100,"!ATDT1,800,555,1212")</P>
+
+</BLOCKQUOTE>
+
+<P>The '!' characters are converted to carriage returns.  The text string is copied into 
+the driver's data area.</P>
+
+<OL type="1" start="2">
+  <LI VALUE="2">
+  Call mioDriver (typically based on a timer) until MIO_IDLE is returned.  Each time 
+  mioDriver is called, it will send another character to the modem provided the required 
+  delay (since the previous character was sent) has passed.  If the delay has not passed, 
+  the driver simply returns MIO_RUNNING, but without actually sending a character to the 
+  modem.  Once all characters have been sent, mioDriver will return MIO_IDLE, indicating it 
+  is done and is ready to accept another function.
+  </LI>
+
+</OL>
+
+<P>mioDriver will return MIO_RUNNING if it is still processing.  Any other return value 
+indicates that it is still processing and the returned value is a character from the modem 
+that can be displayed if wanted.</P>
+
+<OL type="1" start="3">
+  <LI VALUE="3">
+  Once mioDriver returns MIO_IDLE, call mioResult to get the result of the mioSendTo 
+  call.</LI>
+
+</OL>
+<A NAME="Section_3.2"> </A>
+<H2>3.2  MIO Function Summary</H2>
+<UL>
+  <LI>mioDriver : Drives execution of mioSendTo, mioWaitFor, or mioQuiet once 
+  started.</LI>
+
+  <LI>mioBreak : Forces the MIO driver to IDLE state.</LI>
+
+  <LI>mioSendTo : Sends a string (including control chars) to the modem.</LI>
+
+  <LI>mioWaitFor : Waits  for a particular string from the modem, passing all else 
+  through.</LI>
+
+  <LI>mioQuiet : Waits for continuous quiet of a specified duration.</LI>
+
+  <LI>mioBreak : Breaks further modem I/O activity.</LI>
+
+</UL>
+
+<P>Refer to the WSC Reference Manual (WSC_REF) for more information on individual MIO 
+functions.</P>
+
+<BR>
+<A NAME="Section_4"> </A>
+<H2>4  XMODEM and YMODEM</H2>
+<A NAME="Section_4.1"> </A>
+<H2>4.1  XYM Introduction</H2>
+
+<P>The XMODEM and YMODEM functions are implemented as DLL's (Dynamic Link Libraries), in 
+XYM16.DLL and XYM32.DLL, and are state driven like the Modem I/O functions described in 
+the previous section.</P>
+
+
+<P>Files can be sent and received using XMODEM, XMODEM/CRC, XMODEM/1K, and YMODEM.  The 
+basic procedure used to run XMODEM and YMODEM is as follows:</P>
+
+<OL type="1" start="1">
+  <LI VALUE="1">
+  Call xyAcquire() immediately after calling SioReset().</LI>
+
+  <LI VALUE="2">
+  To receive a file, call xyStartRx(), then call xyDriver() repeatedly until XY_IDLE is 
+  returned.</LI>
+
+  <LI VALUE="3">
+  To send a file, call xyStartTx(), then call xyDriver() repeatedly until XY_IDLE is 
+  returned.</LI>
+
+  <LI VALUE="4">
+  Call xyRelease() immediately before calling SioDone().</LI>
+
+</OL>
+
+<P>Refer to XMODEM.TXT for more information on the internal operation of the XMODEM 
+protocol, and to YMODEM.TXT for more information on the internal operation of the YMODEM 
+protocol.  Also see the TERM example program.</P>
+
+<A NAME="Section_4.2"> </A>
+<H2>4.2  XYM Function Summary</H2>
+<UL>
+  <LI>xyAbort : Abort driver at any time.</LI>
+
+  <LI>xyAcquire : Acquire a port.</LI>
+
+  <LI>xyDebug : Set the debug level.</LI>
+
+  <LI>xyDriver : Executes the next state or states.</LI>
+
+  <LI>xyGetMessage : Get the next debug message.</LI>
+
+  <LI>xyGetParameter : Get a driver parameter.</LI>
+
+  <LI>xyGetFileName : Get name of file being sent or received.</LI>
+
+  <LI>xyRelease : Release a port.</LI>
+
+  <LI>xyStartRx : Start a receive.</LI>
+
+  <LI>xyStartTx : Start a transmit.</LI>
+
+  <LI>XySetString: Set parameter string.</LI>
+
+</UL>
+
+<P>Refer to the WSC Reference Manual (WSC_REF) for more information on individual XY Modem 
+functions (XYM16.DLL and XYM32.DLL).</P>
+
+<A NAME="Section_5"> </A>
+<H2>5  ASCII File Transfer</H2>
+<A NAME="Section_5.1"> </A>
+<H2>5.1  ASCII Protocol</H2>
+
+<P>The "ASCII Protocol" is not a defined protocol, but rather it is a loose set of 
+conventions developed over a period of years by BBS operators.  Because XON/OFF flow 
+control is used, only ASCII text can be transferred.  The ASCII protocol is implemented as 
+a DLL and is state driven like the MIO and XYM code.
+</P>
+
+<OL type="1" start="1">
+  <LI VALUE="1">
+  Call ascInit(Port,RxQueSize,xFlag) to perform initialization, where
+  <BR><BR></LI>
+
+</OL>
+<UL>
+  <LI>Port = The connected port (COM1, COM2, etc).</LI>
+
+  <LI>RxQueSize = The size of the Rx Queue as passed to SioReset().</LI>
+
+  <LI>xFlag = 1 if this module will perform XON/XOFF flow control.</LI>
+
+  <LI>Set to FALSE if flow control is being performed by the WSC code (you called 
+  SioFlow()).
+  <BR><BR></LI>
+
+</UL>
+<OL type="1" start="2">
+  <LI VALUE="2">
+  To send an ASCII file, call</LI>
+
+</OL>
+
+<P>ascStartTx(FileName,CharPace,TermChar,EchoFlag), where</P>
+
+<UL>
+  <LI>FileName = The path &amp; name of the file to send.</LI>
+
+  <LI>CharPace = The delay in milliseconds between characters.</LI>
+
+  <LI>TermChar = The termination character to send after the file has been sent.  If none, 
+  use 0x00.</LI>
+
+  <LI>EchoFlag = 1 if screen echo is desired.</LI>
+
+</UL>
+
+<P>Then call ascDriver() until it returns IDLE (1).</P>
+
+<OL type="1" start="3">
+  <LI VALUE="3">
+  To receive an ASCII file, call</LI>
+
+</OL>
+
+<P>ascStartRx(FileName,TermChar,FirstWait,CharWait,EchoFlag), where</P>
+
+<UL>
+  <LI>FileName = The path &amp; name of the file to send.</LI>
+
+  <LI>TermChar = The termination character.  If none, use 0x00.</LI>
+
+  <LI>FirstWait = The maximum number of seconds to wait for the first incoming 
+  character.</LI>
+
+  <LI>CharWait = The maximum number of seconds after which it is assumed that the other 
+  side has completed sending.</LI>
+
+  <LI>If unsure, set this to 3 seconds.</LI>
+
+  <LI>EchoFlag = 1 if screen echo is desired.</LI>
+
+</UL>
+
+<P>Then call ascDriver() until it returns IDLE (1).</P>
+
+<A NAME="Section_5.2"> </A>
+<H2>5.2  ASCII Function Summary</H2>
+<UL>
+  <LI>ascAbort : Abort driver at any time.</LI>
+
+  <LI>ascDriver : Executes the next state or states.</LI>
+
+  <LI>ascGetMessage : Get the next debug message.</LI>
+
+  <LI>ascGetParameter : Get a driver parameter.</LI>
+
+  <LI>ascGetFileName : Get name of file being sent or received.</LI>
+
+  <LI>ascInit : Initialize the driver.</LI>
+
+  <LI>ascStartRx : Start a receive.</LI>
+
+  <LI>ascStartTx : Start a transmit.</LI>
+
+</UL>
+<A NAME="Section_6"> </A>
+<H2>6  Versions of WSC</H2>
+
+<P>The Windows Standard Serial Communications (WSC) library is available in three 
+versions. All three versions have identical functionality.</P>
+
+<A NAME="Section_6.1"> </A>
+<H2>6.1  Evaluation Version</H2>
+
+<P>The evaluation version can be differentiated from the other two versions by:</P>
+
+<OL type="1" start="1">
+  <LI VALUE="1">
+  The evaluation reminder screen is displayed at startup.
+  <BR><BR></LI>
+
+  <LI VALUE="2">
+  The evaluation version may not be used for commercial purposes.
+  <BR><BR></LI>
+
+  <LI VALUE="3">
+  The evaluation version can be tested for 60 days.</LI>
+
+</OL>
+<A NAME="Section_6.2"> </A>
+<H2>6.2  Academic Version</H2>
+
+<P>The academic version can be differentiated from the other two versions by:</P>
+
+<OL type="1" start="1">
+  <LI VALUE="1">
+  There is no evaluation reminder screen.
+  <BR><BR></LI>
+
+  <LI VALUE="2">
+  The academic version may not be used for commercial purposes.</LI>
+
+</OL>
+
+<P>DLLs purchased with the academic discount may not be distributed, and must be used for 
+educational
+purposes only.</P>
+
+<A NAME="Section_6.3"> </A>
+<H2>6.3  Professional Version</H2>
+
+<P>The professional version can be differentiated from the other two versions by:</P>
+
+<OL type="1" start="1">
+  <LI VALUE="1">
+  There is no evaluation reminder screen.
+  <BR><BR></LI>
+
+  <LI VALUE="2">
+  Source code may be purchased for WSC, MIO, and XYM.</LI>
+
+</OL>
+
+<P>Your compiled DLLs may be distributed with your compiled applications as specified by 
+the software license.  However, the License Key nor the source code (if purchased) to the 
+DLLs may NOT be distributed.  The Professional version may be used for commercial 
+purposes.</P>
+
+
+<P>Licensing information is provided in Section <A HREF="#Section_8.2">8.2</A>.  For details on ordering, refer to Section <A HREF="#Section_1.4">1.4</A> "Ordering" or www.marshallsoft.com/order.htm.</P>
+
+<A NAME="Section_7"> </A>
+<H2>7  Problems</H2>
+<OL type="1" start="1">
+  <LI VALUE="1">
+  First, be sure you are passing the proper key code.  See Section <A HREF="#Section_2.1">2.1</A>.
+  <BR><BR></LI>
+
+  <LI VALUE="2">
+  If you still get the registration reminder screen after registering, the problem is that 
+  Windows is finding the evaluation DLL before the registered DLL.  The solution is to 
+  delete (or zip up) all evaluation versions of the WSC16.DLL and WSC32.DLL .
+  <BR><BR></LI>
+
+  <LI VALUE="3">
+  If you get "error -74" when calling SioKeyCode, the problem is that the keycode passed 
+  to SioKeyCode does not match the keycode in the DLL's.  This is caused by using the 
+  evaluation keycode (value = 0) with the registered DLL.
+  <BR><BR></LI>
+
+  <LI VALUE="4">
+  If you cannot get your application to run properly, first compile and run the terminal 
+  emulator program SIMPLE provided on your distribution disk.  Test SIMPLE by connecting two 
+  computers with a null modem cable or by commanding a Hayes AT command set compatible 
+  modem.</LI>
+
+</OL>
+
+<P>Once SIMPLE runs, compile and run the SELFTEST program.  This program will test your 
+serial ports' functionality.</P>
+
+<OL type="1" start="5">
+  <LI VALUE="5">
+  If your application does not run but SIMPLE and SELFTEST run correctly, then you have 
+  most likely made a programming mistake in  your application.  MarshallSoft Computing 
+  cannot debug your application, especially over the telephone!  However, consider each of 
+  the following when searching for an error in your application.
+  <BR><BR></LI>
+
+  <LI VALUE="6">
+  Are your receive and transmit buffers large enough?  Use a buffer size that is twice the 
+  size of the largest expected block.
+  <BR><BR></LI>
+
+  <LI VALUE="7">
+  Have you selected too high a baud rate?  Windows can multitask many tasks at once.  You 
+  may have to lower your baud rate (or get 16550 UART's).
+  <BR><BR></LI>
+
+  <LI VALUE="8">
+  Did SioReset return a zero value?  If not, then you must call SioReset again.
+  <BR><BR></LI>
+
+  <LI VALUE="9">
+  Did you send the proper initialization string to your modem?  Did you set DTR and RTS? 
+  (you should).
+  <BR><BR></LI>
+
+  <LI VALUE="10">
+  Are you trying to link a 32-bit DLL to a 16-bit program (or vice versa)?  Keep Win16 
+  &amp; Win32 development separate.
+  <BR><BR></LI>
+
+  <LI VALUE="11">
+  If you terminate your program when running inside the Visual Basic environment, and you 
+  do not call SioDone first, you will leave VB itself with an open handle to your COM port. 
+  When you run again, you will get an "ACCESS DENIED" error and you must re-start VB 
+  itself.</LI>
+
+</OL>
+
+<P>We recommend the following steps if you believe that you have discovered a bug in the 
+library:</P>
+
+<OL type="1" start="1">
+  <LI VALUE="1">
+  Create the smallest, simplest test program possible that demonstrates the problem.</LI>
+
+  <LI VALUE="2">
+  Document your exact machine configuration and what error the test program 
+  demonstrates.</LI>
+
+  <LI VALUE="3">
+  Email us the example source.</LI>
+
+</OL>
+
+<P>If the problem is an error in the library and can be solved with an easy work-around, 
+we will publish the work-around.  If the problem requires a modification to the library, 
+we will make the change and make the modified library available to our customers without 
+charge.</P>
+
+<A NAME="Section_8"> </A>
+<H2>8  Legal Issues</H2>
+<A NAME="Section_8.1"> </A>
+<H2>8.1  Registration</H2>
+
+<P>Refer to Section <A HREF="#Section_1.4">1.4</A> "Ordering" above for information on ordering.</P>
+
+<A NAME="Section_8.2"> </A>
+<H2>8.2  License</H2>
+
+<P>MarshallSoft Computing, Inc. grants the registered user of WSC the right to use one 
+copy of the WSC DLL's on a single computer in the development of any software product. The 
+user may not use the library on more than one computer at the same time.  Our licenses are 
+per developer.  A license must be purchased for each developer using WSC.
+</P>
+
+<P>The "academic" registered DLL's may not be distributed under any circumstances, nor may 
+they be used for any commercial purpose.</P>
+
+<P>The "professional" registered DLL's may be distributed (without royalty) in object form 
+only, as part of the user's compiled application provided the value of the Key Code 
+(License Key) is not revealed.  The registered DLL's may NOT be distributed as part of any 
+software development system (compiler or interpreter) without our express written 
+permission. The source code if purchased for the library (WSC16.C, WSC32.C, MIO.C, and 
+XYM.C) is copyrighted by MarshallSoft Computing and may not be released in whole or in 
+part.</P>
+
+<A NAME="Section_8.3"> </A>
+<H2>8.3  Warranty</H2>
+
+<P>MARSHALLSOFT COMPUTING, INC.  DISCLAIMS ALL WARRANTIES RELATING TO THIS SOFTWARE, 
+WHETHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY IMPLIED WARRANTIES OF 
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE, AND ALL SUCH WARRANTIES ARE 
+EXPRESSLY AND SPECIFICALLY DISCLAIMED. NEITHER MARSHALLSOFT COMPUTING, INC.  NOR ANYONE 
+ELSE WHO HAS BEEN INVOLVED IN THE CREATION, PRODUCTION, OR DELIVERY OF THIS SOFTWARE SHALL 
+BE LIABLE FOR ANY INDIRECT,  CONSEQUENTIAL, OR INCIDENTAL DAMAGES ARISING OUT OF THE USE 
+OR INABILITY TO USE SUCH SOFTWARE EVEN IF MARSHALLSOFT COMPUTING, INC.  HAS BEEN ADVISED 
+OF THE POSSIBILITY OF SUCH DAMAGES OR CLAIMS. IN NO EVENT SHALL MARSHALLSOFT COMPUTING, 
+INC.'S LIABILITY FOR ANY SUCH DAMAGES EVER EXCEED THE PRICE PAID FOR THE LICENSE TO USE 
+THE SOFTWARE, REGARDLESS OF THE FORM OF THE CLAIM. THE PERSON USING THE SOFTWARE BEARS ALL 
+RISK AS TO THE QUALITY AND PERFORMANCE OF THE SOFTWARE.
+</P>
+<P>
+Some states do not allow the exclusion of the limit of liability for consequential or incidental damages, so the above limitation may not apply to you.
+</P>
+<P>
+This agreement shall be governed by the laws of the State of Alabama and shall inure to the benefit of MarshallSoft Computing, Inc. and any successors, administrators, heirs and assigns. Any action or proceeding brought by either party against the other arising out of or related to this agreement shall be brought only in a STATE or FEDERAL COURT of competent jurisdiction located in Madison County,  Alabama. The parties hereby consent to in personam jurisdiction of said courts.
+</P>
+<A NAME="Section_9"> </A>
+<H2>9  Summary</H2>
+<A NAME="Section_9.1"> </A>
+<H2>9.1  WSC Function Summary</H2>
+<P>
+Refer to the WSC Reference Manual (WSC_REF.DOC or WSC_REF.HTM) for detailed information on the WSC functions.  A one line summary of each function follows.
+</P>
+<P>
+There are 32 functions in the WSC library.
+</P>
+
+<PRE>
+    SioBaud     Sets the baud rate of the selected port.
+    SioBrkSig   Asserts, cancels, or detects BREAK signal.
+    SioCTS      Reads the Clear to Send (CTS) modem status bit.
+    SioDCD      Reads the Data Carrier Detect (DCD) modem status.
+    SioDebug    Set and/or reads debug data.
+    SioDone     Terminates further serial processing.
+    SioDSR      Reads the Data Set Ready (DSR) modem status bit.
+    SioDTR      Set, clear, or read the Data Terminal Ready (DTR).
+    SioEvent    Wait for specified event.
+    SioFlow     Enables / disables hardware flow control.
+    SioGetc     Reads the next character from the serial line.
+    SioGets     Receives a string of characters.
+    SioInfo     Returns information such as library version.
+    SioKeycode  Passes the "key code" value to the DLL.
+    SioMessage  Post message when event occurs.
+    SioParms    Sets parity, stop bits, and word length.
+    SioPutc     Transmit a character over a serial line.
+    SioPuts     Transmits a string of characters.
+    SioRead     Reads any UART register.
+    SioReset    Initialize a serial port for processing.
+    SioRI       Reads the Ring Indicator (RI) modem status bit.
+    SioRTS      Sets, clears, or reads the Request to Send (RTS)
+    SioRxClear  Clears the receive buffer.
+    SioRxQue    Returns the number of characters in the RX queue.
+    SioStatus   Returns the serial port line status.
+    SioTimer    Returns the system times in milliseconds.
+    SioTxClear  Clears the transmit buffer.
+    SioTxQue    Returns the number of characters in the TX queue.
+    SioUnGetc   "Ungets" (puts back) a specified character.
+    SioWinError Returns Win32 error message as text.
+    SioGetReg   Gets registration string
+    SioSetInteger Sets port specific integer parameters.
+</PRE>
+
+<P>There are also 18 additional functions for Modem I/O.  Refer to the WSC Reference 
+Manual (WSC_REF.DOC or WSC_REF.HTM) for detailed information on each function.</P>
+
+<BR>
+</BODY>
+</HTML>

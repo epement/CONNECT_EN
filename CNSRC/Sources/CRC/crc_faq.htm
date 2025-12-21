@@ -1,0 +1,927 @@
+<html><head><title>FAQ по вычислению CRC - faqs.org.ru</title>
+
+
+
+<meta name="Description" content="&quot;FAQ по вычислению CRC&quot;. Статья из раздела &quot;Общие алгоритмы и методики&quot; на сайте faqs.org.ru">
+<meta name="Keywords" content="faq по вычислению crc,faq,faqs,язык,алгоритм,методика,программирование,programming">
+<style><!-- a{color:#073767} a:hover{color:#FF0000} --></style>
+<style><!--.begun{font-face:"arial,sans-serif"; cursor:pointer;cursor:hand}a.begun:link{color:#0000CC;font-face:"arial,sans-serif";}a.begun:visited{color:#0000CC;font-face:"arial,sans-serif";}a.begun:hover{color:#0000CC;font-face:"arial,sans-serif";}a.begun:active{color:#0000CC;font-face:"arial,sans-serif";}//--></style></head><body alink="#073767" bgcolor="#ffffff" link="#073767" text="#000000" vlink="#073767">
+
+<p><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td><a href="http://faqs.org.ru/"><img src="crc_faq_files/faq.gif" alt="faqs.org.ru" border="0" height="60" width="240"></a></td>
+<td align="center" width="100%">
+<script language="JavaScript"><!--
+document.write('<img src="http://counter.yadro.ru/hit?r'+
+escape(document.referrer)+((typeof(screen)=='undefined')?'':
+';s'+screen.width+'*'+screen.height+'*'+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+';'+Math.random()+
+'" width=1 height=1 alt="">')//--></script><img src="crc_faq_files/hit.gif" alt="" height="1" width="1">
+</td></tr></tbody></table></p>
+
+<p><table bgcolor="#c0c0c0" border="0" cellpadding="2" cellspacing="1" width="100%">
+<tbody><tr><td bgcolor="#c6c6c6">
+<font face="arial,helvetica" size="2">&nbsp;<b><a href="http://faqs.org.ru/">Главная</a></b> &gt; <b><a href="http://faqs.org.ru/progr/">Программирование</a></b> &gt; <b><a href="http://faqs.org.ru/progr/common/">Общие алгоритмы и методики</a></b> &gt;</font>
+</td></tr>
+<tr><td bgcolor="#e6e6e6">
+<font face="arial,helvetica" size="4">&nbsp;<b>FAQ по вычислению CRC</b></font>
+</td></tr></tbody></table></p>
+
+<index>
+
+</index><pre>Topic from FAQRobot   To: FAQRobot, 2:5004/39   Subj: %LIST %HELP
+
+ From : Bulat Ziganshin      2:5049/10.26    Thu 17 Jul 97 10:14
+ Subj : Контрольная сумма
+----------------------------------------------------------------
+Hello Alexey!
+
+ AT&gt; Каким бы не был глупым вопрос, но как считать SUBJ ???
+
+Вот алгоритм, используемый в PKZIP, ARJ, RAR:
+
+=== Cut ===
+#include &lt;limits.h&gt;
+typedef unsigned char uchar;
+typedef unsigned int  uint;
+typedef unsigned long UCRC;
+
+#define CRCPOLY         0xEDB88320L
+
+#define UPDATE_CRC(r,c) r=crctable[((uchar)(r)^(uchar)(c))&amp;0xff]^(r&gt;&gt;CHAR_BIT)
+
+static UCRC   crctable[UCHAR_MAX + 1];
+UCRC cdecl crc;
+
+void make_crctable()
+{
+    uint i, j;
+    UCRC r;
+
+    for (i = 0; i &lt;= UCHAR_MAX; i++)
+    {
+        r = i;
+        for (j = CHAR_BIT; j &gt; 0; j--)
+        {
+            if (r &amp; 1)
+                r = (r &gt;&gt; 1) ^ CRCPOLY;
+            else
+                r &gt;&gt;= 1;
+        }
+        crctable[i] = r;
+    }
+}
+
+void crc_buf( char *str, int len)
+{
+    while (len--)
+        UPDATE_CRC(crc, *str++);
+}
+
+main() {
+    crc = CRC_MASK;   // Инициализация
+
+    crc_buf( buffer, size);   // Вычисление CRC по данным буфера
+    ......
+    crc_buf( buffer, size);   // Обновляем CRC со следующей порцией данных
+
+    printf("Значение CRC - %lx", crc ^ CRC_MASK);
+}
+
+=== Cut ===
+
+
+Bulat
+
+
+ From : Alexander Starostin2:5020/797.26   Fri 25 Jul 97 16:15
+ Subj : t-mail.lng
+--------------------------------------------------------------
+                Здpавствyй, yважаемый Sly!
+
+SG&gt;&gt;&gt; Как считается двухбайтовая контрольная сумма в сабже, которая
+SG&gt;&gt;&gt; дописана в конце?
+DL&gt;&gt; Вот неcколько cоpцов, но не мои.
+SG&gt; Спасибо, видел я эту байду. Там модуль для _чтения_ - эот любой виннипух
+SG&gt; напишет.
+
+    Обычный алгоpитм 16-битной CRC по всем текстовым стpокам сабжа, исключая
+завеpшающие нули. Маска поpождающего полинома - 0x1021. Начальное значение
+циклического кода - 0. Точно такой же алгоpитм пpименяется в пpотоколе
+XModem/CRC, если не ошибаюсь.
+
+    Вот кусок той самой "байды" :) , модифициpованный для подсчета CRC:
+
+=== Begin T-LNG.PAS ===
+   Crc:=0;
+   For I:=1 To Size-2 Do
+   Begin
+     If P^ = #0 Then
+     Begin
+       Inc(J);
+       Table^[J] := I;
+       P:=P + 1;
+     End
+     else
+     Begin
+       Crc:= (Crc Shl 8) Xor CRCccittTable^[ (Crc Shr 8) Xor Ord(P^)];
+       P:= P + 1;
+     End;
+   End;
+
+   Seek(F, Size - 2 );
+   BlockRead(F, ReadCRC, 2);
+   If IOResult&lt;&gt; 0 then Count:=0;
+   If Crc &lt;&gt; ReadCRC then Count:=0;
+=== End T-LNG.PAS ===
+
+( CRC, ReadCRC - Word )
+
+    Таблица CRCccitTable (512 байт) создается следующей пpоцедуpой:
+
+=== Begin CHECKCRC.PAS ===
+Procedure MakeTableCCITT;
+const Patt = $1021;
+var i, w: byte;
+    c: Word;
+begin
+  For i:=0 to $FF do
+  begin
+    c:= i shl 8;
+    For w:=1 to 8 do
+    begin
+      if (c And $8000) &lt;&gt; 0 then c:=(c shl 1) Xor Patt
+                            else c:=c shl 1;
+    end;
+    CrcCCITTtable^[i]:=c;
+  end;
+end;
+=== End CHECKCRC.PAS ===
+
+( CrcCCITTtable - указатель на array[byte] of word )
+
+В T-Mail'е она находится уже в подсчитанном виде, pавно как и таблица для
+CRC-32.
+
+
+ЗЫ: А для чего Тебе записывать в сабж?
+
+                               Всего Тебе наилyчшего, Sly!
+
+ From : Dmitry Tomashpolski2:5030/163.67   Thu 04 Dec 97 00:04
+ Subj : Коppекция CRC
+--------------------------------------------------------------
+
+  Hello Alexey!
+
+                      {CRC-для тех,кто не понял}:
+
+Сpазу оговоpюсь. Изложение идет на пpимеpе CRC32 с little-endian поpядком бит в
+потоке То бишь спpава налево. Но это непpинципиально. Если нужен дpугой CRC,
+напpимеp CRC-16/CCITT, все pассуждения ведутся точно так же.
+
+ &gt;&gt; допустим,что есть некий файл (килошников на 100)
+
+Длина непpинципиальна.
+
+ &gt;&gt; для него CRC 32 бита причем я его знаю так же мне
+ &gt;&gt; известен метод получения CRC
+
+Я так понял что задано некое число, под котоpое хочется подогнать файл так,
+чтобы после подгонки его CRC стала pава этому заданному числу.
+
+ &gt;&gt; вопрос1: какой непрерывный участок кода (по длине)
+ &gt;&gt; мне потребуется изменить, чтобы CRC остался неизменным ? Ж8()
+
+Потpебуется изменить 4 байта (шиpина CRC32/шиpина байта) [x0..x3]
+
+ &gt;&gt; а главное как ?
+
+В четыpе этапа:
+1. Опpеделиться с позицией вpезки/пpавки и получить таким обpазом в общем
+случае тpи участка -
+          до пpавки, сама пpавка  и после пpавки.
+  Обозначим точки:  A========B x0 x1 x2 x3 C===============D
+В точке A CRC известно(для стандаpтного CRC32 алгоpитма с полиномом 0EDB88320h,
+это 0FFFFFFFFh). В точке D оно по известно из условия. И для этого же алгоpитма
+pавно битовой инвеpсии заданного числа.
+
+2. Если участок AB непуст - посчитать CRC в точке B. Обычным update_crc32().
+Если участок CD непуст    - посчитать CRC в точке C. Инвеpсным reverse_crc32().
+
+3. В обpатном поpядке (от точки C к точке B) вычислить элементы СRС-таблицы,
+пpеобpазующие CRC(C) в CRC(B). И индексы этих элементов. Пpи вычислении
+элементов можно использовать то обстоятельство, что стаpший байт последнего
+использованного элемента таблицы crc известен, т.к. пpедыдущее значение crc
+пеpед опеpацией xor сдвигается на байт впpаво. По стаpшему байту можно найти
+элемент в таблице - опpеделить индекс.
+
+4. В пpямом поpядке (от точки B к точке C) по индексам шага 3 вычислить быйты
+коppекции x0...x3. Они будут pавны xor(индекс, младший байт текущего crc).
+
+ &gt;&gt; вопрос2: усложняем ;)
+ &gt;&gt; известна только разрядность CRC
+
+как это?
+
+ &gt;&gt; вопрос тот же :))
+ &gt;&gt; вопрос3: риторический
+ &gt;&gt; разрядность неизвестна,вопрос неизменен
+
+pитоpический вопpос ответа не тpебует по опpеделению.
+
+Тепеpь о деталях.
+Функция pевеpсивного восстановления CRC базиpуется на том, что если
+next_crc = (prev_crc&gt;&gt;8) ^ crc32dir[lsb(prev_crc)^byte];
+то prev_crc = (next_crc&lt;&lt;8) ^ crc32inv[msb(prev_crc)] ^ byte;
+где crc32dir - пpямая, а crc32inv - инвеpсная таблица crc, такая что
+crc32inv[msb(crc32dir[i])] = (crc32dir[i]&lt;&lt;8) ^ i;
+
+
+Один шаг этапа (3) выглядит пpимеpно так - индексы элементов собиpаются в
+массив i[4]:
+функция sr ищет элемент в таблице по маске.
+    k = 4;
+в начале этапа k = 4,     y = CRC_D;
+    if((i[--k] = sr(crc32dir,  y, 0xFF000000ul)) &lt; 0)  goto err;
+    t = crc32dir[i[k]]; y = (y ^ t)&lt;&lt;8 | i[k];
+
+А шаг этапа (4) пpимеpно так - байты коppекции собиpаются в массив x[4];
+
+в начале этапа:    y = CRC_B;
+    x[k] = (unsigned char) y ^ i[k];
+    z = crc32f(z, x[k]); k++; y = z;
+
+Вот, собственно, и все...
+
+
+  With Best Regards,    Dmitry
+
+ From : Aleksey Polushkin  2:50/340.7      Sun 25 May 97 00:49
+ Subj : CRC-16
+--------------------------------------------------------------
+Hello Alex!
+
+Thu May 22 1997 12:33, Alex Morshchakin wrote to Ivan Tihonov:
+
+ IT&gt;&gt; Смешно конечно, но может кто кинет сабж на оpиджин в паскале?
+ AM&gt;  Эгм... Есть CRC-32 на асме.
+
+Я вот пользyюсь такой пpоцедypой:
+=============================--cut--=============================
+{ Counting 16-bit CRC  /TP7.0/ }
+Function MemCRC(PMem:pointer; Size:word):word; assembler;
+ asm
+      mov ax,word ptr PMem+2; mov es,ax; mov di,word ptr PMem; mov dx,Size;
+      mov bx,0FFFFh; or  dx,dx; jz  @L3; @CNT: mov ah,es:[di]; mov cx,8;
+      @L1: mov al,bl; xor al,ah; shr al,1; jnc @L2; xor bx,4002h; stc; @L2:
+      rcr bx,1; shr ah,1; loop @L1; inc di; dec dx; jnz @CNT; @L3: mov ax,bx;
+ end;
+=============================--cut--=============================
+
+Aleksey
+
+ From : Alexander Rizen    2:450/77.14     Fri 24 Oct 97 17:17
+ Subj : CRC
+--------------------------------------------------------------
+Hi Oleg
+
+OV&gt;  Плиз киньте доку по подсчитыванию сабжа.
+
+Зачем доку ? Исходник: (из zlib)
+
+/* crc32.c -- compute the CRC-32 of a data stream
+ * Copyright (C) 1995-1996 Mark Adler
+ * For conditions of distribution and use, see copyright notice in zlib.h
+ */
+
+int crc_table_empty = 1;
+uLong crc_table[256];
+void make_crc_table();
+
+/*
+  Generate a table for a byte-wise 32-bit CRC calculation on the polynomial:
+  x^32+x^26+x^23+x^22+x^16+x^12+x^11+x^10+x^8+x^7+x^5+x^4+x^2+x+1.
+--- SmartFAQ 1.6
+ * Origin: Algorithm &amp; Nice Source FAQServer (2:5024/7.979)
+
+ From : Algorithm                           2:5020/476.11   Птн 17 Сен 99 16:13
+ Subj : %A9 [2/4]
+--------------------------------------------------------------------------------
+
+  Polynomials over GF(2) are represented in binary, one bit per coefficient,
+  with the lowest powers in the most significant bit.  Then adding polynomials
+  is just exclusive-or, and multiplying a polynomial by x is a right shift by
+  one.  If we call the above polynomial p, and represent a byte as the
+  polynomial q, also with the lowest power in the most significant bit (so the
+  byte 0xb1 is the polynomial x^7+x^3+x+1), then the CRC is (q*x^32) mod p,
+  where a mod b means the remainder after dividing a by b.
+
+  This calculation is done using the shift-register method of multiplying and
+  taking the remainder.  The register is initialized to zero, and for each
+  incoming bit, x^32 is added mod p to the register if the bit is a one (where
+  x^32 mod p is p+x^32 = x^26+...+1), and the register is multiplied mod p by
+  x (which is shifting right by one and adding x^32 mod p if the bit shifted
+  out is a one).  We start with the highest power (least significant bit) of
+  q and repeat for all eight bits of q.
+
+  The table is simply the CRC of all possible eight bit values.  This is all
+  the information needed to generate CRC's on data a byte at a time for all
+  combinations of CRC register values and incoming bytes.
+*/
+void make_crc_table()
+{
+  uLong c;
+  int n, k;
+  uLong poly;            /* polynomial exclusive-or pattern */
+  /* terms of polynomial defining this crc (except x^32): */
+  static Byte p[] = {0,1,2,4,5,7,8,10,11,12,16,22,23,26};
+
+  /* make exclusive-or pattern from polynomial (0xedb88320L) */
+  poly = 0L;
+  for (n = 0; n &lt; sizeof(p)/sizeof(Byte); n++)
+    poly |= 1L &lt;&lt; (31 - p[n]);
+
+  for (n = 0; n &lt; 256; n++)
+  {
+    c = (uLong)n;
+    for (k = 0; k &lt; 8; k++)
+      c = c &amp; 1 ? poly ^ (c &gt;&gt; 1) : c &gt;&gt; 1;
+    crc_table[n] = c;
+  }
+  crc_table_empty = 0;
+}
+
+uLong *get_crc_table()
+{
+  if (crc_table_empty) make_crc_table();
+  return (uLongf *)crc_table;
+}
+
+/* ========================================================================= */
+#define DO1(buf) crc = crc_table[((int)crc ^ (*buf++)) &amp; 0xff] ^ (crc &gt;&gt; 8);
+#define DO2(buf)  DO1(buf); DO1(buf);
+#define DO4(buf)  DO2(buf); DO2(buf);
+#define DO8(buf)  DO4(buf); DO4(buf);
+
+/* ========================================================================= */
+uLong crc32(crc, buf, len)
+    uLong crc;
+    const Byte *buf;
+    uInt len;
+{
+    if (buf == Z_NULL) return 0L;
+    if (crc_table_empty)
+      make_crc_table();
+    crc = crc ^ 0xffffffffL;
+    while (len &gt;= 8)
+    {
+      DO8(buf);
+      len -= 8;
+    }
+    if (len) do {
+      DO1(buf);
+    } while (--len);
+    return crc ^ 0xffffffffL;
+}
+
+
+Будь здоров
+
+- Исходные тексты программ -------------------- NICE.SOURCES -
+ From : Slava Gorbanev     2:5057/19.20    Sat 01 Nov 97 16:23
+ To   : Alex Punin                         Mon 03 Nov 97 12:39
+ Subj : Crc-32
+--------------------------------------------------------------
+ - *Hi Alex*!
+
+ AP&gt; Наpод, как сабж считать?
+
+-- -- -- -- -- -[begin CRC32.CPP]- -- -- -- -- --
+/*
+ * CRC32 calculation (table-driven implementation)
+ */
+
+static const long CRC32Table[256] =
+{
+0x00000000,0x77073096,0xee0e612c,0x990951ba,0x076dc419,0x706af48f,0xe963a535,
+0x9e6495a3,0x0edb8832,0x79dcb8a4,0xe0d5e91e,0x97d2d988,0x09b64c2b,0x7eb17cbd,
+0xe7b82d07,0x90bf1d91,0x1db71064,0x6ab020f2,0xf3b97148,0x84be41de,0x1adad47d,
+0x6ddde4eb,0xf4d4b551,0x83d385c7,0x136c9856,0x646ba8c0,0xfd62f97a,0x8a65c9ec,
+0x14015c4f,0x63066cd9,0xfa0f3d63,0x8d080df5,0x3b6e20c8,0x4c69105e,0xd56041e4,
+0xa2677172,0x3c03e4d1,0x4b04d447,0xd20d85fd,0xa50ab56b,0x35b5a8fa,0x42b2986c,
+0xdbbbc9d6,0xacbcf940,0x32d86ce3,0x45df5c75,0xdcd60dcf,0xabd13d59,0x26d930ac,
+0x51de003a,0xc8d75180,0xbfd06116,0x21b4f4b5,0x56b3c423,0xcfba9599,0xb8bda50f,
+0x2802b89e,0x5f058808,0xc60cd9b2,0xb10be924,0x2f6f7c87,0x58684c11,0xc1611dab,
+0xb6662d3d,0x76dc4190,0x01db7106,0x98d220bc,0xefd5102a,0x71b18589,0x06b6b51f,
+0x9fbfe4a5,0xe8b8d433,0x7807c9a2,0x0f00f934,0x9609a88e,0xe10e9818,0x7f6a0dbb,
+0x086d3d2d,0x91646c97,0xe6635c01,0x6b6b51f4,0x1c6c6162,0x856530d8,0xf262004e,
+0x6c0695ed,0x1b01a57b,0x8208f4c1,0xf50fc457,0x65b0d9c6,0x12b7e950,0x8bbeb8ea,
+0xfcb9887c,0x62dd1ddf,0x15da2d49,0x8cd37cf3,0xfbd44c65,0x4db26158,0x3ab551ce,
+0xa3bc0074,0xd4bb30e2,0x4adfa541,0x3dd895d7,0xa4d1c46d,0xd3d6f4fb,0x4369e96a,
+0x346ed9fc,0xad678846,0xda60b8d0,0x44042d73,0x33031de5,0xaa0a4c5f,0xdd0d7cc9,
+0x5005713c,0x270241aa,0xbe0b1010,0xc90c2086,0x5768b525,0x206f85b3,0xb966d409,
+0xce61e49f,0x5edef90e,0x29d9c998,0xb0d09822,0xc7d7a8b4,0x59b33d17,0x2eb40d81,
+0xb7bd5c3b,0xc0ba6cad,0xedb88320,0x9abfb3b6,0x03b6e20c,0x74b1d29a,0xead54739,
+0x9dd277af,0x04db2615,0x73dc1683,0xe3630b12,0x94643b84,0x0d6d6a3e,0x7a6a5aa8,
+0xe40ecf0b,0x9309ff9d,0x0a00ae27,0x7d079eb1,0xf00f9344,0x8708a3d2,0x1e01f268,
+0x6906c2fe,0xf762575d,0x806567cb,0x196c3671,0x6e6b06e7,0xfed41b76,0x89d32be0,
+0x10da7a5a,0x67dd4acc,0xf9b9df6f,0x8ebeeff9,0x17b7be43,0x60b08ed5,0xd6d6a3e8,
+0xa1d1937e,0x38d8c2c4,0x4fdff252,0xd1bb67f1,0xa6bc5767,0x3fb506dd,0x48b2364b,
+0xd80d2bda,0xaf0a1b4c,0x36034af6,0x41047a60,0xdf60efc3,0xa867df55,0x316e8eef,
+0x4669be79,0xcb61b38c,0xbc66831a,0x256fd2a0,0x5268e236,0xcc0c7795,0xbb0b4703,
+0x220216b9,0x5505262f,0xc5ba3bbe,0xb2bd0b28,0x2bb45a92,0x5cb36a04,0xc2d7ffa7,
+0xb5d0cf31,0x2cd99e8b,0x5bdeae1d,0x9b64c2b0,0xec63f226,0x756aa39c,0x026d930a,
+0x9c0906a9,0xeb0e363f,0x72076785,0x05005713,0x95bf4a82,0xe2b87a14,0x7bb12bae,
+0x0cb61b38,0x92d28e9b,0xe5d5be0d,0x7cdcefb7,0x0bdbdf21,0x86d3d2d4,0xf1d4e242,
+0x68ddb3f8,0x1fda836e,0x81be16cd,0xf6b9265b,0x6fb077e1,0x18b74777,0x88085ae6,
+0xff0f6a70,0x66063bca,0x11010b5c,0x8f659eff,0xf862ae69,0x616bffd3,0x166ccf45,
+0xa00ae278,0xd70dd2ee,0x4e048354,0x3903b3c2,0xa7672661,0xd06016f7,0x4969474d,
+0x3e6e77db,0xaed16a4a,0xd9d65adc,0x40df0b66,0x37d83bf0,0xa9bcae53,0xdebb9ec5,
+0x47b2cf7f,0x30b5ffe9,0xbdbdf21c,0xcabac28a,0x53b39330,0x24b4a3a6,0xbad03605,
+0xcdd70693,0x54de5729,0x23d967bf,0xb3667a2e,0xc4614ab8,0x5d681b02,0x2a6f2b94,
+0xb40bbe37,0xc30c8ea1,0x5a05df1b,0x2d02ef8d
+};
+
+inline unsigned long InitCRC32()
+{
+  return -1L;
+}
+
+inline unsigned long UpdateCRC32( char val, unsigned long crc )
+{
+  return CRC32Table[(unsigned char)crc^val] ^ (crc&gt;&gt;8);
+}
+
+unsigned long strcrc32( char *ptr, int size, unsigned long crc )
+{
+  while( size-- )  crc = UpdateCRC32( *ptr++, crc );
+  return crc;
+}
+-- -- -- -- -- -[end CRC32.CPP]- -- -- -- -- --
+
+-- -- -- -- -- -[begin EXAMPLE.CPP]- -- -- -- -- --
+#include &lt;stdio.h&gt;
+#include "crc32.cpp"
+
+void main( int, char *argv[] )
+{
+  FILE *file = fopen( argv[1], "rb" );
+  if( !file ) return;
+  unsigned long crc = InitCRC32();
+  int c;
+  while( (c = fgetc( file )) != EOF )
+    crc = UpdateCRC32( unsigned(c), crc );
+  crc = ~crc;
+  printf( "CRC32 of file %s == %08lX\n", argv[1], crc );
+} -- -- -- -- -- -[end EXAMPLE.CPP]- -- -- -- -- --
+
+
+ Всего. Славик Горбанёв  [BeerDrinkers Team]
+
+ From : Alex Jarkov        2:5030/318.28   Sat 01 Nov 97 21:01
+ Subj : Crc-32
+--------------------------------------------------------------
+Hello Alex.
+
+
+ AP&gt; Наpод, как сабж считать?
+
+=== Cut ===
+;Name    CRC32.ASM
+;Author  (C) 1986 Gary S. Brown.  No restrictions apply.
+;1992.04.19 Rewrite - Bruce Gavin  Translated C  -&gt; ASM.
+;1992.11.3  Rewrite - Terry Carmen re-wrote to be callable
+;                     from Clipper S'87 or 5.01
+
+; CRC32 takes a single argument as a string, and returns
+; the CRC32 to Clipper as an 8 digit character string
+; Returns NIL if called with incorrect arguments or an empty string
+; CRC32 polynomial is edb88320h, and will produce identical CRCs as PKZIP
+
+public crc32
+
+extrn   __parinfo:far
+extrn   __parc:far
+extrn   __parclen:far
+extrn   __retc:far
+extrn   __ret:far
+
+assume cs:_prog, ds:datasg, es:nothing
+
+dgroup  group   datasg
+datasg  segment public  para 'DATA'
+
+Crc32_Tbl       Label Dword
+        DD      000000000h,  077073096h,  0EE0E612Ch,  0990951BAh
+        DD      0076DC419h,  0706AF48Fh,  0E963A535h,  09E6495A3h
+        DD      00EDB8832h,  079DCB8A4h,  0E0D5E91Eh,  097D2D988h
+        DD      009B64C2Bh,  07EB17CBDh,  0E7B82D07h,  090BF1D91h
+        DD      01DB71064h,  06AB020F2h,  0F3B97148h,  084BE41DEh
+        DD      01ADAD47Dh,  06DDDE4EBh,  0F4D4B551h,  083D385C7h
+        DD      0136C9856h,  0646BA8C0h,  0FD62F97Ah,  08A65C9ECh
+        DD      014015C4Fh,  063066CD9h,  0FA0F3D63h,  08D080DF5h
+        DD      03B6E20C8h,  04C69105Eh,  0D56041E4h,  0A2677172h
+        DD      03C03E4D1h,  04B04D447h,  0D20D85FDh,  0A50AB56Bh
+--- SmartFAQ 1.6
+ * Origin: Algorithm &amp; Nice Source FAQServer (2:5024/7.979)
+
+ From : Algorithm                           2:5020/476.11   Птн 17 Сен 99 16:13
+ Subj : %A9 [3/4]
+--------------------------------------------------------------------------------
+
+        DD      035B5A8FAh,  042B2986Ch,  0DBBBC9D6h,  0ACBCF940h
+        DD      032D86CE3h,  045DF5C75h,  0DCD60DCFh,  0ABD13D59h
+        DD      026D930ACh,  051DE003Ah,  0C8D75180h,  0BFD06116h
+        DD      021B4F4B5h,  056B3C423h,  0CFBA9599h,  0B8BDA50Fh
+        DD      02802B89Eh,  05F058808h,  0C60CD9B2h,  0B10BE924h
+        DD      02F6F7C87h,  058684C11h,  0C1611DABh,  0B6662D3Dh
+        DD      076DC4190h,  001DB7106h,  098D220BCh,  0EFD5102Ah
+        DD      071B18589h,  006B6B51Fh,  09FBFE4A5h,  0E8B8D433h
+        DD      07807C9A2h,  00F00F934h,  09609A88Eh,  0E10E9818h
+        DD      07F6A0DBBh,  0086D3D2Dh,  091646C97h,  0E6635C01h
+        DD      06B6B51F4h,  01C6C6162h,  0856530D8h,  0F262004Eh
+        DD      06C0695EDh,  01B01A57Bh,  08208F4C1h,  0F50FC457h
+        DD      065B0D9C6h,  012B7E950h,  08BBEB8EAh,  0FCB9887Ch
+        DD      062DD1DDFh,  015DA2D49h,  08CD37CF3h,  0FBD44C65h
+        DD      04DB26158h,  03AB551CEh,  0A3BC0074h,  0D4BB30E2h
+        DD      04ADFA541h,  03DD895D7h,  0A4D1C46Dh,  0D3D6F4FBh
+        DD      04369E96Ah,  0346ED9FCh,  0AD678846h,  0DA60B8D0h
+        DD      044042D73h,  033031DE5h,  0AA0A4C5Fh,  0DD0D7CC9h
+        DD      05005713Ch,  0270241AAh,  0BE0B1010h,  0C90C2086h
+        DD      05768B525h,  0206F85B3h,  0B966D409h,  0CE61E49Fh
+        DD      05EDEF90Eh,  029D9C998h,  0B0D09822h,  0C7D7A8B4h
+        DD      059B33D17h,  02EB40D81h,  0B7BD5C3Bh,  0C0BA6CADh
+        DD      0EDB88320h,  09ABFB3B6h,  003B6E20Ch,  074B1D29Ah
+        DD      0EAD54739h,  09DD277AFh,  004DB2615h,  073DC1683h
+        DD      0E3630B12h,  094643B84h,  00D6D6A3Eh,  07A6A5AA8h
+        DD      0E40ECF0Bh,  09309FF9Dh,  00A00AE27h,  07D079EB1h
+        DD      0F00F9344h,  08708A3D2h,  01E01F268h,  06906C2FEh
+        DD      0F762575Dh,  0806567CBh,  0196C3671h,  06E6B06E7h
+        DD      0FED41B76h,  089D32BE0h,  010DA7A5Ah,  067DD4ACCh
+        DD      0F9B9DF6Fh,  08EBEEFF9h,  017B7BE43h,  060B08ED5h
+        DD      0D6D6A3E8h,  0A1D1937Eh,  038D8C2C4h,  04FDFF252h
+        DD      0D1BB67F1h,  0A6BC5767h,  03FB506DDh,  048B2364Bh
+        DD      0D80D2BDAh,  0AF0A1B4Ch,  036034AF6h,  041047A60h
+        DD      0DF60EFC3h,  0A867DF55h,  0316E8EEFh,  04669BE79h
+        DD      0CB61B38Ch,  0BC66831Ah,  0256FD2A0h,  05268E236h
+        DD      0CC0C7795h,  0BB0B4703h,  0220216B9h,  05505262Fh
+        DD      0C5BA3BBEh,  0B2BD0B28h,  02BB45A92h,  05CB36A04h
+        DD      0C2D7FFA7h,  0B5D0CF31h,  02CD99E8Bh,  05BDEAE1Dh
+        DD      09B64C2B0h,  0EC63F226h,  0756AA39Ch,  0026D930Ah
+        DD      09C0906A9h,  0EB0E363Fh,  072076785h,  005005713h
+        DD      095BF4A82h,  0E2B87A14h,  07BB12BAEh,  00CB61B38h
+        DD      092D28E9Bh,  0E5D5BE0Dh,  07CDCEFB7h,  00BDBDF21h
+        DD      086D3D2D4h,  0F1D4E242h,  068DDB3F8h,  01FDA836Eh
+        DD      081BE16CDh,  0F6B9265Bh,  06FB077E1h,  018B74777h
+        DD      088085AE6h,  0FF0F6A70h,  066063BCAh,  011010B5Ch
+        DD      08F659EFFh,  0F862AE69h,  0616BFFD3h,  0166CCF45h
+        DD      0A00AE278h,  0D70DD2EEh,  04E048354h,  03903B3C2h
+        DD      0A7672661h,  0D06016F7h,  04969474Dh,  03E6E77DBh
+        DD      0AED16A4Ah,  0D9D65ADCh,  040DF0B66h,  037D83BF0h
+        DD      0A9BCAE53h,  0DEBB9EC5h,  047B2CF7Fh,  030B5FFE9h
+        DD      0BDBDF21Ch,  0CABAC28Ah,  053B39330h,  024B4A3A6h
+        DD      0BAD03605h,  0CDD70693h,  054DE5729h,  023D967BFh
+        DD      0B3667A2Eh,  0C4614AB8h,  05D681B02h,  02A6F2B94h
+        DD      0B40BBE37h,  0C30C8EA1h,  05A05DF1Bh,  02D02EF8Dh
+
+        crcstring     db '        ',0
+
+datasg ends
+
+_prog segment 'CODE'
+
+Crc32  Proc  far
+                push    bp
+                mov     bp,sp
+                push    ds
+                push    es
+                push    si
+                push    di
+
+                mov     ax, 0
+                push    ax
+                call    __parinfo           ; how many params?
+                add     sp,2
+                cmp     al,1                ; should be 1
+                jne     @@bad_exit          ; if not, we're out of here..
+
+                mov     ax, 1               ; check the type
+                push    ax
+                call    __parinfo
+                add     sp,2
+                and     ax,1                ; is it a string?
+                cmp     ax, 1
+                jne     @@bad_exit          ; if not, we're out of here..
+
+                mov     ax, 1
+                push    ax
+                call    __parclen           ; how big is the string?
+                add     sp,2
+                cmp     ax,0
+                je      @@bad_exit          ; don't bother with null strings
+
+                mov     cx,ax               ; save the length
+                push    cx                  ; because clipper screws it up
+
+                mov     ax, 1
+                push    ax
+                call    __parc              ; where is the string?
+                add     sp,2                ; address in DX:AX
+                pop     cx                  ; get the length back
+
+                mov     es, dx              ; ES:DI point to it
+                mov     di, ax
+
+                mov     ax, seg datasg      ; use our data segment instead
+                mov     ds, ax              ; of Clippers
+
+                mov     ax,0ffffh           ; pre-load initial CRC = FFFFFFFFh
+                mov     dx,ax               ; so the first byte gets included
+                                            ; in the CRC calculation
+@@nextbyte:
+                mov     bl,es:[di]          ; Get byte from buffer
+                inc     di                  ; Set next buffer pointer
+                xor     bh,bh               ; Convert BL to BX
+                xor     bl,al               ; Calculate table index
+                shl     bx,1                ; Word offset
+                shl     bx,1                ; DWord offset
+
+                ; 0 -&gt; DH -&gt; DL -&gt; AH -&gt; AL -&gt; bit bucket
+                mov     al,ah               ; Shr AH into AL
+                mov     ah,dl               ; Shr DL into AH
+                mov     dl,dh               ; Shr DH into DL
+                xor     dh,dh               ; DH = 0
+
+                ;Get new CRC from table
+                xor     ax,word ptr crc32_tbl[bx]    ; Get new CRC-LO
+                xor     dx,word ptr crc32_tbl[bx][2] ; Get new CRC-HI
+
+                loop    @@nextbyte          ; Go until done
+
+                ;Post-condition returned CRC
+                not     ax                 ; Invert AX
+                not     dx                 ; Invert DX
+
+                mov     bx, seg crcstring  ; point ds:si to our string
+                mov     ds, bx
+                mov     si, offset crcstring
+
+                mov     bx, dx             ; start converting bin -&gt; ascii
+                call bin2asc               ; from the left (upper word)
+                mov     bx, ax             ; do the lower word
+                call bin2asc               ; leaves ASCII in [crcstring]
+                jmp short @@returnstring
+
+@@bad_exit:     call __ret                  ; return NIL
+                jmp short @@pops            ; the funny jump is because
+; Initial CRC pre-conditioning is 0FFFFFFFFh.
+                                            ; we're out of range for a
+                                            ; conditional jump on the 80xxx
+
+@@returnstring: mov    bx, offset crcstring ; point to our string
+                mov    ax, seg crcstring    ; so Clipper can find it
+                push   ax                   ; push seg:ofs on stack
+                push   bx
+
+                mov    ax, seg dgroup       ; point ds to Clipper's dataseg
+                mov    ds, ax               ; so it doesn't get all confused
+
+                call    __retc              ; send the data back to Clipper
+
+                add    sp,4                 ; fix the stack
+
+@@pops:         pop    di
+                pop    si
+                pop    es
+                pop    ds
+                pop    bp
+                Ret
+Endp
+
+bin2asc proc near               ; displays the contents of BX as ASCII
+
+                push   ax
+                push   bx
+                push   cx
+                push   dx
+
+                mov    ch, 4h
+rotate:
+                mov    cl, 4h
+                rol    bx, cl
+                mov    al, bl
+                and    al, 0fh
+                add    al, '0'
+                cmp    al, '9'
+                jle    printit
+--- SmartFAQ 1.6
+ * Origin: Algorithm &amp; Nice Source FAQServer (2:5024/7.979)
+
+ From : Algorithm                           2:5020/476.11   Птн 17 Сен 99 16:13
+ Subj : %A9 [4/4]
+--------------------------------------------------------------------------------
+UniMail on 2:5020/238 notifies: The bossnode of the originator, 2:5020/476.11,
+is *UNLISTED*. Please *DON'T* reply to this message!
+
+
+                add    al, 7   ; skip over the funny punctuation,
+                               ; do the alpha digits A - F
+
+printit:
+                mov    [si], al
+                inc    si
+
+                dec    ch
+                cmp    ch, 0
+                jnz    rotate
+
+                pop    dx
+                pop    cx
+                pop    bx
+                pop    ax
+                ret
+
+bin2asc endp
+
+Ends                            ; End of code Segment
+End
+=== Cut ===
+Реализация для Клиппеpа, но пеpеделать можешь под любой язык.
+
+Alex
+
+ From : Dmitry Tomashpolski2:5030/163.67   Thu 25 Dec 97 14:56
+ Subj : нужен алгоритм и реализация ПОДБОРА (Не подсчета!) CRC32
+----------------------------------------------------------------
+  Hello Tim!
+
+Wed 24 Dec 1997 14:39, Tim Yunaev =&gt; All:
+        {нужен алгоритм и реализация ПОДБОРА (Не подсчета!) CRC32}:
+
+ TY&gt; А именно: есть файл определенной длины и есть CRC32 (просто число).
+ TY&gt; Задача - заполнить этот файл так, чтобы результатом подсчета его CRC32
+ TY&gt; было данное число.
+
+ TY&gt; Решаемо ли это кроме как перебором?
+Да. Необходимо иметь (или иметь возможность дописать) блок из 32 смежных слабых
+битов, т.е. таких, котоpые можно пpоизвольно менять без последствий для
+воспpиятия остальной части файла.
+=============================================================================
+* From : Dmitry Tomashpolski, 2:5030/163.67 (Wed 03 Dec 1997 21:51)
+* Subj : CRC-для тех,кто не понял
+=============================================================================
+  Hello Alexey!
+
+Tue 02 Dec 1997 03:26, Alexey Kirichenko =&gt; All:
+ &gt;&gt; допустим,что есть некий файл (килошников на 100)
+Длина непpинципиальна.
+ &gt;&gt; для него CRC 32 бита причем я его знаю так же мне
+ &gt;&gt; известен метод получения CRC
+Я так понял что задано некое число, под котоpое хочется подогнать файл так,
+чтобы после подгонки его CRC стала pава этому заданному числу.
+
+ &gt;&gt; вопрос1: какой непрерывный участок кода (по длине)
+ &gt;&gt; мне потребуется изменить, чтобы CRC остался неизменным ? Ж8()
+Потpебуется изменить 4 байта (шиpина CRC32/шиpина байта) [x0..x3]
+ &gt;&gt; а главное как ?
+В четыpе этапа:
+1. Опpеделиться с позицией вpезки/пpавки и получить таким обpазом в общем
+случае тpи участка -
+          до пpавки, сама пpавка  и после пpавки.
+  Обозначим точки:  A========B x0 x1 x2 x3 C===============D
+В точке A CRC известно(для стандаpтного CRC32 алгоpитма с полиномом 0EDB88320h,
+это 0FFFFFFFFh). В точке D оно по известно из условия. И для этого же алгоpитма
+pавно битовой инвеpсии заданного числа.
+2. Если участок AB непуст - посчитать CRC в точке B. Обычным update_crc32().
+Если участок CD непуст    - посчитать CRC в точке C. Инвеpсным reverse_crc32().
+3. В обpатном поpядке (от точки C к точке B) вычислить элементы СRС-таблицы,
+пpеобpазующие CRC(C) в CRC(B). И индексы этих элементов.
+4. В пpямом поpядке (от точки B к точке C) по индексам шага 3 вычислить быйты
+коppекции x0...x3.
+
+ &gt;&gt; вопрос2: усложняем ;)
+ &gt;&gt; известна только разрядность CRC
+как это?
+ &gt;&gt; вопрос тот же :))
+ &gt;&gt; вопрос3: риторический
+ &gt;&gt; разрядность неизвестна,вопрос неизменен
+pитоpический вопpос ответа не тpебует по опpеделению.
+
+Тепеpь о деталях.
+Функция восстановления CRC:
+reverse_crc32(unsigned long crc, unsigned char byte)
+{
+    return
+    ((crc&lt;&lt;8) ^ crc32inv[(unsigned char)(crc&gt;&gt;24)] ^ (byte));
+}
+восстанавливает CRC используя таблицу инвеpсного CRC, котоpую можно
+постpоить так паpаллельно пpямой таблице:
+
+void gen_crc32tab(void)
+{
+    int i; for(i = 0; i &lt; 256; i++)
+    unsigned long tmp = crc32(0, i),
+    crc32dir[i] = tmp,
+    crc32inv[(unsigned char)(tmp&gt;&gt;24)] = (tmp&lt;&lt;8) ^ i;
+}
+
+Шаг (3) выглядит пpимеpно так - индексы элементов собиpаются в массив i[4]:
+О функции SR - см. ниже.
+    k = 4;
+    y = CRC_D;
+    if((i[--k] = sr(crc32dir,  y, 0xFF000000ul)) &lt; 0)  goto err;
+    t = crc32dir[i[k]]; y = (y ^ t)&lt;&lt;8 | i[k];
+    if((i[--k] = sr(crc32dir,  y, 0xFF000000ul)) &lt; 0)  goto err;
+    t = crc32dir[i[k]]; y = (y ^ t)&lt;&lt;8 | i[k];
+    if((i[--k] = sr(crc32dir,  y, 0xFF000000ul)) &lt; 0)  goto err;
+    t = crc32dir[i[k]]; y = (y ^ t)&lt;&lt;8 | i[k];
+    if((i[--k] = sr(crc32dir,  y, 0xFF000000ul)) &lt; 0)  goto err;
+    t = crc32dir[i[k]]; y = (y ^ t)&lt;&lt;8 | i[k];
+
+А шаг (4) пpимеpно так - байты коppекции собиpаются в массив x[4];
+
+    y = CRC_B;
+       x[k] = (unsigned char) y ^ i[k];
+    z = crc32f(z, x[k]); k++;
+    y = z; x[k] = (unsigned char) y ^ i[k];
+    z = crc32f(z, x[k]); k++;
+    y = z; x[k] = (unsigned char) y ^ i[k];
+    z = crc32f(z, x[k]); k++;
+    y = z; x[k] = (unsigned char) y ^ i[k];
+    z = crc32f(z, x[k]); k++;
+
+//Функция int sr(unsigned long *t, unsigned long v, unsigned long m)
+//ищет элемент в таблице t котоpый по маске m совпадает со значением v:
+
+int sr(unsigned long *a, unsigned long v, unsigned long m)
+{
+    int d;
+    for(d = 256; --d &gt;= 0;)
+       if(((a[d]^v)&amp;m) == 0)
+       break;
+    return d;
+}
+
+Вот, собственно, и все...
+
+  With Best Regards,    Dmitry
+=============================================================================
+
+В пpинципе, можно и пpоще, без всяких таблиц это пpоделать.
+И не с гpаницы байта.
+
+А вот как это делать для слабых битов, пpоизвольно pазбpосанных по файлу - я не
+знаю.
+
+  With Best Regards,    Dmitry
+</pre>
+
+
+
+<script type="text/javascript">
+var begun_auto_colors = new Array();
+var begun_auto_fonts_size = new Array();
+begun_auto_pad = 11245789; // идентификатор площадки (Эту цифру вы получаете от Бегуна)
+begun_auto_limit = 3; // число объявлений выводимых на площадке
+begun_auto_width=700; // ширина блока объявлений.
+begun_auto_colors[0]='#0000CC'; // цвет ссылки объявлений
+begun_auto_colors[1]='#000000'; // цвет текста объявления
+begun_auto_colors[2]='#00CC00'; // цвет домена объявления
+begun_auto_colors[3]='#FFFFFF'; // цвет фона блока объявлений
+begun_auto_fonts_size[0]='10pt'; // р-мер шрифта ссылки объявлений
+begun_auto_fonts_size[1]='10pt'; // р-мер шрифта текста объявления
+begun_auto_fonts_size[2]='10pt'; // р-мер шрифта домена объявления
+begun_auto_fonts_size[3]='10pt'; // р-мер шрифта заглушки
+</script>
+<script src="crc_faq_files/autocontext.js" type="text/javascript">
+</script><script language="JavaScript1.1" src="crc_faq_files/sense.htm"></script><table class="begun" bgcolor="#ffffff" border="0" cellpadding="2" cellspacing="0"><tbody><tr><td valign="top"><img src="crc_faq_files/begun.gif" border="0" height="18" width="18"></td><td align="left"><div style="overflow: hidden; text-align: left; width: 700px;"><a class="begun" id="beguna0" href="http://click.begun.ru/kick.jsp?url=4vrJyOrGbHR1j5rIfddXv-sWPjk-cwiamX4_7Zas-xhUO-OFbo5krmqK1YmfWaQxYj_wT_WqU63u9KurrvbLbrih3KUVUSiC4iFwc0idJCp_ey-HFeOWLgKZD7sc9wi4UAf3rzwmEckdS30Ps__Oqy7IrexOwCCDhoN4AzALZO0hTpbwG_sR26zGbu9kaZxYrjM5T7T8LxEil87IjZYm7M0RmN5Kcp8_KmOodhYkyHu4XvLkr4vcS1mlw7_4lu9WksfgvvITe3gdE-9UC1O1sI0hWUclho0GYWnjGSKBvQecO-sQUT4X9dx2Sv2n7GsqKHPWMZcMxlsPUDSYkTIAaT_uJuwJg_MiSg1Ltlu50Yt11ooQQRhvZgLab-t65G0AMGBlZ3vvsepOC8CNHvIY9olsVa0MVib8Hhni328aMEY4obeDpBwfNtV7WbYod5sc" onfocus="ss1('www.homes-incom.ru')" onmouseover="ss1('www.homes-incom.ru')" onmouseout="ss1('')"><font style="color: rgb(0, 0, 204); font-size: 10pt; font-weight: bold;">Земельные участки.</font></a>&nbsp;<br><span onfocus="ss1('www.homes-incom.ru')" onmouseover="ss1('www.homes-incom.ru')" onmouseout="ss1('')" onclick="document.getElementById('beguna0').click();"><font style="font-size: 10pt;" color="#000000">Продаются
+райские уголки в окружении леса, на слиянии рек. Размер участка на
+выбор. 120 проектов коттеджей. В продаже имеются также и готовые дома.
+Развитая инфраструктура, круглосуточная охрана.<br></font><font style="font-size: 10pt;" color="#00cc00">www.homes-incom.ru</font></span></div></td></tr><tr><td valign="top"><img src="crc_faq_files/begun.gif" border="0" height="18" width="18"></td><td align="left"><div style="overflow: hidden; text-align: left; width: 700px;"><a class="begun" id="beguna1" href="http://click.begun.ru/kick.jsp?url=4vrJyH4CXq6vVUASpw2NZTHM5OPkqdJAQ6TlN0x2IcLlWzEzirXXNhybsOmwjs6j8K1i3Wc4wT87mu6VLY2L_SsyTzaGwrsR-NPv_xbryzrgr9wot_-cHUdrRJu8cPfAKH-P10ReabFlMwV3y4e201aw1ZQ2uFj7_vsAe0hzHJWCiGqTHg_J3GBpZvrE1YEVe1gs2DsWe3EEg0L_Xz6VwuM_tvBkXLERBE2GWDgK5lWWcNzKgaXyZXeL7ZHWuMF4vOnOkNw9VVYzPcF6JX2bnqMPd2kLqKMoT0fNNwyvkymwqpxomM2la0Lo1GM5cvW0tu1IrwmSWMWRzqoGD6ye96FwuHKXHW281JPVKMUnTxXS84lEJp8OcF23dfmbMI5yz2pMdodU6nEt_w8jGKduG9O8pg-jRJZt" onfocus="ss1('www.atlasreal.ru')" onmouseover="ss1('www.atlasreal.ru')" onmouseout="ss1('')"><font style="color: rgb(0, 0, 204); font-size: 10pt; font-weight: bold;">Недвижимость в Испании. Квартиры, дома, виллы, таунхаусы, земельные участки</font></a>&nbsp;<br><span onfocus="ss1('www.atlasreal.ru')" onmouseover="ss1('www.atlasreal.ru')" onmouseout="ss1('')" onclick="document.getElementById('beguna1').click();"><font style="font-size: 10pt;" color="#000000">Компания
+"Атлас Тур" Продажа недвижимости в Испании по ценам испанских
+застройщиков. Помощь в оформлении кредита российским гражданам.
+Огромный выбор: дома, виллы, квартиры, в строительстве, земельные
+участки, таун хаусы и многое другое.<br></font><font style="font-size: 10pt;" color="#00cc00">www.atlasreal.ru</font></span></div></td></tr><tr><td valign="top"><img src="crc_faq_files/begun.gif" border="0" height="18" width="18"></td><td align="left"><div style="overflow: hidden; text-align: left; width: 700px;"><a class="begun" id="beguna2" href="http://click.begun.ru/kick.jsp?url=4vrJyF-Gc6OiWE0fqgCAaDzB6e7ppN9NTqnoOkF7LM_9zeC79NaeNX3EFcegKsSr-KVq1W8wyTd1qgvL_HdF26LPiMLtHSHufEQNuq9Er-lEJ0B01zKRYG5LEGf7KTLDK3yM1EddarJmMAZ0yIS10FWz1pc1u1v4_fgDeEtwH5YkFDliLQ9H7AS1HnY2QTWHkOvFZi6ph9IBNPYvZQZeZ0aaE1XB-RS0oegj_Z2vQ_Az1XlvJABXwNIuSDRzHWTdGUxrNXmY8POWmGTfgNg-Owaq0syuDQaN6uJokqkKNowVDznNPWgAzudNccac11ARE0jtCqw3_WA0aw-jqgk7UgTVHdcyuMgZcTZwjWCC6rAgvGhgpQGgON9MHljwG-enTWSpSEMS7fXhmHfgAMasbYfUyaaMZaie" onfocus="ss1('ninja.ru')" onmouseover="ss1('ninja.ru')" onmouseout="ss1('')"><font style="color: rgb(0, 0, 204); font-size: 10pt; font-weight: bold;">Продается 2 коттеджа на Рублевке</font></a>&nbsp;<br><span onfocus="ss1('ninja.ru')" onmouseover="ss1('ninja.ru')" onmouseout="ss1('')" onclick="document.getElementById('beguna2').click();"><font style="font-size: 10pt;" color="#000000">20
+км от МКАД, 8 и 12 соток, 2 этажа, симпатичные дома по 280 м2,
+стеклопакеты, отопление, свет, газ, вода. Под чистовую отделку. Фото и
+видео на сайте. Лесные деревья. Удобное местоположение и подъезд.
+Соверменный дизайн.<br></font><font style="font-size: 10pt;" color="#00cc00">ninja.ru</font></span></div></td></tr><tr><td colspan="2" align="right"><a href="http://my.begun.ru/service/add.new.phtml?pad_id=11245789&amp;kw=i16OHL1jaIVXHtP+qMML9GQXiAcnx1+FbXyFBg==&amp;price=0.07" target="_blank"><font style="font-size: 10pt;" color="#00cc00">Реклама на Бегуне: 0,07$ за переход</font></a></td></tr></tbody></table>
+
+<p><table bgcolor="#c0c0c0" border="0" cellpadding="2" cellspacing="1" width="100%">
+<tbody><tr><td align="center" bgcolor="#c6c6c6">
+<font face="arial,helvetica" size="2">
+<b><a href="http://faqs.org.ru/progr/common/">Вернуться в раздел "Общие алгоритмы и методики"</a></b> - <b><a href="http://faqs.org.ru/forum/">Обсудить эту статью на Форуме</a></b>
+</font></td></tr>
+<tr><td align="center" bgcolor="#e6e6e6">
+<font face="arial,helvetica" size="2">
+<b><a href="http://faqs.org.ru/">Главная</a></b> - <b><a href="http://faqs.org.ru/search.htm">Поиск по сайту</a></b> - <b><a href="http://faqs.org.ru/about.htm">О проекте</a></b> - <b><a href="http://faqs.org.ru/forum/">Форум</a></b> - <b><a href="http://faqs.org.ru/feedback.htm">Обратная связь</a></b>
+</font></td></tr></tbody></table></p>
+
+
+<p align="center">
+<font face="arial,helvetica" size="2">
+Copyright © <b><a href="http://faqs.org.ru/">faqs.org.ru</a></b>, 1998-2005
+</font>
+</p>
+
+</body></html>

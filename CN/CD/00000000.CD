@@ -1,0 +1,16 @@
+TITLE:Led Zeppelin (p) 1971
+; Runic album
+
+$LYRICS:$HELP($CN\CD\LEDZEP.HLP) $AUTO
+; Automatically open lyrics Help screen at the start of each track
+; Use $NOLYRICS directive to disable lyrics display for particular track
+
+01:Black Dog
+02:Rock And Roll
+03:The Battle Of Evermore
+04:Stairway To Heaven
+
+05:Misty Mountain Hop
+06:Four Sticks $NOLYRICS; Poor poetry
+07:Going To California
+08:When The Levee Breaks

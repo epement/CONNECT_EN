@@ -1,0 +1,15 @@
+ WhereX()
+ PutKey($8400) Rem Ctrl+PgUp
+ SetIns(1)
+ Lamps = 0;
+ S = GetStr();
+L0:
+ S = FmtStr(Lamps);
+ PutStr("L");
+ PutStr(S);
+ PutStr(":");
+ PutStr(S);
+ PutStr("^M");
+ if (Lamps = Lamps+1) < 120 then GoTo L0;
+ DisBuf(S);
+ Stop();

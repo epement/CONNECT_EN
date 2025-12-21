@@ -1,0 +1,58 @@
+eax in   eax      ebx      ecx      edx
+00000000 00000005 756E6547 6C65746E 49656E69
+00000001 00000F41 00020800 0000441D BFEBFBFF
+00000002 605B5001 00000000 00000000 007C7040
+00000003 00000000 00000000 00000000 00000000
+00000004 00004121 01C0003F 0000001F 00000000
+00000005 00000040 00000040 00000000 00000000
+80000000 80000008 00000000 00000000 00000000
+80000001 00000000 00000000 00000000 00000000
+80000002 20202020 20202020 20202020 6E492020
+80000003 286C6574 50202952 69746E65 52286D75
+80000004 20342029 20555043 30302E33 007A4847
+80000005 00000000 00000000 00000000 00000000
+80000006 00000000 00000000 04006040 00000000
+80000007 00000000 00000000 00000000 00000000
+80000008 00002024 00000000 00000000 00000000
+
+Vendor ID: GenuineIntel CPUID level: 5
+Intel-specific functions:
+Version: 00000F41
+Type 0 - Original OEM
+Family 15 - Pentium IVExtended family: 0
+Model 4 - 
+Stepping 1
+Reserved 0
+Extended brand string: Intel(R) Pentium(R) 4 CPU 3.00GHz
+CLFLUSH instruction cache line size: 8
+Hyper threading siblings: 2
+Feature flags: BFEBFBFF
+FPU    Floating Point Unit
+VME    Virtual 8086 Mode Enhancements
+DE     Debugging Extensions
+PSE    Page Size Extensions
+TSC    Time Stamp Counter
+MSR    Model Specific Registers
+PAE    Physical Address Extension
+MCE    Machine Check Exception
+CX8    COMPXCHG8B Instruction
+APIC   On-chip Advanced Programmable Interrupt Controller present and enabled
+SEP    Fast System Call
+MTRR   Memory Type Range Registers
+PGE    PTE Global Flag
+MCA    Machine Check Architecture
+CMOV   Conditional Move and Compare Instructions
+FGPAT  Page Attribute Table
+PSE-36 36-bit Page Size Extension
+CLFSH  CFLUSH instruction
+DS     Debug store
+ACPI   Thermal Monitor and Clock Ctrl
+MMX    MMX instruction set
+FXSR   Fast FP/MMX Streaming SIMD Extensions save/restore
+SSE    Streaming SIMD Extensions instruction set
+SSE2   SSE2 extensions
+SS     Self Snoop
+HT     Hyper Threading
+TM     Thermal monitor
+31     reserved
+

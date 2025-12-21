@@ -1,0 +1,150 @@
+*** XMODEM Protocol ***
+
+XMODEM refers to the file transfer protocol introduced by Ward
+Christensen in 1977.  XMODEM is widely supported on most all bulletin
+board systems. The following are used in XMODEM.
+
+    <SOH> = 01H : Is always the first  byte  in  each  block.
+    <EOT> = 04H : Sent instead of SOH to mark the end of trans.
+    <ACK> = 06H : Positive acknowledgment.
+    <NAK> = 15H : Negative acknowledgment.
+    <CAN> = 18H : Cancel transfer.
+
+XMODEM is a receiver driven, asynchronous, 8 data bit protocol. Each
+packet looks like the following:
+
+    <SOH> <packet #> <compliment #> <data> <checksum>
+
+where,
+
+    <SOH>         = 01H
+    <packet #>    = Packet number, starting at 01, incrementing by 1,
+                    and wraps from 0FFH to 00H (not to 01H).
+    <compliment #>= 255 minus the packet number.
+    <data>        = 128 bytes of binary data.
+    <checksum>    = The sum of the data bytes. Starting with a zero
+                    add each data byte to the checksum. Use only the
+                    rightmost 8 bits.
+
+When the receiver is ready, it sends a NAK every 10 seconds (up to
+one minute) until the NAK is acknowledged by the transmitter by
+sending the first packet. The transmitter continues by sending each
+packet in turn, always waiting for the packet to be acknowledged
+before sending the next.  Finally, when the transmitter has no more
+data, it sends an EOT instead of a SOH to complete the transfer.
+
+Each packet is sent by the transmitter as follows:
+
+(1) Each packet always starts with a SOH.
+
+(2) The packet number is sent next, starting with 01H, and
+    incrementing by 1. The packet number wraps from 0FFH to 00H.
+
+(3) The packet number compliment is sent next.  It is always
+    calculated a 255 minus the packet number.
+
+(4) Exactly 128 bytes of data is sent.  If the transmitter doesn't
+    have 128 bytes of data to send, then control-Z's (1AH) are padded to
+    the data block.
+
+(5) The checksum is calculated by added together all 128 data bytes
+    and sending the least significant 8 bits.
+
+(6) The transmitter waits (up to 10 seconds) for a response.  If the
+    response is an ACK, then the transmitter goes on to the next packet.
+    If the response is a NAK, then the transmitter re-sends the entire
+    packet.  If the response is a CAN, then all further transmission is
+    canceled.
+
+Each packet is handled by the receiver as follows:
+
+(1) If the first character is an EOT then the transfer is now complete, and the
+    receiver should ACK the EOT before exiting. If the first character is  a  CAN,
+    then  all  further  action  is canceled. If the first character is a SOH, then
+    this is the first character of the next packet.
+
+(2) If the packet number is not correct (the first packet is 1), then this is a
+    fatal error, and the receiver should send a CAN to the transmitter in order  to
+    cancel further transmission.
+
+(3) If the packet number compliment is not correct, this is also a fatal error
+    and the receiver sends a CAN to the transmitter.
+
+(4) Exactly 128 bytes of data are received.
+
+(5) The checksum is received.  It  is  compared  with  the  value  obtained  by
+    computing the checksum from the just received data.  If the checksum values are
+    the same, an ACK to sent to the transmitter. Otherwise, a NAK is sent.
+
+Here  is  a  XMODEM  example of the data flow.  It includes the two most common
+line hits: a garbage block, and  an  <ACK>  reply  getting  garbage.   <data>
+represent 128 bytes of data.  <CS> represents the checksum byte.
+
+    SENDER                                 RECEIVER
+
+                                                <NAK>
+    <SOH> 01 FE <data> <CS>
+                                                <ACK>
+    <SOH> 02 FD <data> <CS>              (data gets line hit)
+                                                <NAK>
+    <SOH> 02 FD <data> <CS>
+                                                <ACK>
+    <SOH> 03 FC <data> <CS>
+    (ACK gets garbage)                         <ACK>
+    <SOH> 03 FC <data> <CS>                     <ACK>
+    <EOT>
+                                         <anything except ACK>
+    <EOT>
+                                                <ACK>
+*** XMODEM/CRC Protocol ***
+
+The XMODEM/CRC protocol is similar to the XMODEM protocol, except
+that the receiver specifies CRC-16 by sending C (Hex 43) instead of
+NAK when requesting the FIRST block.  A two byte CRC is sent in place
+of the one byte arithmetic checksum.
+
+*** XMODEM/1K Protocol ***
+
+The XMODEM/1K protocol is identical to XMODEM/CRC, except that 1024
+byte data blocks in addition to 128 byte data blocks can be sent.
+An STX (02H) replaces the SOH (01H) at the beginning of the
+transmitted block to notify the receiver of the longer block length.
+The transmitted block contains 1024 bytes of data. The receiver
+should be able to accept any mixture of 128 and 1024 byte blocks. The
+block number (in the second and third bytes of the block) is
+incremented by one for each block regardless of the block length.
+
+The sender must not change between 128 and 1024 byte block lengths
+if it has not received a valid ACK for the current block.
+
+Here is an example of XMODEM/1K with 1024 blocks:
+
+    SENDER                                 RECEIVER
+    ======                                 ========
+                                                 C
+    STX 01 FE Data[1024] CRC CRC
+                                            ACK
+    STX 02 FD Data[1024] CRC CRC
+                                            ACK
+    STX 03 FC Data[1000] ^Z[24] CRC CRC
+                                            ACK
+    EOT
+                                            ACK
+
+Mixed 1024 and 128 byte Blocks
+
+     SENDER                                 RECEIVER
+     ======                                 ========
+                                             C
+    STX 01 FE Data[1024] CRC CRC
+                                            ACK
+    STX 02 FD Data[1024] CRC CRC
+                                            ACK
+    SOH 03 FC Data[128] CRC CRC
+                                            ACK
+    SOH 04 FB Data[100] ^Z[28] CRC CRC
+                                            ACK
+    EOT
+                                            ACK
+
+[END]

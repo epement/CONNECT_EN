@@ -1,0 +1,115 @@
+Beep(1000,200)
+Rem Connect demo program
+Rem Инициализация последовательного порта
+if InitRS("COM2,9600,8,2,N") <> 1 then goto ErrIn
+Start:
+Select=Menu("$Cn\\Cbs\\Connect.mnu") Rem Вывод меню
+if Select == 1 then goto TransiveText
+if Select == 2 then GoTo Receive
+if Select == 3 then GoTo TransiveFile
+goto Quit
+
+ Receive: Rem Прием
+  Rem Подпрограмма приема
+  PrintS("[5;1;37;40mПрием ...")
+  Rem Разрешение передачи
+  Rem Прием длины файла
+  rts(1); dtr(1)
+  if (Code = Receiv(Size,2,0)) <> 0 then goto NotOk
+  Rem Выделение памяти для принимаемого файла
+  GetBuf(Buff,Size);
+  IndBar(1,Size);
+  Rem Прием файла в выделенный буфер
+  if (Code = RecBlk(Buff,Size,1)) <> 0 then goto NotOk
+  Rts(0) Rem Запрет передачи
+  PrintS("Конец приема[0;37;40m"); IndBar(0); Beep(1000,200);
+  PrintS("Введите имя файла для данных")
+  Rem Открытие файла для принятых данных
+  Prints("Записывается в файл ",1)
+  PrintS(Open(File,"",1)) Rem Открытие файла для записи (!)
+  WrBlk(File,Buff,Size) Rem Запись принятых данных в файл
+  Close(File) Rem Закрытие файла принятых данных
+  DisBuf(Buff) Rem Освобождение памяти
+  GoTo Start Rem Возврат из подпрограммы приема
+
+TransiveText:
+  Rem Подпрограмма передачи текста
+  TextConv ={L$CN\\CBS\\TXTCNV.BIN} Rem подпрограммa перекодировки
+  Rem Открытие передаваемого файла
+  PrintS("Введите имя передаваемого файла");
+  PrintS("Передается файл ",1)
+  Size = 0;PrintS(Open(File,"",Size)) Rem Открытие файла для чтения (!)
+  if Size <> 0 then goto TransTxt1
+  Prints("[1;40;31mПустой файл[0;37;40m"); Close(File); Goto Start
+TransTxt1:
+  GetBuf(Buff,Size) Rem Выделение памяти для передаваемого файла
+  RDBlk(File,Buff,Size) Rem Загрузка передаваемого файла
+  Close(File) Rem Закрытие передаваемого файла
+  Rem                  Перекодировка
+  Rem Подпрограмма TXTCNV.BIN получена путем ассемблирования файла
+  Rem TXTCNV.ASM ,последующего редактирования связей и преобразова-
+  Rem ния полученного в результате этого EXE- файла в BIN- файл ути-
+  Rem литой ДОС EXE2BIN. Подпрограмма TXTCNV перекодирует входной
+  Rem буфер в выходной, используя таблицу перекодировки, исключает
+  Rem символы 0Ah из входного потока и подсчитывает размер выходного
+  Rem потока, который и возвращается как значение функции USER.
+  Size = USER(TextConv,Buff,Buff)
+  dtr(1)
+  GoSub WaitCTS
+  if Code == 27 then goto Esc
+  PrintS("[5;1;37;40mПередача ... ",1)
+  IndBar(1,Size+3)
+  Rem Передача длины файла+1 байт для маркера конца текста
+  if (Code = Send(Size + 1,2)) <> 0 then goto NotOk
+  if (Code = SndBlk(Buff,Size)) <> 0 then goto NotOk Rem  Передача Файла
+  if (Code = send(255,1)) <> 0 then goto NotOk Rem Передача маркера конца текста
+  PrintS("Конец передачи[0;37;40m"); IndBar(0); Beep(1000,200); dtr(0)
+  DisBuf(Buff) Rem Освобождение памяти
+  Goto Start Rem Возврат из подпрограммы передачи
+
+TransiveFile: Rem Подпрограмма передачи файла
+Rem Открытие передаваемого файла
+PrintS("Введите имя передаваемого файла");
+Prints("Передается файл ",1)
+Size = 0; PrintS(Open(File,"*.BIN",Size))
+if Size <> 0 then goto TransFile1
+ Prints("[1;40;31mПустой файл[0;37;40m"); Close(File); GoTo Start
+TransFile1:
+ GetBuf(Buff,Size) Rem Выделение памяти для передаваемого файла
+ RDBlk(File,Buff,Size) Rem Загрузка передаваемого файла
+ Close(File) Rem Закрытие передаваемого файла
+ IndBar(1,Size+2)
+ dtr(1)
+ Gosub WaitCTS Rem Ожидание CTS
+if Code == 27 then goto Esc
+ PrintS("[5;1;37;40mПередача ...",1)
+ if (Code = Send(Size,2)) <> 0 then goto NotOk Rem Передача длины файла
+ if (Code = SndBlk(Buff,Size)) <> 0 then goto NotOk Rem  Передача Файла
+ PrintS("Конец передачи[0;37;40m"); IndBar(0); Beep(1000,200);dtr(0)
+ DisBuf(Buff) Rem Освобождение памяти
+ GoTo Start Rem Возврат из подпрограммы передачи
+Rem ----------------------------------------------------------------------
+WaitCTS:
+   if CTS()==1 then PrintS("[1;5;37;40mОжидание готовности приемника. Esc - aborts",1)
+  Loop: Rem Ожидание CTS
+   if ((CTS()==1) and ((Code = KeyPrs())<> 27)) then goto Loop
+   PrintS("[0;37;40m")
+Ret
+Rem ----------------------------------------------------------------------
+ErrIn:
+ PrintS("[1;40;31mОшибка инициализации[0;37;40m"); Stop()
+NotOK:
+ if Code == 1 then goto Esc else goto Error
+Esc:
+ PrintS("[1;40;31mНажата Esc[0;37;40m");
+ GoTo Start
+Error:
+ Beep(2000,100);
+ PrintS("[1;40;31mОшибка обмена[0;37;40m");
+ Beep(0,100);
+ Beep(2000,100)
+Exit:
+Quit:
+ PrintS("[1;40;31mВыход[0;37;40m");
+ Beep(1000,200);
+ Stop()

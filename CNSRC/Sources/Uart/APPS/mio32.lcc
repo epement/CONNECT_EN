@@ -1,0 +1,8 @@
+mio32.dll
+__imp__mioSendTo mioSendTo
+__imp__mioQuiet mioQuiet
+__imp__mioWaitFor mioWaitFor
+__imp__mioResult mioResult
+__imp__mioDriver mioDriver
+__imp__mioBreak mioBreak
+__imp__mioDebug mioDebug

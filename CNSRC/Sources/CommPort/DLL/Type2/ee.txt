@@ -1,0 +1,2 @@
+;Name format:multiplaer:address:default
+0:Pref %3.1fW:4.0:400

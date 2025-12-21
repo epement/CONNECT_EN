@@ -1,0 +1,33 @@
+// Copyright (c) 2001, Legendum LLC. All Rights Reserved.
+
+ss_page = new String(window.location);
+ss_mark = ss_page.lastIndexOf('?');
+if (ss_mark >= 0) ss_page = ss_page.substring(0, ss_mark);
+
+ss_slash = ss_page.indexOf('/', 8);
+if (ss_page.lastIndexOf('.') < ss_page.lastIndexOf('/'))
+	ss_page += 'Home+page';
+
+ss_refer = document.referrer;
+if (ss_refer.substring(0, ss_slash) == ss_page.substring(0, ss_slash))
+	ss_refer = '';
+
+ss_page = ss_page.substring(ss_slash+1, ss_page.length);
+ss_html = '<img width="1" height="1" src="http://db4.net-filter.com/db.php';
+ss_html += '?site_id=4232&page=' + escape(ss_page) + '&referrer=' + escape(ss_refer);
+document.cookie = 'ss=1';
+ss_html += '&cookies=' + (document.cookie.indexOf('ss=1') >= 0);
+
+if (parseInt(navigator.appVersion) >= 4)
+{
+	var date = new Date();
+
+	ss_html += '&resolution=' + screen.width + 'x' + screen.height;
+	ss_html += '&color_bits=' + screen.colorDepth;
+	ss_html += '&java=' + navigator.javaEnabled();
+	ss_html += '&time=' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+}
+
+document.write(ss_html + '">');
+
+<!-- This document source from http://db4.net-filter.com/script/4232.js -->

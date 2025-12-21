@@ -1,0 +1,128 @@
+{$A+,B-,D-,E+,F+,G-,I-,L-,N+,O+,P-,Q-,R-,S-,T-,V-,X+,Y-}
+{$M 16384,0,655360}
+
+uses Dos, Crt, Objects, Drivers, SpellChk, CRC32, TPString;
+
+const
+  WordChars =
+    ['A'..'Z', 'a'..'z', '€'..'Ÿ', ' '..'¯', 'à'..'ï', #240, #241];
+
+procedure Words;
+var
+  C: Char;
+  Cnt: Word;
+  TxtSize, CRC, L: Longint;
+  Stream: PStream;
+  TxtStream: PBufStream;
+  Params: Array[0..2] of Longint;
+  RSize, R: Real;
+  InName, OutName: String[79];
+  S: String;
+begin
+  Write(
+    'CONNECT Spell Checker CRC32 Dictionary Generator  Version 1.0'#13#10);
+  Write('Copyright (c) 1996 KHEMZ Inc.'#13#10);
+
+  InName := ParamStr(1);
+  if InName = '' then
+  begin
+    Write(#13#10);
+    Write('  Syntax:  CNDIC <Text file>[.TXT] [<DIC file>[.DIC]]'#13#10);
+    Write(#13#10);
+    Halt(0);
+  end;
+  if Pos('.', InName) = 0 then InName := ForceExtension(InName, 'TXT');
+  InName := FExpand(InName);
+  OutName := ParamStr(2);
+  if Outname = '' then OutName := InName;
+  OutName := ForceExtension(OutName, 'DIC');
+  OutName := FExpand(OutName);
+
+  TxtStream := New(PBufStream, Init(InName, stOpenRead, $4000));
+  if TxtStream^.Status <> stOk then
+  begin
+    Write('Could not open source file ' + InName + '.'#13#10);
+    Halt(1);
+  end;
+
+  InitCRCStream(OutName, Stream);
+  if Stream^.Status <> stOk then
+  begin
+    Dispose(Stream, Done);
+    Dispose(TxtStream, Done);
+    Write(
+      'Could not open or create dictionary file ' + OutName + '.'#13#10);
+    Halt(1);
+  end;
+
+  TxtSize := TxtStream^.GetSize;
+  RSize := TxtSize;
+  Params[0] := 0;
+  Params[1] := 0;
+  S := '';
+
+  repeat
+    TxtStream^.Read(C, SizeOf(Char));
+    if TxtStream^.Status <> stOk then Break;
+    if C = '-' then
+    begin
+      if S = '' then Continue;
+      TxtStream^.Read(C, SizeOf(Char));
+      if C in WordChars then
+      begin
+	TxtStream^.Seek(TxtStream^.GetPos - 1);
+	C := #0;
+      end
+      else
+      begin
+	Cnt := 0;
+	repeat
+	  TxtStream^.Read(C, SizeOf(Char));
+	  Inc(Cnt);
+	until (TxtStream^.Status <> stOk) or
+	  (C in WordChars) or (Cnt > 1024);
+	if TxtStream^.Status <> stOk then Break;
+      end;
+    end;
+    if not (C in WordChars) then
+      if Length(S) <= 2 then S := ''
+      else
+      begin
+	UpcaseSt(S);
+	CRC := GetStringCRC32(S);
+	if not CRCSearch(Stream, CRC, L) then
+	begin
+	  CRCAdd(Stream, L, CRC);
+	  Inc(Params[1]);
+	end;
+	Inc(Params[0]);
+	R := TxtStream^.GetPos + 1;
+	R := (R / RSize) * 100.0;
+	Params[2] := Trunc(R);
+	if Params[2] > 100 then Params[2] := 100;
+	FormatStr(S, 'Total words: %d, added: %d, %d  done.'#13, Params);
+	S[Length(S) - 7] := '%';
+	Write(S);
+	S := '';
+	if KeyPressed and (ReadKey = #27) then Break;
+      end
+    else
+    begin
+      Inc(S[0]);
+      S[Length(S)] := C;
+      if Length(S) = 128 then
+      begin
+	Write(
+	  'Word too long. Probably not a text file. Aborting...'#13#10);
+	Break;
+      end;
+    end;
+  until False;
+  Dispose(Stream, Done);
+  Dispose(TxtStream, Done);
+  Write(#13#10);
+end;
+
+begin
+  Words;
+end.

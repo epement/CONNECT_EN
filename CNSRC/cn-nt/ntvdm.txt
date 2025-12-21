@@ -1,0 +1,118 @@
+Группы новостей: comp.os.ms-windows.programmer.vxd
+От: "Vladimir Burlik" <vbur...@absolute.com> - Поиск сообщений этого автора
+Дата: 1997/06/09
+Тема: Re: Calling a 32 -bit DLL from a 16 -bit MS-DOS application
+
+Such kind of calls are made by generation of exceptions. Here are
+some assembler examples for such calls for MS-DOS apps.
+;----------------------------------------------------------
+RegisterModule  MACRO
+
+                dw      0C4C4h
+                db      58h
+                db      0
+
+                endm
+;----------------------------------------------------------
+UnRegisterModule MACRO
+
+                dw      0C4C4h
+                db      58h
+                db      1
+
+                endm
+
+;----------------------------------------------------------
+
+DispatchCall    MACRO
+
+                dw      0C4C4h
+                db      58h
+                db      2
+
+                endm
+
+;----------------------------------------------------------
+VDDUnSimulate16 MACRO
+
+                dw      0C4C4h
+                db      0FEh
+
+                endm
+
+;----------------------------------------------------------
+Examples:
+
+                mov     si, offset cs:DLLNAME
+                mov     di, offset cs:INITFUNC
+                mov     bx, offset cs:DISPFUNC
+                mov     bp, offset cs:MyFunc  ; callback function (if you need it)
+
+                                RegisterModule
+
+   After this call you'll receive handle, which is being used for all
+another calls(in AX).
+ Regards
+Vladimir Burlik
+;--------------------------------------------------------------
+ tuha wrote in article <01bc7178$fb7515e0$df8cd...@drituha.abb.fi>...
+----------------------------------------------------------------------------
+ Previous                            | Next                                |
+----------------------------------------------------------------------------
+
+
+Interrupt Simulation
+
+The VDDSimulateInterrupt function allows a VDD to simulate a hardware
+interrupt to the VDM. Call this function if the application depends on an
+interrupt to tell it that some particular operation has been completed. For
+example, the application using a fax board might expect to get a particular
+interrupt when the board is done sending a fax. Because the VDD is notified
+when the fax board is done, the VDD can simulate the interrupt to the
+application.
+
+When the VDD calls VDDSimulateInterrupt, the address pointed to by the
+interrupt vector starts running in 16-bit mode. For an asynchronous
+interrupt, the VDD should create another thread and call VDDSimulateInterrupt
+from that thread.
+
+The VDDSimulate16 function is similar to VDDSimulateInterrupt, except it does
+not require a hardware interrupt to be supported by the 16-bit stub driver.
+VDDSimulate16 allows the VDD to execute a routine in its 16-bit driver and
+return when it has finished. Before calling VDDSimulate16, a VDD should
+preserve all the 16-bit registers its routine might destroy; minimally, it
+should preserve CS and IP. Then, set the CS and IP for the 16-bit routine. A
+VDD can also use registers such as AX or BX to pass parameters to its 16-bit
+routines. At the end of the 16-bit routine, VDDUnSimulate16 sends control
+back to the VDD. Because this simulation is synchronous, the VDD is blocked
+in VDDSimulate16 and returns only when the stub driver calls VDDUnSimulate16.
+The following code shows an example of how these calls are used:
+
+vdd (Win32 Code):
+    SaveCS = getCS( );
+    SaveIP = getIP( );
+    SaveAX = getAX( );
+    setCS (16BitRoutineCS);
+    setIP (16BitRoutineIP);
+    setAX (DO_X_OPERATION);
+    VDDSimulate16( );
+    setCS (SaveCS);
+    setIP (SaveIP);
+    setAX (SaveAX);
+    . .
+    . .
+Stub Driver (Initialization):
+    RegisterModule        ;Loads VDD
+    push cs
+    pop ax
+    mov bx,offset Simulate16
+    DispatchCall          ;passes the address of worker
+                          ;routine to VDD in ax:bx
+Stub Driver (Run Time)
+
+Simulate16:
+    . .
+    . .                   ;do the operation index passed in ax
+VDDUnSimulate16
+
+Built on Friday, April 11, 2003

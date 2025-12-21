@@ -1,0 +1,3 @@
+wscver.c
+paint.c
+wsc16.dll OR wsc32.dll

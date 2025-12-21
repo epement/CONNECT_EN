@@ -1,0 +1,10 @@
+;Network description file
+;Name 1:100:Wide_400W
+;Name 2:102:Wide_400W
+;Name 3:103:Logger
+;Name 4:104:LOGGER
+;Name 5:106:Slim_400W
+;Name 6:107:SLIM_400W
+;Name 3:105:Wide_1000W
+Logger 1:8:logger
+Logger 2:9:logger

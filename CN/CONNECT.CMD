@@ -1,0 +1,1 @@
+PKZIP25.EXE -extract -overwrite C:\CONNECT\CN_ADDS.ZIP ZX_DISK.DOC 

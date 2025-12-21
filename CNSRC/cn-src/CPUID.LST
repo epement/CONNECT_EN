@@ -1,0 +1,69 @@
+Turbo Assembler	 Version 3.2	    03/01/06 12:13:16	    Page 1
+C:\CNSRC\cn-src\cpuid.asm
+
+
+
+      1							 jumps
+      2							 locals
+      3	    0000					 .model	Small
+      4					 public		 _cpuid
+      5					 ;procedure CPUid(longint i, var eax_, ebx_, ecx_, edx_: longint);
+      6	    0000					 .data
+      7	    0000					 .code
+      8							 .386
+      9	    0000			 _CPUid		 proc far
+     10					 ;procedure CPUid(longint i, var eax_, ebx_, ecx_, edx_: longint);
+     11
+     12		  =0014			 arg @@edx_:DWord, @@ecx_:DWord, @@ebx_:DWord, @@eax_:DWord, @@i : DWord = @@ParamSize
+     13	    0000  55					 push bp
+     14	    0001  8B EC					 mov bp,sp
+     15	    0003  1E					 push ds
+     16	    0004  66| 8B 46 16				 mov eax,dword ptr @@i
+     17	    0008  C5 76	06				 lds si,dword ptr @@edx_
+     18	    000B  66| 67| 89 06				 mov dword ptr ds:[esi],eax
+     19	    000F  1F					 pop ds
+     20	    0010  8B E5					 mov sp,bp
+     21	    0012  5D					 pop bp
+     22	    0013  CA 0014				 ret @@ParamSize
+     23	    0016			 _CPUid		 endp
+     24
+     25							 end
+Turbo Assembler	 Version 3.2	    03/01/06 12:13:16	    Page 2
+Symbol Table
+
+
+
+
+Symbol Name			  Type	 Value
+
+??DATE				  Text	 "03/01/06"
+??FILENAME			  Text	 "cpuid	  "
+??TIME				  Text	 "12:13:16"
+??VERSION			  Number 0314
+@32BIT				  Text	 0
+@@EAX_				  Number [DGROUP:BP+0012]
+@@EBX_				  Number [DGROUP:BP+000E]
+@@ECX_				  Number [DGROUP:BP+000A]
+@@EDX_				  Number [DGROUP:BP+0006]
+@@I				  Number [DGROUP:BP+0016]
+@@PARAMSIZE			  Number 0014
+@CODE				  Text	 _TEXT
+@CODESIZE			  Text	 0
+@CPU				  Text	 0F0FH
+@CURSEG				  Text	 _TEXT
+@DATA				  Text	 DGROUP
+@DATASIZE			  Text	 0
+@FILENAME			  Text	 CPUID
+@INTERFACE			  Text	 00H
+@MODEL				  Text	 2
+@STACK				  Text	 DGROUP
+@WORDSIZE			  Text	 4
+CN				  Text
+_CPUID				  Far	 _TEXT:0000
+
+Groups & Segments		  Bit Size Align  Combine Class
+
+DGROUP				  Group
+  _DATA				  16  0000 Word	  Public  DATA
+_TEXT				  16  0016 Word	  Public  CODE
+

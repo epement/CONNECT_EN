@@ -1,0 +1,13 @@
+xym32.dll
+__imp__xyAbort xyAbort
+__imp__xyAcquire xyAcquire
+__imp__xyDebug xyDebug
+__imp__xyDriver xyDriver
+__imp__xyGetFileName xyGetFileName
+__imp__xyGetMessage xyGetMessage
+__imp__xyGetParameter xyGetParameter
+__imp__xyRelease xyRelease
+__imp__xySetParameter xySetParameter
+__imp__xySetString xySetString
+__imp__xyStartRx xyStartRx
+__imp__xyStartTx xyStartTx

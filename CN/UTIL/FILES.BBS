@@ -1,0 +1,15 @@
+DN2CN.BAT     Перевод DN.PHN в CONNECT.PHN.
+CNDIC.EXE     Утилита для составления словаря Spell Check.
+FILTER.EXE    Утилита для проверки работы строковых фильтров, используемых при конфигурировании CONNECT'а.
+LISTER.EXE    type filelist | lister program params !path!name!ext.
+MERGDIC.EXE   Утилита для склеивания CONNECT Spell Checker CRC32 словарей.
+MERGDICX.EXE  Утилита для склеивания CONNECT Spell Checker CRC32 словарей для защищенного режима.
+MSG2TXT.EXE   Утилита для просмотра *.MSG - файлов.
+PHN2TXT.EXE   Утилита для перевода файла CONNECT.PHN в текстовый вид.
+PHND2TXT.EXE  Утилита для перевода файла DN.PHN в текстовый вид.
+PKT2TXT.EXE   Утилита для просмотра *.PKT - файлов.
+PRG2TXT.EXE   Утилита для перевода файлов *.PRG, *.EXT, *.VIE в текстовый вид.
+TXT2PHN.EXE   Утилита для перевода файлов, полученных при помощи утилиты PHN2TXT или PHND2TXT из текстового вида обратно в CONNECT.PHN.
+TXT2PRG.EXE   Утилита для перевода файлов, полученных при помощи утилиты PRG2TXT.EXE из текстового вида обратно в *.PRG, *.EXT, *.VIE.
+FILES.BBS     Список файлов с комментариями в этом каталоге.
+

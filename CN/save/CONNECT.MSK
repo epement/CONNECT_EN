@@ -1,0 +1,1032 @@
+*.rlf relocation listing file
+*.sdb symbolic debug file
+*.hex Intel HEX file
+*.s19 Motorola S-records file
+*.cod Bytecraft COD file
+*.cof COFF (common object file format) file
+*.??_ Microsoft packed file Expand
+*.??$ Backup file P-CAD
+*.?DK Disk image Loaddskf.exe
+*.?UT Nonpacked FTN mail (? - flavor) FTN software
+*._Q_ Archive CP/M Squeeze
+*.$? ZX Spectrum file in HOBETA format
+*.$$$ Temp file
+ OS/2 archive file (i.e archives.$$$, keys.$$$) OS/2
+*.!JG Thumbnails for Photofinish change JPG to !JG,
+ PCS to !PC, etc.
+*.)2( LHA archiver temporary file LHA
+*.#nn Part of file image Long
+*.±±± Adinf table Adinf
+*.~?? Old [BackUp] files (.MNU to .~MN) Resource
+ Workshop
+*.nnn Arj archive volumes up to 999 ARJ
+ RAR archive volumes up to 999 RAR
+ Netware unicode rule table (e.g. 1250_Uni.036) Novell Netware
+ News about smth with ext. of ver. number
+*.1ST Information file (e.g. readme.1st)
+*.2GR 286 Grabber File Win
+*.386 Windows virtual device driver Win
+ Sound library hmidev.386
+ (Human Music Interface)
+*.3DS 3D Studio Graphics format 3D Studio
+*.3GR 386 Grabber File Win
+*.4MD Musical file
+*.4TH Forth compiler source file Forth
+*.669 Music format (Tracker Module) DMP
+
+
+
+*.Ann Multi volume ARJ archive ARJ
+*.ABM Image PALS album file
+*.ABR Adobe Brush file for PhotoShop PhotoShop
+*.ACF Adobe Custom Filter for PhotoShop PhotoShop
+*.ACM Audio Compression Module add-on to Win
+ MSACM.DRV Windows driver
+*.ACO Adobe Color Palette
+*.ACT Animations Works Actor (Graphics cell) Animation Works
+*.AD AfterDark screensaver module AfterDark
+ (AD.EXE)
+*.AD2 ADPCM 2-bit compressed voice file ZFAX
+*.AD3 ADPCM 3-bit compressed voice file ZFAX
+*.ADD OS/2 adapter device driver
+*.ADI AutoCad plot file AutoCad
+*.ADL MicroChannel Adapter Description Library File
+*.ADM After Dark support file AfterDark
+*.ADR After Dark support file AfterDark
+*.ADV GUS device driver Gf166.com
+*.AFM Adobe Font Metrics
+*.AI Vector graphics file Adobe
+ Ilustrator
+*.AIFF Audio Interchange Format File (AIFF) Convert (c)
+ Villena
+*.AiM Asm Text Mode Image File The Ultimate
+ Draw
+*.AIN Archive AIN
+*.ALG Activity Log ARCSOLO
+*.ALL Filelist w/ all files FRQView
+*.ALO Almanac support file
+*.AMF Music format DMP
+*.AMS Adobe Monitor Setup calibration file PhotoShop
+ Music format
+*.ANI Animation cursors for Win Win95, WinNT
+*.ANS File includes ANSI-symbols ANSview
+*.API Adobe Printer Ink file for PhotoShop PhotoShop
+*.APL Support module used by Manugraphics APL
+ products
+*.APP Application FoxPro
+*.AQL America On-line for Windows DLL Win
+*.ARC Archive ARC,
+ PKARC/PKXARC,
+ PKPAK/PKUNPAK
+*.ARK Archive QUARK
+ Managing your Money Archive File
+*.ARJ Archive ARJ,
+ ARJZ
+*.ART Graphics format PFS:
+ 1st publisher
+*.ASM Assembler language source TASM, MASM
+*.AST Adobe Color Separtion table for PhotoShop PhotoShop
+*.AVB AntiViral Toolkit Pro Bases
+*.AVI Animation [+sound] format Video for Win
+ (Audio Visual Interleaved)
+*.AVT AVATAR-coding files A3E
+*.AWA Animations Works Accelerated Movie Animation Works
+*.AWM Animations Works Movie (as .AVI) Animation Works
+*.AU Sun/Next Audio File Convert (c)
+ Villena
+
+
+
+*.BAK Backup file
+*.BAR Info Bar for GFX2EXE GFX2EXE
+*.BAS BASIC language source QuickBASIC,
+ GW-BASIC
+*.BAT Batch file (e.g. autoexec.bat)
+*.BBS File containing e-mail info (e.g. files.bbs) DosNavigator
+ Hudson-style messagebase FTN software
+*.BCT Backup dictionary Clarion
+*.BDF Binary update file BUPDATE.EXE
+ (c) TNT Techn.
+*.BFC Briefcase Win95 Win95
+*.BGI Borland Graphics Interface device driver Borland Pascal
+*.BI BASIC include file (Visual Basic for DOS) Visual Basic
+*.BIN Binary file, usually zero-start (.com analog)
+ Text mode memory dump The Draw, TUD,
+ ACiDDraw, etc
+*.BK? Backup file
+*.BKP Backup file Dialog
+ Designer 4.x
+*.BLG Backup Log ARCSOLO
+*.BMP OS/2 or Win graphics format (BitMap Picture) QPeg, CorelDraw
+*.BMT Ami Pro Button Ami Pro
+*.BNK AdLib Instrument ID file
+*.BNR Graphics Banner Banner, Poster
+*.BOO Book-format READIBM
+*.BPP Backup application Clarion
+*.BS2 Archive BS2.EXE
+*.BSA Archive BSArc
+*.BST BiblioTex file (BiblioTex=bibliography file) TeX
+*.BTM Batch-to-memory (quick batch) 4dos,ndos
+*.BTN Makeover Button file
+
+
+
+*.C C language source Watcom C/C++
+*.C-- C-- language source Sphinx C--
+*.CA? Borland packed and splitted file Borland
+ installer
+*.CAB Win 95 packed file Win 95
+*.CAL Spreadsheet format SuperCalc
+ Windows Calendar File Win
+*.CAP ProComm Capture file ProComm
+*.CAS C + ASM language source Turbo C
+*.CAT CP's Backup Catalog CP Backup
+*.CBS MasterWord button bar configuration file
+*.CC CC language source CC
+*.CDA CD-Audio Win95
+*.CDM Music format (compressed)
+ Disk Drivers NPA Novell NetWare
+*.CDR Vector graphics format (drawing) CorelDraw!
+*.CDT Corel Draw Template File CorelDraw!
+*.CDX Compaund index file FoxPro
+*.CEF CA-Clipper Workbench Application CA Clipper
+ Export File
+*.CEL Animation CEL 3D Studio
+*.CFG Configuration file
+*.CGM Computer Graphics Metafile
+ Object graphics forat
+*.CH Clipper language header CA Clipper
+*.CH3 Harvard Graphics file format
+*.CHI ChiWriter Document ChiWriter,
+ Chiview
+*.CHP Ventura Publisher Chapter Files Ventura
+ Publisher
+*.CHR Borland Stroked font BP, BC
+*.CHZ Archive CHARC
+*.CiM C Text Mode Image File The Ultimate
+ Draw
+*.CKB Borland C++ 4.x editor keystroke mapping BCW.EXE
+*.CLA Source Clarion
+*.CLD Clipper debugger configuration file CA Clipper
+*.CLP Windows clipboard save file Win
+ Graphics format (PCPAINT/Pictor)
+ Compiler responce file CA Clipper
+*.CLR Color scheme Boxer/2
+*.CMB Xtree for Windows Button Bar file
+*.CMD OS/2 batch/REXX file OS/2
+*.CMF Music format (Sound Blaster Synthesized
+ Sound File)
+*.CMP Photofinish Calibration Map Photofinish
+*.CNF Configuration file
+*.CNV Winword DLL used as part of an import operation WinWord
+ (CNV=convertor)
+*.COL Colors palette
+*.COM Command (binary) file
+*.CPI MS-DOS codepage file MODE.EXE
+*.CPL Windows Control Panel applet CONTROL.EXE
+*.CPP C++ language source Watcom C/C++
+*.CRD Windows cardfile data file Win
+*.CRK Crack file (usually text)
+*.CSV Comma Separated Variables (crude data
+ interchange format)
+*.CTL Configuration (control) file
+*.CUR Windows resource (cursor image file) Resource
+ Workshop, WRT,
+ Watcom Resource
+ Editor
+*.CUT Graphics format (bitmapped graphics) dr.Halo
+
+
+
+*.DAT Data file
+ Database file Clarion
+*.DB Database file Paradox,
+ XTreeGold
+ dbvista
+ Multi Edit config ME
+*.DBA Database file Turbo Prolog
+*.DBF Basic dBASE database file DBEd, DBU
+*.DBG Debugger script (DOS debug, Watcom debuger)
+*.DBS Data file used by Managing Your Money
+*.DBT Memo-field file Clipper,DBase,
+ FoxBase
+*.DCP OS/2 device code page
+*.DCT Dictionary Clarion
+ Dictionary: used by many programs with
+ program dependent format
+*.DCU Delphi unit (compiled) Borland Delphi
+*.DDI Disk image DiskDupe
+*.DEF Linker definition file TLink, WLink...
+*.DEM Vista DEM file Meta.exe VP3
+*.DFM Delphi form module Borland Delphi
+*.DFX Micrografx Effects DLL
+*.DIB Device Independent Bitmap; Win, OS/2
+ rarely used Windows 3.0 bitmap
+*.DIC Dictionary (e.g. from WinWord)
+*.DIF Data Interchange Format Visicalc
+ Borland patch data file Borland patch
+ OS/2 V2.2 Display Information File OS/2
+*.DIP Watcom debug info processor WatcomDebugger
+*.DIR CPS Backup Directory File
+*.DIZ Description file
+*.DL Animation format Display,
+ DL viewer
+*.DLG Windows SDK dialog editor data file
+*.DLL Dynamic link library
+*.DMF Music format (Delusion Digital Music File) Delusion
+*.DMP Memory dump
+*.DPR Turbo C default project file Turbo C
+ Delphi project file Borland Delphi
+*.DOC ASCII doc file
+ WinWord native file MS Word
+*.DOS Something for MS-DOS (e.g. msdos.dos) Win95
+ OS/2 V3 SVGA PMI-File Svga.exe
+*.DOT MS Word document template WinWord
+*.DOX Documentation
+*.DRV Driver
+*.DRW Designer vector graphics file Designer,
+ MicroGraphix
+*.DS4 Designer 4.1 Drawing Designer 4.1
+*.DSC Description file
+*.DSK Borland C++ IDE desktop configuration BC
+ Some desktop configuration BP, DN
+ Disk Drivers Novell NetWare
+*.DSF Delusion Digital Sound File Delusion
+*.DSM Digital Sound Module
+*.DSP Dynamic Studio Professional Module Dynamic Studio
+ Norton viewer DLL Win
+*.DST WAIN (Scanner spec) data source DLL Win
+*.DSW Borland C++ 4.x desktop layout file BCW.EXE
+*.DVI TeX output file TeX
+*.DVP DESQView run-file DESQView
+*.DWC Archive DWC
+*.DWG Drawing AutoCAD
+*.DXF AutoCAD vector graphics format AutoCAD
+
+
+
+*.EAS Extended file attributes OS/2
+*.ELI Archive ELI
+*.ENG English documentation
+*.ENV Envelope or Environments
+*.EPS Encapsulated PostScript (Graphics format) CorelDraw,
+ PhotoStyler,
+ PMView
+ Printout file for Epson-compatible printers
+ (ESC/2)
+*.ERR Compiler/linker error report
+ MS compilers error lists
+*.EVT Events descriptions
+*.EXE Executable file
+*.EXP Protected mode EXE by PharLap Software PharLap
+*.EXT Extensions descriptions file
+
+
+
+*.F2R Farandole Linear Module Farandole
+*.F3R Farandole Blocked Linear Module Farandole
+*.FAC Graphics format (Usenix FACE)
+*.FAQ Frequently Asked Questions
+*.FAR Music format (Farandole Composer Module) Farandole
+*.FAS Macsyma compiled program
+*.FAX Fax bitmaps in CCITT format
+*.FD Front Door' resource files FD
+*.FF Intelligont FIAS format
+*.FI Fortran Source Code
+*.FIO Aldus PhotoStyler graphics filter
+ Image PALS viewer DLL
+*.FIL Filelist
+ Mirror.FIL is the name given to the saved FAT MS-DOS,
+ by the mirror program included in some versions PCTools
+ of DOS and in PCTools
+*.FIT Graphics format (FITS)
+*.FLC Animation format FLIC >320x200 AAPlay,
+ Autodesk AniPro
+*.FLI Animation format FLIC 320x200
+*.FLT Data/file conversion filter (or overlay) Alsud, WinWord
+*.FLX Animation format
+*.FMT Gate3 format file
+*.FND Files searching properties Win95
+*.FNT Any font
+*.FOG Fontographer Database File Fontographer3.5
+*.FON Windows bitmapped font file Win
+ Terminate phonebook Terminate,
+ Terminator
+*.FOR Fortran language source file MS Fortran
+ Watcom Fortran
+*.FOT Windows TrueType font description Win
+*.FOX Foxbase executable (precompiled .prg) FoxBase
+*.FMT Format file dBase,Clipper,
+ FoxBase
+*.FPT Foxpro memo field tables FoxPro
+*.FR? Packed mail FTN software
+*.FRM Registration or other form
+ Visual Basic Form Visual Basic
+*.FRT Additional (FPT) report description file FoxPro
+*.FRX Visual Basic binary program file Visual Basic
+ Main (DBF) report description file FoxPro
+*.FSM Farandole Composer WaveSample Farandole
+*.FXP Foxpro executable (precompiled .prg) FoxPro
+
+
+
+*.G16 GoldED for DOS compiled config GOLDED.EXE
+*.GBL Global module in Basic programs
+*.GE GEcho config file GEcho
+*.GED GoldED for DOS compiled config file GOLDED.EXE
+*.GEM Graphics format Ventura
+*.GEO GoldED for OS/2 compiled config file GED2.EXE
+*.GEX GEcho config file GEcho
+*.GFX Instant Artist graphics Files Instant Artist
+ PCBoard @X-coded colorful text GFX2COM,
+ GFX2EXE
+*.GID Help index windows 95 help
+*.GIF Compuserves' Graphics Interchange Format QPeg, Display,
+ (bitmapped graphics) GIFview
+*.GKH Ensoniq Disk Image (VFX, SD, EPS, ASR, TS) Ensoniq
+*.GL Animation format GRASP
+*.GLB Global module in Basic programs
+*.GLO Global module in Basic programs
+*.GLY Winword Glossary WinWord
+*.GRD Drivers for GRX (graphics library) GRX (c) Free
+ Soft. Found.
+*.GRF Stanford Graphics files; also used by Charisma
+*.GRN Drivers for GRX (graphics library) GRX (c) Free
+ Soft. Found.
+*.GRP Windows Program Manager group PROGMAN.EXE
+*.GRY Graphics format (RAW GREYz)
+*.CSM Borland C++ 4.x precompiled header file BCW.EXE
+*.GV GrandView outline file
+*.GZ Archive gzip, WinZipNT
+
+
+
+*.H Header file (usually C language) Watcom C/C++
+*.H-- C-- language header Sphinx C--
+*.H! Pertext database HELP.EXE
+ Tech help file (c) Hambeaux
+ Software, inc
+*.HA Archive HA
+*.HAM Disk Drivers NPA Novell NetWare
+*.HAL Data file Hyper Access
+ Lite OS/2
+*.HAP Archive HAP3
+*.HBK MathCAD handbook MathCAD
+*.HC Header file
+*.HEP Novell Help Librarian Data File Novell NetWare
+*.HI Game high scores table
+*.HLP Help file
+*.HLX Multi Edit help file MultiEdit 5.0
+*.HLZ Multi Edit packed help file MultiEdit
+*.HMI Music format (MIDI)
+*.HMP Music format (MIDI)
+*.HP Printout file for HP printers/plotters (HP/GL)
+*.HPJ Help compiler project HC.EXE,
+ HC31.EXE
+*.HPM High Performance Map Quaestor 1.x
+*.HPP C++ language header Watcom C/C++
+*.HQX Archive (Mac) BINHEX
+*.HRZ Graphics format SSTV
+*.HSC 2-op FM music HSC tracker,
+ hscplay.exe
+*.HST History file
+*.HTM HTML format for WWW NetScape,
+ HotDog editor
+*.HYP Archive HYPER
+
+
+
+*.I Preprocessor output file Borland C
+ Preprocessor
+*.ICC ICC configuration
+*.ICE Archive Cracked LHA
+ (old LHA)
+*.ICM ICC configuration
+*.ICO Icon file ICONEDIT.EXE
+*.ID Identification file (e.g. disk.id)
+*.IDB IDA database IDA
+*.IDC IDA C language source IDA
+*.IDE Borland C++ 4.x IDE project BCW.EXE
+*.IDF MIDI instrument description
+*.IDS IDA imported names format IDA
+*.IDX Index file FoxPro,FoxBase
+*.IFS Installable file system OS/2
+*.IFF Graphics format (Amiga)
+ Interchange Format File (IFF) Convert (c)
+ Villena
+*.IHP Watcom help file whelp.exe
+*.IHS Inbound History Bink/+
+*.IL hDC Designer Icon Lin Dll format
+*.IMG GEM bitmapped graphics file Ventura
+ Disk Image Norton
+ Commander 5.0
+*.INC Include file
+ Assembler include file MASM
+*.INF Any information
+ OS/2 hypertext help system file VIEW.EXE
+*.INI File with initialization information
+*.INS Ensoniq Instrument File Ensoniq
+*.INT Source of Borland interface module
+*.ION Files descriptions (e.g. descript.ion) DosNavigator,
+ 4DOS
+*.IT Impulse Tracker music file Impulse Tracker
+
+
+
+*.JAM Jam messagebase FTN software
+*.JAS Graphics format (JASC)
+*.JED JEDEC configuration file (PLDShell)
+*.JIF JPEG - JFIF compliant
+*.JPG Compressed graphics format (JPEG) QPeg, FullView,
+ Display
+*.JPC Graphics format (Japan PIC)
+
+
+
+*.Knn Database key file Clarion
+*.K3D Description of macro language 3DS 3DS
+*.KAR Precompiled .prg for KARAT Rus. FOX+ 2.0
+ Music format (Karaoke)
+*.KBD Keyboard data
+*.KEX Kedit Macro File Kedit
+*.KEY Usually registration key
+ OS/2 archive .key-file (i.e. OS2.KEY) OS/2
+*.KIT Power Chords drum kit file Power Chord
+*.KML Kedit Macro Library
+*.KRZ Kurzweil K2000 File Kurzweil
+
+
+
+*.LAN LAN Drivers Novell NetWare
+*.LBM Graphics format (Amiga) Pic-view,
+ Deluxe Paint
+*.LBR Archive CP/M LU
+*.LBT Additional (FPT) label description file FoxPro
+*.LBX Main (DBF) label description file FoxPro
+*.LCH Chart IBM Works
+ for OS/2
+*.LDB Data filer database IBM Works
+ for OS/2
+*.LDF Data filer form IBM Works
+ for OS/2
+*.LEX Dictionary (e.g. for WinWord spellcheckers) WinWord
+*.LFD LucasArts resource file LucasArts games
+*.LGO Windows Logo file shown during startup Win
+*.LHA File made by compression LHA LHA
+*.LIB Library file
+*.LIC License file used by some programs to put their
+ license on disk
+*.LIF CA Clipper packed file CA Clipper
+ installer
+*.LIM Archive LIMIT
+*.LMP Demo for Doom (computer 3d game) Doom, Doom2
+*.LNG Language defination file
+*.LNK Linker script
+ Windows 95 shortcut Windows 95
+*.LOG Log file
+*.LRP Report IBM Works
+ for OS/2
+*.LSP LISP language source (autoLISP)
+*.LSS Spread sheet IBM Works
+ for OS/2
+*.LST Listing (e.g. source code)
+ Filelist FRQView
+*.LWP Word processor IBM Works
+ for OS/2
+*.LYR Lyrics
+*.LZH Archive LHARC
+*.LZS Archive LARC
+
+
+
+*.M Source file for MatLab and Mathematica MatLab,
+ Mathematica
+*.MA Used by Mathematica for its notebooks and by Mathematica,
+ hDC products for MicroApp executable files MicroApp
+*.MAC Graphics format MAC Paint
+ Macro file
+ Multi Edit macro file Multi Edit
+*.MAG Graphics format (Japan MAG)
+*.MAH Mahjongg Solitaire settings file Mahjongg
+ Solitaire 2.00
+*.MAK Makefile
+ Visual Basic Project VB 4.0
+*.MAN User guide (manual)
+*.MAP Map file (usually created by compilers)
+*.MCD MathCad file MathCad
+*.MCL Multi Edit macro library Multi Edit
+*.MDB Microsoft DataBase Microsoft
+ Access
+*.MDR Microdrive file (Spectrum emulator) ZX Spectrum
+ emulator by
+ g.a.lunter
+*.MDZ Text description of music module Cubic Player,
+ Cross-View
+*.MF Metafont file TeX
+*.MFM Music format DMP
+*.ME Text file READ.ME
+ MultiEdit configuration MultiEdit
+*.MEC MECCA source Maximus
+*.MED Music format (MED/OctaMED Module) MED/OctaMED
+*.MEM Memos datafile Clarion
+ Saved memory variables CA Clipper, Fox
+*.MET OS/2 graphics metafile PICVIEW.EXE
+*.MGX Designer 4.1 Drawing Designer 4.1
+*.MK Makefile
+*.MKG Makefile
+*.MKI Graphics format (Japan MKI)
+*.MID Music format (General MIDI) PlayMidi/SBMidi
+*.MMM MultiMedia Movie file
+*.MNX Main (DBF) menu description file FoxPro
+*.MNU Menu file (usually for shells)
+ Microsoft Mouse menu (for DOS apps)
+*.MNT Additional (FPT) menu description file FoxPro
+*.MLI 3DS Materials Libraries 3D Studio
+*.MPG Animation format (MPEG) MPEG Player
+*.MO? Packed mail FTN software
+*.MOD Music format (Amiga module) DMP, ST, MDP,
+ VP
+ Modula language source
+ Module -- used by Windows for DLL which Win
+ implement DOS support
+*.MOV Animation format (Mac) QuickTime
+*.MPR Generated executable menu file FoxPro
+*.MPX Compiled executable menu file FoxPro
+*.MRK Windows User Benchmark Win95
+*.MS Microsoft antivirus report MSAV
+*.MSG File w/ any messages
+ Message base (e.g. HMB)
+ ZVoice digitized voice file
+*.MSP Graphics format Microsoft Paint
+*.MTM Music format (MultiTracker Module) MultiTracker
+*.MU Quattro pro for DOS Menu definition file Quattro Pro
+*.MUS Music format (MIDI in Doom)
+*.MXL PackRat 5.0 support DLLs PackRat 5.0
+
+
+
+*.NAM Name Space Modules Novell NetWare
+*.NCD NC directories TREEINFO.NCD NC
+*.NDL Nodelist file
+*.NDX Database index file dBase
+*.NEW News about smth
+*.NFO Any information
+ Help format Netware Folio
+ Filioview database
+*.NG Hypertext Database Norton Guide
+*.NGO NG linker object file NGML
+*.NGS NG compiler source file NGC
+*.NL Norton Desktop Icon Library
+*.NLM Netware loadable module Novell Netware
+*.NOT Notation
+*.NSS Norton screensaver module NC, NDW Screen
+ Saver
+*.NST Music format
+*.NTX Database index file
+
+
+
+*.O Object code
+*.OBD Microsoft Office Binder MSOffice
+*.OBJ Compiled machine language code
+*.OBT Microsoft Office Binder Template MSOffice
+*.OBZ Microsoft Office Binder Wizard MSOffice
+*.OCT Musical file Pctalizer
+*.OCX New Custom Control's format in VB 4.0 Visual Basic
+*.OFM PostScript font description file
+*.OFN MS Office documents MSOffice
+*.OHS Outbound History Bink/+
+*.OKT Music format (Oktalyzer Module) Oktalyzer
+*.OLD Backup file
+*.OPT Options; name used by many programs for
+ configuration information
+ Delphi project options Borland Delphi
+*.ORG Origin plot Microcal Origin
+*.OVL Overlay
+*.OVR Overlay
+
+
+
+*.P Database PROGRESS source code PROGRESS
+*.P0? Splitted archive UC2 SAS.EXE
+*.PAC SBStudio II Package or Song SBStudio II
+*.PAK Archive Pak
+*.PAL Pallette file Microsoft Draw,
+ Win. Paintbrush
+*.PAR Windows swapfile
+*.PAS Pascal language source Borland Pascal
+*.PAT Gravis Ultrasound Patch Convert (c)
+ Villena
+*.PB Proboard Conf. files Proboard
+*.PBK Microsoft Network Phone book MSN
+*.PBM Graphics format (Portable BitMap) Jasc Media C.
+*.PCB P-CAD database P-CAD
+*.PCD Graphics format (Kodak Photo-CD)
+*.PCS Microsoft PowerPoint picture package MS PowerPoint,
+ MS Clipart
+ Gallery
+*.PCT Graphics format (Mac PICT)
+*.PCX PC paintbrush bitmap format QPeg, Display
+*.PDB Packrat 5.0 data file Packrat 5.0
+*.PDF Print device information Netware
+ Adobe's Portable Document Format Adobe Acrobat
+ reader
+ PCAD Database Interchange Format Pdifin.exe,
+ Pdifout.exe
+*.PDG Print Shop Deluxe data file
+*.PDS PLDasm source
+*.PEX Proboard EXecutable file (Executed from PB) Proboard
+*.PFA PostScript Font File
+*.PFB Adobe Acrobat document Adobe Acrobat
+ Reader
+ (ACROREAD.EXE)
+ PostScript font Adobe Type
+ Manager (ATM)
+*.PFM PostScript font description file
+*.PGL HP Plotter vector graphics format
+*.PGM Graphics format (Portable GrayMap) JASC Media C.
+*.PHM Phone book DN, Lync
+*.PIC 123 Vector graphics format CShow, Alchemy
+ PC Paint
+ (Pictor)
+ Lotus picture
+*.PIF Windows run-style description file Win
+ (Program Information File)
+ OS/2 graphics metafile PICVIEW.EXE
+*.PiM Pascal Text Mode Image File The Ultimate
+ Draw
+*.PJT Additional (FPT) project description file FoxPro
+*.PJX Main (DBF) project description file FoxPro
+*.PKG P-CAD database P-CAD
+*.PKT Fido message packet FTN software
+*.PLB P-CAD library P-CAD
+ FoxPro library FoxPro
+*.PLC P-CAD database P-CAD
+*.PLL Prelinked library CA Clipper
+*.PLT Table for .pll CA Clipper
+ Output file for ploter
+ P CAD: Output file editor for PCPLOT or PCPRINT P CAD
+*.PM3 PageMaker 3.0 data file PageMaker 3.0
+*.PM5 Aldus PageMaker 5.0 publication Aldus PageMaker
+ (PM5.EXE)
+*.PMI OS/2 V3 SVGA PMI-File Svga.exe
+*.PNT Pointlist segment FTN software
+*.POW Power Chords instrument/song file Power Chords
+*.PPD PostScript printer description file
+*.PPM Graphics format (Portable PixelMap) JASC Media C.
+*.PPO Preprocessor output CA Clipper 5.*
+*.PPT Presentations Microsoft
+ PowerPoint
+*.PRG Program source code (e.g. Clipper language) CA Clipper
+*.PRJ Borland C++ IDE project file BC.EXE, BCW.EXE
+*.PRT P-CAD component P-CAD
+*.PRO Something professional ...
+ Prolog language source
+*.PRN Usually printer output file
+*.PRO Profile; used by many programs to store
+ configuration data
+ Proboard conf. file Proboard
+*.PR1 Packrat 4.0 data file Packrat 4.0
+*.PR2 Packrat 4.x data file Packrat 4.x
+*.PRS Norton Viewer DLL file
+*.PS Document in PostScript format adobe
+*.PSD Periscope Debbuger Def file Periscope
+ Photoshop bitmap file Photoshop
+*.PSM Music format (Protracker Studio Module) Protracker
+*.PSN Presentation file for Sound Script Win
+*.PST Postbox file BMail
+*.PT Kodak Precition Color Management System
+ (KPCMS) palette file
+ Game crack Player Tools
+*.PT5 Aldus PageMaker 5.0 publication template Aldus PageMaker
+ (PM5.EXE)
+*.PTM Music format
+*.PTR OS/2 cursor image file ICONEDIT.EXE
+*.PUT Graphics format WScan
+*.PX Paradox 3.0 file Paradox 3.0
+*.PXP 3DS Process file 3D Studio
+*.PZI Graphics format PZP
+
+
+
+*.QAG Norton Desktop Group file
+*.QLC ATM Type 1 fonts script Adobe Type
+ manager
+*.QPR QBE query file FoxPro
+*.QRT Graphics format (QRT ray tracing)
+*.QPX Compiled executable QBE query file FoxPro
+
+
+
+*.Rnn Multi volume RAR archive RAR
+*.R2D Reflex 2 datafile Reflex 2
+*.RA Remote Access conf. files RA
+*.RAD 2-op FM music Reality ADlib
+ tracker
+*.RAS Graphics format SUN Raster
+*.RAW PCM Signed Raw Sound File
+*.RAR Archive RAR
+*.RC Windows resource compiler script RC.EXE,Resource
+ Workshop
+ Resource file OS/2,WIN
+ UUPC configuration files UUPC
+*.REC Windows Recorder Macro File WinRecorder
+ Archivation protocol ARCSERVE
+*.REG Registration information or key
+*.REM Remarks definition Sourcer
+*.REP Report file used by many applications
+*.REQ File request BinkleyTerm,
+ Bink/+
+*.RES Windows compiled resource package Win
+*.REX Rexx language source file Rexx
+ PharLab executable file (old format) PharLab
+*.RGB Graphics format (RAW RGB)
+*.RH Windows resource file header RC.EXE
+*.RIF Fractal painter bitmapped file Fractal painter
+*.RIP TeleGrafix Remote Imaging Protocol Maximus 3.0
+*.RLD Norton Commander 5.0 temp file NC 5.0
+*.RLE Windows bitmap
+ (Run Length Encoded compressed BMP file)
+ Graphics format (Utah RLE)
+*.RMK Make file CA Clipper
+*.RMI Windows alternate synthesized sound format
+*.ROL Adlib format syntesized music file
+*.RPB Data report file used by CP Backup CP Backup
+*.RPF AutoCAD pattern ACAD
+*.RPT Report file used by many applications
+*.RSL Resource Library used by PC Tools for Windows PC Tools, Win
+*.RSP Responce File OS/2
+*.RTF Rich Text Format WinWord,
+ Help Compiler..
+*.RTL Run-Time library Norton
+ Utilites
+*.RTP Patch data file Pocket soft
+ patch
+*.RTS Realizer executable file
+*.RUL Echo-conference rules
+*.RUN PC Tools for Windows batch file PC Tools
+*.RUS Russian text
+*.RV Mobile pricelist data file Mobile
+*.RWS Borland Resource Workshop symbol file Resource
+ Workshop
+*.RXD Reflex 1 datafile Reflex 1
+
+
+
+*.S Multi Edit macro file source Multi Edit
+*.S3I Digiplayer/ST3 Sample File Digiplayer, ST3
+*.S3M Music format ST3, DMP
+*.SA? Packed mail FTN software
+*.SAM Ami Pro data file Ami Pro
+*.SAV Save file
+*.SBK Emu SoundFont Bank (AWE32 Bank) Convert (c)
+ Villena
+*.SBL Stony Brook Pascal library SB Pascal
+*.SC Script Borland Paradox
+*.SCD SCODOL film recorder SCODOL
+*.SCH Scheme P CAD, Orcad
+*.SCR Windows screensaver executable Windows
+ Control Panel
+ Screen snapshop (screen cut)
+ Script file source TeleMate
+ Any other screen system
+ Forth screen (source) file Forth
+*.SCT Additional (FPT) screen description file FoxPro
+*.SCX Main (DBF) screen description file FoxPro
+*.SDF Source definition file Sourcer
+*.SDK Roland S-550/S-50/W-30 Disk Image
+*.SDS MIDI Sample DUMP Standard File
+*.SDW Ami Draw Symbol File
+*.SDX Sample DUMP Exchange File
+*.SEC Diskreet encrypted file Diskreet
+*.SET Extension used by Norton Backup and CPS Backup Norton Backup,
+ for setup info CPS Backup
+*.SF IRCAM Sound File
+*.SFB HP Soft font (obsolete under Windows)
+*.SFO Bitstream font file - fontware format
+*.SFX SFX (self-extracting archives) script RAR
+*.SGI Graphics format (IRIS)
+*.SHAR Archive (Unix) UNSHAR
+*.SHP AutoCAD fonts ACAD
+*.SHT HTML format for WWW NetScape
+*.SHX AutoCAD fonts ACAD
+*.SIT Archive (Macintosh) STUFFIT
+*.SKY SYLK Spreadsheet file (used by Multiplan)
+*.SLB P-CAD library (symbols) P-CAD
+*.SLC SALT (script from Telix) compiled code Telix
+*.SLK MS Excel inport format MS Excel
+*.SLT SALT (script from Telix) source code Telix
+*.SMM Ami Pro Macro File Ami Pro
+*.SMP Samplevision File Samplevision
+*.SND Mac/Amiga digitized sound file
+ PCM Unsigned Raw Sound File
+ Power Chords drum sound file Power Chord
+*.SNP Book-shelf for .BOO READIBM
+*.SOL Solution (Walkthru)
+*.SOU SBStudio II Sound File SBStudio II
+*.SPD Bitstream font file - speedo format
+*.SPR Story Board sprites
+ Generated executable screen file FoxPro
+*.SPX Compiled executable screen file FoxPro
+*.SQD Squish message base Squish
+*.SQI Squish message base index Squish
+*.SQL Squish message base lastread pointers Squish
+ SQL language code Any SQL
+ database
+*.SQZ Archive SQZ
+ FOXPRO Squeeze file FOXPRO
+*.SRC Multi-edit source Multi-Edit
+*.SS Screen saver DN
+*.STA Data file Statistica
+ for Windows
+*.STM Music format (Scream Tracker Module) ST, DMP
+*.STR Gate3 table structure file
+*.STS Music format (Scream Tracker Song) ST 2.0-2.3
+*.STY Ami Pro Template (Style); used by other Ami Pro
+ programs for `styles`
+*.SU? Packed mail FTN software
+*.SVQ Music format
+*.SWG SWAG Pascal Snippets file SWAG
+*.SWP Swap file
+*.SXP 3DS Process file 3D Studio
+*.SY3 Harvard Graphics format
+*.SYD Sysedit backup file Sysedit
+*.SYM Compiler symbolic information file
+ P-CAD component (symbols) P-CAD
+*.SYS System file or driver (e.g. config.sys)
+*.SYW Yamaha SY-85/SY-99 Wave File Convert (c)
+ Villena
+
+
+
+*.T?H Turbo Help file (Pascal, C, Assembler, ...) Borland Thelp
+*.TAZ Archive WinZipNT
+*.TAP Tape file (Spectrum emulator) ZX Spectrum
+ emulator by
+ g.a.lunter
+*.TAR Archive TAR
+*.TBK FOXPRO template backup file FOXPRO
+*.TBL Aldus TableEditor file TableEditor
+ (TE.EXE)
+ Short for Table; used by many programs
+ Gate3 table file
+*.TBR Norton Desktop custom toolbar NDW
+*.TC Config from Turbo C Turbo C
+*.TD Config from Turbo Debugger Turbo Debugger
+*.TDF Speedo font file
+*.TDR Contens of Arvid tape
+*.TEX TeX input file TeX
+*.TFM Font format file TeX
+*.TGA Targa True Color bitmapped format TrueVision
+ Targa
+*.TGZ Archive WinZipNT
+*.TH? Packed mail FTN software
+*.THE Windows'95 Desktop Theme Microsoft Plus
+*.THM Picture Publisher or PhotoMagic Thumbnail
+*.TIC FTN special file with assotiated file ALLFIX
+ description
+*.TIF TIFF (tagged image format file) bitmapped file Alchemy,
+ PhotoStyler
+*.TMP Temporary file
+*.TMS TeleMate compiled script TeleMate
+*.TLD Disk Image Teledisk
+*.TOK Borland C++ 4.x reserved word list BCW.EXE
+*.TP Turbo Pascal cfg file Borland Pascal
+*.TPL Turbo Pascal Library BP
+ Template file GoldEd,ITrack
+*.TPP Borland Pascal Protected Mode Library Borland Pascal
+*.TPU Borland Pascal DOS Mode Library Borland Pascal
+*.TPW Borland Pascal Windows Library Borland Pascal
+*.TRM Windows Terminal data file Win
+*.TRN Transaction file Clarion
+*.TRU True Basic source file
+*.TSM Turbo Assembler Manual TASM for OS/2
+*.TSV Tab Separated Values
+*.TTF True-type fonts (usually for Win)
+*.TU? Packed mail FTN software
+*.TUD The Ultimate Draw file The Ultimate
+ Draw
+*.TXT Common name for ASCII text file
+*.TXW Yamaha TX-16W Wave File Convert (c)
+ Villena
+
+
+
+*.U8 Sample
+*.UC2 Archive UC
+*.ULT Music format (UltraTracker Module) UltraTracker
+*.UNI Music format (UNIMOD Module) UNIMOD
+*.USE Log file
+*.UUE E-mail encoded file UUENCODE/
+ UUDECODE
+*.UWF UltraTracker WaveSample UltraTracker
+
+
+
+*.VAP Value Added Process NetWare 2.xx
+*.VBR Visual Basic Custom Control file Visual Basic
+*.VBX DLL-files from Visual Basic Visual Basic
+*.VBZ Visual Basic Setup Wizard Template Setup Wizard
+*.VCR VCR drivers for Arvid
+*.VDO Story Board video image Story Board
+*.VEW GroupWise for Windows Win
+*.VI Watcom editor script VI.EXE
+*.VIC Graphics format (VICAR)
+*.VID Graphics format Word&Deed
+*.VIK Graphics format (VIKING)
+*.VIR Virus or infected file
+*.VLM Virtual Loadable Module Netware
+*.VOC Sound format (Creative Lab's Sound File) PlayVoc
+*.VP 3DS Video posting 3D Studio
+*.VSD Visio drawing Visio
+*.VSS Visio Template Visio
+*.VST Visio Template Visio
+*.VRM Visual rexx source WATCOM VREXX
+*.VXD Windows virtual device driver
+
+
+
+*.W40 Something for Windows95 (e.g. config.w40) Win95
+*.W95 Something for Windows95 Win95
+*.WAD War Allocation Daemon Doom, Doom2
+*.WAS ProComm Script File (source code) ProComm
+*.WAV Sound format (Microsoft Windows RIFF WAVE) Media Player
+*.WAX ProComm compiled script ProComm
+*.WB1 Quattro Pro for Windows Spreadsheet Notebook
+*.WBT Wilsonware Batch file used by Winbatch and Winbatch,
+ Norton Desktop Norton Desktop
+*.WCH WordPerfect Macro Facility WP
+*.WCM WordPerfect Macro File WP
+*.WD InfoSelect Data file
+*.WDB Database format Works
+*.WE? Packed mail FTN software
+*.WFN Corel draw font Corel
+*.WK1 Spreadsheet format Lotus 123
+*.WK3 Spreadsheet format Lotus 123 3x
+*.WK4 Spreadsheet format Lotus 123 4x
+*.WKI Spreadsheet format Lotus 123 2x
+*.WKQ Quattro spreadsheet Quattro
+*.WKS Spreadsheet format Lotus 123 1x,
+ Works
+*.WKZ Spreadsheet format Dos Navigator
+*.WMF Graphics format (Windows Metafile)
+*.WMP Windows Magic Icon Palette
+*.WNF Corel Draw Font File Corel Draw
+*.WP Word Perfect Format WP
+*.WP5 Word Perfect Format WP 5.0
+ for DOS & Win
+*.WPD Windows printer driver (uninstallable) Windows
+ Word Perfect Format WP 6.0
+ for DOS & Win
+*.WPG Graphics format (image or vector graphics) WP
+*.WPJ Watcom C/C++ IDE project IDE.EXE
+*.WPS Editor format Works
+*.WQ1 Spreadsheet format QuattroPro/DOS
+*.WRI Write editor format Write, WinWord
+*.WRK Lotus symphony Spreadsheet Lotus symphony
+*.WRP Archive Amiga WARP
+*.WS APL Worksheet
+
+
+
+*.Xnn Secondary indexes Borland Paradox
+*.X1 Archive X1.EXE
+*.XCK Extended crack
+*.XCL Xtree for Windows Script file Xtree for Win
+*.XDF OS/2 extended disk format image XDFCOPY.EXE
+*.XI Fastracker 2.0 Instrument File Fastracker 2.0
+*.XLA Excel Addin MS Excel
+*.XLB Excel Toolbar MS Excel
+*.XLC Excel Chart MS Excel
+*.XLD Excel Dialog MS Excel
+*.XLK Excel Archive MS Excel
+*.XLL Excel Addin MS Excel
+*.XLM Excel Macro File MS Excel
+*.XLS Excel Work Book (Spreadsheets) MS Excel
+*.XLT Excel Template MS Excel
+*.XLV Excel Module MS Excel
+*.XLW Excel Workbook MS Excel
+*.XM Music format FastTracker,
+ Cubic Player
+*.XMI Music format (MIDI)
+*.XTP XTreeGold overlay XTreeGold
+
+
+
+*.Y Archive Yabba
+*.Ynn Secondary indexes Borland Paradox
+*.YC Archive YACC (YAC.EXE)
+*.YUV Graphics format (YUV)
+
+
+
+*.Z Archive WinZipNT
+*.Znn ZIP archive PKZIP/PKUNZIP
+*.Z80 Snapshot (Spectrum emulator) ZX Spectrum
+ emulator by
+ g.a.lunter
+*.ZAD ZFax digitized voice file ZFax
+*.ZIP Archive PKZIP/PKUNZIP
+*.ZOM Archive Amiga ZOOM
+*.ZOO Archive ZOO
+*.ZZE Encoded file

@@ -1,0 +1,45 @@
+%nolist
+GetIntVec Macro Vec,SaveVec
+                push es
+                push ax
+                mov ax,0
+                mov es,ax
+                cli
+                mov ax,es:[Vec*4]
+                mov &SaveVec&.Offset_,ax
+                mov ax,es:[Vec*4+2]
+                mov &SaveVec&.Segment_,ax
+                sti
+                pop ax
+                pop es
+endm
+
+SetIntVec Macro Vec,SaveVec
+                push es
+                push ax
+                mov ax,0
+                mov es,ax
+                mov ax,&SaveVec&.Offset_
+                cli
+                mov es:[Vec*4],ax
+                mov ax,&SaveVec&.Segment_
+                mov es:[Vec*4+2],ax
+                sti
+                pop ax
+                pop es
+endm
+
+SetIntVecProc Macro Vec,Procedure
+                push es
+                push ax
+                mov ax,0
+                mov es,ax
+                mov ax,Offset Procedure
+                cli
+                mov es:[Vec*4],ax
+                mov es:[Vec*4+2],cs
+                sti
+                pop ax
+                pop es
+endm
+%list

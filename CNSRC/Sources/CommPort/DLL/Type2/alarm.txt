@@ -1,0 +1,12 @@
+0:;Ok
+1:Not ignite
+2:Overtemperature
+3:Vout high
+4:Vout low
+5:PFC low
+6:PFC High
+7:Switch off
+8:Short load
+9:No load
+10:Vin low
+11:Vin off

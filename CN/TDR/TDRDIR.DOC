@@ -1,0 +1,54 @@
+
+  Утилиту  TDRDir  предназначена  для создания списка файлов, хранящися в
+  .tdr  файле  (ARVID tape directory). Список строится в виде строк вида:
+
+   \DOC\NEW\PAPER.DOC  156711  05-21-95  14:36:22 Description
+
+  Утилита запускается с параметрами
+
+   TDRDir file.tdr [path]
+
+  и выводит на стандартный вывод весь список файлов или, если задан path,
+  список файлов и каталогов для заланного пути.
+
+  Утилита  предназначена  для совместного использования с интегрированной
+  оболочкой  CONNECT для работы с .tdr файлами как с архивами. Эти утили-
+  ты  подключаются к CONNECT'у как User defined archivers следующим обра-
+  зом.  В  меню  User  defined  archivers прописывается следующий элемент
+  списка:
+   ╔═[■]═════ Modify user defined Archiver setup ══════════╗
+   ║                                                       ║
+   ║  Trademark          View ARVID tape directory         ║
+   ║  View command                                         ║
+   ║  View dir command   $CN\TDR\TDRDIR $Arc $Src $Msg     ║
+   ║  Packer name                                          ║
+   ║  Unpacker name                                        ║
+   ║  Default extension  TDR                               ║
+   ║  Extract                                              ║
+   ║  Extract with dirs                                    ║
+   ║  Add                                                  ║
+   ║  Add with dirs                                        ║
+   ║  Move                                                 ║
+   ║  Move with dirs                                       ║
+   ║  Delete                                               ║
+   ║  Test                                                 ║
+   ║  Password                                             ║
+   ║  List character             Name mask  *.tdr          ║
+   ║  Exec options                                         ║
+   ║   [ ] Swap main body              OK   ▄    Cancel ▄  ║
+   ║   [ ] Switch to user screen     ▀▀▀▀▀▀▀▀    ▀▀▀▀▀▀▀▀  ║
+   ║   [ ] Load COMMAND.COM                 Help        ▄  ║
+   ║                                 ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀  ║
+   ╚═══════════════════════════════════════════════════════╝
+
+  В File associations прописывается макрос $Arc на маску *.TDR, аналогич-
+  но  можно  сделать и для Viewer list. Теперь при нажатии Enter на имени
+  TDR  файла  запустится  указанная  утилита, которая создаст список всех
+  файлов, хранящихся на ленте. При наличии соответствующих утилит, управ-
+  ляемых командной строкой, для копирования файлов с/на ленту можно орга-
+  низовать  работу с ними непосредственно из CONNECT'а, прописав их в па-
+  раметрах  Packer  name/Unpacker name диалога Modify user defined Archi-
+  ver  setup.
+
+  Утилиту  TDRDir  написал  по  моей  просьбе  Alexander Petrosyan (PAF),
+  2:5020/468.8@fidonet aka paf@fbit.msk.su за что ему большое спасибо.

@@ -1,0 +1,54 @@
+Rem Эмулятор ANSI терминала с ведением дампа принимаемых символов
+Rem в файл termlog.log
+Start:
+  if InitRS() <> 1 then goto ErrIn Rem Инициализация последовательного порта
+  DTR(1);RTS(1)
+  N = 0;
+  Open(File,"termlog.log", N);
+  Size = $80;
+  Index = 0;
+  GetBuf(Buff,Size)
+  N = Size;
+Rd:
+  RdBlk(File, Buff, N)
+  if N <> 0 then GoTo Rd;
+  PrintS("[2J",1);
+MainLoop:
+  if (Char = KeyPrs())==0 then GoTo Receive else GoTo KBD
+Receive:
+  if ChkRS() == 0 then GoTo MainLoop
+  Code = Receiv(Char,1,1)
+  if Code == 1 then Char = 27; GoTo KBD
+  if Code > 1 then goto Error Rem Прием
+  WrBuf(Buff, Index, Char);
+  Index = Index + 1;
+  if Index == Size - 1 Then Index = 0; WrBlk(File,Buff,Size-1)
+  PrintV(Char,1,"c")
+  GoTo Receive
+KBD:
+  if Char == $1D then GoTo Exit Rem ^]
+  if Char == 5 then if Send($415b1b,3) == 1 then Char = 27 rem Up [A
+  if Char == 24 then if Send($425b1b,3) == 1 then Char = 27 rem Down [B
+  if Char == 4 then if Send($435b1b,3)  == 1 then Char = 27 rem Right [C
+  if Char == 19 then if Send($445b1b,3)  == 1 then Char = 27 rem Left [D
+Esc:
+  if Send(Char,1) == 1 then GoTo Esc
+  GoTo MainLoop
+
+Exit:
+  WrBlk(File,Buff,Index +1)
+  Close(File) Rem Закрытие файла принятых данных
+  DisBuf(Buff) Rem Освобождение памяти
+  Stop()
+
+ErrIn:
+ PrintS("");
+ PrintS("Ошибка инициализации")
+ Stop()
+Error:
+ Send($2E2E2E2E,4);
+ PrintS("Ошибка обмена ",1);
+ PrintV(Code)
+ GoTo Start
+Quit:
+

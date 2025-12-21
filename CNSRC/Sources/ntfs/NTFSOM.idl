@@ -1,0 +1,52 @@
+// NTFSOM.idl : IDL source for NTFSOM.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (NTFSOM.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(0BFCA612-0820-4645-B1F6-202A5F5C49AB),
+		dual,
+		helpstring("IFileObject Interface"),
+		pointer_default(unique)
+	]
+	interface IFileObject : IDispatch
+	{
+		[propget, id(1), helpstring("property Compressed")] HRESULT Compressed([out, retval] long *pVal);
+		[propput, id(1), helpstring("property Compressed")] HRESULT Compressed([in] long newVal);
+		[id(2), helpstring("method SetFile")] HRESULT SetFile(BSTR bstrFile);
+		[propget, id(3), helpstring("property Encrypted")] HRESULT Encrypted([out, retval] long *pVal);
+		[propput, id(3), helpstring("property Encrypted")] HRESULT Encrypted([in] long newVal);
+		[propget, id(4), helpstring("property EncryptionStatus")] HRESULT EncryptionStatus([out, retval] long *pVal);
+		[propget, id(5), helpstring("property CompressedSize")] HRESULT CompressedSize([out, retval] long *pVal);
+		[propget, id(6), helpstring("property Size")] HRESULT Size([out, retval] long *pVal);
+		[id(7), helpstring("method MakeSparse")] HRESULT MakeSparse();
+		[propget, id(8), helpstring("property Sparse")] HRESULT Sparse([out, retval] long *pVal);
+		[id(9), helpstring("method Zero")] HRESULT Zero(long lFrom, long lTo);
+		[id(10), helpstring("method Test")] HRESULT Test();
+		[id(11), helpstring("method MountVolume")] HRESULT MountVolume(BSTR bstrMountName, BSTR bstrVolume);
+		[id(12), helpstring("method DeleteMountVolume")] HRESULT DeleteMountVolume(BSTR bstrVolume);
+	};
+
+[
+	uuid(37A52452-B8C6-4F0A-80C4-81DE59CC3CEF),
+	version(1.0),
+	helpstring("NTFSOM 1.0 Type Library")
+]
+library NTFSOMLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(A241F97C-A550-4AED-9E66-3E3363FE1D38),
+		helpstring("FileObject Class")
+	]
+	coclass FileObject
+	{
+		[default] interface IFileObject;
+	};
+};

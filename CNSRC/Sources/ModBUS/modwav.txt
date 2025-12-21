@@ -1,0 +1,98 @@
+Dim register As Integer
+Dim parity As Integer
+Dim plc As Integer
+Dim baud As Integer
+Dim port As Integer
+Dim result As Integer
+Dim flag As Boolean
+
+
+
+
+Private Declare Function read_hold_reg Lib "C:\com32\rxmod.dll" _
+(ByVal reg As Integer, ByVal plc As Integer, ByVal port As Integer, _
+ByVal baud As Integer, ByVal parity As Integer) As Integer
+
+
+
+
+
+
+
+Private Sub Command1_Click()
+Timer1.Enabled = True
+flag = True
+
+End Sub
+
+Private Sub Command2_Click()
+Timer1.Enabled = False
+flag = False
+End Sub
+
+Private Sub Form_Load()
+Timer1.Interval = 1000
+Text1.Text = ""
+register = 100
+parity = 1
+plc = 1
+baud = 9600
+port = 1
+result = 0
+
+
+End Sub
+
+Private Sub SoundRec1_GotFocus()
+
+End Sub
+
+
+
+Private Sub Text1_Change()
+On Error GoTo errorline
+Dim fname As String
+fname = "pict" & result & ".bmp"
+Form2.Visible = True
+
+Form2.Image1.Picture = LoadPicture(fname)
+GoTo skip
+errorline:
+  Form2.Image1.Picture = LoadPicture("none.bmp")
+skip:
+Form2.Image1.Visible = True
+Form2.Label1.Caption = fname
+MCIWnd1.filename = fname
+MCIWnd1.Command = "Open" & fname
+MCIWnd1.Command = "Prev"
+MCIWnd1.Command = "Play"
+MCIWnd1.Command = "Close"
+End Sub
+
+Private Sub Text2_Change()
+port = Text2.Text
+End Sub
+
+Private Sub Text3_Change()
+baud = Text3.Text
+End Sub
+
+Private Sub Text4_Change()
+parity = Text4.Text
+End Sub
+
+Private Sub Text5_Change()
+plc = Text5.Text
+End Sub
+
+Private Sub Text6_Change()
+register = Text6.Text
+End Sub
+
+Private Sub Timer1_Timer()
+If flag Then
+result = read_hold_reg(register, plc, port, baud, parity)
+Text1.Text = result
+End If
+
+End Sub

@@ -1,0 +1,17 @@
+*.TPU
+*.tds
+*.~cpp
+*.~pas
+*.~c
+*.~hmx
+*.~ddp
+*.~dfm
+*.~h
+*.~bpr
+*.~dsk
+*.~mak
+*.bak
+*.opj
+*.dbk
+*.$$$
+desktop.*

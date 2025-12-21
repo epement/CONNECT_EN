@@ -1,0 +1,25 @@
+Rem Скрипт для логина на id.ecos.kharkov.ua
+
+ InitRS("T")       Rem Инициализация терминала
+Start:
+ DTR(1)
+ Dial("")          Rem Очистка Dialer list
+ Dial("338-377")
+ Dial("337-111")
+
+WaitCD:            Rem Ожидание коннекта
+ Idle()
+ if DCD() == 0 then GoTo WaitCD
+
+ if Wait("login:", 30)==0 then GoTo Fail
+ SndStr("do\r")
+ if Wait("password:", 30)==0 then GoTo Fail
+ SndStr("xxxxxxx\r")
+ if Wait("TERM=", 30)==0 then GoTo Fail
+ SndStr("vt100\r")
+ Beep(440,100)
+ Stop()
+
+Fail:
+ DTR(0)
+ GoTo Start

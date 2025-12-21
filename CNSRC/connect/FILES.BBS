@@ -1,0 +1,19 @@
+int2f.pas    cn_nt.dll interface
+int2f_cc.pas Console control (Window close, Ctrl-C, Ctrl-Break)
+int2f_de.pas Empty recycle
+int2f_ee.pas ExecNT
+int2f_fa.pas Get/Set file attributes including compressed and encrypted
+int2f_ll.pas Get/Set volume label
+int2f_si.pas Get system information
+int2f_di.pas Get disk information
+int2f_tl.pas Set console title
+int2f_cf.pas Get compressed file size
+int2f_ft.pas Get/Set file time and date
+int2f_dh.pas SetDirCheck, DirCheck, DirFree (hanle) demo.
+int2f_th.pas SetTreeCheck, DirCheck, DirFree (hanle) demo.
+int2f_sc.pas Get screen information
+int2f_se.pas ExecNT
+int2f_cp.pas SysCopy demo
+int2f_mb.pas MessageBox demo
+int2f_cm.pas Console control (Window close, Ctrl-C, Ctrl-Break)
+

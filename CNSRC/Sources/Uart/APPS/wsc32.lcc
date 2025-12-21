@@ -1,0 +1,34 @@
+wsc32.dll
+__imp__SioParms SioParms
+__imp__SioBrkSig SioBrkSig
+__imp__SioCTS SioCTS
+__imp__SioDCD SioDCD
+__imp__SioDebug SioDebug
+__imp__SioDone SioDone
+__imp__SioDSR SioDSR
+__imp__SioDTR SioDTR
+__imp__SioKeyCode SioKeyCode
+__imp__SioEvent SioEvent
+__imp__SioFlow SioFlow
+__imp__SioGetc SioGetc
+__imp__SioGetReg SioGetReg
+__imp__SioGets SioGets
+__imp__SioInfo SioInfo
+__imp__SioMessage SioMessage
+__imp__SioBaud SioBaud
+__imp__SioPutc SioPutc
+__imp__SioPuts SioPuts
+__imp__SioRead SioRead
+__imp__SioReset SioReset
+__imp__SioRI SioRI
+__imp__SioRTS SioRTS
+__imp__SioRxClear SioRxClear
+__imp__SioRxQue SioRxQue
+__imp__SioStatus SioStatus
+__imp__SioTimer SioTimer
+__imp__SioTxClear SioTxClear
+__imp__SioTxQue SioTxQue
+__imp__SioUnGetc SioUnGetc
+__imp__SioWinError SioWinError
+__imp__SioSetInteger SioSetInteger
+

@@ -1,0 +1,193 @@
+INT 14h  AH=00
+ INT 14 - FOSSIL (Fido/Opus/Seadog Standard Interface Level) - INITIALIZE
+         AH = 00h
+         AL = initializing parameters
+             7 - 6 - 5      4 - 3     2    1 - 0
+             -BAUD RATE-    PARITY   STOP   WORD
+                                     BITS  LENGTH
+             000 19200 bd   00 none  0: 1  00: 5
+             001 38400 bd   01 odd   1: 2  01: 6
+             010   300 bd   11 even        10: 7
+             011   600 bd                  11: 8
+             100  1200 bd
+             101  2400 bd
+             110  4800 bd
+             111  9600 bd (4800 on PCjr)
+         DX = port number (0-3 or FFh if only performing non-I/O setup)
+ Return: AH = RS-232 status code bits (see #0227)
+         AL = modem status bits
+             bit 3: always 1
+             bit 7: DCD - carrier detect
+ See: #0226,AH=05h"FOSSIL",AH=81h"COMM-DRV",AH=82h"COURIERS"
+
+
+ Bitfields for serial port parameters:
+ Bit(s)  Description     (Table 0226)
+  7-5    data rate (110,150,300,600,1200,2400,4800,9600 bps)
+  4-3    parity (00 or 10 = none, 01 = odd, 11 = even)
+  2      stop bits (set = 2, clear = 1)
+  1-0    data bits (00 = 5, 01 = 6, 10 = 7, 11 = 8)
+ See: #0228,#0233,#0234,#0235
+ See: INT 14h  AH=00
+
+INT 14h  AH=02
+ INT 14 - FOSSIL - RECEIVE CHARACTER WITH WAIT
+         AH = 02h
+         DX = port number (0-3)
+ Return: AL = character received
+         AH = 00h
+ See: AH=01h,AH=02h"SERIAL"
+
+INT 14h  AH=04
+ INT 14 - FOSSIL - INITIALIZE DRIVER
+         AH = 04h
+         DX = port number
+         optionally BX=4F50h
+                    ES:CX -> byte to be set upon ^C
+ Return: AX = 1954h (if successful)
+         BL = maximum function number supported (excluding 7Eh and above)
+         BH = revision of FOSSIL specification supported
+         DTR is raised
+ Note:   the word at offset 6 in the interrupt handler contains 1954h, and the
+           following byte contains the maximum function number supported; this
+           can serve as an installation check
+ See: AH=05h"FOSSIL",AH=1Ch,INT 11/AH=BCh
+ Index:  installation check;FOSSIL
+
+INT 14h  AH=05
+ INT 14 - FOSSIL - DEINITIALIZE DRIVER
+         AH = 05h
+         DX = port number
+ Return: none
+         DTR is not affected
+ See: AH=00h,AH=04h"FOSSIL",AH=1Dh,AH=8Dh
+
+INT 14h  AH=06
+ INT 14 - FOSSIL - RAISE/LOWER DTR
+         AH = 06h
+         DX = port
+         AL = DTR state to be set
+             00h = lower
+             01h = raise
+ Return: nothing
+ See: AH=05h"MBBIOS",AH=1Ah
+
+INT 14h  AH=07
+ INT 14 - FOSSIL - RETURN TIMER TICK PARAMETERS
+         AH = 07h
+ Return: AL = timer tick interrupt number
+         AH = ticks per second on interrupt number in AL
+         DX = approximate number of milliseconds per tick
+ See: AH=16h
+
+INT 14h  AH=08
+ INT 14 - FOSSIL - FLUSH OUTPUT BUFFER WAITING TILL ALL OUTPUT IS DONE
+         AH = 08h
+         DX = port number
+ Return: nothing
+ See: AH=09h"FOSSIL"
+
+INT 14h  AH=09
+ INT 14 - FOSSIL - PURGE OUTPUT BUFFER THROWING AWAY ALL PENDING OUTPUT
+         AH = 09h
+         DX = port number
+ Return: nothing
+ See: AH=08h"FOSSIL",AH=0Ah"FOSSIL",AH=88h
+
+INT 14h  AH=0A
+ INT 14 - FOSSIL - PURGE INPUT BUFFER THROWING AWAY ALL PENDING INPUT
+         AH = 0Ah
+         DX = port number
+ Return: nothing
+ See: AH=09h"FOSSIL",AH=85h
+
+INT 14h  AH=0B
+ INT 14 - FOSSIL - TRANSMIT NO WAIT
+         AH = 0Bh
+         AL = character
+         DX = port number
+ Return: AX = result
+             0000h character not accepted
+             0001h character accepted
+ See: AH=01h
+
+INT 14h  AH=0C
+ INT 14 - FOSSIL - NON-DESTRUCTIVE READ AHEAD
+         AH = 0Ch
+         DX = port number
+ Return: AX = FFFFh character not available
+         AX = 00xxh character xx available
+ See: AH=08h"MBBIOS",AH=20h"FOSSIL"
+
+INT 14h  AH=0D
+ INT 14 - FOSSIL - KEYBOARD READ WITHOUT WAIT
+         AH = 0Dh
+ Return: AX = result
+             FFFFh character not available
+             xxyyh standard IBM-style scan code
+ See: AH=0Eh
+
+INT 14h  AH=0E
+ INT 14 - FOSSIL - KEYBOARD READ WITH WAIT
+         AH = 0Eh
+ Return: AX = xxyyh standard IBM-style scan code
+ See: AH=0Dh"FOSSIL"
+
+INT 14h  AH=0F
+ INT 14 - FOSSIL - ENABLE/DISABLE FLOW CONTROL
+         AH = 0Fh
+         AL = bit mask describing requested flow control (see #0266)
+         DX = port number
+ Return: nothing
+ See: AH=09h"MBBIOS",AH=10h"FOSSIL"
+
+
+INT 14h  AH=10
+ INT 14 - FOSSIL - EXTENDED ^C/^K CHECKING AND TRANSMIT ON/OFF
+         AH = 10h
+         AL = bit mask
+             bit 0: enable/disable ^C/^K checking
+             bit 1: enable/disable the transmitter
+         DX = port number
+ Return: nothing
+ See: AH=0Fh"FOSSIL"
+
+INT 14h  AH=18
+ INT 14 - FOSSIL - READ BLOCK
+         AH = 18h
+         CX = maximum number of characters to transfer
+         DX = port number
+         ES:DI -> user buffer
+ Return: AX = number of characters transferred
+ See: AH=19h"FOSSIL",AH=83h"COURIERS",AX=FF02h,INT 6B/AX=0100h
+
+INT 14h  AH=19
+ INT 14 - FOSSIL - WRITE BLOCK
+         AH = 19h
+         CX = maximum number of characters to transfer
+         DX = port number
+         ES:DI -> user buffer
+ Return: AX = number of characters transferred
+ See: AH=18h"FOSSIL",AH=86h,INT 6B/AX=0000h
+
+INT 14h  AH=1A
+ INT 14 - FOSSIL - BREAK BEGIN OR END
+         AH = 1Ah
+         AL = 00h stop sending 'break'
+              01h start sending 'break'
+         DX = port number
+ Return: nothing
+ See: AH=06h"FOSSIL",AH=8Ah,AH=FAh
+
+INT 14h  AH=1B
+ INT 14 - FOSSIL - RETURN INFORMATION ABOUT THE DRIVER
+         AH = 1Bh
+         DX = port number
+         CX = size of user buffer
+         ES:DI -> user buffer for driver info (see #0269)
+ Return: AX = number of characters transferred
+         CX = 3058h ("0X") (X00 FOSSIL only)
+         DX = 2030h (" 0") (X00 FOSSIL only)
+
+
+

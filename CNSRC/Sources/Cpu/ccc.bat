@@ -1,0 +1,1 @@
+bcc32.EXE  -WC cpuspd.c winmm.lib

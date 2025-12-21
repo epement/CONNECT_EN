@@ -1,0 +1,21 @@
+%NOLIST
+pushs Macro Regs
+local Reg
+ irp Reg,Regs
+  push Reg
+ endm
+endm
+
+pops Macro Regs
+local Reg
+ irp Reg,Regs
+  pop Reg
+ endm
+endm
+
+Sh Macro Dir,Reg,Count
+ rept Count
+   sh&Dir Reg&,1
+ endm
+endm
+%LIST

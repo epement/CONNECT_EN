@@ -1,0 +1,58 @@
+Rem ведение дампа принимаемых терминалом символов в файл termlog.log
+
+Start:
+  InitRS("T")	       Rem Инициализация для работы под	терминалом
+  DTR(1);RTS(1)	       Rem Взводим DTR и RTS.
+
+WaitDCD:				  Rem Ожидаем соединения.
+  if DCD() == 0	then Idle(); GoTo WaitDCD Rem Idle вызывается для
+					  Rem квазифоновой работы
+					  Rem программы.
+
+  N = 0;
+  Open(File,"d:\\termlog.log", N);	  Rem Открываем	файл для дампа.
+  Size = $80;
+  Index	= 0;
+  GetBuf(Buff,Size)			  Rem Выделяем память для буфера.
+  N = Size;
+
+Rd:					  Rem Читаем из	файла в	буфер
+  RdBlk(File, Buff, N)			  Rem пока не дочитаем до конца
+  if N <> 0 then GoTo Rd;		  Rem файла. Таким образом следующая
+					  Rem запись будет в конец файла.
+MainLoop:
+ if  DCD()  ==	0  then	 GoTo  Exit  Rem Если  соединение разорвано,
+				     Rem Идем на конец программы.
+Receive:
+  if ChkRS() ==	0 then Idle(1);	GoTo MainLoop  Rem Если	в порт ничего не
+					       Rem пришло, вызываем Idle
+					       Rem и идем на начало цикла.
+					       Rem Параметр "1"	у Idle
+					       Rem запрещает терминалу
+					       Rem принимать.
+
+  Code = Receiv(Char,1,1)		      Rem Принимаем символ.
+  if Code > 1 then goto	Error		      Rem Если ошибка, выходим.
+  WrBuf(Buff, Index, Char);		      Rem Пишем	принятый символ	в
+					      Rem буфер.
+  Index	= Index	+ 1;
+  if Index == Size - 1 Then Index = 0; WrBlk(File,Buff,Size-1)
+					      Rem Если буфер заполнен, пишем
+					      Rem его в	файл.
+  PrintV(Char,1,"c")			      Rem Выводим принятый символ в
+					      Rem окно терминала.
+  GoTo Receive				      Rem Идем на прием	следующего
+					      Rem символа.
+
+Exit:				  Rem Конец программы.
+  WrBlk(File,Buff,Index	+1)	  Rem Пишем остаток буфера в файл.
+  Close(File)			  Rem Закрываем	файл принятых данных.
+  DisBuf(Buff)			  Rem Освобождаем память.
+  Stop()			  Rem Завершаем	программу.
+
+Error:				  Rem Обработка	ошибки приема.
+ PrintS("Ошибка обмена ",1);
+ PrintV(Code)
+ Stop()
+Quit:
+

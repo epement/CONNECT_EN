@@ -1,0 +1,119 @@
+Turbo Assembler	 Version 3.2	    09/01/06 11:27:30	    Page 1
+C:\CNSRC\CONNECT\cpuid.asm
+
+
+
+      1							 jumps
+      2							 locals
+      3	    0000					 .model	Medium
+      4					 public		  cpuid, cpuidtst
+      5	    0000					 .data
+      6	    0000					 .code
+      7							 .386
+      8	    0000			 CPUID		 proc far
+      9					 ;procedure cpuid(i: longint; var eax; var ebx;
+     10					 ;		   var ecx; var	edx);far;External;
+     11
+     12					 ;  begin
+     13	    0000  55					 push	bp
+     14	    0001  8B EC					 mov	bp,sp
+     15	    0003  8B 46	16				 mov	ax,[bp+16h] ; i
+     16	    0006  8B 56	18				 mov	dx,[bp+18h]
+     17	    0009  52					 push	dx
+     18	    000A  50					 push	ax
+     19	    000B  66| 58				 pop	eax
+     20	    000D  A20F					 dw 0a20fh; cpuid
+     21	    000F  66| 52				 push	edx
+     22	    0011  66| 51				 push	ecx
+     23	    0013  66| 53				 push	ebx
+     24	    0015  66| 50				 push	eax
+     25					 ;  eax_ := eax;
+     26	    0017  58					 pop	ax
+     27	    0018  5A					 pop	dx
+     28	    0019  C4 7E	12				 les	di,[bp+12h] ;eax
+     29	    001C  26: 89 05				 mov	es:[di],ax
+     30	    001F  26: 89 55 02				 mov	es:[di+02h],dx
+     31					 ;  ebx_ := ebx;
+     32	    0023  58					 pop	ax
+     33	    0024  5A					 pop	dx
+     34	    0025  C4 7E	0E				 les	di,[bp+0eh] ;ebx
+     35	    0028  26: 89 05				 mov	es:[di],ax
+     36	    002B  26: 89 55 02				 mov	es:[di+02h],dx
+     37					 ;  ecx_ := i;
+     38	    002F  58					 pop	ax
+     39	    0030  5A					 pop	dx
+     40	    0031  C4 7E	0A				 les	di,[bp+0ah] ;ecx
+     41	    0034  26: 89 05				 mov	es:[di],ax
+     42	    0037  26: 89 55 02				 mov	es:[di+02h],dx
+     43					 ;  edx_ := i;
+     44	    003B  58					 pop	ax
+     45	    003C  5A					 pop	dx
+     46	    003D  C4 7E	06				 les	di,[bp+06h] ;edx
+     47	    0040  26: 89 05				 mov	es:[di],ax
+     48	    0043  26: 89 55 02				 mov	es:[di+02h],dx
+     49					 ; end;
+     50	    0047  5D					 pop	bp
+     51	    0048  CA 0014				 retf	0014h
+     52
+     53	    004B			 CPUID		 endp
+     54
+     55	    004B			 CPUIDTST	 proc far
+     56	    004B  66					 db 66h
+     57	    004C  9C					 pushf
+Turbo Assembler	 Version 3.2	    09/01/06 11:27:30	    Page 2
+C:\CNSRC\CONNECT\cpuid.asm
+
+
+
+     58	    004D  66					 db 66h
+     59	    004E  9C					 pushf
+     60	    004F  66| 58				 pop  eax
+     61	    0051  66| 8B C8				 mov  ecx,eax
+     62	    0054  66| 35 00200000			 xor  eax,200000h
+     63	    005A  66| 50				 push eax
+     64	    005C  66					 db 66h
+     65	    005D  9D					 popf
+     66	    005E  66					 db 66h
+     67	    005F  9C					 pushf
+     68	    0060  66| 58				 pop  eax
+     69	    0062  66					 db 66h
+     70	    0063  9D					 popf
+     71	    0064  66| 33 C1				 xor  eax,ecx
+     72	    0067  0F 95	C0				 setnz al
+     73	    006A  CB					 retf
+     74	    006B			 CPUIDTST	 endp
+     75							 end
+Turbo Assembler	 Version 3.2	    09/01/06 11:27:30	    Page 3
+Symbol Table
+
+
+
+
+Symbol Name			  Type	 Value
+
+??DATE				  Text	 "09/01/06"
+??FILENAME			  Text	 "cpuid	  "
+??TIME				  Text	 "11:27:30"
+??VERSION			  Number 0314
+@32BIT				  Text	 0
+@CODE				  Text	 CPUID_TEXT
+@CODESIZE			  Text	 1
+@CPU				  Text	 0F0FH
+@CURSEG				  Text	 CPUID_TEXT
+@DATA				  Text	 DGROUP
+@DATASIZE			  Text	 0
+@FILENAME			  Text	 CPUID
+@INTERFACE			  Text	 00H
+@MODEL				  Text	 4
+@STACK				  Text	 DGROUP
+@WORDSIZE			  Text	 4
+CN				  Text
+CPUID				  Far	 CPUID_TEXT:0000
+CPUIDTST			  Far	 CPUID_TEXT:004B
+
+Groups & Segments		  Bit Size Align  Combine Class
+
+CPUID_TEXT			  16  006B Word	  Public  CODE
+DGROUP				  Group
+  _DATA				  16  0000 Word	  Public  DATA
+

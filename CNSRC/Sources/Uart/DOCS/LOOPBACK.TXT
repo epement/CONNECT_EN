@@ -1,0 +1,68 @@
+***
+***      LOOPBACK Documentation
+***
+***      Version 2.1
+***      November 12, 2003
+***
+***  MarshallSoft Computing, Inc.
+***  POB 4543 Huntsville AL 35815
+***
+***  Phone: 1.256.881.4630
+***  email: info@marshallsoft.com
+***    web: http://www.marshallsoft.com
+
+*** Making a RS232 Loopback Adapter ***
+
+An RS232 loopback adapter can easily be made from a female-female adapter.
+Orient the female-female adapter such that the widest part is facing up. In
+this orientation, the pins are numbered from right to left, top to bottom.
+Connect pins 2 and 3 together with a short piece of wire (or small paper clip)
+as shown below.
+
+The loopback adapter can also test RTS/CTS by connecting pin RTS to CTS, as
+shown in the diagram below. This is recommended since the RTS/CTS pins are
+used for flow control. The loopback adapter can also test DTR/DSR by
+connecting pin DTR to pin DSR.
+
+Lastly, connect the female-female adapter to the end of the modem cable, and
+you are run to run your test software. 
+
+                    Female DB 25                              Female DB 9                                                  
+  +--------------------------------------------------+    +-----------------+
+ / o   o   o   o   o   o   o   o   o   o   o===o   o  \  / o   o   o===o   o \
+ \                                                    /  \                   /
+  \  o   o   o   o   o   o   o   o   o   o   o   o   /    \  o   o   o   o  /
+   +------------------------------------------------+      +---------------+
+                    Female DB 25                              Female DB 9
+  +--------------------------------------------------+    +-----------------+
+ /13  12  11  10   9   8   7   6   5   4   3===2   1  \  / 5   4   3===2   1 \
+ \                                                    /  \                   /
+  \ 25  24  23  22  21  20  19  18  17  16  15  14   /    \  9   8   7   6  /
+   +------------------------------------------------+      +---------------+   
+
+          DB 25   DB 9    Pin Definition
+          =====   ====    ==============
+            7       5     Signal Ground (SG)
+            2       3     Transmit Data (TD)
+            3       2     Receive Data (RD)
+           20       4     Data Terminal Ready (DTR)
+            6       6     Data Set Ready (DSR)
+            4       7     Request to Send (RTS)
+            5       8     Clear to Send (CTS)
+            8       1     Carrier Detect (CD)
+
+(Note: The pin positions are reversed for male connectors)
+
+*** Making a RS422/RS485 Loopback Adapter ***
+
+An RS422/RS485 loopback adapter can be made in a similar manner to the RS232
+loopback adapter. For a DB25 connector, you want to connect TD- (pin 2) to RD-
+(pin3), and TD+ (pin14) to RD+ (pin 16).
+
+          DB 25   Pin Definition
+          =====   ==============
+            2     - Transmit Data (TD-)
+            3     - Receive Data  (RD-)
+           14     + Transmit Data (TD+)
+           16     + Receive Data  (RD+)
+

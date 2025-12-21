@@ -1,0 +1,26 @@
+HKCR
+{
+	NTFSOM.FileObject.1 = s 'FileObject Class'
+	{
+		CLSID = s '{A241F97C-A550-4AED-9E66-3E3363FE1D38}'
+	}
+	NTFSOM.FileObject = s 'FileObject Class'
+	{
+		CLSID = s '{A241F97C-A550-4AED-9E66-3E3363FE1D38}'
+		CurVer = s 'NTFSOM.FileObject.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {A241F97C-A550-4AED-9E66-3E3363FE1D38} = s 'FileObject Class'
+		{
+			ProgID = s 'NTFSOM.FileObject.1'
+			VersionIndependentProgID = s 'NTFSOM.FileObject'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{37A52452-B8C6-4F0A-80C4-81DE59CC3CEF}'
+		}
+	}
+}

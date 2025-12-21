@@ -1,0 +1,38 @@
+*** WSC Version 4.1 Release Notes ***
+
+SioEvent uses overlapped I/O in Windows 98 and above (Win95 does not support overlapped I/O).
+
+*** WSC Version 3.3 and 4.0 Release Notes ***
+
+The Win/CE version of WSC4C can be found at www.marshallsoft.com/wsc4evc.htm
+
+The files WSC32.DLL, MIO32.DLL, XYM32.DLL, WSC16.DLL, MIO16.DLL, and XYM16.DLL 
+are all copied to your Windows directory (C:\WINDOWS or C:\WINNT for Win 2000/NT) 
+when SETUP.EXE is run. 
+
+The function SioKeyCode was added to version 3.3 so that the keycode (assigned to 
+each registrant) can be passed to WSC32.DLL (or WSC16.DLL for 16-bit applications).
+
+If converting from an earlier version of WSC, do the following:
+
+(1) Add "keycode.h" (which contains your keycode) to your include statements.
+
+(2) Add the following code which must be called (once) before any other WSC code:
+
+       // pass the key code
+       if(SioKeyCode(WSC_KEY_CODE)<0)
+           {...display "ERROR: Bad Key Code!"
+            ...
+           }
+     
+    Alternatively, you can paste the value of your actual keycode (the 9 or 10 digit 
+    number found in keycode.h) into SioKeyCode. The keycode for the evaluation version 
+    is always 0.
+    
+    Refer to WSCVER.C for an example.
+
+Version 4.0 also has several VC.Net example programs.
+
+[END]
+
+

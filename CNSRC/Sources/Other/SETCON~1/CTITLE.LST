@@ -1,0 +1,87 @@
+* Micro Focus NetExpress             V3.0 revision 255 05-Jan-00 18:28 Page   1
+* D:\NX3\Base\WORKAREA\SetConsoleTitle\ctitle.cbl
+* Options: OMF(OBJ) GNT(.\) OBJ(.\) wb3 COBIDY(DEBUG) WB3 WB CSI ANIM
+*          EDITOR(MF2) ENSUITE(3) OPT(1) OBJ(DEBUG\ctitle.obj)
+     1$ set Ans85 Mf NoOsvs NoVsc2 NoQual NoAlter DefaultByte"00"
+* Setting: NOACCEPTREFRESH NOADV ALIGN"8" ALPHASTART"1" NOALTER NOAMODE ANIM
+*          NOANSI2000 ANS85 NOAPOST NOAREACHECK ARITHMETIC"MF" ASSIGN"DYNAMIC"
+*          NOASSIGN-PRINTER NOAUTOLOCK NOBELL BOUND NOBRIEF NOBS2000 NOBWZSTAR
+*          NOBYTEMODEMOVE CALLFH"EXTFH" NOCALLMCS NOCALLRECOVERY CALLSORT
+*          "EXTSM" CANCELLBR NOCHANGEMESSAGE CHARSET"ASCII" CHECKDIV"ANSI"
+*          NOCICS CICS-CPY NOCICSOPTIMIZE NOCMPR2 NOCOBFSTATCONV COBIDY"DEBUG"
+*          NOCOBOL370 COBOLDIR NOCOMP COMP-5"2" COMP-6"2" NOCOMS85 NOCONFIRM
+*          NOCONVERTPTR NOCONVERTRET CONVSPACE COPYEXT"cbl,CPY," NOCOPYLBR
+*          COPYLIST CSI CURRENCY-SIGN"36" CURRENT-DATE"MMDDYY" NODATA
+*          DATACOMPRESS"0" NODATA-CONTEXT DATE DBCHECK DBCS"3" NODBCSSOSI
+*          DBSPACE DE-EDIT"2" DEFAULTBYTE"0" NODEFAULTCALLS DETECTLOCK NODG
+*          DIALECT"MF" NODIRECTIVES-IN-COMMENTS NODOSVS DYNAM NOEARLY-RELEASE
+*          ECHO NOECHOALL EDITOR"MF2" ENSUITE"3" ERRLIST"EMBED" ERRQ FASTSORT
+*          NOFCD3 NOFCDREG NOFDCLEAR NOFILESHARE FILETYPE"0" NOFLAG NOFLAGAS
+*          NOFLAGCD NOFLAGEUC NOFLAGMIG NOFLAGQ FLAGSINEDIT NOFLAGSTD
+*          NOFOLDCALLNAME NOFOLDCOPYNAME FORM"60" NOFP-ROUNDING
+*          NOHOST-NUMCOMPARE NOHOST-NUMMOVE NOHOSTFD NOIBM-MS NOIBMCOMP
+*          IDXFORMAT"0" IMPLICITSCOPE NOINDD INFORETURN"0" NOINITCALL INT
+*          "D:\NX3\Base\WORKAREA\SetConsoleTitle\ctitle.int" INTDATE"ANSI"
+*          INTLEVEL"2" IOCONV NOISO2000 NOIXNLSKEY NOIXNUMKEY KEEP-INT
+*          KEYCHECK KEYCOMPRESS"0" NOLIBRARIAN NOLINE-COUNT LIST"ctitle.lst"
+*          LISTPATH"D:\NX3\Base\WORKAREA\" LISTWIDTH"80" LITVAL-SIZE"4"
+*          LOCKTYPE"0" NOMAPNAME NOMAXERROR MF"13" MFCOMMENT NOMOVELENCHECK
+*          NOMS NATIVE"ASCII" NONCHAR NONESTCALL NONLS NOODOOSVS NOODOSLIDE
+*          NOOLDBLANKLINE NOOLDCOPY NOOLDINDEX NOOLDNEXTSENTENCE NOOLDREADINTO
+*          NOOLDSTRMIX OOCTRL"-C-E-G-P+Q+R-S-W" OPTIONAL-FILE OSEXT"cbl"
+*          NOOSVS NOOUTDD NOP64 NOPANVALET PERFORM-TYPE"MF" NOPREPLIST
+*          NOPREPROCESS NOPRINT-EXT NOPROFILE NOPROGID-COMMENT
+*          NOPROTECT-LINKAGE NOQUAL QUALPROC QUERY QUOTE NORAWLIST NORDEFPTR
+*          NORDW RECMODE"F" NOREENTRANT NOREFNO REMAINDER"1" REPORT-LINE"256"
+*          RESEQ NORETRYLOCK REWRITE-LS NORM NORNIM RTNCODE-SIZE"4"
+*          NORWHARDPAGE NOSAA SEG NOSEQCHK SEQUENTIAL"RECORD" NOSERIAL SETTING
+*          "LINE" NOSHOW-DIR SIGN"ASCII" SOURCEFORMAT"FIXED" NOSPZERO
+*          NOSSRANGE NOSTDERR NOSTICKY-LINKAGE NOSTICKY-PERFORM SUPFF
+*          SYMBSTART"1" TERMPAGE TIME NOTRACE TRUNC"ANSI" NOTRUNCCALLNAME
+*          NOTRUNCCOPY VERBOSE NOVSC2 WARNING"1" WB NOWB2 WB3 WEBSERVER"CGI"
+*          NOWRITELOCK NOWRITETHRU NOXOPEN XREF NOZEROLENGTHFALSE NOZEROSEQ
+*          NOZWB
+     2 special-names.
+     3     call-convention 74 is WINAPI.
+     4 working-storage section.
+     5 78 programName value 'TITLE'.
+     6 1   SetConsoleTitleReturn pic xxxx comp-5.
+     7 1   wsKeyStroke pic x.
+     8 procedure division.
+     9     display spaces upon crt
+    10     call WINAPI "SetConsoleTitleA"
+    11         using by reference z"My Application"
+    12         returning SetConsoleTitleReturn
+    13     display programName ': Starting.'
+    14     display programName ': Press Enter Key. ' no advancing
+    15     accept wsKeyStroke
+    16     display programName ': Ending.'
+    17     stop run.
+* Micro Focus NetExpress             V3.0 revision 255 Compiler
+* Micro Focus NetExpress             V3.0 revision 255 05-Jan-00 18:28 Page   2
+* D:\NX3\Base\WORKAREA\SetConsoleTitle\ctitle.cbl
+* Total Messages:     0
+* Data:         208     Code:         174
+* Micro Focus NetExpress             V3.0 revision 255 05-Jan-00 18:28 Page   3
+* D:\NX3\Base\WORKAREA\SetConsoleTitle\ctitle.cbl (XREF)
+* CTITLE                         Program name
+*          2#                                                          (X    1)
+*
+* CTITLE*                        Call Prototype
+*          8#                                                          (X    1)
+*
+* PROGRAMNAME                    Level 78 item
+*          5#     13      14      16                                   (X    4)
+*
+* SETCONSOLETITLERETURN          Numeric COMP-5        4
+*          6#     12*                                                  (X    2)
+*
+* WINAPI                         Mnemonic name
+*          3#     10                                                   (X    2)
+*
+* WSKEYSTROKE                    Alphanumeric          1
+*          7#     15*                                                  (X    2)
+*
+*
+*               6 names listed
+* End of cross reference listing

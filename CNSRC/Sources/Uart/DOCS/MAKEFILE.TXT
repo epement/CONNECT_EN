@@ -1,0 +1,81 @@
+*** Command Line Compiler Setup Notes ***
+
+Your command line compiler tools must be set up properly.  Note that you have
+an option of installing the command line tools (or not) when your compiler is
+first installed. Refer to your compiler manufacturer's manual for details.
+
+If necessary, you can increase the size of your environment table space
+(to 1024 for example) by adding
+
+   SHELL=C:\COMMAND.COM /e:1024 /p
+
+to CONFIG.SYS in C:\ and then rebooting. Yes, this works for all versions of
+Windows, including Windows NT and Windows 2000.
+
+For ALL compilers, your path should point to the compiler BIN directory. For
+example, to add "C:\BC50\BIN" to your existing path, use
+
+   PATH C:\BC50\BIN;%PATH%
+
+The path statement should NOT point to more than one compiler.
+
+   *** MICROSOFT
+
+   Search for CL.EXE and RC.EXE. Add the directories in which they are found
+   to your PATH statement as described above.
+
+   Set LIB and INCLUDE environment variables. For example,
+
+      SET INCLUDE=C:\MSVC\INCLUDE
+      SET LIB=C:\MSVC\LIB
+
+   *** BORLAND
+
+   Check that TURBOC.CFG, BCC32.CFG, TLINK.CFG, and TLINK32.CFG all have
+   the correct information in them, as they should have when your compiler
+   was installed. For example, assuming your BC compiler is installed at
+   C:\BC5, the INCLUDE and LIB paths are specified by:
+
+      -IC:\BC5\INCLUDE
+      -LC:\BC5\LIB
+
+   BRCC (the Borland Resource Compiler) doesn't use the *.CFG files. Set
+   the INCLUDE environment variable or BRCC will not be able to find the
+   INCLUDE files (such as WINDOWS.H). For example,
+
+      SET INCLUDE=C:\BC5\INCLUDE
+
+   Clear the LIB environment variable (so it is not present when SET is typed
+   at the command line) with
+
+      SET LIB=
+
+   *** WATCOM
+
+   Set the WATCOM environment variables to point to your compilers include
+   (H) and BIN directories. For example,
+
+   SET INCLUDE=C:\WC11\H;C:\WC11\H\NT
+   SET WATCOM=C:\WC11
+   SET EDPATH=C:\WC11\EDDAT
+   SET WWINHELP=E:\BINW
+
+The above commands should be executed from a batch file. For example, create
+the file USE_MSC.BAT containing the 3 lines
+
+   PATH C:\MSVC\BIN;%PATH%
+   SET INCLUDE=C:\MSVC\INCLUDE;C:\MSVC\MFC\INCLUDE
+   SET LIB=C:\MSVC\LIB;C:\MSVC\MFC\LIB
+
+Then type USE_MSC to set up your compiler's command line tools. Alernatively,
+you can put "CALL USE_MSC" into you AUTOEXEC.BAT file.
+
+After making the above changes, type PATH at the command line prompt to verify
+the search path, and type SET at the command line prompt to verify the INCLUDE
+and LIB environment variables.
+
+Command line makefiles end with "._m_" for Microsoft C/C++, "._b_" for Borland
+C/C++, and "._w_" for Watcom C/C++.
+
+[END]
+

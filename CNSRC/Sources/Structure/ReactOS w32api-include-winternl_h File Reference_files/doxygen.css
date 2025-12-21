@@ -1,0 +1,207 @@
+BODY {
+	FONT-FAMILY: Geneva, Arial, Helvetica, sans-serif
+}
+H1 {
+	FONT-FAMILY: Geneva, Arial, Helvetica, sans-serif
+}
+H2 {
+	FONT-FAMILY: Geneva, Arial, Helvetica, sans-serif
+}
+H3 {
+	FONT-FAMILY: Geneva, Arial, Helvetica, sans-serif
+}
+H4 {
+	FONT-FAMILY: Geneva, Arial, Helvetica, sans-serif
+}
+H5 {
+	FONT-FAMILY: Geneva, Arial, Helvetica, sans-serif
+}
+H6 {
+	FONT-FAMILY: Geneva, Arial, Helvetica, sans-serif
+}
+P {
+	FONT-FAMILY: Geneva, Arial, Helvetica, sans-serif
+}
+CENTER {
+	FONT-FAMILY: Geneva, Arial, Helvetica, sans-serif
+}
+TD {
+	FONT-FAMILY: Geneva, Arial, Helvetica, sans-serif
+}
+TH {
+	FONT-FAMILY: Geneva, Arial, Helvetica, sans-serif
+}
+UL {
+	FONT-FAMILY: Geneva, Arial, Helvetica, sans-serif
+}
+DL {
+	FONT-FAMILY: Geneva, Arial, Helvetica, sans-serif
+}
+DIV {
+	FONT-FAMILY: Geneva, Arial, Helvetica, sans-serif
+}
+H1 {
+	TEXT-ALIGN: center
+}
+CAPTION {
+	FONT-WEIGHT: bold
+}
+DIV.qindex {
+	BACKGROUND-COLOR: #eeeeff; BORDER-BOTTOM: #b0b0b0 1px solid; BORDER-LEFT: #b0b0b0 1px solid; BORDER-RIGHT: #b0b0b0 1px solid; BORDER-TOP: #b0b0b0 1px solid; LINE-HEIGHT: 140%; MARGIN: 2px; PADDING-BOTTOM: 2px; PADDING-LEFT: 2px; PADDING-RIGHT: 2px; PADDING-TOP: 2px; TEXT-ALIGN: center; WIDTH: 100%
+}
+DIV.nav {
+	BACKGROUND-COLOR: #eeeeff; BORDER-BOTTOM: #b0b0b0 1px solid; BORDER-LEFT: #b0b0b0 1px solid; BORDER-RIGHT: #b0b0b0 1px solid; BORDER-TOP: #b0b0b0 1px solid; LINE-HEIGHT: 140%; MARGIN: 2px; PADDING-BOTTOM: 2px; PADDING-LEFT: 2px; PADDING-RIGHT: 2px; PADDING-TOP: 2px; TEXT-ALIGN: center; WIDTH: 100%
+}
+A.qindex {
+	COLOR: #1a419d; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.qindex:visited {
+	COLOR: #1a419d; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.qindex:hover {
+	BACKGROUND-COLOR: #ddddff; TEXT-DECORATION: none
+}
+A.qindexHL {
+	BACKGROUND-COLOR: #6666cc; BORDER-BOTTOM: #9295c2 1px double; BORDER-LEFT: #9295c2 1px double; BORDER-RIGHT: #9295c2 1px double; BORDER-TOP: #9295c2 1px double; COLOR: #ffffff; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.qindexHL:hover {
+	BACKGROUND-COLOR: #6666cc; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.qindexHL:visited {
+	BACKGROUND-COLOR: #6666cc; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.el {
+	FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.elRef {
+	FONT-WEIGHT: bold
+}
+A.code:link {
+	COLOR: #0000ff; FONT-WEIGHT: normal; TEXT-DECORATION: none
+}
+A.code:visited {
+	COLOR: #0000ff; FONT-WEIGHT: normal; TEXT-DECORATION: none
+}
+A.codeRef:link {
+	COLOR: #0000ff; FONT-WEIGHT: normal
+}
+A.codeRef:visited {
+	COLOR: #0000ff; FONT-WEIGHT: normal
+}
+A:hover {
+	BACKGROUND-COLOR: #f2f2ff; TEXT-DECORATION: none
+}
+DL.el {
+	MARGIN-LEFT: -1cm
+}
+.fragment {
+	FONT-FAMILY: monospace
+}
+PRE.fragment {
+	BACKGROUND-COLOR: #f5f5f5; BORDER-BOTTOM: #cccccc 1px solid; BORDER-LEFT: #cccccc 1px solid; BORDER-RIGHT: #cccccc 1px solid; BORDER-TOP: #cccccc 1px solid; MARGIN: 4px 8px 4px 2px; PADDING-BOTTOM: 4px; PADDING-LEFT: 6px; PADDING-RIGHT: 6px; PADDING-TOP: 4px
+}
+DIV.ah {
+	BACKGROUND-COLOR: black; COLOR: #ffffff; FONT-WEIGHT: bold; MARGIN-BOTTOM: 3px; MARGIN-TOP: 3px
+}
+TD.md {
+	BACKGROUND-COLOR: #f4f4fb; FONT-WEIGHT: bold
+}
+TD.mdname1 {
+	BACKGROUND-COLOR: #f4f4fb; COLOR: #602020; FONT-WEIGHT: bold
+}
+TD.mdname {
+	BACKGROUND-COLOR: #f4f4fb; COLOR: #602020; FONT-WEIGHT: bold; WIDTH: 600px
+}
+DIV.groupHeader {
+	FONT-WEIGHT: bold; MARGIN-BOTTOM: 6px; MARGIN-LEFT: 16px; MARGIN-TOP: 12px
+}
+DIV.groupText {
+	FONT-SIZE: 14px; FONT-STYLE: italic; MARGIN-LEFT: 16px
+}
+BODY {
+	BACKGROUND: white; COLOR: black; MARGIN-LEFT: 20px; MARGIN-RIGHT: 20px
+}
+TD.indexkey {
+	BACKGROUND-COLOR: #eeeeff; BORDER-BOTTOM: #cccccc 1px solid; BORDER-LEFT: #cccccc 1px solid; BORDER-RIGHT: #cccccc 1px solid; BORDER-TOP: #cccccc 1px solid; FONT-WEIGHT: bold; MARGIN: 2px 0px; PADDING-BOTTOM: 2px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 2px
+}
+TD.indexvalue {
+	BACKGROUND-COLOR: #eeeeff; BORDER-BOTTOM: #cccccc 1px solid; BORDER-LEFT: #cccccc 1px solid; BORDER-RIGHT: #cccccc 1px solid; BORDER-TOP: #cccccc 1px solid; FONT-STYLE: italic; MARGIN: 2px 0px; PADDING-BOTTOM: 2px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 2px
+}
+TR.memlist {
+	BACKGROUND-COLOR: #f0f0f0
+}
+P.formulaDsp {
+	TEXT-ALIGN: center
+}
+IMG.formulaDsp {
+	
+}
+IMG.formulaInl {
+	VERTICAL-ALIGN: middle
+}
+SPAN.keyword {
+	COLOR: #008000
+}
+SPAN.keywordtype {
+	COLOR: #604020
+}
+SPAN.keywordflow {
+	COLOR: #e08000
+}
+SPAN.comment {
+	COLOR: #800000
+}
+SPAN.preprocessor {
+	COLOR: #806020
+}
+SPAN.stringliteral {
+	COLOR: #002080
+}
+SPAN.charliteral {
+	COLOR: #008080
+}
+.mdTable {
+	BACKGROUND-COLOR: #f4f4fb; BORDER-BOTTOM: #868686 1px solid; BORDER-LEFT: #868686 1px solid; BORDER-RIGHT: #868686 1px solid; BORDER-TOP: #868686 1px solid
+}
+.mdRow {
+	PADDING-BOTTOM: 8px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 8px
+}
+.mdescLeft {
+	BACKGROUND-COLOR: #fafafa; BORDER-BOTTOM: #e0e0e0 1px; BORDER-LEFT: #e0e0e0 1px; BORDER-RIGHT: #e0e0e0 1px; BORDER-TOP: #e0e0e0 1px; FONT-SIZE: 12px; FONT-STYLE: italic; MARGIN: 0px; PADDING-BOTTOM: 4px; PADDING-LEFT: 8px; PADDING-RIGHT: 8px; PADDING-TOP: 0px
+}
+.mdescRight {
+	BACKGROUND-COLOR: #fafafa; BORDER-BOTTOM: #e0e0e0 1px; BORDER-LEFT: #e0e0e0 1px; BORDER-RIGHT: #e0e0e0 1px; BORDER-TOP: #e0e0e0 1px; FONT-SIZE: 12px; FONT-STYLE: italic; MARGIN: 0px; PADDING-BOTTOM: 4px; PADDING-LEFT: 8px; PADDING-RIGHT: 8px; PADDING-TOP: 0px
+}
+.memItemLeft {
+	BACKGROUND-COLOR: #fafafa; BORDER-BOTTOM: #e0e0e0 1px; BORDER-LEFT: #e0e0e0 1px; BORDER-RIGHT: #e0e0e0 1px; BORDER-TOP: #e0e0e0 1px solid; FONT-SIZE: 12px; MARGIN: 4px; PADDING-BOTTOM: 0px; PADDING-LEFT: 8px; PADDING-RIGHT: 0px; PADDING-TOP: 1px
+}
+.memItemRight {
+	BACKGROUND-COLOR: #fafafa; BORDER-BOTTOM: #e0e0e0 1px; BORDER-LEFT: #e0e0e0 1px; BORDER-RIGHT: #e0e0e0 1px; BORDER-TOP: #e0e0e0 1px solid; FONT-SIZE: 13px; MARGIN: 4px; PADDING-BOTTOM: 0px; PADDING-LEFT: 8px; PADDING-RIGHT: 8px; PADDING-TOP: 1px
+}
+.memTemplItemLeft {
+	BACKGROUND-COLOR: #fafafa; BORDER-BOTTOM: #e0e0e0 1px; BORDER-LEFT: #e0e0e0 1px; BORDER-RIGHT: #e0e0e0 1px; BORDER-TOP: #e0e0e0 1px; FONT-SIZE: 12px; MARGIN: 4px; PADDING-BOTTOM: 0px; PADDING-LEFT: 8px; PADDING-RIGHT: 0px; PADDING-TOP: 1px
+}
+.memTemplItemRight {
+	BACKGROUND-COLOR: #fafafa; BORDER-BOTTOM: #e0e0e0 1px; BORDER-LEFT: #e0e0e0 1px; BORDER-RIGHT: #e0e0e0 1px; BORDER-TOP: #e0e0e0 1px; FONT-SIZE: 13px; MARGIN: 4px; PADDING-BOTTOM: 0px; PADDING-LEFT: 8px; PADDING-RIGHT: 8px; PADDING-TOP: 1px
+}
+.memTemplParams {
+	BACKGROUND-COLOR: #fafafa; BORDER-BOTTOM: #e0e0e0 1px; BORDER-LEFT: #e0e0e0 1px; BORDER-RIGHT: #e0e0e0 1px; BORDER-TOP: #e0e0e0 1px solid; COLOR: #606060; FONT-SIZE: 12px; MARGIN: 4px; PADDING-BOTTOM: 0px; PADDING-LEFT: 8px; PADDING-RIGHT: 0px; PADDING-TOP: 1px
+}
+.search {
+	COLOR: #003399; FONT-WEIGHT: bold
+}
+FORM.search {
+	MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px
+}
+INPUT.search {
+	BACKGROUND-COLOR: #eeeeff; COLOR: #000080; FONT-SIZE: 75%; FONT-WEIGHT: normal
+}
+TD.tiny {
+	FONT-SIZE: 75%
+}
+A {
+	COLOR: #252e78
+}
+A:visited {
+	COLOR: #3d2185
+}

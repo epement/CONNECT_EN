@@ -1,0 +1,27 @@
+Rem Показ дампа	на терминале
+  InitRS("T")		  Rem Инициализация для	работы под терминалом
+  PutKey($2C00)		  Rem Alt+Z
+  Idle()
+
+  Open(File,Params(), 0); Rem Открываем	файл дампа (с файловым диалогом).
+
+  Size = $80;
+  GetBuf(Buff,Size)	  Rem Выделяем память для буфера.
+Rd:
+  RdBlk(File, Buff, Size) Rem Читаем из	файла в	буфер
+  if Size == 0 then goto End
+  Index	= 0;
+Snd:
+  Idle()				   Rem Разрешаем квазифоновую работу
+  PrintV(RdBuf(Buff, Index), 1,	"c");	   Rem Выводим очередной символ
+					   Rem из буфера в окно	терминала.
+rem  Beep(0, 1);			   Rem Вводим задержку в 1 ms для
+					   Rem более удобного просмотра.
+  if (Index=Index+1) < Size  then goto Snd Rem Если вывели еще не весь
+					   Rem буфер, циклимся.
+  if Size <> 0 then GoTo Rd		   Rem Если файл прочитан не весь,
+					   Rem циклимся.
+End:
+  Close(File);				   Rem Закрываем файл.
+  DisBuf(Buff);				   Rem Освобождаем память.
+

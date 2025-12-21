@@ -1,0 +1,45 @@
+OVRWRAP       Каталог с оверлейной версией STRWRAP.
+LDIST.CFG
+REGEXP.CFG    Конфигурация bcc для компиляции regexp.c (bcc @regexp.cfg regexp.c).
+WRAP.CFG      Конфигурация bcc для компиляции wrap.c (bcc @wrap.cfg wrap.c).
+FILE_ID.DIZ   FILE_ID.DIZ
+_REGEXP.H     regexp.h для модуля REGEXP.PAS.
+LDIST.H       Levenstein Distance Algorithms Include Module
+CALCTST.PAS   Модуль с реализацией калькулятора, вычисляющего скобочные выражения.
+CRC32.PAS     This unit is to obtain CRC-32 check code as it is evaluated by PKZIP of PKWARE, Inc., and ARJ by Robert K Jung.
+FILTERS.PAS   Модуль с реализацией текстовых фильтров для преобразования строк по шаблону.
+GETID.PAS     Модуль для выделения идентификаторов из текстовых строк.
+JUMP.PAS      Модуль для реализации процедур SetJump/LongJump, позволяющий выходить из процедур, изменяющих все регистры (адрес возврата и состояние регистров хранится в сегменте кода).
+LDIST.C       Levenstein Distance Algorithms Module
+LDIST.PAS     Levenstein Distance Algorithms Module
+LDISTTST.PAS  Tests the is_alike() function with two words passed on the command line.
+REGEXP.C      Исходник REGEXP.OBJ для модуля REGEXP.PAS.
+REGEXP.PAS    Модуль для работы с регулярными выражениями.
+REVPOS.PAS    Модуль для поиска подстроки в строке вперед и назад.
+STRCALC.PAS   Тестовая программка для проверки модуля STRCALC.
+STRWRAP.PAS   Модуль для переносов слов в строке.
+TPSTRING.PAS  Обрезанный tpString для STRCALC.PAS.
+WRAP.C        Перенос русских слов.Автор: Андрей Левочкин. Исходник WRAP.OBJ для модуля STRWRAP.PAS.
+WRAPTST.PAS   Тестовая программка для проверки модуля STRWRAP.
+CRC32.ASM     Исходник CRC32.OBJ для модуля CRC32.PAS.
+FINDCBR.ASM   Исходник FINDCBR.OBJ для модуля GETID.PAS.
+GETID.ASM     Исходник GETID.OBJ для модуля GETID.PAS.
+JUMP.ASM      Исходник JUMP.OBJ для модуля JUMP.PAS.
+RPOS.ASM      Исходник RPOS.OBJ для модуля REVPOS.PAS.
+CRC32.OBJ     CRC32.OBJ для модуля CRC32.PAS.
+FINDCBR.OBJ   FINDCBR.OBJ для модуля GETID.PAS.
+GETID.OBJ     GETID.OBJ для модуля GETID.PAS.
+JUMP.OBJ      JUMP.OBJ для модуля JUMP.PAS.
+LDIST.OBJ     LDIST.OBJ для модуля LDIST.PAS
+NSTRCPY.OBJ   NSTRCPY.OBJ для модуля STRWRAP.PAS.
+NSTRLEN.OBJ   NSTRLEN.OBJ для модуля STRWRAP.PAS.
+NSTRNCMP.OBJ  NSTRNCMP.OBJ для модуля STRWRAP.PAS.
+NSTRNCPY.OBJ  NSTRNCPY.OBJ для модуля STRWRAP.PAS
+REGEXP.OBJ    REGEXP.OBJ для модуля REGEXP.PAS.
+RPOS.OBJ      RPOS.OBJ для модуля REVPOS.PAS.
+STRCHR.OBJ    STRCHR.OBJ для модуля REGEXP.PAS.
+STRCSPN.OBJ   STRCSPN.OBJ для модуля REGEXP.PAS.
+STRLEN.OBJ    STRLEN.OBJ для модуля REGEXP.PAS.
+STRNCMP.OBJ   STRNCMP.OBJ для модуля REGEXP.PAS.
+WRAP.OBJ      WRAP.OBJ для модуля STRWRAP.PAS.
+FILES.BBS     Список файлов с комментариями.

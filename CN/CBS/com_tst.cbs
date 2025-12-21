@@ -1,0 +1,20 @@
+Start:
+  if InitRS("COM1,1200,8,1,N") <> 1 then goto ErrIn Rem	Инициализация последовательного	порта
+  PrintS("[2JMONITOR =>",1);
+MainLoop:
+  sChars==0
+  if (Char = KeyPrs())<>0 then GoTo KBD	 else goto MainLoop
+KBD:
+  if Char == 32	then  goto SendKey else	Send(Char,1)
+  GoTo MainLoop
+SendKey:
+  Send(0,1);
+  Beep(0,20)
+  Send($0D5441,3);
+  GoTo MainLoop
+Rem ----------------------------------------------------------------------
+ErrIn:
+NotOK:
+Quit:
+ Stop()
+

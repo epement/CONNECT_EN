@@ -1,0 +1,46 @@
+*** YMODEM Protocol ***
+
+The YMODEM Batch protocol is an extension to the XMODEM/1K protocol that
+allows 0 or more files to be transmitted in a single session. YMODEM always
+sends an information packet (number 0) with each file containing the filename
+and the file length.
+
+The filename is sent as a null terminated ASCII string. This is the filename
+format used by the handle oriented MSDOS file services.
+
+The length field is sent as a decimal ascii string counting the number of data
+bytes in the file. The file length does not include the ^Z or other characters
+used to pad the last block. All unused bytes in packet 0 must be set to 0.
+
+After the filename has been transmitted, the receiver asks for file data by
+sending a 'C' (or NAK for 1 byte checksum packets). The sender responds by
+transmitting data packets exactly like XMODEM/1K.
+
+After the file has been transmitted, the receiver asks for the next file by
+sending a 'C' (or NAK). Transmission of a null pathname terminates the YMODEM
+protocol. An EOT is not transmitted after a null pathname.
+
+Here is an example of YMODEM:
+
+   SENDER                       RECEIVER
+   ======                       ========
+                                   C
+                                   C
+   SOH 00 FF Filename NULs CRC CRC
+                                   ACK
+                                   C
+   STX 01 FD Data[1024] CRC1 CRC2
+                                   ACK
+   SOH 02 FC Data[128] CRC1 CRC2
+                                   ACK
+   SOH 03 FB Data[100] ^Z[28] CRC1 CRC2
+                                   ACK
+   EOT
+                                   NAK
+   EOT
+                                   ACK
+                                   C
+   SOH 00 FF NUL[128] CRC CRC
+                                   ACK
+
+[END]

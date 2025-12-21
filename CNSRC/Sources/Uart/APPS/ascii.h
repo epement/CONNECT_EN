@@ -1,0 +1,17 @@
+#define SOH  0x01
+#define STX  0x02
+#define ETX  0x03
+#define EOT  0x04
+#define ACK  0x06
+#define BS   0x08
+#define LF   0x0a
+#define CR   0x0d
+#define XON  0x11
+#define XOFF 0x13
+#define NAK  0x15
+#define CAN  0x18
+#define CTLZ 0x1a
+#define ESC  0x1b
+#define SP   0x20
+#define DEL  0x7f
+  

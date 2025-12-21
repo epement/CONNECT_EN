@@ -1,0 +1,31 @@
+Rem Скрипт для логина на kpi.kharkov.ua
+
+ InitRS("T")       Rem Инициализация терминала
+Start:
+ DTR(1)
+ Dial("")          Rem Очистка Dialer list
+ Dial("400-619")
+ Dial("400-629")
+
+WaitCD:            Rem Ожидание коннекта
+ Idle()
+ if DCD() == 0 then GoTo WaitCD
+ Tick = RDBUF($0040006C, 0, 4)
+WaitLogin:
+ if (RDBUF($0040006C, 0, 4) - Tick) / 18 > 25 then goto Fail
+ if Wait("gw!login:", 0, 1) <> 0 then goto gw
+ if Wait("kpi!login:", 0, 1) <> 0 then goto kpi
+ goto WaitLogin
+
+gw:
+ SndStr("online\r");
+ if Wait("login:", 25) == 0 then GoTo Fail
+kpi:
+ SndStr("do\r");
+ if Wait("password:", 25)==0 then GoTo Fail
+ SndStr("XXXXXXX\r");
+ Stop()
+
+Fail:
+ DTR(0)
+ GoTo Start

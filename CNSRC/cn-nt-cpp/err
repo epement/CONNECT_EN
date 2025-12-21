@@ -1,0 +1,32 @@
+cn_nt.dll 
+Borland C++ 5.6 for Win32 Copyright (c) 1993, 2002 Borland
+cn_nt.cpp:
+Warning W8057 cn_nt.cpp 852: Parameter 'hdll' is never used in function CN_NT_process_attach(HINSTANCE__ *)
+Warning W8057 cn_nt.cpp 872: Parameter 'hdll' is never used in function CN_NT_process_detach(HINSTANCE__ *)
+Borland C++ 5.6 for Win32 Copyright (c) 1993, 2002 Borland
+ntvdm.c:
+Warning W8057 ntvdm.c 33: Parameter 'Addr' is never used in function FlushVDMPointer
+Warning W8057 ntvdm.c 33: Parameter 'Size' is never used in function FlushVDMPointer
+Warning W8057 ntvdm.c 33: Parameter 'Buffer' is never used in function FlushVDMPointer
+Warning W8057 ntvdm.c 33: Parameter 'ProtectedMode' is never used in function FlushVDMPointer
+Warning W8057 ntvdm.c 42: Parameter 'Address' is never used in function FreeVDMPointer
+Warning W8057 ntvdm.c 42: Parameter 'Size' is never used in function FreeVDMPointer
+Warning W8057 ntvdm.c 42: Parameter 'Buffer' is never used in function FreeVDMPointer
+Warning W8057 ntvdm.c 42: Parameter 'ProtectedMode' is never used in function FreeVDMPointer
+Borland C++ 5.6 for Win32 Copyright (c) 1993, 2002 Borland
+exec.c:
+Warning W8075 exec.c 80: Suspicious pointer conversion in function Exec
+Borland C++ 5.6 for Win32 Copyright (c) 1993, 2002 Borland
+recycle.c:
+Borland C++ 5.6 for Win32 Copyright (c) 1993, 2002 Borland
+sysinfo.c:
+Warning W8075 sysinfo.c 24: Suspicious pointer conversion in function asysinfo
+Warning W8075 sysinfo.c 24: Suspicious pointer conversion in function asysinfo
+Warning W8075 sysinfo.c 29: Suspicious pointer conversion in function asysinfo
+Warning W8075 sysinfo.c 29: Suspicious pointer conversion in function asysinfo
+Warning W8059 sysinfo.c 41: Structure packing size has changed
+Borland C++ 5.6 for Win32 Copyright (c) 1993, 2002 Borland
+exattr.c:
+Borland Resource Compiler  Version 5.40
+Copyright (c) 1990, 1999 Inprise Corporation.  All rights reserved.
+Turbo Incremental Link 5.60 Copyright (c) 1997-2002 Borland

@@ -1,0 +1,7 @@
+#ifdef WIN32
+BOOL CALLBACK
+#else
+BOOL FAR PASCAL
+#endif
+AboutDlgProc(HWND, UINT, WPARAM, LPARAM);
+  

@@ -1,0 +1,15 @@
+del cn_nt.obj
+del recycle.obj
+del ExAttr.obj
+del exec.obj
+del NTVDM.obj
+del sysinfo.obj
+del Advapi32.lib
+del cn_nt.lib
+del ntvdm.lib
+del shellapi.lib
+del cn_nt.drc
+del cn_nt.map
+del cn_nt.RES
+del cn_nt.tds
+del err

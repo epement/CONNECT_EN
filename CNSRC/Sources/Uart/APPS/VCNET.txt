@@ -1,0 +1,83 @@
+=============================
+Adding WSC to VC.Net programs.
+=============================
+
+In order to call WSC functions from VC.Net programs, do the following to your VC.Net project:
+
+(1) Add
+
+        #include "wsc.h"
+        #include "keycode.h"
+        
+   after your existing #include statements.
+   
+(2) Open the project properties window under "Project" on the main menu. If your project is named "MyProject", then select "MyProject properties".   
+
+(3) Select "Configuration Properties", "Linker", "Input", "Additional Dependencies", then type in "WSC32.LIB" into the edit box. Note that WSC32.LIB must be in your project directory along with all of your source files.
+
+(4) Rebuild.
+
+NOTE: If using pre-compiled headers, the include statement
+
+          #include "stdafx.h"
+        
+      must be the first include statement in your program.
+      
+============
+Code Example
+============
+
+First, verify that WSC32.DLL is in your Windows directory, which is normally C:\WINDOWS or C:\WINNT.
+
+The following code segment displays the WSC version and Build # as well as the WSC registration string. The keycode is 0 for the evaluation version.
+
+
+   static void MsgBox(LPSTR Ptr)
+   {
+    MessageBox(NULL,Ptr,(LPSTR)"Info",MB_TASKMODAL|MB_ICONEXCLAMATION);
+   }
+    
+   void DisplayStuff(void)    
+   {int Version;
+    int Build;
+    int Code;
+    int DaysLeft;
+    char Temp[55];
+    // pass the key code (0 for the evaluation version)
+    if(SioKeyCode(0)<0)
+      {MsgBox((LPSTR)"ERROR: Bad Key Code!");
+       return;
+      }
+     // display version and build
+    Version = SioInfo('V');
+    Build = SioInfo('B');
+    wsprintf((LPSTR)Temp,"Win32 WSC Version %d.%d.%d, Build %d",
+          (Version>>8),0x0f&(Version>>4),0x0f&Version, Build);
+    MsgBox((LPSTR)Temp);
+    // display registration string
+    Code = SioGetReg((LPSTR)Temp, 50);
+    if(Code>0) MsgBox((LPSTR)Temp);
+    // display # days left in evaluation version
+    DaysLeft = SioInfo('?');
+    if(DaysLeft==999) return; // registered version always returns 999
+    if(DaysLeft>0)
+      wsprintf((LPSTR)Temp,"%d days remaining for evaluation", DaysLeft );
+    else
+      wsprintf((LPSTR)Temp,"90 day evaluation period exceeded!");
+    MsgBox((LPSTR)Temp);
+   }
+
+
+Note the order in which WSC functions must be called. SioKeyCode must always be called before any other WSC function.
+
+[END]
+
+
+
+
+
+
+
+
+
+

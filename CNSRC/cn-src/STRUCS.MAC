@@ -1,0 +1,93 @@
+%NOLIST
+
+BeginProc macro LocalSize
+                push bp
+                mov bp,sp
+                if LocalSize NE 0
+                 sub sp,LocalSize
+                endif
+endm
+
+EndProc macro ParamSize
+                mov sp,bp
+                pop bp
+                ret ParamSize
+endm
+
+PascalStr  macro   Id, Msg
+    local   MsgLen, EndStr
+    ifb <Id>
+        if1
+          display "Must pass name of string to MakePascalString"
+        endif
+        err
+    else
+        ifb <Msg>
+            if1
+              display "Must pass string parameter to MakePascalString"
+            endif
+            err
+        else
+            Id  db  EndStr - Id - 1, "&Msg&"
+            label   EndStr  byte
+        endif
+    endif
+endm
+
+ASCIIZString macro id,Msg
+id              db "&Msg&",0
+endm
+
+DOSString macro id,Msg
+id              db "&Msg&",13,10,'$'
+endm
+
+Pointer         struc
+ Offset_        dw ?
+ Segment_       dw ?
+Pointer         ends
+
+FCBType         struc
+ Drive_code     db ?          ;Drive specified    User
+ File_Name      db  8 dup (?) ;Filename           User
+ Extension      db  3 dup (?) ;Filename extension User
+ Current_Block  dw ?          ;                   DOS
+ Record_Size    dw ?          ;                   DOS
+ File_Size      dd ?          ;Value in directory DOS
+ Date_          dw ?          ;Value in directory DOS
+ Time_          dw ?          ;Value in directory DOS
+ Reserved_      db 8 dup (?)
+ Current_Record db ?          ;                   User
+ Random_Record  dd ?          ;                   User
+ Number         db ?
+FCBType         ends
+
+EXEHeaderType   struc
+Signature       dw ?
+PartPage        dw ?
+PageCnt         dw ?
+ReloCnt         dw ?
+HdrSize         dw ?
+MinMem          dw ?
+MaxMem          dw ?
+ReloSS          dw ?
+ExeSP           dw ?
+ChkSum          dw ?
+ExeIP           dw ?
+ReloCS          dw ?
+TablOff         dw ?
+Overlay         dw ?
+EXEHeaderType   ends
+
+DosStr  macro Name
+&Name&          db 80 dup(?)
+endm
+
+String  macro Name,Length
+&Name&          db &Length& dup(?)
+endm
+
+false           equ 0
+true            equ 1
+
+%LIST

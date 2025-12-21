@@ -1,0 +1,90 @@
+atds
+400629
+
+BUSY
+tdsatds
+400629
+
+CONNECT 14400/ARQ
+-------> Internet On-line Service <-------
+
+If You want access to Internet call voice 400-279
+you can simply download our prices in file price.kpi
+entering as user bbs 
+
+Data phones (0572) 400-629
+                   400-619
+**EMSI_REQA77E              
+free!login: do
+Password: 
+Last login: Wed Jul 19 00:49:51 on ttyS0
+Linux 1.2.8. (POSIX).
+do       ttyS0    Jul 19 01:03
+No mail for do
+free:~> rlogin risc
+do's Password:
+*******************************************************************************
+*                                                                             *
+*                                                                             *
+*  Welcome to AIX Version 3.2!
+*                                                                             *
+*                                                                             *
+*  Please see the README file in /usr/lpp/bos for information pertinent to    *
+*  this release of the AIX Operating System.
+*                                                                             *
+*                                                                             *
+*******************************************************************************
+
+Last unsuccessful login: Thu Jul 13 19:21:46 1995 on pts/0 from free
+Last login: Wed Jul 19 00:51:03 1995 on pts/0 from free.kpi.kharkov.ua
+do          pts/0       Jul 19 01:04          (free.kpi.kharkov)
+No mail for do
+[1m1:04[do@risc ] [m(B ~ % 
+[1m1:04[do@risc ] [m(B ~ % deco
+Demos Commander, Copyright (C) 1989-1993 Serge Vakulenko
+[m[m[1;24r[24;1H[?1h=[;H[2J[7m risc:/dev/pts/0                     do.staff              19-Jul-1995 01:04:43 [m[m[2;1H[m[m+--------------[7m/home/do[m[m---------------+[2;41H[m[m+--------------/home/do[m[m---------------+[3;1H[m[m|[7m / ..             [m[m|[3;24Hcn[3;34H.zip [m[m|[3;41H[m[m|[3;43H/ ..[3;60H[m[m|[3;64Hcn[3;74H.zip [m[m|[4;1H[m[m|[4;3H/ .[4;20H[m[m|[4;24Hcnu00031  .zip [m[m|[4;41H[m[m|[4;43H/ .[4;60H[m[m|[4;64Hcnu00031  .zip [m[m|[5;1H[m[m|[5;5H.history[5;20H[m[m|[5;24Hterminfo  .zip [m[m|[5;41H[m[m|[5;45H.history[5;60H[m[m|[5;64Hterminfo  .zip [m[m|[6;1H[m[m|[6;5H.login[6;20H[m[m|[6;39H[m[m|[6;41H[m[m|[6;45H.login[6;60H[m[m|[6;79H[m[m|[7;1H[m[m|[7;5H.profile[7;20H[m[m|[7;39H[m[m|[7;41H[m[m|[7;45H.profile[7;60H[m[m|[7;79H[m[m|[8;1H[m[m|[8;5H123[8;20H[m[m|[8;39H[m[m|[8;41H[m[m|[8;45H123[8;60H[m[m|[8;79H[m[m|[9;1H[m[m|[9;5Hmbox[9;20H[m[m|[9;39H[m[m|[9;41H[m[m|[9;45Hmbox[9;60H[m[m|[9;79H[m[m|[10;1H[m[m|[10;3H* tt[10;20H[m[m|[10;39H[m[m|[10;41H[m[m|[10;43H* tt[10;60H[m[m|[10;79H[m[m|[11;1H[m[m|[11;3H* zzz[11;20H[m[m|[11;39H[m[m|[11;41H[m[m|[11;43H* zzz[11;60H[m[m|[11;79H[m[m|[12;1H[m[m|[12;5Hhardcopy    .3 [m[m|[12;39H[m[m|[12;41H[m[m|[12;45Hhardcopy    .3 [m[m|[12;79H[m[m|[13;1H[m[m|[13;5Hdead   .letter [m[m|[13;39H[m[m|[13;41H[m[m|[13;45Hdead   .letter [m[m|[13;79H[m[m|[14;1H[m[m|-------------------------------------|[14;41H[m[m|-------------------------------------|[15;1H[m[m|[15;3H/ ..[15;22H<DIR>  rwxr-xr-x [m[m|[15;41H[m[m|[15;43H/ ..[15;62H<DIR>  rwxr-xr-x [m[m|[16;1H[m[m+-------------------------------------+[16;41H[m[m+-------------------------------------+[17;1H/home/do[1m > [m[24;1H1[7mHelp  [m[m[24;9H2[7mUser  [m[m[24;17H3[7mView  [m[m[24;25H4[7mEdit  [m[m[24;33H5[7mCopy  [m[m[24;41H6[7mRenMov[m[m[24;49H7[7mMkdir [m[m[24;57H8[7mDelete[m[m[24;65H9[7mMenu  [m[m[24;73H10[7mQuit [m[m[17;12Hexit[2;16H/home/do[3;2H / ..             [24;1H                                                                               [24;1H[?1l>[1m1:05[do@risc ] [m(B ~ % tin
+/usr/local/bin/tin: Permission denied.
+[1m1:05[do@risc ] [m(B ~ % ls -la
+total 1688
+drwxr-xr-x   2 do       staff        512 Jul 19 00:55 .
+drwxr-xr-x  71 root     system      1536 Jul 14 13:58 ..
+-rw-------   1 do       staff       6979 Jul 19 01:02 .history
+-rw-r--r--   1 do       staff         50 Jun 27 21:00 .login
+-rw-r--r--   1 do       staff         18 Jun 20 20:42 .profile
+-rw-r--r--   1 do       staff        138 Jul 19 00:55 123
+-rw-r--r--   1 do       staff     755811 Jul 16 00:47 cn.zip
+-rw-r--r--   1 do       staff      43485 Jul 16 00:47 cnu00031.zip
+-rw-------   1 do       staff         90 Jul  6 20:07 dead.letter
+-rw-r--r--   1 do       staff       1232 Jul  9 20:16 hardcopy.3
+-rw-------   1 do       staff       9217 Jul 19 00:51 mbox
+-rw-r--r--   1 do       staff       1106 Jul 19 00:54 terminfo.zip
+-rwxr-xr-x   1 do       staff         19 Dec 31 1994  tt
+-rwxr-xr-x   1 do       staff         36 Jun 24 19:17 zzz
+[1m1:05[do@risc ] [m(B ~ % exit
+logout
+rlogin: connection closed.
+free:~> ls-la[K[K[K -la
+total 837
+drwxr-xr-x   6 do       users        1024 Jul 14 00:40 [01;34m.[00m/
+drwxr-xr-x  29 root     root         1024 Jul 15 09:17 [01;34m..[00m/
+-rw-r--r--   1 do       users         997 Jun 29 00:11 [00m.bash_history[00m
+-rw-r--r--   1 do       users         164 Apr 29 12:20 [00m.kermrc[00m
+-rw-r--r--   1 do       users          34 Jun  6  1993 [00m.less[00m
+-rw-r--r--   1 do       users         114 Nov 24  1993 [00m.lessrc[00m
+-rw-rw-r--   1 do       users          27 Jun 24 23:36 [00m.login[00m
+-rw-r--r--   1 do       users       12677 Jul  6 23:58 [00m.newsrc[00m
+-rw-r--r--   1 do       users       12738 Jul  6 23:49 [00m.oldnewsrc[00m
+-rw-r--r--   1 do       users          54 Jul  6 00:56 [00m.profile[00m
+drwxr-xr-x   2 do       users        1024 Apr 29 12:02 [01;34m.term[00m/
+drwxr-xr-x   4 do       users        1024 Jul  6 23:58 [01;34m.tin[00m/
+drwxr-xr-x   2 do       users        1024 Jun 25 01:55 [01;34mMail[00m/
+drwxr-xr-x   2 do       users        1024 Jul  6 23:59 [01;34mNews[00m/
+-r--r--r--   1 do       users      755811 Jul  1 22:36 [01;31mcn.zip[00m
+-r--r--r--   1 do       users       43485 Jul  5 18:28 [01;31mcnu00031.zip[00m
+-rw-------   1 do       bin           493 Jun 29 00:11 [00mdead.letter[00m
+-rw-------   1 do       users        7336 Jul  6 23:27 [00mmbox[00m
+-rwxr-xr-x   1 do       users          40 Jul  6 23:48 [01;32mti[00m*
+free:~> deco
+deco: Command not found.
+free:~> 0atm1
+OK

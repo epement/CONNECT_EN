@@ -1,0 +1,599 @@
+TITLE *.pdf
+PATH start
+PARAMS "$lpath$lname$lext"
+FILEMASK
+LINEMASK
+MAIN 2
+SETUP 0
+OPTIONS 0
+KEY $0000
+
+TITLE *.c;Bcc32
+PATH bcc32 -c
+PARAMS -c -WDR $path$name$ext
+FILEMASK $COPY("(Warning W[0-9]+ )|(Error  E[0-9]+ )"," [0-9]")
+LINEMASK $COPY("(\.c )|(\.cpp )|(.h )",":: ")
+MAIN 0
+SETUP 7
+OPTIONS 1
+KEY $0000
+
+TITLE *.cpp;Bcc32
+PATH bcc32 -c
+PARAMS -c -WDR $path$name$ext
+FILEMASK $COPY("(Warning W[0-9]+ )|(Error  E[0-9]+ )"," [0-9]")
+LINEMASK $COPY("(\.c )|(\.cpp )|(.h )",":: ")
+MAIN 0
+SETUP 7
+OPTIONS 1
+KEY $0000
+
+TITLE *.cpp
+PATH bcc
+PARAMS -c @bcc.cfg $path$name$ext
+FILEMASK $COPY("(Warning )|(Error )"," [0-9]")
+LINEMASK $COPY("(\.c )|(\.cpp )|(.h )",":: ")
+MAIN 0
+SETUP 7
+OPTIONS 1
+KEY $0000
+
+TITLE *.c;ICC68HC11
+PATH icc6811
+PARAMS -s7 -ms -e -r -L -q -g -IC:\IAR\EW21DEMO\6811\INC\ $PATH$NAME$EXT
+FILEMASK $COPY(2,""",")
+LINEMASK $COPY(""",","  "):$Up(1)$POS("\^")
+MAIN 0
+SETUP 7
+OPTIONS 1
+KEY $0000
+
+TITLE *.c;ICC8051 new
+PATH C:\IAR\EW21DEMO\8051\bin\ICC8051.EXE
+PARAMS $PATH$NAME$EXT -mt -O$Path -L$Path -ID:\C51\INCLUDE\ -e -z -C -q -gOA
+FILEMASK $COPY(2,""",")
+LINEMASK $COPY(""",","  "):$Up(1)$POS("\^")
+MAIN 0
+SETUP 7
+OPTIONS 1
+KEY $0000
+
+TITLE *.c;ICC8051
+PATH D:\C51\BIN\ICC8051.EXE
+PARAMS $PATH$NAME$EXT -mt -O$Path -L$Path -A$Path -ID:\C51\INCLUDE\ -e -z -C -q -gOA
+FILEMASK $COPY(2,""",")
+LINEMASK $COPY(""",","  "):$Up(1)$POS("\^")
+MAIN 0
+SETUP 7
+OPTIONS 1
+KEY $0000
+
+TITLE *.c;BCC
+PATH bcc
+PARAMS -c @bcc.cfg $path$name$ext
+FILEMASK $COPY("(Warning )|(Error )"," [0-9]")
+LINEMASK $COPY("(\.c )|(\.cpp )|(.h )",":: ")
+MAIN 0
+SETUP 7
+OPTIONS 1
+KEY $0000
+
+TITLE *.c;PIC18 Hi-Tech C Compile
+PATH PICCCC18
+PARAMS $lPATH$lNAME$lExt -$PROMPT(18F2620) $MSG
+FILEMASK $Search("\] (.+) [0-9]+ :")
+LINEMASK $Search("\] .+ ([0-9]+) ::")
+MAIN 0
+SETUP 3
+OPTIONS 3
+KEY $0000
+
+TITLE *.c;PIC16 Hi-Tech C
+PATH PICCC16
+PARAMS $lPATH$lNAME$lExt -$PROMPT(16F876) $MSG
+FILEMASK $copy(1,": ")
+LINEMASK $Search(" [0-9]+")
+MAIN 0
+SETUP 3
+OPTIONS 3
+KEY $0000
+
+TITLE *.c;PIC18 Hi-Tech C
+PATH PICCC18
+PARAMS $lPATH$lNAME$lExt -$PROMPT(18F2620) $MSG
+FILEMASK $Search("\] (.+) [0-9]+ :")
+LINEMASK $Search("\] .+ ([0-9]+) ::")
+MAIN 0
+SETUP 3
+OPTIONS 3
+KEY $0000
+
+TITLE *.c;PIC18 Hi-Tech C
+PATH PICCC18
+PARAMS $lPATH$lNAME$lExt -$PROMPT(18F2620) $MSG
+FILEMASK $Search("\] (.+) [0-9]+ :")
+LINEMASK $Search("\] .+ ([0-9]+) ::")
+MAIN 0
+SETUP 3
+OPTIONS 3
+KEY $0000
+
+TITLE *.c;PIC Hi-Tech C for ID
+PATH PICCCB
+PARAMS -$PROMPT(16F73 -DB400) $lPATH$lNAME$lEXT $MSG
+FILEMASK $copy(": file ","; ")
+LINEMASK $copy("line ",";"):$copy("column ",";")
+MAIN 0
+SETUP 3
+OPTIONS 3
+KEY $0000
+
+TITLE *.y
+PATH D:\YACC\pcyacc.exe
+PARAMS $path$name$ext
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 0
+OPTIONS 0
+KEY $0000
+
+TITLE *.cbb
+PATH $Icon
+PARAMS
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 0
+OPTIONS 0
+KEY $0000
+
+TITLE *.bat
+PATH cmd
+PARAMS /E:4096 /C $path$name$ext
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 7
+OPTIONS 0
+KEY $0000
+
+TITLE *.pas
+PATH c:\bp\bin\bpc
+PARAMS /m/q $path$name$ext
+FILEMASK $Up(1)$copy(1,"(")
+LINEMASK $Up(1)$copy("(",")"):$Down(1)$Pos("\^")
+MAIN 0
+SETUP 3
+OPTIONS 5
+KEY $0001
+
+TITLE *.pas;BP 7.0
+PATH c:\bp\bin\bpc
+PARAMS $path$name$ext
+FILEMASK $Up(1)$copy(1,"(")
+LINEMASK $Up(1)$copy("(",")"):$Down(1)$Pos("\^")
+MAIN 0
+SETUP 3
+OPTIONS 5
+KEY $0000
+
+TITLE *.pas
+PATH c:\bp\bin\bpc
+PARAMS /b/q $path$name$ext
+FILEMASK $Up(1)$copy(1,"(")
+LINEMASK $Up(1)$copy("(",")"):$Down(1)$Pos("\^")
+MAIN 0
+SETUP 3
+OPTIONS 5
+KEY $0002
+
+TITLE *.hls
+PATH $cn\help\cnhcx.exe $Msg $NoReDraw $NoReRead
+PARAMS $path$name$ext i:\help\$name.hlp
+FILEMASK $copy(": ","(")
+LINEMASK $copy("\(","\)")
+MAIN 1
+SETUP 3
+OPTIONS 1
+KEY $0002
+
+TITLE *.hls
+PATH $cn\help\cnhc.exe $Msg $NoReDraw $NoReRead
+PARAMS $path$name$ext I:\help\$name.hlp /q
+FILEMASK $copy(": ","(")
+LINEMASK $copy("\(","\)")
+MAIN 0
+SETUP 3
+OPTIONS 1
+KEY $0000
+
+TITLE *.tph
+PATH D:\CNNEW\HELP\tah2cnhc.exe
+PARAMS $path$name$ext i:\hlp\$name.hls /I
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 1
+OPTIONS 0
+KEY $0000
+
+TITLE *.s07;A6811
+PATH C:\IAR\EW21DEMO\6811\BIN\A6811.EXE $Msg $NoReDraw
+PARAMS -L $path$name$Ext
+FILEMASK
+LINEMASK $UP(1)$COPY("Error in ","::"):$Down(1)$POS("\^")
+MAIN 0
+SETUP 3
+OPTIONS 1
+KEY $0000
+
+TITLE *.s03;A8051
+PATH D:\C51\BIN\A8051.EXE $Msg $NoReDraw
+PARAMS $path$name$Ext
+FILEMASK
+LINEMASK $UP(1)$COPY("Error in ","::"):$Down(1)$POS("\^")
+MAIN 0
+SETUP 3
+OPTIONS 1
+KEY $0000
+
+TITLE *.asm;MCS-51 Cross Assembler ASEM-51
+PATH ASEM $Msg $NoReDraw ;hexbin.exe $msg$nmw$nrr
+PARAMS $path$name$Ext /COLUMNS;$path$name.hex
+FILEMASK $COPY(1,"(")
+LINEMASK $COPY("(",","):$COPY(",",")")
+MAIN 0
+SETUP 3
+OPTIONS 1
+KEY $0000
+
+TITLE *.asm;Intel MACRO ASSEMBLER, V2.3
+PATH asm51  $Msg $NoReDraw
+PARAMS $path$name$Ext EP
+FILEMASK
+LINEMASK $COPY(25," ")
+MAIN 0
+SETUP 3
+OPTIONS 1
+KEY $0000
+
+TITLE makefile
+PATH make.exe
+PARAMS
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 1
+OPTIONS 1
+KEY $0000
+
+TITLE *.mak
+PATH make.exe
+PARAMS -f$path$name$ext
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 1
+OPTIONS 1
+KEY $0000
+
+TITLE *.tdr
+PATH $arc
+PARAMS -d $path$name$ext
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 0
+OPTIONS 0
+KEY $0000
+
+TITLE *.zip
+PATH $arc
+PARAMS -d $path$name$ext
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 0
+OPTIONS 0
+KEY $0000
+
+TITLE *.zip
+PATH pkunzip.exe $NoMsgWin $Mem(230)
+PARAMS -d -o $path$name$ext $Prompt($Name\)
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 0
+OPTIONS 1
+KEY $0002
+
+TITLE *.lib
+PATH $Arc
+PARAMS
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 0
+OPTIONS 2
+KEY $0000
+
+TITLE *.sqz
+PATH $Arc
+PARAMS
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 0
+OPTIONS 2
+KEY $0000
+
+TITLE *.bsa
+PATH $Arc
+PARAMS
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 0
+OPTIONS 2
+KEY $0000
+
+TITLE *.ain
+PATH $Arc
+PARAMS
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 0
+OPTIONS 2
+KEY $0000
+
+TITLE *.uc2
+PATH $Arc
+PARAMS
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 0
+OPTIONS 2
+KEY $0000
+
+TITLE *.arj
+PATH arj.exe
+PARAMS x -y $path$name$ext $Prompt($Name\) $NoMsgWin
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 0
+OPTIONS 1
+KEY $0002
+
+TITLE *.arj
+PATH $arc
+PARAMS x -y $path$name$ext
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 0
+OPTIONS 0
+KEY $0000
+
+TITLE *.a0?
+PATH arj.exe
+PARAMS x -y $path$name$ext $Prompt($Name\)
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 0
+OPTIONS 0
+KEY $0002
+
+TITLE *.a0?
+PATH $arc
+PARAMS x -y $path$name$ext
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 0
+OPTIONS 0
+KEY $0000
+
+TITLE *.rar
+PATH $arc
+PARAMS x $path$name$ext
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 0
+OPTIONS 0
+KEY $0000
+
+TITLE *.rar
+PATH rar.exe
+PARAMS x $path$name$ext $Prompt($Name\)
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 0
+OPTIONS 0
+KEY $0002
+
+TITLE *.r++;RAR
+PATH $arc
+PARAMS x $path$name$ext
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 0
+OPTIONS 0
+KEY $0000
+
+TITLE *.r07;XLINK
+PATH XLINK
+PARAMS -xsmeh -L -o $path$name -f lnk68t1.xcl $path$name
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 3
+OPTIONS 3
+KEY $0000
+
+TITLE *.r03;XLINK
+PATH D:\C51\BIN\XLINK.EXE
+PARAMS $path$name$ext -f D:\C51\work\LNK8051.XCL -o $path$name
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 0
+OPTIONS 1
+KEY $0000
+
+TITLE *.lzh
+PATH lha.exe
+PARAMS x $path$name$ext $Prompt($Name\)
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 0
+OPTIONS 0
+KEY $0002
+
+TITLE *.lzh
+PATH $arc
+PARAMS x $path$name$ext
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 0
+OPTIONS 0
+KEY $0000
+
+TITLE *.lim
+PATH $arc
+PARAMS e $path$name$ext
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 0
+OPTIONS 0
+KEY $0000
+
+TITLE *.zoo
+PATH $arc
+PARAMS x $path$name$ext
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 0
+OPTIONS 0
+KEY $0000
+
+TITLE *.ice
+PATH $arc
+PARAMS x $path$name$ext
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 0
+OPTIONS 0
+KEY $0000
+
+TITLE *.ice
+PATH lha.exe
+PARAMS x $path$name$ext $Prompt($Name\)
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 0
+OPTIONS 0
+KEY $0002
+
+TITLE *.pak
+PATH $arc
+PARAMS $path$name$ext
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 0
+OPTIONS 0
+KEY $0000
+
+TITLE *.HA
+PATH $arc
+PARAMS $path$name$ext
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 0
+OPTIONS 0
+KEY $0000
+
+TITLE *.arc
+PATH $arc
+PARAMS $path$name$ext
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 0
+OPTIONS 0
+KEY $0000
+
+TITLE *.uue
+PATH uudecode
+PARAMS $path$name$ext
+FILEMASK
+LINEMASK
+MAIN 2
+SETUP 1
+OPTIONS 0
+KEY $0000
+
+TITLE *.hlp
+PATH $Help
+PARAMS
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 0
+OPTIONS 0
+KEY $0000
+
+TITLE *.bin
+PATH $Path$name$ext
+PARAMS
+FILEMASK
+LINEMASK
+MAIN 0
+SETUP 0
+OPTIONS 0
+KEY $0000
+
+TITLE *.hex
+PATH D:\89C51\7713\hexbin.exe $NoReDraw $Msg $NoMsgWin
+PARAMS $path$name$Ext
+FILEMASK
+LINEMASK
+MAIN 2
+SETUP 0
+OPTIONS 0
+KEY $0000
+
+TITLE *.lnk
+PATH start
+PARAMS "$lpath$lname$lext"
+FILEMASK
+LINEMASK
+MAIN 2
+SETUP 0
+OPTIONS 2
+KEY $0000
+
+TITLE *.*
+PATH c:\windows\start
+PARAMS "$lpath$lname$lext"
+FILEMASK
+LINEMASK
+MAIN 2
+SETUP 0
+OPTIONS 0
+KEY $0002

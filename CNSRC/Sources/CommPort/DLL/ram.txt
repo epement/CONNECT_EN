@@ -1,0 +1,2 @@
+;Name format:multiplaer:address:min:lo:hi:max
+Power %f3.1W:4.0:20

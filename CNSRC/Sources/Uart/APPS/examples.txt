@@ -1,0 +1,44 @@
+*** Example Programs ***   
+   
+   about.c - Displays "about - Example Program:" window. Used by TERM.
+  accept.c - Accepts data from user. Used by TERM.
+    ansi.c - Interpretes ANSI escape sequences. Used by TERM.
+   asdrv.c - ASCII protocol driver. Used by TERM.
+  config.c - Sets configuration parameters. Used by TERM and MODEM.
+ console.c - Example Program: Simple terminal emulator  (console mode).
+  device.c - Example Program: Sends command string to a serial device (console mode).
+    dial.c - Example Program: Dials up using modem (console mode).
+echoport.c - Example Program: Echoes incoming characters using threads (console mode).
+   event.c - Example Program: Dials up using modem (console mode).
+  finder.c - Example Program: Terminal emulator that uses SioEvent in a thread. (console mode).
+    host.c - Example Program: Host (BBS) program that accepts incoming modem connection.
+    line.c - Serial port control code. Used by MODEM, SIMPLE, and TERM.
+    menu.c - Menu control code. Used by MODEM, SELFTEST, and TERM.
+   modem.c - Example Program: Modem exerciser program.
+   paint.c - Paint control (GUI paint) control code. Used by Used by MODEM, SIMPLE, SELFTEST, WSCVER, and TERM.
+progress.c - Displays upload/download progress. Used by TERM.
+   rs485.c - Example Program: RS 485 terminal program.
+ runtest.c - Controls SELFTEST runs. Used by SELFTEST.
+sayerror.c - Displays error strings. Used by console mode example programs.
+selftest.c - Example Program: Serial port test program.
+ session.c - Controls connection session. Used by HOST.
+  simple.c - Example Program: Simple terminal emulator example program (GUI mode).
+sioerror.c - Displays error strings. Used by GUI mode example programs.
+    term.c - Example Program: Terminal emulator example (GUI mode) featuring XMODEM, YMODEM, etc.
+  wscver.c - Example Program: Displays the WSC32.DLL Version and Build #
+     xmr.c - Example Program: XMODEM/Receive.
+     xms.c - Example Program: XMODEM/Send.
+     ymr.c - Example Program: YMODEM/Receive.
+     yms.c - Example Program: YMODEM/Send.
+
+    fSio.cpp - C++ class wrapper for WSC.
+   hello.cpp - Example Program: Uses fSio.cpp class.
+ mfc_pgm.cpp - Example Program: Microsoft Foundation Class terminal program.
+ bcb_pgm.cpp - Example Program: Borland C++ Builder terminal program.
+ 
+ vc_version.cpp - Visual C++ .Net Example Program: Displays the WSC32.DLL Version and Build #. 
+  vc_simple.cpp - Visual C++ .Net Example Program: Simple terminal emulator example program.
+
+Refer to section 3.0 of the WSC4C Programmer's Manual (WSC_4C.DOC or WSC_4C.HTM) for help in compiling the example programs.
+
+[END]

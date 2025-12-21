@@ -1,0 +1,1 @@
+implib -c -f shellapi.lib %systemroot%\system32\shell.dll

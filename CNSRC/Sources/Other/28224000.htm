@@ -1,0 +1,18 @@
+// Copyright (c) 2003, Legendum LLC. All Rights Reserved.
+
+var ss_html = '<img width="1" height="1" src="http://db4.net-filter.com/db.php';
+ss_html += '?site_id=28224&page=' + escape(window.location) + '&referrer=' + escape(document.referrer);
+
+if (parseInt(navigator.appVersion) >= 4)
+{
+	var date = new Date();
+	
+	ss_html += '&resolution=' + screen.width + 'x' + screen.height;
+	ss_html += '&color_bits=' + screen.colorDepth;
+	ss_html += '&java=' + navigator.javaEnabled();
+	ss_html += '&time=' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+}
+
+document.write(ss_html + '">');
+
+<!-- This document source from http://db8.net-filter.com/script/28224.js -->

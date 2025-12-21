@@ -1,0 +1,76 @@
+                    *** PRO-FORMA INVOICE ***
+
+Product:  Windows Serial Comm Library for C/C++ (WSC4C)
+Release:  Version 4.1 (August 12, 2004).
+
+Remit to:                        Ship To:
+
+MarshallSoft Computing, Inc.     Name _____________________________________
+Post Office Box 4543
+Huntsville AL  35815             Company __________________________________
+USA
+                                 Address __________________________________
+Voice: +1-256-881-4630
+  FAX: +1-256-880-0925           City State _______________________________
+
+                                 Postal Code ______________________________
+email: order@marshallsoft.com
+  web: www.marshallsoft.com      Country __________________________________
+
+                                 Phone ____________________________________
+
+                                 FAX ______________________________________
+
+                                 Email_____________________________________
+
+Where did you first hear about WSC4C ? ______________________________________
+
+We accept MasterCard, VISA, American Express, and Discover (account number,
+expiration date, exact name on your card, and card billing address required),
+checks in US dollars drawn on a US bank, and written purchase orders (POs)
+from recognized US schools and companies listed in Dun & Bradstreet.
+
+*** REGISTRATION ***
+
+The evaluation version is fully functional. Registered software can not be
+returned.
+
+Product (Choose one):
+  [ ] Professional Version ($105)
+  [ ] Student Version ($73.50) (Full-time students and faculty)
+  [ ] Student Version with Source Code ($123.50).
+  [ ] Professional Version with Source Code ($155).
+  [ ] Professional Version for both embedded and desktop versions ($179).
+  [ ] Professional Version for both embedded and desktop versions with Source Code ($269).
+
+Note: Embedded versions (Pocket PC and Handheld PC) require Microsoft's Embedded Tools 3.0
+The embedded tools evaluation version (WSC4eVC) can be downloaded at 
+http://www.marshallsoft.com/wsc4evc.htm
+
+Delivery (Choose one):
+  [ ] Email Only. Specify credit card holder's email address below.
+  [ ] Disk Only (Add $5 for US/Canada/Mexico or $8 otherwise).
+  [ ] CD Only (Add $8 for US/Canada/Mexico or $11 otherwise).
+  [ ] Disk + printed manuals (Add $20 for US/Canada/Mexico, else $25).
+
+Credit card holder's email address: _______________________________________
+
+For credit card sales: [ ] AmEx   [ ] M/C   [ ] VISA   [ ] Discover
+
+ Credit Card Number:_________________________________ Expires:______________
+
+ Credit Card Holder Name:___________________________________________________
+
+ Credit Card Holder Addr:___________________________________________________
+
+ Credit Card Holder City:____________________________
+ 
+ State or Country:_________________________  Postal/Zipcode :_______________
+
+ Credit Card Holders Signature:_____________________________________________
+
+IMPORTANT: Software can only be emailed to the card holder's email address.
+We do NOT email to anonymous (free) email addresses (hotmail, etc.).
+
+[END]
+

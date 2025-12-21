@@ -1,0 +1,15 @@
+Using Microsoft C#
+
+WSC functions can be called from C# (C-sharp) in the same manner as Win32 API functions. All C# projects end with extension ".csproj". For example,
+
+        cs_vers.csproj
+
+In order to open an existing C# project, choose "File", "Open", and then "Project" from the Microsoft Development Environment.  Specify the directory containing the C# project files (for example, C:\WSC4C\APPS).
+
+In order to call WSC functions from your C# programs, do the following to your existing C# source code, where XXX.CS is the name of your C# code.
+
+1) Add the contents of file wsc_funs.cs to source code after 
+
+        public class XXX : System.Windows.Forms.Form
+
+2) Add the constants from wsc_cons.cs to your program as needed.

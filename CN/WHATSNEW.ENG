@@ -1,0 +1,169 @@
+- The following bug fixed:
+  If there was an environment variable CNCFG, and CN was started with
+  the switch /cConfig.Cfg, it used the configuration file Config.Cfg
+  only the first time, that is, after executing any program in Unload mode
+  CN returned to the configuration file specified by that environment
+  variable.
+
+* Now Copy/move to archive dialog (Shift+F1) has a header describing
+  what is to be added/moved.
+
+* Now you can call old Calculator window from within the Solve expressions
+  dialog.
+
+* Now when you select drives with Ctrl+Left/Right while holding the
+  Shift key down, the flag Drive selectors sensitive to Left/Right Ctrl keys
+  is inverted.
+
+11-06-97£. 19:53:23 (connect.exe    1598380 11-06-97 14:53)
+
+- Terminal Upload/Download progress window bug fixed:
+  estimated/remaining time calculation wasn't correct.
+
+* Resizable columns in File Manager panels. Drag the panel dividers with
+  the mouse, or switch to the Resize/move state (Ctrl+F5) and press
+  Gray Plus/Gray Minus to expand/shrink panel columns. Names are displayed
+  as long names when the column width is less or greater than 12.
+
+* Mouse cursor masks are optionally supported
+  (Options|Mouse|Disable cursor masks). These are used primarily to
+  indicate drag/resize areas on window frames etc. The mouse cursor
+  turns into a kind of arrow when it is moved over a hot spot, and
+  is reset to its original state every time a key is pressed.
+
+* Menus optionally track mouse (Options|Mouse|Track mouse in menus).
+  When this option is checked, all program menus (including popups)
+  handle mouse movements in a way similar to Win95 menus. However,
+  you should click the button to open nested submenus like, for instance,
+  File Manager popup Miscellaneous submenu item.
+
++ A new File Manager File compare option added: Prompt on compare.
+  Checking this option causes the Compare options prompt dialog box
+  to appear when Ctrl+C is pressed in a File Manager panel.
+
+* A click on an Editor/Viewer row:column indicator opens the
+  Go to line number dialog box (Alt+G). A click on a current character
+  indicator opens an ASCII table (Alt+T).
+
++ New Editor options added: Wrap lines on Load, Unwrap lines on Save.
+  They are useful for text files that don't contain CR/LF characters
+  at the end of each line. Text lines are wrapped to Max line width
+  and saved without CR/LF (CR/LF is written to mark a paragraph if a
+  line is empty).
+  Pressing Ctrl+O+] toggles the Wrap lines on Load option and reloads
+  the text. Pressing Ctrl+O+[ toggles the Unwrap lines on Save option.
+
++ A new Edit menu item added: Save Clipboard data on exit.
+  Checking this option causes CONNECT not to erase CNxxxxxx.@@@
+  and CNxxxxxx.### Clipboard files on exit and re-use them later on
+  the next session. Beware of their growing too large ! Uncheck this
+  option every now and then to allow CONNECT to delete those files.
+
++ Scroll bars optionally added to File Manager panels
+  (Alt+K - Panel settings dialog). Use Colors dialog to paint them,
+  because those new palette entries most probably contain invalid
+  zero values.
+
++ A new option added to the Drive list dialog (the one that opens
+  when you press '.' in the Drive letter dialog box (Alt+F1/F2):
+  [X] Open Drive list instead of Drive letter.
+
+11-24-97£. 15:53:32 (connect.exe    1611844 11-24-97 15:05)
+
+- .DBF viewer bug fixed: field names were padded with whitespaces
+  instead of zeroes.
+
++ Now macros can be called not only by a hot key (Alt+F8+HotKey),
+  but also by a sequence of keystrokes (Alt+F8+key sequence),
+  which can be specified in the
+  Modify macro|Hot keys|Macro hot key sequence dialog box.
+
++ <File> button added to the Macro list dialog box, which allows
+  to load/store a new macro file.
+
++ A new command directive added: $MAC(). It opens the Macro list
+  dialog box with the macro file specified in brackets.
+
++ New functionality based on macros !!! Key reassignment for
+  Text Editor, Terminal and File Manager.
+
+  Use any of the following settings to specify a macro file name:
+
+   Editor options|Groups|Files|Macro file
+   File Manager options|Keys|Macro file
+   Terminal options|Macro file
+
+  Now you don't have to press Alt+F8 anymore. Just strike a hot key
+  or type a key sequence (see above), and you'll get the macro running !
+  You may reassign ANY key or ANY sequence of keys to whatever you need !
+  Note that while a macro is generating keystrokes, they are handled as
+  non-reassignable, so you cannot invoke a macro from itself.
+
++ New options added to the Terminal settings (Alt+F10):
+  Transfer setup|Hangup after transfer and Protocol|Prompt on start.
+
+* Pressing Home in a Text Editor window toggles the cursor between
+  the first non-empty character and the beginning of line.
+
+11-26-97£. 18:25:15 (connect.exe    1620623 11-26-97 17:26)
+
++ <Local/Global> button added to the Macro list dialog box, which allows
+  to toggle between the local macro file (if available) and the global
+  macro file CONNECT.MAC. When you open the Macro list dialog box by
+  pressing Alt+PgUp, the global macro file is loaded into it.
+  If there is an active window on the desktop (Editor, File Manager or
+  Terminal), which has a local macro file assigned, this button becomes
+  visible, and pressing it reloads either local or global macro file.
+
+* Now macros are recorded (Record macro Alt+Equal/Stop recording Alt+Minus)
+  to the local macro file (if available).
+
++ Now you can append macros to another macro file using
+  Macro list|File|Store button. If the file already exists,
+  the confirmation message box appears:
+  "File already exists. Overwrite or append ?"
+  Select <Append> to add current macro list to the end of file.
+
+11-27-97£. 18:09:25 (connect.exe    1622081 11-27-97 18:04)
+
++ Key sequences added to programs (Alt+F9+key sequence - same as macro):
+  ProgramList|Modify program|Hot keys button.
+
+* PRG2TXT.EXE and TXT2PRG.EXE utilities modified to support program
+  key sequences.
+
+* Now both macro and program lists display a warning message if
+  the newly specified key sequence already exists.
+
+* In the Editor Find dialog you can drag the text to the left as well
+  as to the right.
+
+11-28-97£. 14:42:32 (connect.exe    1624599 11-28-97 14:21)
+
+- F10, Ctrl+Tab and some other macro bugs fixed.
+
++ <Keyboard state> and <Check keyboard state> checkboxes added to
+  the <Macro/Program hot key sequence> dialog to enable keystrokes
+  like Alt+Ctrl+R, Ctrl+Esc (under bare DOS only) etc.
+
+* The <Options> button in the Copy/Move dialog opens the
+  <Copy/Move to archive dialog> if the <To> input line contains
+  an archive name, for example: ZIP:C:\xxx...
+
+12-04-97£. 17:55:34 (connect.exe    1626676 12-05-97 09:20)
+
+- F2, Ctrl+F5 and some other macro bugs fixed.
+
++ New Editor options added:
+
+    Write CR/LF at the end of file
+    Write EOF char at the end of file
+    Home goes to first non-blank character
+    Paste goes to end of block
+
++ Ctrl+O Q opens the Editor options dialog box for local editor options.
+
+* Left mouse click at the File Manager prompt (C:\>) opens
+  Exec history window, right mouse click opens Panel history window.
+
+12-10-97£. 18:13:55 (connect.exe    1628934 12-10-97 17:28)

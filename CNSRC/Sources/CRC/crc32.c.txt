@@ -1,0 +1,47 @@
+#include <limits.h>
+typedef unsigned char uchar;
+typedef unsigned int  uint;
+typedef unsigned long UCRC;
+
+#define CRCPOLY         0xEDB88320L
+
+#define UPDATE_CRC(r,c) r=crctable[((uchar)(r)^(uchar)(c))&0xff]^(r>>CHAR_BIT)
+
+static UCRC   crctable[UCHAR_MAX + 1];
+UCRC cdecl crc;
+
+void make_crctable()
+{
+    uint i, j;
+    UCRC r;
+
+    for (i = 0; i <= UCHAR_MAX; i++)
+    {
+        r = i;
+        for (j = CHAR_BIT; j > 0; j--)
+        {
+            if (r & 1)
+                r = (r >> 1) ^ CRCPOLY;
+            else
+                r >>= 1;
+        }
+        crctable[i] = r;
+    }
+}
+
+void crc_buf( char *str, int len)
+{
+    while (len--)
+        UPDATE_CRC(crc, *str++);
+}
+
+main() {
+    crc = CRC_MASK;   // Инициализация
+
+    crc_buf( buffer, size);   // Вычисление CRC по данным буфера
+    ......
+    crc_buf( buffer, size);   // Обновляем CRC со следующей порцией данных
+
+    printf("Значение CRC - %lx", crc ^ CRC_MASK);
+}
+

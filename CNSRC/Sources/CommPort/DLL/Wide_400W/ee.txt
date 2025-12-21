@@ -1,0 +1,42 @@
+;addr: Name                             :format: multiplier:   default
+  0: Pref                               :%3.1fW:        4.0:     400
+ 39: Plamp                              :%3.1fW:        4.0:     400
+  8: Warmup current                     :%5.2fA:      0.032:     4.5
+  1: Power adjustment                  :%3.0f%%:    0.78125:     100
+  2: Ignition time                      :%3.1fs:        0.1:     0.7
+  9: Iignition output current limit     :%5.2fA:      0.032:     0.8
+ 27: Ignition PFC current limit         :%1.3fA:     0.0052:   0.478
+ 28: Ignition PFC sweep reset current   :%1.3fA:     0.0052:   0.577
+ 29: Ignition PFC protection current    :%1.3fA:     0.0052:   0.697
+  3: Regulator time constant           :%3.1fms:          1:      20
+  4: Restart period                     :%3.1fs:          1:      20
+  5: Short load detection time          :%3.1fs:        0.1:     2.5
+ 14: Fade up step                       :%3.1fs:        0.1:     1.0
+ 15: Fade down step                     :%3.1fs:        0.1:     1.0
+  7: Vpfc adjustment                   :%3.0f%%:    0.78125:     100
+ 10: Vin adjustment                    :%3.0f%%:    0.78125:     100
+ 11: Iout adjustment                   :%3.0f%%:    0.78125: 109.375
+ 12: Termo adjustment                  :%3.0f%%:    0.78125:     100
+ 13: Ipfc adjustment                   :%3.0f%%:    0.78125:     100
+ 16: Modulation deep                   :%3.1f%%:        0.8:       0
+ 17: Vout off max                       :%5.2fV:      0.958: 155.196
+ 18: Vout off min                       :%5.2fV:      0.958:  87.178
+ 24: T derating                        :%3.0føC:        1.0:      85
+ 26: T on                              :%3.0føC:        1.0:      75
+ 25: T off                             :%3.0føC:        1.0:     100
+ 32: Tmax                              :%3.0føC:        1.0:       0
+ 19: Lamp minutes                           :%d:          1:       0
+ 20: Lamp 2 hours Lo                        :%d:          1:       0
+ 21: Lamp 2 hours Hi                        :%d:          1:       0
+ 22: Lamp counter Lo                        :%d:          1:       0
+ 23: Lamp counter Hi                        :%d:          1:       0
+ 30: Vin derating                       :%5.2fV:        2.1:   155.4
+ 31: Vin off                            :%5.2fV:        2.1:   138.6
+ 33: Delay to dimm                    :%3.0fmin:          1:       0
+ 34: Dimm slope                          :%3.0f:          1:     128
+ 35: Dimm max                            :%3.0f:          1:     180
+ 35: Dimm min                            :%3.0f:          1:      20
+ 37: Move sensor delay                   :%3.0f:          1:       0
+ 38: Config                                :%2x:          1:       2
+ 40: Madli timeout                    :%3.0fmin:          1:       0
+ 41: Cur time                         :%4.0fmin:         10:       0

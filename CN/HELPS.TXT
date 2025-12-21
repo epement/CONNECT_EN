@@ -1,0 +1,32 @@
+CNHC2HTM.RAR     16066 04-21-97 Converts Connect Help source files to HTML.
+                                By Dmitry Jemerov (2:5030/482.7).
+EPX780HL.ZIP    256107 12-30-96 Hypertext tutorial for CONNECT help system
+                                on intermediate-level logic design using
+                                the EPX780 FPGA as an implementation tool.
+                                Copyright 1995 by XESS Corp.
+HAYES.ZIP         7779 01-28-97 Общеее описание комманд HAYES'a в формате
+                                CONNECT Help.
+HC11.ZIP         94459 10-07-97 M68HC11 REFERENCE MANUAL for CONNECT help
+                                system.
+I8080HLP.ZIP     14088 02-09-96 Помощь по процессору 8080 для CONNECT'а.
+INTHELP.J00     280911 11-09-97 Interrupt List by Ralf Brown, Release 55
+                                for CONNECT help system. JAR archived. (1/2)
+INTHELP.J01    1457000 11-09-97 Interrupt List by Ralf Brown, Release 55
+                                for CONNECT help system. JAR archived. (2/2)
+MCS51HLP.ZIP     37376 01-13-97 Помощь по Microcontroller MCS-51 для
+                                CONNECT'а.
+MCS96HLP.ZIP    192866 01-28-97 Помощь по Microcontroller MCS-96 для
+                                CONNECT'а.
+PCHELP.ZIP      220992 03-07-96 HelpPC 2.10 Quick Reference для CONNECT'а.
+PICHLP.ZIP       21158 02-12-96 Помощь по RISC - процессорам Microchip для
+                                CONNECT'а.
+RB2CNHC.ZIP     132004 08-30-96 Компилятор интеррапт листа в CNHC формат.
+ROM_PRG.ZIP     176146 10-12-97 Пример использования help-файла для работы
+                                с программатором ПЗУ.
+TASMHLP.ZIP      92459 01-19-96 Помощь по Turbo Assembler для CONNECT'а.
+TCHLP.ZIP       593113 01-19-96 Помощь по Borland C++ V3.1 для CONNECT'а.
+TPHLP.ZIP       312866 01-19-96 Помощь по Borland Pascal V7.0 для CONNECT'а.
+TVHLP.ZIP       226220 03-07-96 Помощь по Turbo vision (Pascal) для
+                                CONNECT'а.
+UNIX.ZIP        758166 09-28-97 Страницы MAN по UNIX в формате CONNECT Help.
+

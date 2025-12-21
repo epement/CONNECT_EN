@@ -1,0 +1,68 @@
+Program ..............:  VOL.PAS
+Version ..............:  1.01
+Implementation .......:  Turbo Pascal v4.x, v5.x
+Author ...............:  Vernon E. Davis
+                      :  17 South Centre Street
+                      :  Merchantville, NJ 08109
+                      :  CompuServe [71330,2705]
+References ...........:  MS-DOS Encyclopedia (Microsoft Press)
+Purpose ..............:  To allow the manipulation of
+                      :  MS-DOS Disk Volume Labels.
+Type Declarations ....:  Two User Types Defined ...
+                      :  TYPE  Drive = Byte;
+                      :    The value of Drive corresponds to disk location.
+                      :    ( 1 = A:   2 = B:   3 = C:   4 = D:  etc. )
+                      :  TYPE  VolumeName  = String[11];
+                      :    Spaces allowed. Functions do not check for
+                      :    invalid characters other than period ( . ).
+                      :    Functions do convert all input to uppercase.
+Function Declarations :  Four Functions Available ...
+
+   Function ADDVOL(Drive; VolumeName) : Boolean;
+      This function allows the addition of a New Volume Label on
+      a disk that does not have one.
+      Returns:
+         FALSE if
+           1. Drive is less than 1 ( A: ) or greater than 26 ( Z: ).
+           2. Drive is an invalid specification.
+           3. Volume Label already exists.
+           4. Error in adding New Volume Label.
+         TRUE if
+           1. New Volume Label has been added.
+
+   Function CHGVOL(Drive; VolumeName) : Boolean;
+      This function changes the current Volume Label to that of the
+      New Volume Label.
+      Returns:
+         FALSE if
+           1. Drive is less than 1 ( A: ) or greater than 26 ( Z: ).
+           2. Drive is an invalid specification.
+           3. No Volume Label exists.
+           4. Error in changing Volume Label.
+         TRUE if
+           1. Volume Label has been changed.
+
+   Function DELVOL(Drive) : Boolean;
+      This function allows the deletion of a Volume Label.
+      Returns:
+         FALSE if
+           1. Drive is less than 1 ( A: ) or greater than 26 ( Z: ).
+           2. Drive is an invalid specification.
+           3. No Volume Label exists.
+           4. Error in deleting Volume Label.
+         TRUE if
+           1. Volume Label has been deleted.
+
+   Function GETVOL(Drive) : VolumeName;
+      This function returns the Volume Label string.
+      Returns:
+         NULL if
+           1. Drive is less than 1 ( A: ) or greater than 26 ( Z: ).
+           2. Drive is an invalid specification.
+           3. No Volume Label exists.
+           4. Error in reading Volume Label.
+         !NULL if
+           1. Volume Label has been read.
+
+See the accompanying program, VOLTEST.PAS, for actual code.
+

@@ -1,0 +1,7 @@
+#ifdef WIN32
+BOOL CALLBACK
+#else
+BOOL FAR PASCAL
+#endif
+ProgressProc(HWND, UINT, WPARAM, LPARAM);
+  

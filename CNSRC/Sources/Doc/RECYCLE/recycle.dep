@@ -1,0 +1,14 @@
+# Microsoft Developer Studio Generated Dependency File, included by recycle.mak
+
+.\RecycFile.cpp : \
+	".\RecycFile.h"\
+	
+
+.\recycle.cpp : \
+	".\RecycFile.h"\
+	"d:\msdev\sdk\include\basetsd.h"\
+	"d:\msdev\sdk\include\guiddef.h"\
+	"d:\msdev\sdk\include\propidl.h"\
+	"d:\msdev\sdk\include\tvout.h"\
+	"d:\msdev\sdk\include\winefs.h"\
+	

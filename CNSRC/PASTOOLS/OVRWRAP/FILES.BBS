@@ -1,0 +1,16 @@
+WRAP.CFG      Конфигурация bcc для компиляции wrap.c (bcc @wrap.cfg wrap.c).
+OVRWRAP.DOC   Документация по особенностям оверлейной версии.
+STRGS.C       Исходник STRGS.OBJ для модуля STRWRAP.PAS.
+STRWRAP.PAS   Модуль для переносов слов в строке.
+WRAP.C        Перенос русских слов.Автор: Андрей Левочкин. Исходник WRAP.OBJ для модуля STRWRAP.PAS.
+WRAPTST.PAS   Тестовая программка для проверки модуля STRWRAP
+WRAP.ASM      Исходник WRAP.OBJ для модуля STRWRAP.PAS.
+FSTRLEN.OBJ   FSTRLEN.OBJ для модуля STRWRAP.PAS.
+FSTRNCMP.OBJ  FSTRNCMP.OBJ для модуля STRWRAP.PAS.
+NSTRCPY.OBJ   NSTRCPY.OBJ для модуля STRWRAP.PAS.
+NSTRLEN.OBJ   NSTRLEN.OBJ для модуля STRWRAP.PAS.
+NSTRNCMP.OBJ  NSTRNCMP.OBJ для модуля STRWRAP.PAS.
+NSTRNCPY.OBJ  NSTRNCPY.OBJ для модуля STRWRAP.PAS
+STRGS.OBJ     STRGS.OBJ для модуля STRWRAP.PAS.
+WRAP.OBJ      WRAP.OBJ для модуля STRWRAP.PAS.
+FILES.BBS     Список файлов с комментариями.

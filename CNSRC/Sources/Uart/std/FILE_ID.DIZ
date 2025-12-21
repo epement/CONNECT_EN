@@ -1,0 +1,10 @@
+Windows Standard Serial Comm Lib for C/C++.
+Ver 4.1, August 12, 2004 (WSC4C41.ZIP). 
+Win 16/32 DLLs (Win 95/98/Me/NT/2000/XP).
+Serial communications library based on the
+Windows API. Includes 31 functions plus modem
+control, ANSI emulation, ASCII/XMODEM/YMODEM
+protocols, and 16 example programs. Requires
+MS/Borland/Watcom/Lcc-Win32 Windows C/C++
+compiler. By MarshallSoft Computing, Inc.
+Registration is $105 for email delivery.

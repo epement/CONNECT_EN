@@ -1,0 +1,1 @@
+bcc32.EXE  -WC test.cpp cpuid.cpp winmm.lib

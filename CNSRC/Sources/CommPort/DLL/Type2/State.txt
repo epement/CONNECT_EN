@@ -1,0 +1,7 @@
+0:Off
+1:Not ignite
+2:Wait
+3:On
+4:Ignition
+5:Warmup
+6:Normal

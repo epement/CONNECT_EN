@@ -1,0 +1,12 @@
+CNHC.EXE      Компилятор help-файла.
+CNHCX.EXE     Компилятор help-файла для защищенного режима.
+DISHELP.EXE   Декомпилятор help-файлов.
+RTM.EXE       Вспомогательный файл для CNHCX.EXE.
+TAH2CNHC.EXE  Конвертор Turbo help file (*.tah) в формат CNHC.
+CNHC.DOC      Описание CNHC.EXE.
+ALL.INC       Include-файл к нему.
+ALL.HLS       Пример написания общего файла помощи.
+ASM.HLS       Исходный текст хелпа по ассемблеру. Для компиляции нажмите ENTER.
+DPMI16BI.OVL  Вспомогательный файл для CNHCX.EXE.
+MAWK.HLP      Скомпилированный help по утилите mawk.
+FILES.BBS     Список файлов с комментариями в этом каталоге.

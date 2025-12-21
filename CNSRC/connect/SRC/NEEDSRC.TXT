@@ -1,0 +1,18 @@
+FORMAT.OBJ                 TV
+FSTRLEN.OBJ                BC
+FSTRNCMP.OBJ               BC
+HEAP.OBJ                   RTL (переделанный)
+KOIXLAT.OBJ                data
+MNEM386.OBJ                data
+MNEM387.OBJ                data
+NSTRCPY.OBJ                data
+NSTRLEN.OBJ                data
+NSTRNCMP.OBJ               data
+NSTRNCPY.OBJ               data
+OPSEARCH.OBJ               OPro
+OPTAB.OBJ                  OPro
+REGEXP.OBJ                 Regexp.c, но переделанный.
+REGLIST.OBJ                data
+SPEC.OBJ                   data
+TPBM.OBJ                   TPro
+WINXLAT.OBJ                data

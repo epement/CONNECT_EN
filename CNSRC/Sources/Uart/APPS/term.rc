@@ -1,0 +1,103 @@
+#include "windows.h"
+#include "message.h"
+#include "accept.h"
+
+TermIcon ICON msc.ico
+
+TermMenu MENU
+
+BEGIN
+   POPUP "Line"
+     BEGIN
+       MENUITEM   "Exit",          MSG_EXIT
+       MENUITEM   "On Line",       MSG_ONLINE
+       MENUITEM   "Off Line",      MSG_OFFLINE
+     END
+   POPUP "Change"
+     BEGIN
+       POPUP "Port"
+         BEGIN
+           MENUITEM  "COM1",      MSG_COM1
+           MENUITEM  "COM2",      MSG_COM2
+           MENUITEM  "COM3",      MSG_COM3
+           MENUITEM  "COM4",      MSG_COM4
+         END
+       POPUP "Baud"
+         BEGIN
+           MENUITEM   "110",      MSG_110
+           MENUITEM   "300",      MSG_300
+           MENUITEM   "1200",     MSG_1200
+           MENUITEM   "2400",     MSG_2400
+           MENUITEM   "4800",     MSG_4800
+           MENUITEM   "9600",     MSG_9600
+           MENUITEM   "19200",    MSG_19200
+           MENUITEM   "38400",    MSG_38400
+           MENUITEM   "57600",    MSG_57600
+#ifdef WIN32
+           MENUITEM   "115200",    MSG_115200
+#endif
+         END
+       POPUP "Parity"
+         BEGIN
+           MENUITEM   "NONE",     MSG_NONE
+             MENUITEM   "EVEN",     MSG_EVEN
+             MENUITEM   "ODD",      MSG_ODD
+           END
+         POPUP "Data Bits"
+           BEGIN
+             MENUITEM   "Seven",    MSG_7_DB
+             MENUITEM   "Eight",    MSG_8_DB
+           END
+         POPUP "Stop Bits"
+           BEGIN
+             MENUITEM   "One",      MSG_1_SB
+             MENUITEM   "Two",      MSG_2_SB
+           END
+       END
+   MENUITEM "Dial",             MSG_DIAL
+   POPUP "Send"
+     BEGIN
+       MENUITEM "ASCII",           MSG_ASC_SND
+       MENUITEM "XMODEM",          MSG_XM_SND
+       MENUITEM "YMODEM",          MSG_YM_SND
+     END
+   POPUP "Receive"
+     BEGIN
+       MENUITEM "ASCII",           MSG_ASC_RCV
+       MENUITEM "XMODEM",          MSG_XM_RCV
+       MENUITEM "YMODEM",          MSG_YM_RCV
+     END
+   MENUITEM "BREAK",            MSG_BREAK
+   MENUITEM "Status",           MSG_STATUS
+   POPUP    "Debug"
+     BEGIN
+       MENUITEM "Set Debug Off",  MSG_DEBUG_LEVEL_OFF
+       MENUITEM "Set Debug Low",  MSG_DEBUG_LEVEL_LOW
+       MENUITEM "Set Debug High", MSG_DEBUG_LEVEL_HIGH
+     END
+   MENUITEM "About",            MSG_ABOUT
+END
+
+AboutBox DIALOG 22, 17, 144, 75
+STYLE DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "About TERM"
+BEGIN
+    CTEXT "TERM Version 4.1  "     -1,       0,  5, 144,  8
+    CTEXT "  By MarshallSoft "     -1,       0, 20, 144,  8
+    CTEXT "  Computing, Inc. "     -1,       0, 30, 144,  8
+    DEFPUSHBUTTON "OK"          IDOK,      53, 59,  32, 14,      WS_GROUP
+END
+
+AcceptBox DIALOG 72, 17, 92, 22
+STYLE DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "ACBDEFGHIJKLMN"
+BEGIN
+    CONTROL "", IDD_EDIT, "edit", ES_LEFT|WS_CHILD|WS_BORDER,   4, 4, 72, 14
+END
+
+ProgressBox DIALOG 22, 15, 50, 20
+STYLE WS_VISIBLE
+CAPTION "Progess"
+BEGIN
+    CTEXT "     "     IDOK, 0, 5, 50,  8
+END
