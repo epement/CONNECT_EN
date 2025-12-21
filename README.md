@@ -166,11 +166,7 @@ or write to:
 
 You can **download** the newest versions from:
 
-- **Electric BBS, 2:461/27, (380)-572-477177**
-- [ftp://ftp.itl.net.ua/pub/msdos/connect/*](ftp://ftp.itl.net.ua/pub/msdos/connect/)
-- [ftp://ftp.kiae.su/pub/msdos/shell/connect/*](ftp://ftp.kiae.su/pub/msdos/shell/connect/)
-- [ftp://ftp1.netclub.ru/mirrors/connect/*](ftp://ftp1.netclub.ru/mirrors/connect/)
-- [http://www.infocom.kharkov.ua/support/cn/](http://www.infocom.kharkov.ua/support/cn/)
+- [http://www.dorlov.no-ip.com/Connect/index.htm](http://www.dorlov.no-ip.com/Connect/index.htm)
 
 ---
 
