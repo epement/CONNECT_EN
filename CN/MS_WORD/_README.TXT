@@ -21,6 +21,6 @@ The normal process of file translation has 4 steps:
   1. SUBDIR-NAME_RU.docx        # submitted to Google Translate
   2. SUBDIR-NAME_EN.docx        # received from Google Translate
   3. SUBDIR-NAME_ENexport.txt   # docx "SaveAs DOS text", expect some loss
-  4. SUBDIR-NAME_ENready.txt    # cleaned, ready to be copiled as HLP file
+  4. SUBDIR-NAME_ENready.txt    # cleaned, ready to be compiled as HLP file
 
-2026/04/04 13:18
+2026/04/04 13:28
