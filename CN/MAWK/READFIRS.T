@@ -25,7 +25,7 @@ READFIRS.T		this file
 README			README file from the complete 
 			distribution
 COPYING			GNU GPL v2
-mawk.doc		Ascii form of unix style man pages
+mawk.txt		Ascii form of unix style man pages
 NOTES			added info about DOS mawk
 
 mawk.exe		small model mawk
