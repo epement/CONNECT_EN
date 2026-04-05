@@ -1,0 +1,19 @@
+For background on Russian/Ukranian character sets and encoding, see the following:
+
+  - https://segfault.kiev.ua/cyrillic-encodings/
+      * Covers KOI8-R (CP20866), KOI8-U (Ukranian), KOI8-RU (CP21866), KOI8-F
+      * Covers ISO-IR-111 (ECMA-113:1986) and ISO-8859-5 (ECMA-113:1988)
+      * Includes CP866
+      * Gives full high-bit charts of the major encodings
+ 
+  - https://czyborra.com/charsets/cyrillic.html
+
+  - https://www.iana.org/assignments/character-sets/character-sets.xhtml
+
+  - https://en.wikipedia.org/wiki/KOI8-R
+
+  - https://en.wikipedia.org/wiki/ISO/IEC_8859-5
+
+  - https://en.wikipedia.org/wiki/ISO-IR-111
+
+
