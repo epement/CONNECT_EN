@@ -5,6 +5,8 @@ For background on Russian/Ukranian character sets and encoding, see the followin
       * Covers ISO-IR-111 (ECMA-113:1986) and ISO-8859-5 (ECMA-113:1988)
       * Includes CP866
       * Gives full high-bit charts of the major encodings
+
+  - https://web.archive.org/web/20060313172102/http://www.fingertipsoft.com/ref/cyrillic/charsets.html
  
   - https://czyborra.com/charsets/cyrillic.html
 
