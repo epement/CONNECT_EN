@@ -4,7 +4,7 @@ DOWNLOAD      Directory for files received by the terminal.
 FILTERS       Filters for viewing AIN, UC2, BSA, SQZ, and JAR archives.
 FONT          Graphical fonts for dot-matrix printers.
 HELP          Help compiler and a sample help file for Assembly language.
-MAWK          This is mawk 1.0, an interpreter for the AWK programming language as defined in the 1988 AWK book—specifically, a "new awk."
+MAWK          This is mawk 1.0, an interpreter for the AWK programming language described in the 1988 AWK book as a "new awk."
 TDR           Utilities for handling *.tdr files as archives.
 TERM          Directory containing terminal configuration files.
 UTIL          Auxiliary utilities for updates and configuration.
