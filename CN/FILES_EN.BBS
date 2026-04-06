@@ -1,0 +1,74 @@
+CBS           Directory containing sample programs written in the built-in scripting language.
+CD            Directory containing CD description files.
+DOWNLOAD      Directory for files received by the terminal.
+FILTERS       Filters for viewing AIN, UC2, BSA, SQZ, and JAR archives.
+FONT          Graphical fonts for dot-matrix printers.
+HELP          Help compiler and a sample help file for Assembly language.
+MAWK          This is mawk 1.0, an interpreter for the AWK programming language as defined in the 1988 AWK book—specifically, a "new awk."
+TDR           Utilities for handling *.tdr files as archives.
+TERM          Directory containing terminal configuration files.
+UTIL          Auxiliary utilities for updates and configuration.
+CN.BAT        Example of launching CONNECT using a "snipper."
+CN.EXE        Main program loader.
+CN_CO.EXE     Main program loader for color monitors.
+CN_MO.EXE     Main program loader for monochrome monitors.
+CONNECT.EXE   Main program executable.
+CONNECT.HLP   Help file.
+CONNECT.ALR   Alarm configuration.
+CONNECT.ASP   Archiver configuration.
+CONNECT.ASU   User-defined archiver configuration.
+CONNECT.CFG   Configuration file.
+CONNECT.CMT   File extensions and comment syntax definitions for editor highlighting (new format).
+CONNECT.DSK   Desktop file.
+CONNECT.EXT   File extension action definitions.
+CONNECT.GRP   File group masks, associated colors, and group IDs for the file manager.
+CONNECT.MAC   Macros.
+PAS.MAC       Sample macros for editing .pas files.
+CONNECT.PHN   Telephone directory file.
+CONNECT.PRG   Hot-key program launch definitions.
+CONNECT.TBL   Table for translating KOI8 encoding to an alternative encoding.
+CONNECT.TRM   Standard TERMCAP file.
+CONNECT.VIE   File viewer definitions.
+FILE_ID.DIZ   file_id.diz ;)
+CONNECT_RU.FAQ   Frequently Asked Questions about CONNECT, with answers (Russian)
+HELPS_RU.TXT  List of available help files.
+HTML.DOC      Description of the supported HTML subset.
+LASTNEW.TXT   What's new in the latest version.
+README_RU.TXT Read me ;) (Russian)
+TERMCAP.DOC   Description of the TERMCAP file.
+WEEKNEW_RU.TXT   What's new over the last week (Russian)
+NEWS(1994-2005)_RU.TXT     Change history (complete list).
+NEWS(Nov-Dec_1997)_EN.TXT  Change history (limited).
+OWNER.DBF     DBF file for testing DBFViewer.
+README_RU.HTM    Read me (HTML format, alternative encoding).
+READMEKOI.HTML Read me (HTML format, KOI-8 encoding).
+READMEWIN.HTML Read me (HTML format, Windows encoding).
+READMEENG.HTML Read me.
+READMEKO_RU.HTM  Read me (HTML format, KOI-8 encoding).
+READMEW_RU.HTM   Read me (HTML format, Win encoding)
+READMEWI_RU.HTM  Read me (HTML format, Windows encoding).
+READMEEN.HTM  Read me.
+CN.ICO        Windows icon.
+ALT2WIN.XLT   Conversion table: Alternative encoding to Windows.
+CN.PIF        Windows PIF file.
+FIDOOUT.TBL   Recoding table for messages sent to FidoNet.
+FORMATA.PRG   Nested menu: Format A (Press F3).
+FORMATB.PRG   Nested menu: Format B (Press F3).
+LATIN.TBL     Table filtering for digits and Latin letters.
+NORMAL.PAL    My favorite color palette.
+DN.PAL        Color palette optimized for DN.
+NULL.TBL      Null recoding table (performs no changes).
+SETTIME.PRG   Example icon for an executable program. Loads via User|Load icon or by pressing 'Enter'.
+WIN2ALT.XLT   Spreadsheet for converting Windows encoding to the alternative encoding.
+MONO.GRP      File group masks, their colors, and group IDs for the File Manager (MONO palette).
+DN.GRP        File group masks, their colors, and group IDs for the File Manager (DN palette).
+FILES_RU.BBS  List of included files with descriptions (Russian)
+FILES_EN.BBS  List of included files with descriptions (English)
+C_EDIT.MAC    Macros for editing C source files.
+EDIT.MAC      Macros for the text editor.
+FIDOIN.TBL    Transcoding table for messages received from FidoNet.
+FM.MAC        Macros for the File Manager.
+VC.PAL        Color palette designed for VC.
+TMDRV11.COM TextModes Driver 1.1 by SoulBurner.
+hd2w.TBL      A "null" transcoding table (performs no changes).
+CONNECT.MSK   List of descriptions for various file masks.
