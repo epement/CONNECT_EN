@@ -1,0 +1,662 @@
+-------------------------------------------------------------------------
+Translation from Russian to English via https://translate.google.com on
+2026-04-02. Content was lightly edited to better match the source file.
+
+View or edit this file with DOS-OEM codepage 437 because it contains
+box-drawing graphic characters. Try this on popular editors:
+
+ - vim: after the file is open, use ":e ++enc=cp437"
+ - Emacs: do M-x revert-buffer-with-coding-system, "cp437", "yes"
+ - EmEditor: use File > Reload > More > OEM United States (437, IBM437).
+ - Notepad++: use Encoding > Character sets > Western European > OEM-US.
+ - PSPad: use Encoding > OEM United States (437), press Ctrl-R, "OK".
+ - SublimeText: use File > Reopen with Encoding > DOS (CP437).
+
+In the translation below, backticks (`...`) show when the text switched
+from Cyrillic/Russian to Latin/English characters. If the source text
+used symbols from codepage 866 not in CP437, they were replaced by hex
+codes as 0xHH. Words in [square brackets] are added by Eric Pement.
+-------------------------------------------------------------------------
+
+Frequently Asked Questions about the CONNECT program and their answers
+
+Q. My first impression (or rather, a question): Why are there so many
+menus? Who is this shell designed for? a hacker who uses nothing but a
+memory monitor and an editor to crack EXE files, or a regular user who
+needs to unzip, zip, and copy files from one place to another, wants a
+menu to pop up right in front of them at the press of F2, and needs to
+quickly browse through archives?
+
+A. The integrated CONNECT shell is designed primarily for programmers.
+It was originally written as a shell for launching cross-development
+tools and communicating with a controller via a COM port. Today, without
+losing its original capabilities, it has evolved into a universal
+workstation for programmers working in DOS. CONNECT makes it easy to
+write program code, run a compiler on it, fix any errors the compiler
+finds, manage files and archives using a powerful file manager, and write
+program documentation using a robust and user-friendly text editor. You
+can even dabble in a bit of "hacking," if you like. As for its
+capabilities regarding controllers connected to a serial port ... well,
+that's a separate conversation for those who actually need that specific
+functionality.
+
+
+Q. Why is there no cursor in the command line within the file manager?
+
+A. In CONNECT, the file manager is structured somewhat differently than
+it is in Norton Commander or similar programs. In CONNECT, the command
+line is a separate window; to work with it fully, including using the
+cursor, you must first switch focus to that window. To do this within the
+file manager, press Ctrl-<Down Arrow> (Ctrl-Dn). In general, the
+Ctrl-<Arrow> key combinations allow you to switch focus between the
+various panels of the file manager. Furthermore, each of the panels
+(including the command line) may have its own "Exec options"; this is
+something you should keep in mind both when configuring and when working
+with CONNECT.
+
+
+Q. Why is the cursor not visible at all in any of CONNECT's windows? And
+in <Replace> mode? When the cursor is a solid block, is it visible then?
+
+A. This can happen when transferring CONNECT from one machine to another
+in its entirety, that is, along with all the `connect.*` files. In such
+cases, the cursor parameters configured for a machine with an EGA video
+adapter do not match the parameters required for a VGA adapter. To
+resolve this, go to `Options` > `Cursor` and adjust the cursor settings
+so that it is visible in all modes.
+
+
+Q. I'm testing how the `BRIEF` and `FULL` display modes work [and]
+everything is fine. Then I test the `Descriptions` feature, and it's a
+bust. "Okay," I think to myself, "I probably forgot to enable something
+again."
+
+A. That is indeed the case. The mode for displaying and editing file
+descriptions is enabled within the `FULL` panel mode using the command
+<Show file descriptions> (Ctrl-P). Furthermore, to ensure that file
+operations (such as copying, renaming, or deleting) also affect their
+corresponding file descriptions, you must enable the option `File
+Manager` > `Copy/rename/delete descriptions`.
+
+
+Q. What is the quickest way to get a handle on CONNECT's capabilities?
+
+A. Unfortunately, I cannot recommend reading the documentation for one
+simple reason: it doesn't exist. CONNECT is a non-commercial product, and
+we simply lack the time and energy to write a manual; even if we *did*
+write one, it's unlikely *you* would have the energy to read it! :)
+
+Therefore, the best approach is to explore the main menus and the
+window-specific context menus (which can be accessed in any window by
+right-clicking or pressing <Alt-F10>) to see what actions are available.
+In confusing situations (or better, always!) press F1 to bring up
+context-sensitive help.  Everything (or almost everything) is explained
+there. The most important thing to remember is that in CONNECT, you can
+do almost anything you want; you just have to figure out *how* to do it.
+
+
+Q. What is the fastest way to configure CONNECT?
+
+A. Generally speaking, if you have obtained the original CN.ZIP archive, it
+already contains at least a partial configuration for everything, leaving
+you only to fine-tune it to your specific needs. Specifically, the utilities
+included in the original archive -- prg2txt.exe and txt2prg.exe -- are designed
+for this purpose: they allow you to convert configuration files for viewers,
+File Associations, and the Program List from binary format into plain text
+and back again.
+
+Furthermore, it is crucial to correctly configure the temporary directory
+right from the start. In the provided configuration file, this setting
+(Setup | Swap file directory) is set to `$TEMP`. This means it inherits
+the value of the `TEMP` environment variable, which must be defined
+[usually in AUTOEXEC.BAT] for this setting to work. Alternatively, you
+can simply type the name of the temporary directory directly into this
+field.
+
+
+Q.  Why don't all the keybindings I'm used to from Norton Commander work in
+CONNECT?
+
+A.  Because CONNECT is a program with far greater capabilities, and many key
+combinations have been repurposed for other functions. Additionally, CONNECT
+was not originally developed to be the program it is today. We wanted to avoid
+a situation where, as new features were added, existing functions would have
+to be assigned to different keys. Below, I have attempted to provide as complete
+a cross-reference table as possible, mapping Norton Commander keys to their
+equivalents in CONNECT:
+
+ÚÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³Command    ³Norton Commander³ CONNECT (File Manager)  ³
+ÃÄÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
+³Exit       ³F10             ³Alt-X                    ³
+³Tree       ³Alt-F10         ³Alt-F g (File³Change dir)³
+³           ³                ³or Alt-\                 ³
+³User screen³Ctrl-O          ³Ctrl-O or Alt-F5         ³
+³Menu       ³F9              ³F10                      ³
+³Left/Right ³F9 R/L          ³Alt-F10                  ³
+³History    ³Alt-F8          ³Ctrl-Q in the panel or   ³
+³           ³                ³<Down> at the cmd line.  ³
+³On/Off     ³Ctrl-F1/F2      ³Ctrl-F1/F2               ³
+³EGA Lines  ³Alt-F9          ³Alt-F6                   ³
+³           ³Tab             ³Ctrl-Left/Right, Tab     ³
+³User menu  ³F2              ³F2, F9 (Alt-F9-HotKey)   ³
+ÀÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+Some of the keys listed above may function quite differently in other
+CONNECT windows (outside of the File Manager).
+
+
+Q. Why does CONNECT occupy a full 15 kilobytes of memory when launching
+programs? Even Norton Commander only occupied 12.
+
+A. Obviously, this is because CONNECT was launched via the batch file `cn.bat`,
+which contains the command `cn %1 /b15000/s`. This allocates 15,000 bytes
+for the buffer of the resident screen "snipper" (capture utility). If the
+amount of resident memory occupied is critical, you can disable the loading
+of the snipper via the menu option `Exec options | Load Snipper`. You can
+also reduce the size of the snipper buffer, or omit the buffer specification
+entirely; in that case, a default size of 2,048 bytes will be set. If a free block is available in the UMBs on your machine, the Snipper buffer will be allocated there.
+
+
+Q. How do I properly configure the "Exec options," and what is the purpose of each setting? Everything seemed much simpler in Norton Commander.
+
+A. Let's examine the "Panel Exec options" settings, which largely mirror the corresponding settings found elsewhere in the program.
+
+ÉÍ[ş]ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ Panel Exec options ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+º                                                                 º
+º  Main          Setup                    Options                 º
+º   () Swap      [ ] Save editor files    [ ] Message            º
+º   ( ) Unload    [ ] Save desktop         [ ] Load COMMAND.COM   º
+º   ( ) None      [ ] Load Snipper         [ ] Swap to disk       º
+º                                                                 º
+º      OK   Ü                                           Cancel Ü  º
+º    ßßßßßßßß                                           ßßßßßßßß  º
+ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+The <Main> radio buttons control the behavior of the core CONNECT.EXE program when launching external applications. In "Swap" mode, the following components remain in memory: the CN.EXE stub (which serves to launch CONNECT.EXE), the Snipper (if it is currently loaded), and approximately 4 KB of the main program's code. The remainder of the main program?along with all its data?is swapped out to disk, EMS, or XMS, depending on which type of memory is currently available. Crucially, the portion of XMS or EMS memory occupied by CONNECT's data is *not* released; instead, it remains allocated and continues to be utilized upon returning to CONNECT. Provided there is a sufficient amount of free EMS or XMS memory available, "Swap" mode represents one of the fastest and most efficient methods for launching external programs. However, you cannot load memory-resident programs (TSRs) while in this mode; doing so would prevent the main program from reloading correctly upon its return, and the allocated EMS or XMS blocks would fail to be released. To ensure that edited files are preserved when launching in Swap (or None) mode?a particularly important consideration if the program being launched will be working with those files?you must enable the "Save editor files" option. In Unload mode, only CN.EXE remains in memory, along with the Snipper (if the "Load Snipper" option is enabled). In this scenario, CN.EXE is responsible for launching the selected program. CONNECT.EXE is completely unloaded from memory, closes all open files, and releases any allocated EMS or XMS. Upon returning from the launched program, CN.EXE relaunches CONNECT.EXE, which then restores its state by reading from a *.dsk file. To ensure that the exact state prior to launching the program is restored, the "Save desktop" option must be enabled. Unload is the slowest launch mode?particularly on systems with large amounts of extended memory?but it is also the most reliable. In this mode, it is possible to load memory-resident programs; these will be loaded after CN.EXE, and if you subsequently exit CN.EXE, a "hole" (unusable gap) will remain in memory. None is the fastest launch mode. In this mode, only available free memory?the size of which is displayed by the indicator in the bottom-right corner?and the overlay buffer are released; the size of the latter is configured via the menu path Options > Overlay > Overlay buffer size.
+
+---
+In this mode, only free memory?the size of which is displayed by the indicator in the bottom-right corner?and the overlay buffer (the size of which is set under Options > Overlay > Overlay buffer size) are released. If the program being launched requires no more memory than this, this constitutes the most optimal execution method for it. Naturally, resident programs cannot be loaded while operating in this mode. The "Message" option, if enabled, redirects the standard output of the launched program to a file, which is subsequently displayed in the "Message" window. The "Load COMMAND.COM" option, when enabled, loads the COMMAND.COM command interpreter?or an alternative interpreter specified by the COMSPEC environment variable?prior to launching the program. This is useful when launching programs located outside the current directory and is essential for executing .BAT files; however, in the latter case, this option is enabled automatically. The "Swap to disk" option serves to force the creation of a swap file on disk (rather than in extended memory). This can be beneficial when launching programs that have a greater need for that specific memory resource. Presented below are memory maps illustrating the various methods for launching programs. (Ovr: Overlay buffer size; Heap: Free memory size). Unload                 Swap                   None
+ÚÄÄÄÄÄÄÄÄÄÄÄ¿ 0        ÚÄÄÄÄÄÄÄÄÄÄÄ¿ 0        ÚÄÄÄÄÄÄÄÄÄÄÄ¿ 0
+³   DOS     ³          ³   DOS     ³          ³   DOS     ³
+ÃÄÄÄÄÄÄÄÄÄÄÄ´          ÃÄÄÄÄÄÄÄÄÄÄÄ´          ÃÄÄÄÄÄÄÄÄÄÄÄ´
+³  CN.EXE   ³ 3.5k     ³  CN.EXE   ³ 3.5k     ³  CN.EXE   ³ 3.5k
+ÃÄÄÄÄÄÄÄÄÄÄÄ´          ÃÄÄÄÄÄÄÄÄÄÄÄ´          ÃÄÄÄÄÄÄÄÄÄÄÄ´
+³ SNIPPER   ³ 10-25k   ³ SNIPPER   ³ 10-25k   ³ SNIPPER   ³ 10-25k
+ÃÄÄÄÄÄÄÄÄÄÄÄ´          ÃÄÄÄÄÄÄÄÄÄÄÄ´          ÃÄÄÄÄÄÄÄÄÄÄÄ´
+³           ³          ³CONNECT.EXE³ 4.5k     ³CONNECT.EXE³
+³ PROGRAM   ³          ÃÄÄÄÄÄÄÄÄÄÄÄ´          ÃÄÄÄÄÄÄÄÄÄÄÄ´
+³           ³          ³ PROGRAM   ³          ³ PROGRAM   ³ Ovr+Heap
+ÀÄÄÄÄÄÄÄÄÄÄÄÙ 640k     ÀÄÄÄÄÄÄÄÄÄÄÄÙ 640k     ÀÄÄÄÄÄÄÄÄÄÄÄÙ 640k
+
+If a UMB block of sufficient size for SNIPPER is available, it will be placed
+there; this obviously frees up an additional 10?20 kilobytes for the
+program being launched.
+
+
+Q. What is SNIPPER, and how do I use it?
+
+A. SNIPPER is a resident utility for "capturing" text screens, allowing you
+to select any area of ??the screen and place it into a buffer. From this
+buffer, the information is automatically transferred to the clipboard. 
+Snipper is activated by simultaneously pressing the Alt-Ctrl-W keys. 
+When this happens, a cursor appears on the screen, controlled by the
+arrow keys. After selecting the starting position for the area to be
+captured, press <Enter>; then, use the highlighted selection area to
+mark the entire region of the screen you are interested in, and finally,
+confirm your selection by pressing <Enter> again. Pressing the <Esc> key allows you to cancel the selection process at any stage. An audible beep indicates that the Snipper buffer has overflowed. The Snipper is accessible both within CONNECT itself and within any text-mode programs launched from it.
+
+
+Q. Why is it that when copying files to floppy disks using the <Optimal fill> mode, the actual amount copied is sometimes significantly less than what the disk could hold? Recopying the files usually resolves the issue.
+
+A. This can occur if the file copying process includes copying their associated descriptions. In this scenario, the actual amount of data being written to the floppy disk is greater than what the "optimal fill" algorithm calculates; consequently, the next file selected for copying turns out to be too large to fit. You can resolve this issue either by recopying the files or by disabling the option found under File Manager > Copy/rename/delete descriptions.
+
+
+Q. I?ve noticed a design flaw in CONNECT: I opened a window and pressed F6?which worked fine?but I couldn't switch back from the File Manager using either F6 or Shift-F6. I consider this a major oversight.
+
+A. This is neither a bug nor a design flaw; rather, it is a deliberate choice intended to preserve the familiar keyboard layout. The F5 and F6 keys?which are already assigned specific functions within the File Manager?have their window-switching functions duplicated by the Alt-Z (Zoom) and Alt-N (Next) key combinations, respectively. Additionally, you can switch between windows using the Ctrl-Tab and Shift-Ctrl-Tab key combinations.
+
+
+Q. I run my own BBS, and users often bring floppy disks with them to copy files they are interested in. I?ve heard that CONNECT offers a very convenient way to handle this, but I?m not sure how to do it.
+
+A. Indeed, CONNECT features mechanisms that are specifically designed to make this process very convenient. To utilize this feature, you simply need to have the list of files that the user wishes to download saved as a separate file. This can be done by copying a selection directly from the file list.
+The only requirement is that the files in the list must be named in the format `filename.ext`.
+You must place this list onto the clipboard?for instance, by loading it into the built-in viewer or editor, selecting the desired block of text, and executing the <Copy> command (Ctrl-Ins). Subsequently, executing the <Paste> command (Shift-Ins) within the file manager panel will result in the selection of all files that are present in both the current panel's directory and the clipboard.
+
+---
+After this, executing the <Paste> command
+(Shift-Ins) within the file manager panel will result in any files
+that exist in *both* the current panel directory and the clipboard
+being highlighted. At this point, all that remains is to copy them
+to floppy disks using the "Optimal fill" mode. If the files on the
+BBS are organized within a complex directory tree, you may wish to
+execute the <Unfold subdirectories> command (Alt+B) on specific
+branches *before* highlighting. This allows you to process an entire
+branch?which this command expands into a single, flat list?all at once. 
+However, when processing excessively large branches of the tree, you
+may encounter memory limitations for generating this list. Once one
+branch has been processed, you should proceed to the next.
+
+
+Q. How can I configure the file manager so that I can open archives
+by pressing the <Enter> or <F3> key?
+
+A. Generally speaking, the latest distribution version is already
+pre-configured to open archives via the <Enter> key. Here is how
+it is done: The action triggered within the file manager when you
+press <Enter> on a specific filename is configured in the
+<File associations> dialog. You can access this dialog either
+through the file manager's local menu or by pressing the hotkey
+Ctrl-X. To designate a file (defined by a specific mask) as an
+archive, you must enter "$Arc" into the "Program path" field. 
+Configuring the <F3> key to view archives is done in an analogous
+manner. The <Viewer list> dialog can also be accessed via the
+file manager's local menu or by pressing the hotkey Ctrl-V. 
+Additionally, the <Viewer list> dialog may contain the macros
+"$View" and "$XView," which invoke the built-in viewer in Text
+or Hex mode, respectively. To attempt to open *any* file as if
+it were an archive?regardless of its file type?simply place the
+panel cursor on the file and press the keys <Alt-A>. Q. What are those strange strings written in the "Filename mask" field?
+`$copy("\*.+\*","(")`?and the "Line num mask" field?`$copy("(",")")`?
+for Turbo Assembler and other programs?
+
+A. These are masks used to extract?from the output lines returned by the
+assembler (or other programs writing to `stdout`)?the name of the file
+being assembled and the specific line/column number where an assembly
+error occurred. If the assembler's output has been intercepted (i.e.,
+the `[X] Message` option is enabled), you can place the cursor on such
+a line within the Message window and press <Enter> or <Ctrl-Enter> to
+open the editor or viewer directly at the relevant location in the
+correct file. Detailed instructions on how to construct these masks
+can be found in the Help documentation. To test their functionality,
+the CONNECT distribution includes a dedicated utility called `filter.exe`.
+It is also useful to examine how these masks are configured for other
+programs?for instance, GREP.
+
+
+Q. I have downloaded a new version of CONNECT. Which files should I keep
+from my previous installation, and which ones should I take from the
+new archive?
+
+A. From the archive, you should take all modified `*.exe` files, the `*.hlp`
+file (if it has changed), and carefully read the `whatsnew.txt` file. 
+That file will specify if any other files require updating. Replacing
+almost all of the files is generally a relatively painless process. 
+The purpose of each configuration file is explained in the `files.bbs`
+file located within the original `CN.ZIP` archive. It is best to retain
+your existing `*.ext`, `*.prg`, and `*.vie` files, as these store the
+settings for your external programs. If, after doing so, the colors
+in the new windows appear incorrect, you should either reconfigure them
+via `Options | Colors` or copy the `connect.cfg` file from the original
+distribution package.
+
+
+Q. What are the limitations of the text editor? How is it structured?
+
+A. The text editor is structured as follows: The text being edited is stored as lines within a swap file?either on disk or in expanded memory. Pointers to these lines are stored in conventional memory as an array; this array can hold a maximum of 32,000 elements, provided there is sufficient memory available to store them. Additionally, arrays for the Undo and Redo buffers are stored in memory. The maximum line length is 256 characters. Longer lines are split into multiple segments and wrapped accordingly. Thus, depending on the average line length within the file and the amount of available memory, the editor is capable of loading files ranging in size from 0.5 to 1 MB. The hex editor is capable of editing files up to 7FCCFH (523,471) bytes in size. If, during the process of loading a file into expanded memory, there is insufficient space available, a swap file is created on disk, and the expanded memory is cleared of its swap data.
+
+
+Q. What are the "Run" and "Debug" menu items for? Can I use CONNECT to debug my own programs?
+
+A. These menu items?along with the `User | Load icon` command?are designed for use with the compiler for the built-in language. This language is used to define serial communication protocols and to control the text editor itself. More detailed information regarding this language, its capabilities, and its specific features can be found in the help documentation under the general topic "Connect Language." CONNECT provides a comprehensive set of tools specifically for debugging programs written in this built-in language. It is not possible to debug any other types of programs using CONNECT's debugging tools.
+
+
+Q. Is it possible to release a "Lite" version of CONNECT that omits the built-in language and debugger? After all, they likely consume a significant amount of memory and disk space, and for the majority of users...
+
+---
+Q.  Is it possible to release a "lite" version of CONNECT without the built-in language and
+debugger? After all, they probably take up a lot of memory and disk space,
+and most users don't need them.
+
+A. Of course, nothing is impossible for us in this regard, but we do not
+intend to do so. First, this would entail maintaining two versions of such
+a large program simultaneously?and we are already barely managing with just one. 
+Second, these tools are deeply intertwined with the other parts of CONNECT?
+specifically the editor?and removing them would inevitably trigger a whole
+cascade of errors. Third, CONNECT is an overlay-based program; the majority
+of the code related to the language and debugger resides in the overlay
+file and doesn't get in anyone's way. Furthermore, while very few people
+actually need to program protocols, editing text *within* the program
+is not nearly as rare a use case. And this can be done quite effectively
+using the built-in language tools. In the original CN.ZIP archive, within
+the CBS directory, there are several sample programs?some for defining
+protocols, and others for text editing. These programs are thoroughly
+commented, so any programmer should have no trouble understanding them. 
+Ultimately, many editors and terminal emulators incorporate elements of a
+programming language?but how many of them also offer such convenient
+debugging tools?
+
+
+Q.  I regularly find leftover files in CONNECT's temporary directory. 
+What should I do with them, and where do they come from?
+
+A.  These are temporary files generated by the editor, the archive viewer
+executor, and other components of CONNECT. Under normal shutdown
+conditions, these files should be deleted automatically. However, in the event of any system crashes?or simply if the machine currently running CONNECT (or a program launched from within it) is powered off abruptly?these files may remain open or left behind, which will sooner or later lead to file system errors. Therefore, I recommend adding the following lines to your `autoexec.bat` file:
+
+SET TEMP=C:\TEMP
+ATTRIB -R +A -S -H C:\TEMP\*.*
+ECHO Y | DEL C:\TEMP\*.*
+ECHO N | CHKDSK/F C:
+
+This will clear your temporary directory every time the machine is rebooted, helping you avoid many potential issues?and not just those related to CONNECT.
+
+
+Q. Why doesn't CONNECT support extended video modes?
+
+A. Extended video modes cause more trouble than they are worth. First, they are non-standard; the specific settings for each mode must be individually configured for every video card, which is inconvenient. Second, standard mouse drivers rarely function correctly in these video modes, and using non-standard mouse control methods can lead to additional complications. And finally?I don't know about you, but I personally find it difficult to read text even in 80x50 mode; let alone in 132x80 mode! 
+
+As of the version dated November 4, 1997, CONNECT *does* support extended video modes. They can be enabled by executing the command-line macro `$VM(nn)`. Simply type `$VM(nn)` at the command prompt?where `nn` represents the decimal index of a video mode supported by your specific video system?and CONNECT will switch to that mode.
+
+
+Q. When will CONNECT feature a "graphical" mouse cursor?
+
+A. I don't think it ever will. That, too, would create more problems than it solves. The most significant drawback is that it requires reprogramming the character generator; consequently, windows such as the "ASCII Chart" would end up looking distorted or garbled. Ultimately, it offers no real practical benefit. Q. Why is a clipboard necessary, and how do you use it?
+
+A. The clipboard is a tool for exchanging information between various windows and input fields within CONNECT. Almost all windows and all input fields support "Copy" and "Paste" operations. Moreover, windows place information into?and retrieve it from?the clipboard in a format that is usable by other windows as well as by themselves. For instance, the calculator will not accept information from the clipboard if that information is not a number. The clipboard window itself is always quickly accessible for editing (via Alt-Ins) and, from this perspective, functions just like a standard editor window. Anything highlighted within it can be placed into another window or input field. Fundamentally, the clipboard is precisely what makes CONNECT an integrated environment rather than merely a collection of separate programs. To determine which windows allow you to place information into the clipboard?and which do not?you simply need to try doing so. In all likelihood, you won't be disappointed. However, if you do happen to be out of luck?and CONNECT itself does not support copying from a specific window?you can always make use of the "Snipper" tool.
+
+
+Q. Why are macros necessary, and how do you use them?
+
+A. A macro is a recorded sequence of menu commands or keystrokes that can be played back once or multiple times; it can be invoked from a list or via an assigned hotkey, as well as edited or deleted. A macro can even call itself recursively any number of times. The macro playback process can be interrupted by pressing the <Esc> key. Macros can be created manually using the macro editor (User ³ Macro list ³ New) or by directly recording a sequence of keystrokes.
+
+---
+Macros can be created manually using the macro editor (User | Macro list | New) or by directly recording a sequence of keystrokes (Record macro (Alt+Equal), Stop recording (Alt+Minus)). To play back such a macro, open the User | Macro list dialog, select the macro you just recorded (it will be the last one in the list), and execute it using the Run command (once) or Repeat (a specified number of times). If you plan to use a macro frequently, it is best to give it a descriptive name and assign a hotkey so that it can be invoked quickly and conveniently later on.
+
+
+Q. I downloaded the new version of CONNECT, but it froze immediately.
+
+A. This may be due to a change in the *.dsk file format. You simply need to delete that file.
+
+
+Q. How can I make the archiver's progress visible while it is running?
+
+A. Enable the option Archiver setup | Switch to user screen. This will display the archiver's interface screen.
+
+
+Q. How do I enter a "blank" key assignment in the Hot key field within the Program list or Macro list?
+
+A. Using the keyboard: press Ctrl-Break; alternatively, right-click twice on the field.
+
+
+Q. CONNECT is calculating directory sizes incorrectly.
+
+A. In CONNECT, directory sizes are displayed in two locations: in the file size column on the file panel (provided the "Display directory sizes" option is enabled), and in the information window that appears when you press F3 while a directory is selected. Note that in the information window, the *total size* of the files is displayed in parentheses following the file count, while the *actual disk space occupied* by those files is shown in the "Total size" line. Sizes may be displayed in bytes or kilobytes (1024 bytes). The directory sizes displayed on the file panel are retrieved from the `treeinfo.cn` file and may not always reflect the current reality. This data is updated whenever the directory tree is rescanned or when directory sizes are explicitly calculated using the F3 key. Dynamically
+tracking changes in directory sizes is too complex and unreliable;
+therefore, we opted for the current approach. The directory sizes
+displayed in the panel represent the total size of all files within
+that directory and its subdirectories.
+
+
+Q. How do I configure external viewers?
+
+A. This is a complex topic. When configuring external viewers?as well
+as File Associations (the actions triggered by pressing Enter on a
+filename in the file manager, or Shift-F9 in the editor) and the
+Program List (accessed via F9)?a unique macro language is employed
+to control the execution sequence and results of external programs. 
+In the "Program path" field within the external program configuration
+dialogs, you can enter the names of programs, separated by a semicolon
+(;). Similarly, in the "Command line" field, the parameters for the
+launched programs can be listed, also separated by semicolons. 
+Parameters separated by semicolons are interpreted according to their
+sequential order: the first parameter (everything up to the first
+semicolon) corresponds to the first program, the second parameter
+corresponds to the second program, and so on. If a program parameter
+itself needs to contain a semicolon, you must replace it with a double
+semicolon (;;). Parameters may contain the following macros:
+
+$PATH, $NAME, $EXT, $LEFT, $RIGHT, $OPPOSITE, $CN, $SWAPDIR, $DIRARC,
+$REPORT, $WORD, $PROMPT, $SEL, $MSG, $NOMSGWIN, $USERSCR, $KBD, $MEM,
+$NOREDRAW, $NOREREAD. 
+
+Program names:
+
+$VIEW, $XVIEW, $DBASE, $EDIT, $XEDIT, $ARC, $PANEL, $ICON, $HELP. 
+
+The meaning of these?and several other?macros is described in detail
+in the Help documentation and in the WHATSNEW.TXT file. 
+
+In addition to these fields, there are also two specific fields:
+"Filename mask" and "Line num mask." These parameters serve to instruct CONNECT on how to locate specific lines within the file currently being processed by the launched program?specifically, those lines for which the program has output information to standard output (which has been redirected to the "Message" window). This information might consist of compiler diagnostics regarding errors found in the program's source code, output from a utility searching for specific text strings within program files, and so forth. An example demonstrating the use of this mechanism is the execution of Turbo Assembler:
+
+ÉÍ[ş]ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ Modify association ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ
+º File name      *.asm
+º Program path   tasm.exe $Msg $NoReDraw $NoReRead
+º Command line   /m5/z/zi $path$name$ext $path$name.obj $path$name.lst
+º Filename mask  $copy("\*.+\* ","(")
+º Line num mask  $copy("\(","\)")
+
+
+When a file is compiled using such a directive, the "Message" window appears (a snippet of which is shown below):
+
+ÉÍ[ş]ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ Message ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ
+º Assembling file:   D:\BP\RTL\DOS\EXPN.ASM
+º         LOC ALS  @@
+º **Error** D:\BP\RTL\DOS\EXPN.ASM(13) Illegal instruction
+º Error messages:    1
+
+Now, if you position the cursor within the window on the line containing the error description?specifically:
+**Error**  D:\BP\RTL\DOS\EXPN.ASM(13) Illegal instruction?and press Enter or the Spacebar, the editor window will open, displaying the file `D:\BP\RTL\DOS\EXPN.ASM` with the cursor positioned at line 13. If you press Enter, the editor window becomes the active window; if you press the Spacebar, the "Message" window remains the active window.
+
+---
+Pressing
+Enter makes the editor window active; pressing Space leaves the
+Message window active. (The key combinations Ctrl-Enter and Ctrl-Space
+will open the viewer window instead of the editor). The macros used to
+extract the filename and cursor position from the lines of the Message
+window?specifically `Filename mask` and `Line num mask`?are described
+in detail in the Help documentation. Examples of their usage can be found
+in the supplied configuration files. In cases where analyzing the output
+generated by a program proves difficult using CONNECT's built-in tools,
+you can utilize the `$Msg()` macro; simply pass it the name of a filter
+program as a parameter. This filter program processes the input stream
+generated by the launched application, converting it into an output
+stream that can be easily analyzed by the built-in tools.
+
+
+Q. How do I change the color-coding for files in the file manager? I couldn't
+find anything relevant under Options³Colors.
+
+A.  This is done within the Options³File Manager³Groups dialog. There, you
+can set a file mask, a specific color, and a sort index for a single file
+or a group of files.
+
+
+Q.  I open the COLORS menu and select (it doesn't seem to matter where) a
+color scheme of "black text on a black background." As a result, however,
+the preview window displays the text in PINK against a RASPBERRY-RED
+background!!!! Q: :(
+
+A: That is exactly how it is supposed to be. This color combination is prohibited. If you set it for the shadow, the shadow will become transparent. It cannot be used for anything else.
+
+
+Q: I open a file from an archive using the viewer. Then I switch to the file manager and work there. When I return to the viewer and attempt to view the text, a disk error occurs.
+
+A: When you view a file from an archive, it is extracted to a temporary directory and then loaded into the viewer. When you exit the archive, all files that were extracted from it for viewing are deleted; however, the viewer is unaware of this and continues to display the text from its internal buffer. The error occurs when you attempt to view text located beyond the limits of this buffer, as the program tries to read from a file that has already been deleted. The viewer will behave in the exact same way if you simply delete the file currently being viewed. While it would be technically possible to send a notification to every open desktop window whenever a file is deleted, doing so would significantly slow down the deletion process?especially during batch deletions.
+
+
+Q: How can I configure CONNECT so that it does not automatically save its configuration, similar to how it works in Norton Commander?
+
+A: In CONNECT, this setting is controlled via `Options` > `Setup` > `Auto save` > `Desktop`. If this option is disabled, CONNECT will never automatically save its current state (with the sole exception of when you explicitly execute the `Options` > `Save options` command). If this option is enabled, however, whether or not the program's state is saved when launching external applications depends on the status of the `Save desktop` option found within the `Exec options` settings for the file manager's panels and command line, as well as within the individual entries in the `File associations`, `Viewer list`, and `Program list` sections.
+
+
+Q: How do I link external help files to CONNECT, and what tools should I use to create them?
+
+A: External help files can be linked to CONNECT in two ways. The first method involves associating a specific help file with the filename mask of the file currently being edited. This is configured in `Options` > `Editor` > `Groups` > `Files` > `Help file`. This... ...allows you to access general (F1) or context-sensitive (Ctrl-F1) help while editing a file that matches a mask specified in the `Groups` section. In all other cases, pressing F1 or Ctrl-F1 will invoke the help system for CONNECT itself. The second method is to designate an external help file as permanent. This is done via the `Help` > `Help file` menu option. A help file designated in this manner will be invoked whenever F1 or Ctrl-F1 is pressed?with the sole exception of requests for help originating from modal windows. A permanent help file can be cleared within the same file dialog used to select it, simply by clicking the `Clear` button. Additionally, you can open any specific help file on the fly by using the `$Help` command-line macro. Once the help window is closed, the system will revert to using the previously active help file. You can also switch the current help file via the local menu within the help window itself; however, this change will only take effect after the current help window has been closed.
+
+Help files must be created using the `CNHC` utility, located in the `HELP\` directory. This directory also contains a brief description of the utility, which outlines the required format for the source text file used to generate the help content. Also located there is the `DISHELP` utility, designed to decompile a CONNECT-format help file back into the source text format required by `CNHC`. Furthermore, the `TAH2CNHC` utility is provided in the same directory; it is designed to decompile help files originally created for Borland compilers into the source text format compatible with `CNHC`. For compiling large help files, the `CNHCX` utility is available; it operates in protected mode on 286+ processors and utilizes extended memory beyond the 1MB limit. However, it is strongly recommended that you do *not* modify the `CONNECT.HLP` file?specifically, you should neither add nor remove any help topics. Doing so will result in synchronization errors. context-sensitive
+help system for CONNECT.
+
+
+Q. CONNECT has stopped launching under OS/2 and Win95.
+
+A. This may be related to a feature added in the version dated 10/18/96?the
+ability to use UMBs to allocate a portion of the heap. When running under OS/2, the
+option Options³Overlay³Use upper memory (UMB) for Heap should be disabled;
+to do this, you will need...
+
+---
+When running under OS/2, the
+option `Options³Overlay³Use upper memory (UMB) for Heap` must be disabled.
+To do this, you will need to launch CN under DOS, disable the option there,
+and then overwrite `CONNECT.EXE` with this option disabled. Newer versions
+of the distribution archive are shipped with this option already disabled.
+
+
+Q. Why do certain key combinations stop working in some programs when
+launched from within CONNECT?
+
+A. The SNIPPER utility may be the culprit here, as it hooks into the keyboard
+interrupt to monitor for the `Alt-Ctrl-W` keypress. To prevent SNIPPER
+from loading, you must?first?avoid launching CN with the `/s` option,
+and?second?ensure that the `Exec options³Load Snipper` setting is disabled. 
+It is important to understand that the `Exec options³Load Snipper` setting
+controls whether the Snipper is loaded *upon returning* from a program
+launched with this option enabled?and specifically, only when running in
+"Unload" mode. Therefore, to be absolutely certain that the Snipper is not
+loaded, you should launch *something*?even a non-existent program?in
+"Unload" mode with the `Exec options³Load Snipper` setting disabled.
+
+
+Q. My hard drive is partitioned into two FAT32 volumes; however, Connect
+reports "Invalid drive" for these partitions.
+
+A. Well, it simply doesn't support FAT32.
+
+
+Q. In the file manager, if I press and hold the `Ins` key (to select files),
+the auto-repeat function doesn't work; that is, to select several
+consecutive files, I have to press `Ins` multiple times.
+
+A. And why would it? This particular key does not generate auto-repeat signals. 
+Pressing `Shift` + `Down Arrow` achieves the same result as pressing `Ins`.
+
+
+Q. The "Destructive Backspace" function does not work within the terminal. If you enable it and
+close the terminal, then upon reopening the terminal, this flag turns out
+to be reset.
+
+A.  This is determined by the setting of the `bs` parameter in the `termcap`
+file. In ANSI emulation mode, this is controlled via the terminal menu.
+
+
+Q. "Monday" is not displayed in full when pressing Ctrl-Alt (even if the
+clock is shifted all the way to the left).
+
+A.  It doesn't fit. In English mode, it does fit.
+
+
+Q.  Is it possible to configure macros so that they are triggered immediately
+via a hotkey, without having to press Alt-F8?
+
+A.  No. All hotkeys are already assigned to other functions. 
+
+Starting with the version dated 11-26-97, this functionality became available
+for the editor, the file manager, and the terminal. To enable this, the
+name of the macro file must be specified in the configuration settings
+for these windows (or, in the case of the editor, within the group
+settings). The new macro mechanism allows you to reassign not only
+individual keys but entire key sequences.
+
+
+Q. How can I quickly rename a file? (Is pressing F6 and typing out the
+entire new filename really the only way?) In other words, is there an
+alternative to the Alt-F6 shortcut found in DOS Navigator?
+
+A.  Press Ctrl-F6 and edit the filename directly in the input field of the
+"Rename/Move" dialog box.
+
+
+Q. Is it possible to make the built-in editor recognize comments of the
+form `/* ... */`?
+
+A.  No. Multiline comments require text analysis that is too complex and
+computationally intensive.
+
+
+Q. Are there any plans to incorporate features such as searching for text
+within archives, UUE encoding/decoding, or floppy disk formatting?
+
+A.  No. To search for text within archives, you should use the specific search option provided by the archiving utility itself; for all other tasks, it is best to rely on external utilities?especially since tools like `uuencode`/`uudecode` (and similar ones) can be applied directly to text selected within the editor or viewer.
+
+
+Q. Why doesn't the text viewer display the current line number?
+
+A. Because the viewer does not read the file line by line; instead, it opens the file at a specific byte offset?the same offset that was saved in the history log after the file was last opened. Similarly, when you press Ctrl-PgDown, the viewer does not read the file line by line; rather, it jumps directly to the end of the file (leaving a small buffer to ensure the final screen of text is fully visible). Consequently, maintaining a line counter would require a completely different?and significantly slower?operational algorithm for the viewer. We consider the performance trade-off required to implement such a counter to be unjustified.
+
+
+Q. I enabled support for long filenames (via `Options | Setup | Enable Win95 LFN API`), and the file panels switched to displaying long filenames. However, after switching the panel mode back to "Brief," everything reverted to the old-style short filenames. Do I really have to disable and re-enable the LFN API every time I switch modes?
+
+A. Of course not. Regardless of the state of the `Enable Win95 LFN API` option, you can toggle the display of long filenames within the file panels by issuing the `Full` or `Brief` commands while simultaneously holding down the Shift key. Specifically, use Shift-Ctrl-B for the "Brief" format and Shift-Ctrl-F for the "Full" format. When activated this way, long filenames will be displayed for archives and file lists?even if you are running under "bare-metal" DOS without LFN API support. Furthermore?and regardless of the current panel display mode?enabling the `Enable Win95 LFN API` option ensures that *all* file operations are executed using long filenames. The automatic switch in the panel's visual display that occurs when you enable this option was implemented specifically to demonstrate that this capability is now active.
+
+
+Q. How can I launch a program from the Program List such that the launched program is assigned a specific current directory?one different from the current directory at the time of launch?
+
+---
+Q.  How can I launch a program from the "Program list" such that the launched
+program starts with a specific current directory?one different from the
+directory currently active?
+
+A.  To do this, you must use the `CD` command built into CN. Note that the
+command's parameter must be entered in the "Command line" field, while the
+command itself must be entered in the "Program path" field. For example,
+the following entry displays the root directory of drive C: on the screen,
+regardless of the current drive and directory:
+ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+³Program title  Dir C:\
+³Program path   cd;command
+³Command line   C:\; /c dir
+³
+
+Thus, the built-in `CD` command (with the parameter `C:\`) and the command
+interpreter `COMMAND.COM` (which must be accessible via the system `PATH`
+for this example to work) will be executed sequentially?the latter with the
+parameter `/c dir`.
+
+
+Q.  How can I view a file using a specific character translation table? For
+instance, a Windows-specific one?
+
+A.  Press `Ctrl-Q-Q` and select the desired translation table. This also works
+for a selected block of text within the editor. If the encoding is tied to
+a specific filename mask, you can specify the translation table as a
+parameter for the `$View()` command-line macro within the "Viewer list." 
+Pressing `Ctrl-Q-W` performs a translation using the `connect.tbl` file
+located in the working directory (`$CN`). In the original distribution,
+this file contains the `KOI2ALT` translation table.
+
+
+Q.  How can I print a file using Connect? Right now, I'm doing it the hard way:
+I load the file into the editor, select a block of text, and then print *that*! 
+It's driving me absolutely crazy! Is there a better way to do this?
+
+A.  Go to `Spooler` (via `Alt` menu) > `File`. If the file is already loaded
+into the editor, simply go to `File` > `Print` (`F12`).
+
+
+Q.  I've selected several files in the file manager panel, but the operation
+I'm attempting to perform is still being applied only to the currently
+highlighted file. What is the reason for this? A. The "Ignore selection" flag is enabled in the Local menu (Alt-F10) | Miscellaneous (Alt+I).
+
+Q. Is it possible to make the automatic encoding detection in the text viewer optional?
+
+A. Yes, it is. To do this, you need to add the following entries to the Viewer list:
+Path to viewer   $View
+Command line     $cn\null.tbl
+
+
+Q. I found a bug in CONNECT?what should I do?
+
+A. Contact the authors:
+
+For additional information, call Kharkiv (area code 0572) during business
+hours (11:00 AM ? 4:00 PM) at 90-53-02 and ask for Orlov or Balter. 
+Alternatively, send all your requests and suggestions to the FidoNet
+address 2:461/27, or via email to do@infocom.kharkov.ua. 
+
+Please provide the compilation date of your version (found under E | About)
+and, if possible, describe the conditions under which the error occurred
+as precisely as you can. You might also try checking for a newer version;
+the bug may have already been fixed.
+
+[eof]

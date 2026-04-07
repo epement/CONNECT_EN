@@ -1,0 +1,157 @@
+-------------------------------------------------------------------------
+Translation from Russian to English via https://translate.google.com on
+2026-03-27. Content was lightly edited to better match the source file.
+
+View or edit this file with DOS-OEM codepage 437 because it contains
+box-drawing graphic characters. Try this on popular editors:
+
+ - vim: after the file is open, use ":e ++enc=cp437"
+ - Emacs: do M-x revert-buffer-with-coding-system, "cp437", "yes"
+ - EmEditor: use File > Reload > More > OEM United States (437, IBM437).
+ - Notepad++: use Encoding > Character sets > Western European > OEM-US.
+ - PSPad: use Encoding > OEM United States (437), press Ctrl-R, "OK".
+ - SublimeText: use File > Reopen with Encoding > DOS (CP437).
+
+In the translation below, backticks (`...`) show when the text switched
+from Cyrillic/Russian to Latin/English characters. If the source text
+used symbols from codepage 866 not in CP437, they were replaced by hex
+codes as 0xHH. Words in [square brackets] are added by Eric Pement.
+This file contains embedded control codes (Ctrl-Y, 0x19) and (0xF9).
+-------------------------------------------------------------------------
+
+[Instructions for the CN Help Compiler]
+
+This program is designed to convert a text file into a help file that is
+format-compatible with the file `CONNECT.HLP (Turbo Vision Help File)`.
+The source file format for the `cnhc` utility is very simple. A topic
+identifier must begin with the word `.topic` at the first position of the
+line.  It may be followed by one or more identifiers used to reference this
+specific context. An identifier consists of a sequence of characters from
+the sets A..Z, a..z, _, and the digits 0..9, and must begin with a letter.
+Identifiers are separated by commas.  For example:
+ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³.topic movs, movsb, movsw, movsd³
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+defines a single context for multiple references simultaneously.
+
+A reference consists either of the link text enclosed in curly braces, or
+of arbitrary text followed by a colon and the name of the topic identifier.
+For example, the reference `{MOVS}` points to the topic declared by the
+identifier `movs` (the case of the identifier is ignored).  Alternatively,
+a reference such as {String transfers:`movs`} may be used, which also
+points to the `movs` context.  If the help text itself needs to contain the
+characters `{` and `}`, they must be replaced in the `cnhc` source file
+with the characters corresponding to codes 243 and 242 (0xF3, 0xF2),
+respectively.  If the link text itself needs to contain the character `:`,
+it must be replaced with the character corresponding to code 247 (0xF7).
+If a line of text needs to begin with a `.`, it must be replaced with the
+character corresponding to code 249 (ù).  When the help file is displayed,
+lines starting at the first character position are automatically wrapped to
+fit within the window.  Lines starting with a space are displayed without
+wrapping.  Lines with a `;` in the first position are treated as comments
+and are ignored by the help file compiler.  To include a line in the help
+file that actually begins with a `;`, it must be written as `;;` in the
+source text.
+
+It is possible to construct help text from multiple files. This is
+accomplished using the keyword `.Include filename`, which must appear at
+the very beginning of a line. Included files may be nested up to 50 levels
+deep. The `filename` can be specified either as a full path or simply as a
+filename. In the latter case, the included file is first sought in the
+current directory, and then in the directory where the main help file is
+located.
+
+Special pseudo-topics `Color_1`, `Color_2`, through `Color_5` are reserved;
+a link to one of these causes the link text itself to be displayed in the
+corresponding color, as configured in the "Colors | Help window" dialog.
+
+The pseudo-topic `Color_X` renders the link text invisible.
+
+The pseudo-topic `AbsColor_NNN` sets the text attributes for the link,
+where `NNN` is a decimal or hexadecimal value.
+
+The pseudo-topic `OtherHelpFile` allows you to create a link to the default
+(zero) context of a specified help file. For example:
+ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³Turbo Pascal help {TURBO:OtherHelpFile}.³
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+links to the file `TURBO.HLP`, provided it resides in the same directory as
+the file containing the link. A different?and more flexible?method for
+achieving this is described below.
+
+If a link label begins with the character 0x19 (ASCII #25), then upon
+activating that link, the system searches through the links and
+pseudo-links within the target topic to find a match for the link text
+itself. For example, suppose the following links are defined:
+
+ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³{Text1:Text} {Text2:Text}  {Text3:Text}  ³
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+and a topic:
+ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³.topic Text                 ³
+³                            ³
+³ {Text1:Color_1}            ³
+³Text1 Text1 Text1 Text1     ³
+³                            ³
+³ {Text2:Color_X}            ³
+³Text2 Text2 Text2 Text2     ³
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+When following the `Text1` link, the help system will display the topic
+"Text" starting from the position of "Text1"; when following the `Text2`
+link, it will display it starting from the position of "Text2",
+respectively.  When following the `Text3` link, the help system will
+display the topic "Text" from the very beginning.  When navigating to the
+pseudo-link `Color_X`, the help system will place the cursor on the line
+immediately following that pseudo-link; when navigating to visible links or
+pseudo-links, the cursor is positioned directly on that link.
+
+The total number of topics must not exceed 16,384.
+
+It is possible to launch external programs directly from within the help
+system.  To do this, you must create a special context (topic) where the
+first line contains the keyword `$Execute`, the second line specifies the
+program's path, and the third line contains the command line arguments for
+the program being launched. All standard command-line macros are supported.
+Thus, the following help snippet executes the command `arj -?` and opens a
+viewer to display the resulting help output.
+
+ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³ {Arj} Help for ARJ Archiver Commands                  ³
+³                                                       ³
+³.topic arj                                             ³
+³ $Execute                                              ³
+³ arj $Msg $NoMsgWin $NoReread $NoReDraw; $View($Report)³
+³ -?                                                    ³
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+The command-line macro `$Help()` can accept a parameter specified directly
+on the command line. When such a macro is invoked, the help system searches
+for this parameter within the first context (topic) and navigates to it
+if found. Thus, it is now possible to create links from one help file to a
+specific context within another. 
+ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³ {The Built-in Assembler:basm} ³
+³                               ³
+³.topic basm                    ³
+³ $Execute                      ³
+³ $Help($cn\help\turbo.hlp)     ³
+³ $Word                         ³
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+When a help file created in this manner is integrated into `CONNECT`,
+pressing `F1` while within it opens the topic defined as the first entry in
+the help file; pressing `Ctrl-F1` opens the second topic, and within that
+topic, an `Incremental Search` is performed, searching through the links
+for the word currently under the editor's cursor. Consequently, the first
+topic (`topic`) in the help file should contain general links to the help
+system's topics, while the second should contain a list of links
+specifically for context-sensitive searching. The topic number can be
+explicitly specified by adding the line `.topic First=0`.
+
+The file `CNHCX.EXE` along with the auxiliary files `RTM.EXE` and
+`DPMI16BI.OVL` enables the compilation of large help files on `286+`
+machines equipped with extended memory.
+
+[eof]
