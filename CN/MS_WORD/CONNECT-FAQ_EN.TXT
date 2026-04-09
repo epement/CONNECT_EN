@@ -97,13 +97,13 @@ do almost anything you want; you just have to figure out *how* to do it.
 
 Q. What is the fastest way to configure CONNECT?
 
-A. Generally speaking, if you have obtained the original CN.ZIP archive, it
-already contains at least a partial configuration for everything, leaving
-you only to fine-tune it to your specific needs. Specifically, the utilities
-included in the original archive -- prg2txt.exe and txt2prg.exe -- are designed
-for this purpose: they allow you to convert configuration files for viewers,
-File Associations, and the Program List from binary format into plain text
-and back again.
+A. Generally speaking, if you have obtained the original CN.ZIP archive,
+it already contains at least a partial configuration for everything,
+leaving you only to fine-tune it to your specific needs. Specifically,
+the utilities included in the original archive, prg2txt.exe and
+txt2prg.exe, are designed for this purpose: they allow you to convert
+configuration files for viewers, File Associations, and the Program List
+from binary format into plain text and back again.
 
 Furthermore, it is crucial to correctly configure the temporary directory
 right from the start. In the provided configuration file, this setting
@@ -114,16 +114,16 @@ can simply type the name of the temporary directory directly into this
 field.
 
 
-Q.  Why don't all the keybindings I'm used to from Norton Commander work in
-CONNECT?
+Q. Why don't all the keybindings I'm used to from Norton Commander work
+in CONNECT?
 
-A.  Because CONNECT is a program with far greater capabilities, and many key
-combinations have been repurposed for other functions. Additionally, CONNECT
-was not originally developed to be the program it is today. We wanted to avoid
-a situation where, as new features were added, existing functions would have
-to be assigned to different keys. Below, I have attempted to provide as complete
-a cross-reference table as possible, mapping Norton Commander keys to their
-equivalents in CONNECT:
+A. Because CONNECT is a program with far greater capabilities, and many
+key combinations have been repurposed for other functions. Additionally,
+CONNECT was not originally developed to be the program it is today. We
+wanted to avoid a situation where, as new features were added, existing
+functions would have to be assigned to different keys. Below, I have
+attempted to provide as complete a cross-reference table as possible,
+mapping Norton Commander keys to their equivalents in CONNECT:
 
 ÚÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
 ³Command    ³Norton Commander³ CONNECT (File Manager)  ³
@@ -149,18 +149,23 @@ CONNECT windows (outside of the File Manager).
 Q. Why does CONNECT occupy a full 15 kilobytes of memory when launching
 programs? Even Norton Commander only occupied 12.
 
-A. Obviously, this is because CONNECT was launched via the batch file `cn.bat`,
-which contains the command `cn %1 /b15000/s`. This allocates 15,000 bytes
-for the buffer of the resident screen "snipper" (capture utility). If the
-amount of resident memory occupied is critical, you can disable the loading
-of the snipper via the menu option `Exec options | Load Snipper`. You can
-also reduce the size of the snipper buffer, or omit the buffer specification
-entirely; in that case, a default size of 2,048 bytes will be set. If a free block is available in the UMBs on your machine, the Snipper buffer will be allocated there.
+A. Obviously, this is because CONNECT was launched via the batch file
+`cn.bat`, which contains the command `cn %1 /b15000/s`. This allocates
+15,000 bytes for the buffer of the resident screen "snipper" (capture
+utility). If the amount of resident memory occupied is critical, you can
+disable the loading of the snipper via the menu option `Exec options |
+Load Snipper`. You can also reduce the size of the snipper buffer, or
+omit the buffer specification entirely; in that case, a default size of
+2,048 bytes will be set. If a free block is available in the UMBs on your
+machine, the Snipper buffer will be allocated there.
 
 
-Q. How do I properly configure the "Exec options," and what is the purpose of each setting? Everything seemed much simpler in Norton Commander.
+Q. How do I properly configure the "Exec options," and what is the
+purpose of each setting? Everything seemed much simpler in Norton
+Commander.
 
-A. Let's examine the "Panel Exec options" settings, which largely mirror the corresponding settings found elsewhere in the program.
+A. Let's examine the "Panel Exec options" settings, which largely mirror
+the corresponding settings found elsewhere in the program.
 
 ÉÍ[ş]ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ Panel Exec options ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
 º                                                                 º
@@ -172,10 +177,76 @@ A. Let's examine the "Panel Exec options" settings, which largely mirror the cor
 º      OK   Ü                                           Cancel Ü  º
 º    ßßßßßßßß                                           ßßßßßßßß  º
 ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
-The <Main> radio buttons control the behavior of the core CONNECT.EXE program when launching external applications. In "Swap" mode, the following components remain in memory: the CN.EXE stub (which serves to launch CONNECT.EXE), the Snipper (if it is currently loaded), and approximately 4 KB of the main program's code. The remainder of the main program?along with all its data?is swapped out to disk, EMS, or XMS, depending on which type of memory is currently available. Crucially, the portion of XMS or EMS memory occupied by CONNECT's data is *not* released; instead, it remains allocated and continues to be utilized upon returning to CONNECT. Provided there is a sufficient amount of free EMS or XMS memory available, "Swap" mode represents one of the fastest and most efficient methods for launching external programs. However, you cannot load memory-resident programs (TSRs) while in this mode; doing so would prevent the main program from reloading correctly upon its return, and the allocated EMS or XMS blocks would fail to be released. To ensure that edited files are preserved when launching in Swap (or None) mode?a particularly important consideration if the program being launched will be working with those files?you must enable the "Save editor files" option. In Unload mode, only CN.EXE remains in memory, along with the Snipper (if the "Load Snipper" option is enabled). In this scenario, CN.EXE is responsible for launching the selected program. CONNECT.EXE is completely unloaded from memory, closes all open files, and releases any allocated EMS or XMS. Upon returning from the launched program, CN.EXE relaunches CONNECT.EXE, which then restores its state by reading from a *.dsk file. To ensure that the exact state prior to launching the program is restored, the "Save desktop" option must be enabled. Unload is the slowest launch mode?particularly on systems with large amounts of extended memory?but it is also the most reliable. In this mode, it is possible to load memory-resident programs; these will be loaded after CN.EXE, and if you subsequently exit CN.EXE, a "hole" (unusable gap) will remain in memory. None is the fastest launch mode. In this mode, only available free memory?the size of which is displayed by the indicator in the bottom-right corner?and the overlay buffer are released; the size of the latter is configured via the menu path Options > Overlay > Overlay buffer size.
 
----
-In this mode, only free memory?the size of which is displayed by the indicator in the bottom-right corner?and the overlay buffer (the size of which is set under Options > Overlay > Overlay buffer size) are released. If the program being launched requires no more memory than this, this constitutes the most optimal execution method for it. Naturally, resident programs cannot be loaded while operating in this mode. The "Message" option, if enabled, redirects the standard output of the launched program to a file, which is subsequently displayed in the "Message" window. The "Load COMMAND.COM" option, when enabled, loads the COMMAND.COM command interpreter?or an alternative interpreter specified by the COMSPEC environment variable?prior to launching the program. This is useful when launching programs located outside the current directory and is essential for executing .BAT files; however, in the latter case, this option is enabled automatically. The "Swap to disk" option serves to force the creation of a swap file on disk (rather than in extended memory). This can be beneficial when launching programs that have a greater need for that specific memory resource. Presented below are memory maps illustrating the various methods for launching programs. (Ovr: Overlay buffer size; Heap: Free memory size). Unload                 Swap                   None
+The [three] radio buttons under `Main` control the behavior of the core
+CONNECT.EXE program when launching external applications. [An excessively
+long paragraph has been split for readability.]
+
+
+In `Swap` mode, the following components remain in memory: the CN.EXE
+stub (which serves to launch CONNECT.EXE), the Snipper (if it is
+currently loaded), and approximately 4 KB of the main program's code. The
+remainder of the main program, along with all its data, is swapped out to
+disk, EMS, or XMS, depending on which type of memory is currently
+available. Crucially, the portion of XMS or EMS memory occupied by
+CONNECT's data is *not* released; instead, it remains allocated and
+continues to be utilized upon returning to CONNECT. Provided there is a
+sufficient amount of free EMS or XMS memory available, `Swap` mode
+represents one of the fastest and most efficient methods for launching
+external programs. However, you cannot load memory-resident programs
+(TSRs) while in this mode; doing so would prevent the main program from
+reloading correctly upon its return, and the allocated EMS or XMS blocks
+would fail to be released. To ensure that edited files are preserved when
+launching in `Swap` (or `None`) mode, a particularly important
+consideration if the program being launched will be working with those
+files, you must enable the `Save editor files` option.
+
+In `Unload` mode, only CN.EXE remains in memory, along with the Snipper
+(if the `Load Snipper` option is enabled). In this scenario, CN.EXE is
+responsible for launching the selected program. CONNECT.EXE is completely
+unloaded from memory, closes all open files, and releases any allocated
+EMS or XMS. Upon returning from the launched program, CN.EXE relaunches
+CONNECT.EXE, which then restores its state by reading from a `*.dsk`
+file.
+
+To ensure that the exact state prior to launching the program is
+restored, the `Save desktop` option must be enabled. `Unload` is the
+slowest launch mode, especially on systems with large amounts of extended
+memory, but it is also the most reliable. In this mode, it is possible to
+load memory-resident programs; these will be loaded after CN.EXE, and if
+you subsequently exit CN.EXE, a "hole" (unusable gap) will remain in
+memory.
+
+Option `None` is the fastest launch mode. In this mode, only available
+free memory (the size of which is displayed by the indicator in the
+bottom-right corner) and the overlay buffer are released; the size of the
+overlay buffer is configured via the menu path `Options > Overlay >
+Overlay buffer size`. If the program being launched requires no more
+memory than this, this constitutes the most optimal execution method for
+it.  Naturally, resident programs cannot be loaded while operating in
+this mode.
+
+The `Message` option, if enabled, redirects the standard output of
+the launched program to a file, which is subsequently displayed in the
+"Message" window.
+
+The `Load COMMAND.COM` option, when enabled, loads the COMMAND.COM
+command interpreter (or an alternative interpreter [like 4DOS, NDOS, or
+FreeDOS] specified by the COMSPEC environment variable) prior to
+launching the program.  This is useful when launching programs located
+outside the current directory and is essential for executing .BAT files;
+however, in the latter case, this option is enabled automatically.
+
+The `Swap to disk` option serves to force the creation of a swap file on
+disk (rather than in extended memory). This can be beneficial when
+launching programs that have a greater need for that specific memory
+resource.
+
+Presented below are memory maps illustrating the various methods for
+launching programs. (In the following table, `Ovr` refers to the
+Overlay Buffer size and `Heap` is the Free Memory size).
+
+   Unload                  Swap                   None
 ÚÄÄÄÄÄÄÄÄÄÄÄ¿ 0        ÚÄÄÄÄÄÄÄÄÄÄÄ¿ 0        ÚÄÄÄÄÄÄÄÄÄÄÄ¿ 0
 ³   DOS     ³          ³   DOS     ³          ³   DOS     ³
 ÃÄÄÄÄÄÄÄÄÄÄÄ´          ÃÄÄÄÄÄÄÄÄÄÄÄ´          ÃÄÄÄÄÄÄÄÄÄÄÄ´
@@ -188,53 +259,89 @@ In this mode, only free memory?the size of which is displayed by the indicator i
 ³           ³          ³ PROGRAM   ³          ³ PROGRAM   ³ Ovr+Heap
 ÀÄÄÄÄÄÄÄÄÄÄÄÙ 640k     ÀÄÄÄÄÄÄÄÄÄÄÄÙ 640k     ÀÄÄÄÄÄÄÄÄÄÄÄÙ 640k
 
-If a UMB block of sufficient size for SNIPPER is available, it will be placed
-there; this obviously frees up an additional 10?20 kilobytes for the
-program being launched.
+If a UMB block of sufficient size for `SNIPPER` is available, it will be
+placed there. This obviously frees up an additional 10-20 kilobytes for
+the program being launched.
 
 
 Q. What is SNIPPER, and how do I use it?
 
-A. SNIPPER is a resident utility for "capturing" text screens, allowing you
-to select any area of ??the screen and place it into a buffer. From this
-buffer, the information is automatically transferred to the clipboard. 
-Snipper is activated by simultaneously pressing the Alt-Ctrl-W keys. 
-When this happens, a cursor appears on the screen, controlled by the
-arrow keys. After selecting the starting position for the area to be
-captured, press <Enter>; then, use the highlighted selection area to
-mark the entire region of the screen you are interested in, and finally,
-confirm your selection by pressing <Enter> again. Pressing the <Esc> key allows you to cancel the selection process at any stage. An audible beep indicates that the Snipper buffer has overflowed. The Snipper is accessible both within CONNECT itself and within any text-mode programs launched from it.
+A. SNIPPER is a resident utility for "capturing" text screens, allowing
+you to select any area of the screen and place it into a buffer. From
+this buffer, the information is automatically transferred to the
+clipboard.  Snipper is activated by simultaneously pressing the
+`Alt-Ctrl-W` keys.  When this happens, a cursor appears on the screen,
+controlled by the arrow keys. After selecting the starting position for
+the area to be captured, press `<Enter>`; then, use the highlighted
+selection area to mark the entire region of the screen you are interested
+in, and finally, confirm your selection by pressing `<Enter>` again.
+
+Pressing the `<Esc>` key allows you to cancel the selection process at
+any stage. An audible beep indicates that the Snipper buffer has
+overflowed.  he Snipper is accessible both within CONNECT itself and
+within any text-mode programs launched from it.
 
 
-Q. Why is it that when copying files to floppy disks using the <Optimal fill> mode, the actual amount copied is sometimes significantly less than what the disk could hold? Recopying the files usually resolves the issue.
+Q. Why is it that when copying files to floppy disks using the `Optimal
+fill` mode, the actual amount copied is sometimes significantly less than
+what the disk could hold? Recopying the files usually resolves the issue.
 
-A. This can occur if the file copying process includes copying their associated descriptions. In this scenario, the actual amount of data being written to the floppy disk is greater than what the "optimal fill" algorithm calculates; consequently, the next file selected for copying turns out to be too large to fit. You can resolve this issue either by recopying the files or by disabling the option found under File Manager > Copy/rename/delete descriptions.
+A. This can occur if the file copying process includes copying their
+associated file `descriptions` [referring to the hidden file named
+DESCRIPT.ION used by 4DOS and supported by CONNECT]. In this scenario,
+the actual amount of data being written to the floppy disk is greater
+than what the "optimal fill" algorithm calculates; consequently, the next
+file selected for copying turns out to be too large to fit. You can
+resolve this issue either by recopying the files or by disabling the
+option found under `File Manager > Copy/rename/delete descriptions`.
 
 
-Q. I?ve noticed a design flaw in CONNECT: I opened a window and pressed F6?which worked fine?but I couldn't switch back from the File Manager using either F6 or Shift-F6. I consider this a major oversight.
+Q. I found a design flaw in CONNECT: I opened a window and pressed `F6`,
+which worked fine, but I couldn't switch back from the File Manager using
+either `F6` or `Shift-F6`. I consider this a major oversight.
 
-A. This is neither a bug nor a design flaw; rather, it is a deliberate choice intended to preserve the familiar keyboard layout. The F5 and F6 keys?which are already assigned specific functions within the File Manager?have their window-switching functions duplicated by the Alt-Z (Zoom) and Alt-N (Next) key combinations, respectively. Additionally, you can switch between windows using the Ctrl-Tab and Shift-Ctrl-Tab key combinations.
+A. This is neither a bug nor a design flaw; rather, it is a deliberate
+choice intended to preserve the familiar keyboard layout. The `F5` and
+`F6` keys, which are already assigned specific functions within the File
+Manager, have their window-switching functions duplicated by the `Alt-Z
+(Zoom)` and `Alt-N (Next)` key combinations, respectively. Additionally,
+you can switch between windows using the `Ctrl-Tab` and `Shift-Ctrl-Tab`
+key combinations.
 
 
-Q. I run my own BBS, and users often bring floppy disks with them to copy files they are interested in. I?ve heard that CONNECT offers a very convenient way to handle this, but I?m not sure how to do it.
+Q. I run my own BBS, and users often bring floppy disks with them to copy
+files they are interested in. I've heard that CONNECT offers a very
+convenient way to handle this, but I'm not sure how to do it.
 
-A. Indeed, CONNECT features mechanisms that are specifically designed to make this process very convenient. To utilize this feature, you simply need to have the list of files that the user wishes to download saved as a separate file. This can be done by copying a selection directly from the file list.
-The only requirement is that the files in the list must be named in the format `filename.ext`.
-You must place this list onto the clipboard?for instance, by loading it into the built-in viewer or editor, selecting the desired block of text, and executing the <Copy> command (Ctrl-Ins). Subsequently, executing the <Paste> command (Shift-Ins) within the file manager panel will result in the selection of all files that are present in both the current panel's directory and the clipboard.
+A. Indeed, CONNECT features mechanisms that are specifically designed to
+make this process very convenient. To utilize this feature, you simply
+need to have the list of files that the user wishes to download saved as
+a separate file. This can be done by copying a selection directly from
+the file list.  The only requirement is that the files in the list must
+be named in the format `filename.ext`.  You must place this list onto the
+clipboard, for instance, by loading it into the built-in viewer or
+editor, selecting the desired block of text, and executing the `Copy`
+command `(Ctrl-Ins)`.
 
----
+Subsequently, executing the `Paste` command `(Shift-Ins)`
+within the file manager panel will result in the selection of all files
+that are present in both the current panel's directory and the clipboard.
+
+--- [STOPPED HERE] ---
 After this, executing the <Paste> command
 (Shift-Ins) within the file manager panel will result in any files
 that exist in *both* the current panel directory and the clipboard
-being highlighted. At this point, all that remains is to copy them
-to floppy disks using the "Optimal fill" mode. If the files on the
-BBS are organized within a complex directory tree, you may wish to
-execute the <Unfold subdirectories> command (Alt+B) on specific
-branches *before* highlighting. This allows you to process an entire
-branch?which this command expands into a single, flat list?all at once. 
-However, when processing excessively large branches of the tree, you
-may encounter memory limitations for generating this list. Once one
-branch has been processed, you should proceed to the next.
+being highlighted.
+
+At this point, all that remains is to copy them to floppy disks using the
+"Optimal fill" mode. If the files on the BBS are organized within a
+complex directory tree, you may wish to execute the <Unfold
+subdirectories> command (Alt+B) on specific branches *before*
+highlighting. This allows you to process an entire branch?which this
+command expands into a single, flat list?all at once.  However, when
+processing excessively large branches of the tree, you may encounter
+memory limitations for generating this list. Once one branch has been
+processed, you should proceed to the next.
 
 
 Q. How can I configure the file manager so that I can open archives
