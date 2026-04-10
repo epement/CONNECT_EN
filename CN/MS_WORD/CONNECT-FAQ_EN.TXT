@@ -321,164 +321,261 @@ the file list.  The only requirement is that the files in the list must
 be named in the format `filename.ext`.  You must place this list onto the
 clipboard, for instance, by loading it into the built-in viewer or
 editor, selecting the desired block of text, and executing the `Copy`
-command `(Ctrl-Ins)`.
-
-Subsequently, executing the `Paste` command `(Shift-Ins)`
-within the file manager panel will result in the selection of all files
-that are present in both the current panel's directory and the clipboard.
-
---- [STOPPED HERE] ---
-After this, executing the <Paste> command
-(Shift-Ins) within the file manager panel will result in any files
-that exist in *both* the current panel directory and the clipboard
-being highlighted.
+command `(Ctrl-Ins)`. After this, executing the `Paste` command
+`(Shift-Ins)` within the file manager panel will result in any files that
+exist in *both* the current panel directory and the clipboard being
+highlighted.
 
 At this point, all that remains is to copy them to floppy disks using the
-"Optimal fill" mode. If the files on the BBS are organized within a
-complex directory tree, you may wish to execute the <Unfold
-subdirectories> command (Alt+B) on specific branches *before*
-highlighting. This allows you to process an entire branch?which this
-command expands into a single, flat list?all at once.  However, when
-processing excessively large branches of the tree, you may encounter
-memory limitations for generating this list. Once one branch has been
-processed, you should proceed to the next.
+`Optimal fill` mode. If the files on the BBS are organized in a complex
+directory tree, you may wish to execute the `Unfold subdirectories`
+command `(Alt+B)` on specific branches *before* highlighting. This allows
+you to process an entire branch, which this command expands into a
+single, flat list all at once.  However, when processing excessively
+large branches of the tree, you may encounter memory limitations in
+generating this list. After one branch has been processed, you should
+proceed to the next.
 
 
-Q. How can I configure the file manager so that I can open archives
-by pressing the <Enter> or <F3> key?
+Q. How can I configure the file manager so I can open archives by
+pressing the `<Enter>` or `F3` keys?
 
 A. Generally speaking, the latest distribution version is already
-pre-configured to open archives via the <Enter> key. Here is how
-it is done: The action triggered within the file manager when you
-press <Enter> on a specific filename is configured in the
-<File associations> dialog. You can access this dialog either
-through the file manager's local menu or by pressing the hotkey
-Ctrl-X. To designate a file (defined by a specific mask) as an
-archive, you must enter "$Arc" into the "Program path" field. 
-Configuring the <F3> key to view archives is done in an analogous
-manner. The <Viewer list> dialog can also be accessed via the
-file manager's local menu or by pressing the hotkey Ctrl-V. 
-Additionally, the <Viewer list> dialog may contain the macros
-"$View" and "$XView," which invoke the built-in viewer in Text
-or Hex mode, respectively. To attempt to open *any* file as if
-it were an archive?regardless of its file type?simply place the
-panel cursor on the file and press the keys <Alt-A>. Q. What are those strange strings written in the "Filename mask" field?
-`$copy("\*.+\*","(")`?and the "Line num mask" field?`$copy("(",")")`?
-for Turbo Assembler and other programs?
+pre-configured to open archives via the `<Enter>` key. Here is how it is
+done: The action triggered within the file manager when you press
+`<Enter>` on a specific filename is configured in the `File associations`
+dialog. You can access this dialog either through the file manager's
+local menu or by pressing the hotkey `Ctrl-X`. To designate a file
+(defined by a specific mask) as an archive, you must enter "$Arc" into
+the "Program path" field.
 
-A. These are masks used to extract?from the output lines returned by the
-assembler (or other programs writing to `stdout`)?the name of the file
-being assembled and the specific line/column number where an assembly
-error occurred. If the assembler's output has been intercepted (i.e.,
-the `[X] Message` option is enabled), you can place the cursor on such
-a line within the Message window and press <Enter> or <Ctrl-Enter> to
-open the editor or viewer directly at the relevant location in the
-correct file. Detailed instructions on how to construct these masks
-can be found in the Help documentation. To test their functionality,
-the CONNECT distribution includes a dedicated utility called `filter.exe`.
-It is also useful to examine how these masks are configured for other
-programs?for instance, GREP.
+Configuring the `<F3>` key to view archives is done in an analogous
+manner. The `Viewer list` dialog can also be accessed via the file
+manager's local menu or by pressing the hotkey `Ctrl-V`.  Additionally,
+the `Viewer list` dialog may contain the macros `$View` and `$XView`,
+which invoke the built-in viewer in `Text` and Hex modes, respectively.
+To attempt to open *any* file as if it were an archive, regardless of its
+file type, simply place the panel cursor on the file and press the keys
+`Alt-A` [archive].
 
 
-Q. I have downloaded a new version of CONNECT. Which files should I keep
-from my previous installation, and which ones should I take from the
-new archive?
+Q. What are those strange strings written in the fields for `Filename
+mask`, like `$copy("\*.+\*","(")`, and `Line num mask: $copy("(",")")`,
+used for Turbo Assembler and other programs?
 
-A. From the archive, you should take all modified `*.exe` files, the `*.hlp`
-file (if it has changed), and carefully read the `whatsnew.txt` file. 
-That file will specify if any other files require updating. Replacing
-almost all of the files is generally a relatively painless process. 
-The purpose of each configuration file is explained in the `files.bbs`
-file located within the original `CN.ZIP` archive. It is best to retain
-your existing `*.ext`, `*.prg`, and `*.vie` files, as these store the
-settings for your external programs. If, after doing so, the colors
-in the new windows appear incorrect, you should either reconfigure them
-via `Options | Colors` or copy the `connect.cfg` file from the original
-distribution package.
+A. These are masks used to extract [substrings] from the output lines
+returned by the assembler (or other programs writing to `stdout`) the
+name of the file being assembled and the specific line/column number
+where an assembly error occurred. If the assembler's output has been
+intercepted (which occurs when the `[X] Message` option is enabled), you
+can place the cursor on that  line in the Message window and press
+`<Enter>` or `<Ctrl-Enter>` to open the editor or viewer, [moving the
+cursor] directly to the relevant location in the file.
+
+Detailed instructions on how to construct these masks can be found in the
+Help documentation. To test their functionality, the CONNECT distribution
+includes a dedicated utility called `filter.exe`.  It is also useful to
+examine how these masks are configured for other programs, such as `grep`
+[a line-oriented search utility not included with CONNECT].
+
+
+Q. I just downloaded a new version of CONNECT. Which files should I keep
+from my previous installation, and which ones should I take from the new
+archive?
+
+A. From the archive, you should take all modified `*.exe` files, the
+`*.hlp` file (if it has changed), and carefully read the `whatsnew.txt`
+file. That file will specify if any other files require updating.
+Replacing almost all of the files is generally a relatively painless
+process.  The purpose of each configuration file is explained in the
+`files.bbs` file located in the original `CN.ZIP` archive.
+
+Your existing `*.ext`, `*.prg`, and `*.vie` files should be retained, as
+these store the settings for your external programs. If, after doing so,
+the colors in the new windows appear incorrect, you should either
+reconfigure them via `Options | Colors` or copy the `connect.cfg` file
+from the original distribution package [overwriting the existing
+"connect.cfg" file which is responsible for the bad color scheme; you
+may want to keep it under a different filename for comparison].
 
 
 Q. What are the limitations of the text editor? How is it structured?
 
-A. The text editor is structured as follows: The text being edited is stored as lines within a swap file?either on disk or in expanded memory. Pointers to these lines are stored in conventional memory as an array; this array can hold a maximum of 32,000 elements, provided there is sufficient memory available to store them. Additionally, arrays for the Undo and Redo buffers are stored in memory. The maximum line length is 256 characters. Longer lines are split into multiple segments and wrapped accordingly. Thus, depending on the average line length within the file and the amount of available memory, the editor is capable of loading files ranging in size from 0.5 to 1 MB. The hex editor is capable of editing files up to 7FCCFH (523,471) bytes in size. If, during the process of loading a file into expanded memory, there is insufficient space available, a swap file is created on disk, and the expanded memory is cleared of its swap data.
+A. The text editor is structured as follows: The text being edited is
+stored as lines within a swap file, stored either on disk or in expanded
+memory.  Pointers to these lines are stored in conventional memory as an
+array; this array can hold a maximum of 32,000 elements, provided there
+is sufficient memory available to store them. Additionally, arrays for
+the `Undo` and `Redo` buffers are stored in memory.
+
+The maximum line length is 256 characters [!]. Longer lines are split
+into multiple segments and wrapped accordingly. Thus, depending on the
+average line length in the file and the amount of available memory,
+the editor is capable of loading files ranging in size from 0.5 to 1 MB.
+The hex editor is capable of editing files up to 7FCCFH (523,471) bytes
+in size. If, during the process of loading a file into expanded memory,
+there is insufficient space available, a swap file is created on disk,
+and the expanded memory is cleared of its swap data.
 
 
-Q. What are the "Run" and "Debug" menu items for? Can I use CONNECT to debug my own programs?
+Q. What are the `Run` and `Debug` menu items for? Can I use CONNECT to
+debug my own programs?
 
-A. These menu items?along with the `User | Load icon` command?are designed for use with the compiler for the built-in language. This language is used to define serial communication protocols and to control the text editor itself. More detailed information regarding this language, its capabilities, and its specific features can be found in the help documentation under the general topic "Connect Language." CONNECT provides a comprehensive set of tools specifically for debugging programs written in this built-in language. It is not possible to debug any other types of programs using CONNECT's debugging tools.
+A. These menu items, along with the `User > Load icon` command, are
+designed for use with the compiler for the built-in language. This
+language is used to define serial communication protocols [the original
+purpose and first module of CONNECT] and to control the text editor
+itself. More detailed information regarding this language, its
+capabilities, and its specific features can be found in the help
+documentation under the topic heading `Connect Language`. CONNECT
+provides a comprehensive set of tools specifically for debugging programs
+written in this built-in language. It is not possible to debug any other
+types of programs using CONNECT's debugging tools.
 
 
-Q. Is it possible to release a "Lite" version of CONNECT that omits the built-in language and debugger? After all, they likely consume a significant amount of memory and disk space, and for the majority of users...
-
----
-Q.  Is it possible to release a "lite" version of CONNECT without the built-in language and
-debugger? After all, they probably take up a lot of memory and disk space,
-and most users don't need them.
+Q. Is it possible to release a "Lite" version of CONNECT that omits the
+built-in language and debugger? After all, they probably consume a
+significant amount of memory and disk space, and and most users don't
+need them.
 
 A. Of course, nothing is impossible for us in this regard, but we do not
-intend to do so. First, this would entail maintaining two versions of such
-a large program simultaneously?and we are already barely managing with just one. 
-Second, these tools are deeply intertwined with the other parts of CONNECT?
-specifically the editor?and removing them would inevitably trigger a whole
-cascade of errors. Third, CONNECT is an overlay-based program; the majority
-of the code related to the language and debugger resides in the overlay
-file and doesn't get in anyone's way. Furthermore, while very few people
-actually need to program protocols, editing text *within* the program
-is not nearly as rare a use case. And this can be done quite effectively
-using the built-in language tools. In the original CN.ZIP archive, within
-the CBS directory, there are several sample programs?some for defining
-protocols, and others for text editing. These programs are thoroughly
-commented, so any programmer should have no trouble understanding them. 
-Ultimately, many editors and terminal emulators incorporate elements of a
-programming language?but how many of them also offer such convenient
-debugging tools?
+intend to do so. First, this would entail maintaining two versions of
+such a large program simultaneously, and we are already barely managing
+with just one.  Second, these tools are deeply intertwined with the other
+parts of CONNECT (specifically the editor), and removing them would
+inevitably trigger a whole cascade of errors. Third, CONNECT is an
+overlay-based program; the majority of the code related to the language
+and debugger resides in the overlay file and doesn't get in anyone's way.
+Furthermore, while very few people actually need to program protocols,
+editing text *within* the program is not nearly as rare a use case. And
+this can be done quite effectively using the built-in language tools.
+
+In the original CN.ZIP archive, in the CBS directory, there are several
+sample programs: some [are used] for defining protocols and others for
+text editing. These programs are thoroughly commented, so any programmer
+should have no trouble understanding them.  Ultimately, many editors and
+terminal emulators incorporate elements of a programming language, but
+how many of them also offer such convenient debugging tools?
 
 
-Q.  I regularly find leftover files in CONNECT's temporary directory. 
-What should I do with them, and where do they come from?
+Q. I regularly find leftover files in CONNECT's temporary directory.
+Where do they come from and what should I do with them?
 
-A.  These are temporary files generated by the editor, the archive viewer
-executor, and other components of CONNECT. Under normal shutdown
-conditions, these files should be deleted automatically. However, in the event of any system crashes?or simply if the machine currently running CONNECT (or a program launched from within it) is powered off abruptly?these files may remain open or left behind, which will sooner or later lead to file system errors. Therefore, I recommend adding the following lines to your `autoexec.bat` file:
+A. These are temporary files generated by the editor, the archive viewer
+executable, and other components of CONNECT. Under normal shutdown
+conditions, these files should be deleted automatically. However, if the
+operating system crashes, if the computer is powered off abruptly, or if
+a program launched from within CONNECT terminates abnormally, these files
+may remain open or left behind, which may lead to file system errors.
+Therefore, I recommend adding the following lines to your `autoexec.bat`
+file:
 
-SET TEMP=C:\TEMP
-ATTRIB -R +A -S -H C:\TEMP\*.*
-ECHO Y | DEL C:\TEMP\*.*
-ECHO N | CHKDSK/F C:
+  :: [Set a variable matching the TEMP directory used by CONNECT.]
+  SET TEMP=C:\TEMP
+  ::
+  :: [Set Archive attribute, clear Read-only, System, Hidden attributes]
+  ATTRIB -R +A -S -H C:\TEMP\*.*
+  ::
+  :: [Delete all files in the TEMP directory used by CONNECT.]
+  ECHO Y | DEL C:\TEMP\*.*
+  ::
+  :: [Automatically run CheckDisk on drive C at each reboot.]
+  ECHO N | CHKDSK /F C:
 
-This will clear your temporary directory every time the machine is rebooted, helping you avoid many potential issues?and not just those related to CONNECT.
+This will clear your temporary directory every time the machine is
+rebooted, helping you avoid many potential issues, and not just
+[problems] related to CONNECT.
 
 
 Q. Why doesn't CONNECT support extended video modes?
 
-A. Extended video modes cause more trouble than they are worth. First, they are non-standard; the specific settings for each mode must be individually configured for every video card, which is inconvenient. Second, standard mouse drivers rarely function correctly in these video modes, and using non-standard mouse control methods can lead to additional complications. And finally?I don't know about you, but I personally find it difficult to read text even in 80x50 mode; let alone in 132x80 mode! 
+A. Extended video modes cause more trouble than they are worth. First,
+they are non-standard: specific settings for each mode must be
+individually configured for every video card, which is inconvenient.
+Second, standard mouse drivers rarely function correctly in these video
+modes, and using non-standard mouse control methods can lead to
+additional complications. And finally, I don't know about you, but I
+personally find it difficult to read text in 80x50 mode, let alone in
+132x80 mode!
 
-As of the version dated November 4, 1997, CONNECT *does* support extended video modes. They can be enabled by executing the command-line macro `$VM(nn)`. Simply type `$VM(nn)` at the command prompt?where `nn` represents the decimal index of a video mode supported by your specific video system?and CONNECT will switch to that mode.
+The version of CONNECT dated November 4, 1997 [and later] *does* support
+extended video modes. They can be enabled by executing the command-line
+macro `$VM(nn)`. Simply type `$VM(nn)` at the command prompt, where `nn`
+represents the decimal value of a video mode supported by your specific
+video system, and CONNECT will switch to that mode.
 
 
 Q. When will CONNECT feature a "graphical" mouse cursor?
 
-A. I don't think it ever will. That, too, would create more problems than it solves. The most significant drawback is that it requires reprogramming the character generator; consequently, windows such as the "ASCII Chart" would end up looking distorted or garbled. Ultimately, it offers no real practical benefit. Q. Why is a clipboard necessary, and how do you use it?
+A. I don't think it ever will. That, too, would create more problems than
+it solves. The most significant drawback is that it requires
+reprogramming the character generator. Consequently, windows such as the
+`ASCII Chart` would end up looking distorted or garbled. Ultimately, it
+offers no real practical benefit.
 
-A. The clipboard is a tool for exchanging information between various windows and input fields within CONNECT. Almost all windows and all input fields support "Copy" and "Paste" operations. Moreover, windows place information into?and retrieve it from?the clipboard in a format that is usable by other windows as well as by themselves. For instance, the calculator will not accept information from the clipboard if that information is not a number. The clipboard window itself is always quickly accessible for editing (via Alt-Ins) and, from this perspective, functions just like a standard editor window. Anything highlighted within it can be placed into another window or input field. Fundamentally, the clipboard is precisely what makes CONNECT an integrated environment rather than merely a collection of separate programs. To determine which windows allow you to place information into the clipboard?and which do not?you simply need to try doing so. In all likelihood, you won't be disappointed. However, if you do happen to be out of luck?and CONNECT itself does not support copying from a specific window?you can always make use of the "Snipper" tool.
+
+Q. Why is the `clipboard` necessary, and how do you use it?
+
+A. The clipboard is a tool for exchanging information between various
+windows and input fields within CONNECT. [It is NOT related to the
+Windows Clipboard.] Almost all windows and input fields support `Copy`
+and `Paste` operations. Moreover, windows [can] place information on and
+retrieve it from the clipboard in a format that is usable by other
+windows, as well as by themselves. For instance, the calculator will not
+accept information from the clipboard if that information is not a
+number. The clipboard window itself is always quickly accessible for
+editing (via `Alt-Ins`) and, from this perspective, functions just like a
+standard editor window. Anything highlighted within it can be placed into
+another window or input field.  Fundamentally, the clipboard is precisely
+what makes CONNECT an integrated environment rather than merely a
+collection of separate programs. To determine which windows allow you to
+place information into the clipboard (and which ones do not), you simply
+need to try doing so.  In all likelihood, you won't be disappointed.
+
+If you find yourself out of luck, where CONNECT will not let you `copy`
+[data] from a particular window, you can always make use of the "Snipper"
+tool [which should work when the Clipboard will not].
 
 
 Q. Why are macros necessary, and how do you use them?
 
-A. A macro is a recorded sequence of menu commands or keystrokes that can be played back once or multiple times; it can be invoked from a list or via an assigned hotkey, as well as edited or deleted. A macro can even call itself recursively any number of times. The macro playback process can be interrupted by pressing the <Esc> key. Macros can be created manually using the macro editor (User ³ Macro list ³ New) or by directly recording a sequence of keystrokes.
+A. A macro is a recorded sequence of menu commands or keystrokes that can
+be played back once or multiple times; it can be invoked from a list or
+via an assigned hotkey, as well as edited or deleted. A macro can even
+call itself recursively any number of times. The macro playback process
+can be interrupted by pressing the `<Esc>` key. Macros can be created
+manually using the macro editor (`User > Macro list > New`) or by
+directly recording a sequence of keystrokes (e.g., `Record macro
+(Alt+Equal), Stop recording (Alt+Minus)`).
 
----
-Macros can be created manually using the macro editor (User | Macro list | New) or by directly recording a sequence of keystrokes (Record macro (Alt+Equal), Stop recording (Alt+Minus)). To play back such a macro, open the User | Macro list dialog, select the macro you just recorded (it will be the last one in the list), and execute it using the Run command (once) or Repeat (a specified number of times). If you plan to use a macro frequently, it is best to give it a descriptive name and assign a hotkey so that it can be invoked quickly and conveniently later on.
+To play back a macro, open the `User > Macro list` dialog, select the
+macro you just recorded (it will be the last one in the list), and
+execute it using the `Run` command (to run once) or `Repeat` (to run a
+specified number of times).  If you plan to use a macro frequently, it is
+best to give it a descriptive name and assign a hotkey so that it can be
+invoked quickly and conveniently later on.
 
 
 Q. I downloaded the new version of CONNECT, but it froze immediately.
 
-A. This may be due to a change in the *.dsk file format. You simply need to delete that file.
+A. This may be due to a change in the `*.dsk` file format. You simply
+need to delete that file. [WARNING: This does not always work. I have
+found that CONNECT will not load or may hang if CONNECT.DSK does not
+exist.]
 
 
 Q. How can I make the archiver's progress visible while it is running?
 
-A. Enable the option Archiver setup | Switch to user screen. This will display the archiver's interface screen.
+A. Enable the option `Archiver setup > Switch to user screen`. This will
+display the archiver's interface screen. [To locate this setting, run the
+file manager as the active task.  Right-click on any filename in the file
+manager and go to "Miscellaneous > Archivers" and select the right arrow
+to choose an archive extension to modify, such as RAR or ZIP. If you
+choose "RAR", the menu will say "RAR Archiver setup". If you choose
+"ZIP", the menu will say "ZIP Archiver setup". In the section for "Exec
+options", there will be a checkbox for "Switch to user screen".]
 
+----- STOPPED HERE
 
 Q. How do I enter a "blank" key assignment in the Hot key field within the Program list or Macro list?
 
