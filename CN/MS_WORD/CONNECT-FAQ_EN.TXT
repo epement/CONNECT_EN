@@ -575,39 +575,59 @@ choose "RAR", the menu will say "RAR Archiver setup". If you choose
 "ZIP", the menu will say "ZIP Archiver setup". In the section for "Exec
 options", there will be a checkbox for "Switch to user screen".]
 
------ STOPPED HERE
 
-Q. How do I enter a "blank" key assignment in the Hot key field within the Program list or Macro list?
+Q. In the [configuration menus for] `Program list` or `Macro list` [which
+appear under the User menu], in the `Hot key` field, how do I enter a
+blank key assignment? [In other words, how do I delete an existing key
+assignment for a "Hot key"?]
 
-A. Using the keyboard: press Ctrl-Break; alternatively, right-click twice on the field.
+A. Using the keyboard: press `Ctrl-Break`. Alternatively, right-click
+twice on the field. [This will show "None" in the field.]
 
 
 Q. CONNECT is calculating directory sizes incorrectly.
 
-A. In CONNECT, directory sizes are displayed in two locations: in the file size column on the file panel (provided the "Display directory sizes" option is enabled), and in the information window that appears when you press F3 while a directory is selected. Note that in the information window, the *total size* of the files is displayed in parentheses following the file count, while the *actual disk space occupied* by those files is shown in the "Total size" line. Sizes may be displayed in bytes or kilobytes (1024 bytes). The directory sizes displayed on the file panel are retrieved from the `treeinfo.cn` file and may not always reflect the current reality. This data is updated whenever the directory tree is rescanned or when directory sizes are explicitly calculated using the F3 key. Dynamically
-tracking changes in directory sizes is too complex and unreliable;
-therefore, we opted for the current approach. The directory sizes
-displayed in the panel represent the total size of all files within
-that directory and its subdirectories.
+A. In CONNECT, directory sizes are displayed in two locations: in the
+file size column on the file panel (provided the "Display directory
+sizes" option is enabled), and in the information window that appears
+when you press F3 while a directory is selected. Note that in the
+information window, the *total size* of the files is displayed in
+parentheses following the file count, while the *actual disk space
+occupied* by those files is shown in the "Total size" line. Sizes may be
+displayed in bytes or kilobytes (1024 bytes). The directory sizes
+displayed on the file panel are retrieved from the `treeinfo.cn` file and
+may not always reflect the current reality. This data is updated whenever
+the directory tree is rescanned or when directory sizes are explicitly
+calculated using the F3 key. Dynamically tracking changes in directory
+sizes is too complex and unreliable; therefore, we opted for the current
+approach. The directory sizes displayed in the panel represent the total
+size of all files within that directory and its subdirectories.
 
 
 Q. How do I configure external viewers?
 
-A. This is a complex topic. When configuring external viewers?as well
-as File Associations (the actions triggered by pressing Enter on a
-filename in the file manager, or Shift-F9 in the editor) and the
-Program List (accessed via F9)?a unique macro language is employed
-to control the execution sequence and results of external programs. 
+A. This is a complex topic. When configuring external viewers as well as
+`File Associations` (the actions triggered by pressing `Enter` on a
+filename in the file manager, or `Shift-F9` in the editor) and the
+`Program List` (accessed via `F9`), [CONNECT's] unique macro language is
+employed to control the execution sequence and results of external
+programs.
+
 In the "Program path" field within the external program configuration
-dialogs, you can enter the names of programs, separated by a semicolon
-(;). Similarly, in the "Command line" field, the parameters for the
-launched programs can be listed, also separated by semicolons. 
-Parameters separated by semicolons are interpreted according to their
-sequential order: the first parameter (everything up to the first
-semicolon) corresponds to the first program, the second parameter
-corresponds to the second program, and so on. If a program parameter
-itself needs to contain a semicolon, you must replace it with a double
-semicolon (;;). Parameters may contain the following macros:
+dialogs, you can enter the names of [one or more] programs, separated by
+a semicolon (;). [These commands will execute in that order. Note that
+these are commands to run, not a strict directory path like "c:\DOS".]
+
+Similarly, in the "Command line" field, the parameters for the launched
+programs can be listed, also separated by semicolons.  Parameters
+separated by semicolons are interpreted according to their sequential
+order: the first parameter (everything up to the first semicolon)
+corresponds to the first program, the second parameter corresponds to the
+second program, and so on. If a program parameter itself needs to contain
+a semicolon, you must replace it with a double semicolon (;;). [See the
+example for "Add Path" in the Program List.]
+
+Parameters may contain the following macros:
 
 $PATH, $NAME, $EXT, $LEFT, $RIGHT, $OPPOSITE, $CN, $SWAPDIR, $DIRARC,
 $REPORT, $WORD, $PROMPT, $SEL, $MSG, $NOMSGWIN, $USERSCR, $KBD, $MEM,
@@ -617,11 +637,19 @@ Program names:
 
 $VIEW, $XVIEW, $DBASE, $EDIT, $XEDIT, $ARC, $PANEL, $ICON, $HELP. 
 
-The meaning of these?and several other?macros is described in detail
-in the Help documentation and in the WHATSNEW.TXT file. 
+The meaning of these and several other macros is described in detail in
+the Help documentation and in the WHATSNEW.TXT file.
 
 In addition to these fields, there are also two specific fields:
-"Filename mask" and "Line num mask." These parameters serve to instruct CONNECT on how to locate specific lines within the file currently being processed by the launched program?specifically, those lines for which the program has output information to standard output (which has been redirected to the "Message" window). This information might consist of compiler diagnostics regarding errors found in the program's source code, output from a utility searching for specific text strings within program files, and so forth. An example demonstrating the use of this mechanism is the execution of Turbo Assembler:
+"Filename mask" and "Line num mask." These parameters tell `CONNECT` how
+to locate specific lines within the file currently being processed by the
+launched program---specifically, those lines for which the program has
+output information [sent] to standard output, which will be redirected to
+the "Message" window. This information might consist of compiler
+diagnostics regarding errors found in the program's source code, output
+from a utility searching for specific text strings within program files,
+and so forth. An example demonstrating the use of this mechanism is the
+execution of Turbo Assembler:
 
 ษอ[þ]อออออออออออออออออออออออออ Modify association ออออออออออออออออออออออ
 บ File name      *.asm
@@ -631,7 +659,8 @@ In addition to these fields, there are also two specific fields:
 บ Line num mask  $copy("\(","\)")
 
 
-When a file is compiled using such a directive, the "Message" window appears (a snippet of which is shown below):
+When a file is compiled using such a directive, the "Message" window
+appears (a snippet of which is shown below):
 
 ษอ[þ]ออออออออออออออออออออออออออออออ Message อออออออออออออออออออออออออออ
 บ Assembling file:   D:\BP\RTL\DOS\EXPN.ASM
@@ -639,23 +668,29 @@ When a file is compiled using such a directive, the "Message" window appears (a 
 บ **Error** D:\BP\RTL\DOS\EXPN.ASM(13) Illegal instruction
 บ Error messages:    1
 
-Now, if you position the cursor within the window on the line containing the error description?specifically:
-**Error**  D:\BP\RTL\DOS\EXPN.ASM(13) Illegal instruction?and press Enter or the Spacebar, the editor window will open, displaying the file `D:\BP\RTL\DOS\EXPN.ASM` with the cursor positioned at line 13. If you press Enter, the editor window becomes the active window; if you press the Spacebar, the "Message" window remains the active window.
+If you position the cursor within the [output Message] window on the
+line containing the error description, specifically:
+   `**Error** D:\BP\RTL\DOS\EXPN.ASM(13) Illegal instruction`,
+and press `Enter` or the spacebar, the editor window will open,
+displaying the file `D:\BP\RTL\DOS\EXPN.ASM` with the cursor positioned
+at line 13.  Pressing `Enter` makes the editor window active; pressing
+the spacebar leaves the `Message` window active. (The key combinations
+`Ctrl-Enter` and `Ctrl-Space` will open the viewer window instead of the
+editor).
 
----
-Pressing
-Enter makes the editor window active; pressing Space leaves the
-Message window active. (The key combinations Ctrl-Enter and Ctrl-Space
-will open the viewer window instead of the editor). The macros used to
-extract the filename and cursor position from the lines of the Message
-window?specifically `Filename mask` and `Line num mask`?are described
-in detail in the Help documentation. Examples of their usage can be found
-in the supplied configuration files. In cases where analyzing the output
-generated by a program proves difficult using CONNECT's built-in tools,
-you can utilize the `$Msg()` macro; simply pass it the name of a filter
-program as a parameter. This filter program processes the input stream
-generated by the launched application, converting it into an output
-stream that can be easily analyzed by the built-in tools.
+The macros used to extract the filename and cursor position from the
+lines of the Message window (specifically, `Filename mask` and `Line num
+mask`) are described in detail in the Help documentation. Examples of
+their usage can be found in the supplied configuration files.
+
+In cases where analyzing the output generated by a program proves
+difficult using CONNECT's built-in tools, you can utilize the `$Msg()`
+macro. Simply pass it the name of a filter program as a parameter. This
+filter program processes the input stream generated by the launched
+application, converting it into an output stream that can be easily
+analyzed by the built-in tools.
+
+-----STOPPED HERE
 
 
 Q. How do I change the color-coding for files in the file manager? I couldn't
