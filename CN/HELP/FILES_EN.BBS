@@ -1,16 +1,31 @@
+8080.HLP      Compiled help file for Intel 8080 assembly (Russian and English)
 ALL.HLS       Sample source file to make generic help file (a few words in Russian).
 ALL.INC       Include file for CNHC.EXE.
 ASM.HLP       Compiled help file for PC and Assembly Programming topics.
 ASM.HLS       Source text for the Assembly Programming help file (English).
+CGUIDE.HLP    Compiled help file for Watcom C/C++ Prog Guide Introduction (English).
+CLIB.HLP      Compiled help file for Watcom C Library functions/macros (English).
 CNHC.EXE      Connect Help Compiler, used to compile Help files.
 CNHC_EN.TXT   Description of how to use CNHC.EXE (English).
 CNHC_RU.TXT   Description of how to use CNHC.EXE (Russian).
 CNHCX.EXE     Help file compiler for protected mode.
+CPPLIB.HLP    Compiled help file for Watcom C++ Class Libraries (English).
 DISHELP.EXE   Help file decompiler.
 DPMI16BI.OVL  Support file for CNHCX.EXE.
 FILES_EN.BBS  List of files in this directory, with comments (English, sorted).
 FILES_RU.BBS  List of files in this directory, with comments (Russian, unsorted).
+HC11.HLP      Compiled help file for 1991 M68HC11 Reference Manual (English).
+INTLIST.HLP   Compiled help file for PC Interrupt List 1997 (English).
+LGUIDE.HLP    Compiled help file for Watcom Linker (English).
 MAWK.HLP      Compiled help file for the mawk utility.
 MAWK.HLS      Source text used to create MAWK.HLP.
+PGUIDE.HLP    Compiled help file for Watcom C/C++ Prog Guide for DOS & Win (English).
+PIC.HLP       Compiled help file for PIC16 8-bit microcontrollers (Russian).
+RESCOMP.HLP   Compiled help file for Watcom Resource Compiler (English).
 RTM.EXE       Support file for CNHCX.EXE.
 TAH2CNHC.EXE  Converts Turbo Assembler Help files (*.tah) to the CNHC format.
+TCHELP.HLP    Compiled help file for Borland Turbo Compiler Help system (English).
+TOOLS.HLP     Compiled help file for Watcom patch, disassem, make tools (English).
+TURBO.HLP     Compiled help file for Turbo Pascal help (English).
+WATCOM.HLP    Compiled help file for various Watcom help files (Russian).
+WD.HLP        Compiled help file for Watcom Debugger (English).
