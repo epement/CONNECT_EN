@@ -1,0 +1,16 @@
+ALL.HLS       Sample source file to make generic help file (a few words in Russian).
+ALL.INC       Include file for CNHC.EXE.
+ASM.HLP       Compiled help file for PC and Assembly Programming topics.
+ASM.HLS       Source text for the Assembly Programming help file (English).
+CNHC.EXE      Connect Help Compiler, used to compile Help files.
+CNHC_EN.TXT   Description of how to use CNHC.EXE (English).
+CNHC_RU.TXT   Description of how to use CNHC.EXE (Russian).
+CNHCX.EXE     Help file compiler for protected mode.
+DISHELP.EXE   Help file decompiler.
+DPMI16BI.OVL  Support file for CNHCX.EXE.
+FILES_EN.BBS  List of files in this directory, with comments (English, sorted).
+FILES_RU.BBS  List of files in this directory, with comments (Russian, unsorted).
+MAWK.HLP      Compiled help file for the mawk utility.
+MAWK.HLS      Source text used to create MAWK.HLP.
+RTM.EXE       Support file for CNHCX.EXE.
+TAH2CNHC.EXE  Converts Turbo Assembler Help files (*.tah) to the CNHC format.

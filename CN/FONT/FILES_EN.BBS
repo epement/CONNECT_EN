@@ -1,0 +1,7 @@
+FILES_EN.BBS  List of files in this directory, with comments (English, sorted).
+FILES_RU.BBS  List of files in this directory, with comments (Russian, unsorted).
+FONT2TXT.EXE  Binary-to-text font converter.
+HANDWR.FNT    'Handwritten' font (binary).
+PRINT.FNT     'Printer' font (binary).
+TXT2FONT.EXE  Text-to-binary font converter.
+TYPEWR.FNT    'Typewriter' font (binary).
