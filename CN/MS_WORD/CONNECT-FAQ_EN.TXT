@@ -7,10 +7,10 @@ box-drawing graphic characters. Try this on popular editors:
 
  - vim: after the file is open, use ":e ++enc=cp437"
  - Emacs: do M-x revert-buffer-with-coding-system, "cp437", "yes"
- - EmEditor: use File > Reload > More > OEM United States (437, IBM437).
- - Notepad++: use Encoding > Character sets > Western European > OEM-US.
- - PSPad: use Encoding > OEM United States (437), press Ctrl-R, "OK".
- - SublimeText: use File > Reopen with Encoding > DOS (CP437).
+ - EmEditor: use File > Reload > More > OEM United States (437, IBM437)
+ - Notepad++: use Encoding > Character sets > Western European > OEM-US
+ - PSPad: use Encoding > OEM United States (437), press Ctrl-R, "OK"
+ - SublimeText: use File > Reopen with Encoding > DOS (CP437)
 
 In the translation below, backticks (`...`) show when the text switched
 from Cyrillic/Russian to Latin/English characters. If the source text
@@ -954,47 +954,74 @@ distribution, this file contains the `KOI2ALT` translation table.
 [To view files in a particular encoding, especially Russian or English,
 use the command prompt at the bottom of the main Connect menu. Press
 Ctrl-O (a toggle command) to switch to full-screen command mode. Type
-"chcp" and press ENTER to show the current code page. "chcp /?" will slow
+"chcp" and press ENTER to show the current code page. "chcp /?" will show
 valid options for this command. "chcp 437" will switch to the IBM-OEM
 English character set; "chcp 866" will switch to the single-byte Russian,
 Cyrillic character set, used most often. The single-byte English Windows
 encoding uses "chcp 1252", also called the ANSI character set. When done,
 type Ctrl-O to toggle back to Connect's full-screen mode.]
 
-----STOPPED HERE
+
+Q. How can I print a file using Connect? Right now, I'm doing it the hard
+way: I load the file into the editor, select a block of text, and then
+print *that*! It's driving me absolutely crazy! Is there a better way to
+do this?
+
+A. Use the `Spooler` by typing `Alt->` and selecting `File`. If the file
+is already loaded into the editor, simply go to `File > Print` (or F12).
+
+[On the top menubar, click the diamond icon in the upper left corner,
+immediately to the left of "File". Then type "S" or click on the menu
+item for "Spooler" and then "File". You can also access the diamond menu
+by pressing F10 (which will highlight the icon) followed by ENTER or the
+down arrow.]
 
 
-Q.  How can I print a file using Connect? Right now, I'm doing it the hard way:
-I load the file into the editor, select a block of text, and then print *that*! 
-It's driving me absolutely crazy! Is there a better way to do this?
+Q. I've selected several files in the file manager panel, but the
+operation I'm trying to perform is still being applied only to the
+currently highlighted file. What is the reason for this?
 
-A.  Go to `Spooler` (via `Alt` menu) > `File`. If the file is already loaded
-into the editor, simply go to `File` > `Print` (`F12`).
-
-
-Q.  I've selected several files in the file manager panel, but the operation
-I'm attempting to perform is still being applied only to the currently
-highlighted file. What is the reason for this? A. The "Ignore selection" flag is enabled in the Local menu (Alt-F10) | Miscellaneous (Alt+I).
-
-Q. Is it possible to make the automatic encoding detection in the text viewer optional?
-
-A. Yes, it is. To do this, you need to add the following entries to the Viewer list:
-Path to viewer   $View
-Command line     $cn\null.tbl
+A. The "Ignore selection" flag is active [set to Yes] in the Local menu.
+Access this option by typing `Alt-F10` and choosing `Miscellaneous >
+Ignore Selection (Alt+I)`. [You can also invoke the Local menu by
+right-clicking in one of the directory panels.]
 
 
-Q. I found a bug in CONNECT?what should I do?
+Q. Is it possible to make the automatic encoding detection in the text
+viewer optional?
+
+A. Yes. To do this, add the following entries to the `Viewer list`:
+
+   Path to viewer   $View
+   Command line     $cn\null.tbl
+
+
+Q. I found a bug in CONNECT. What should I do?
 
 A. Contact the authors:
 
 For additional information, call Kharkiv (area code 0572) during business
-hours (11:00 AM ? 4:00 PM) at 90-53-02 and ask for Orlov or Balter. 
-Alternatively, send all your requests and suggestions to the FidoNet
-address 2:461/27, or via email to do@infocom.kharkov.ua. 
+hours (11:00 AM - 4:00 PM) at 90-53-02 and ask for Orlov or Balter.
+Alternatively, send all your requests and suggestions to the `FidoNet`
+address 2:461/27, or via email to do@infocom.kharkov.ua.
 
-Please provide the compilation date of your version (found under E | About)
-and, if possible, describe the conditions under which the error occurred
-as precisely as you can. You might also try checking for a newer version;
-the bug may have already been fixed.
+Please provide the compilation date of your version (found via `F10 >
+ENTER > About`). If possible, describe the conditions under which the
+error occurred as precisely as you can. You might also try checking for a
+newer version; the bug may have already been fixed.
+
+[The instructions above for contacting the authors is obsolete in 2026
+and for over 20 years prior. The source code for the most recent version
+of Connect is at "https://github.com/dimorlus/CONNECT". There is only one
+commit to this repository, dated 2025-12-21. The character encoding on
+Github appears to be (still) code page 866. The code and binary files are
+not corrupted; you just need to use the right encoding to view or edit
+the files.
+
+The source code to the prior version of Connect is at
+http://www.dorlov.no-ip.com/Connect, dated 2005-12-06. The documentation
+and file descriptions are in Russian, but modern web browsers (Edge,
+Chrome, Firefox) have an option to translate or may translate to the
+user's language automatically.]
 
 [eof]
