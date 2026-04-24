@@ -1,0 +1,5 @@
+CONNECT.EXT   Actions to take based on file extension (compiled)
+CONNECT.MSK   List of comments for various file masks.
+EXT.TXT       Uncompiled source for CONNECT.EXT
+FILES_EN.BBS  List of files in this directory, with comments. (English)
+FILES_RU.BBS  List of files in this directory, with comments. (Russian)
