@@ -1,0 +1,15 @@
+CNDIC.EXE     Utility for creating Spell Check dictionaries.
+DN2CN.BAT     Converts DN.PHN (DOS Navigator phone dir) to CONNECT.PHN.
+FILES_EN.BBS  List of files in this directory, including comments. (English)
+FILES_RU.BBS  List of files in this directory, including comments. (Russian)
+FILTER.EXE    Utility for testing the string filters used during CONNECT configuration.
+LISTER.EXE    type filelist | lister program params !path!name!ext.
+MERGDIC.EXE   Utility for merging CONNECT Spell Checker CRC32 dictionaries.
+MERGDICX.EXE  Utility for merging CONNECT Spell Checker CRC32 dictionaries for protected mode.
+MSG2TXT.EXE   Utility for viewing *.MSG files.
+PHN2TXT.EXE   Utility for converting the CONNECT.PHN file to text format.
+PHND2TXT.EXE  Utility for converting the DN.PHN (DOS Navigator) file to text format.
+PKT2TXT.EXE   Utility for viewing *.PKT files.
+PRG2TXT.EXE   Utility for converting *.PRG, *.EXT, and *.VIE files to text format.
+TXT2PHN.EXE   Util for converting files created by PHN2TXT or PHND2TXT from TXT format to CONNECT.PHN.
+TXT2PRG.EXE   Util for converting files created by PRG2TXT.EXE from TXT format to *.PRG, *.EXT, *.VIE.
