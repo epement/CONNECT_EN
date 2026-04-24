@@ -1,0 +1,9 @@
+AWK_RU.TXT    Documentation for the Unix AWK utility (Russian)
+COPYING       GNU GENERAL PUBLIC LICENSE
+FILES_EN.BBS  List of files in this directory, with comments (English, sorted)
+FILES_RU.BBS  List of files in this directory, with comments (Russian, unsorted)
+MAWK.EXE      This is mawk 1.0, an interpreter for the AWK programming language
+MAWK.HLS      English documentation for mawk, provided as source text for CNHC
+NOTES_EN.TXT  Notes for using mawk under MS-DOS (English)
+READFIRS.T    Read First. Notes from Michael Brennan (English)
+README        Read Second. More details about mawk (English)
