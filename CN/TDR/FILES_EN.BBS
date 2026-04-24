@@ -1,0 +1,5 @@
+FILES_EN.BBS     List of files in this directory, with comments. (English, sorted)
+FILES_RU.BBS     List of files in this directory, with comments. (Russian, unsorted)
+TDRDIR.EXE       Utility to list members of Arvind TDR (tape drive) archives, ver 1.0.
+TDRDIR_EN.TXT    Suggestions for integrating TDRDIR.EXE with CONNECT. (English)
+TDRDIR_RU.TXT    Suggestions for integrating TDRDIR.EXE with CONNECT. (Russian)

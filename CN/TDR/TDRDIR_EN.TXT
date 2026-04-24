@@ -1,0 +1,58 @@
+The `TDRDir` utility is designed to generate a list of files stored
+within a `.tdr` file (an `ARVID tape directory`). The list is formatted
+as a series of lines with the following structure:
+
+   \DOC\NEW\PAPER.DOC  156711  05-21-95  14:36:22 Description
+
+The utility is executed with the following parameters:
+
+   TDRDir file.tdr [path]
+
+It outputs the entire file list to standard output; alternatively, if a
+`path` is specified, it outputs a list of files and directories
+corresponding to that specific path.
+
+This utility is intended for use in conjunction with the CONNECT
+integrated shell, enabling the treatment of `.tdr` files as standard
+archives. These utilities are integrated into CONNECT as `User-defined
+archivers` in the following manner: The following list item is added to
+the "User defined archivers" menu:
+
+ษอ[þ]อออออ Modify user defined Archiver setup ออออออออออป
+บ                                                       บ
+บ  Trademark          View ARVID tape directory         บ
+บ  View command                                         บ
+บ  View dir command   $CN\TDR\TDRDIR $Arc $Src $Msg     บ
+บ  Packer name                                          บ
+บ  Unpacker name                                        บ
+บ  Default extension  TDR                               บ
+บ  Extract                                              บ
+บ  Extract with dirs                                    บ
+บ  Add                                                  บ
+บ  Add with dirs                                        บ
+บ  Move                                                 บ
+บ  Move with dirs                                       บ
+บ  Delete                                               บ
+บ  Test                                                 บ
+บ  Password                                             บ
+บ  List character             Name mask  *.tdr          บ
+บ  Exec options                                         บ
+บ   [ ] Swap main body              OK   Ü    Cancel Ü  บ
+บ   [ ] Switch to user screen     ฿฿฿฿฿฿฿฿    ฿฿฿฿฿฿฿฿  บ
+บ   [ ] Load COMMAND.COM                 Help        Ü  บ
+บ                                 ฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿  บ
+ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+
+In the `File associations` section, the `$Arc` macro is assigned to the
+`*.TDR` mask; a similar configuration can be applied to the `Viewer
+list.` Now, pressing `Enter` on a `TDR` filename will launch the specified
+utility, which will generate a list of all files stored on the tape.
+Provided you have the appropriate command-line utilities available, you
+can also configure the system to copy files to and from the tape directly
+within CONNECT by entering the relevant commands in the `Packer name` and
+`Unpacker name` fields of the `Modify user defined Archiver setup`
+dialog.
+
+The `TDRDir` utility was written for me by Alexander Petrosyan (PAF),
+2:5020/468.8@fidonet (aka paf@fbit.msk.su), for which I owe him a big
+thank you.
