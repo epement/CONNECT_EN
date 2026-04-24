@@ -1,0 +1,5 @@
+FILES_EN.BBS  List of files in this directory, with comments. (English, sorted)
+FILES_RU.BBS  List of files in this directory, with comments. (Russian, unsorted)
+KOI8XLAT.IN   KOI8-to-ASCII translation table for editors and terminals.
+KOI8XLAT.OUT  ASCII-to-KOI8 translation table for editors and terminals.
+VT100.CAP     TERMCAP file describing the VT100 terminal and others.
