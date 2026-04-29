@@ -182,7 +182,6 @@ The [three] radio buttons under `Main` control the behavior of the core
 CONNECT.EXE program when launching external applications. [An excessively
 long paragraph has been split for readability.]
 
-
 In `Swap` mode, the following components remain in memory: the CN.EXE
 stub (which serves to launch CONNECT.EXE), the Snipper (if it is
 currently loaded), and approximately 4 KB of the main program's code. The
@@ -376,7 +375,7 @@ Detailed instructions on how to construct these masks can be found in the
 Help documentation. To test their functionality, the CONNECT distribution
 includes a dedicated utility called `filter.exe`.  It is also useful to
 examine how these masks are configured for other programs, such as `grep`
-[a line-oriented search utility not included with CONNECT].
+[a line-oriented search utility from UNIX not included with CONNECT].
 
 
 Q. I just downloaded a new version of CONNECT. Which files should I keep
@@ -456,6 +455,11 @@ text editing. These programs are thoroughly commented, so any programmer
 should have no trouble understanding them.  Ultimately, many editors and
 terminal emulators incorporate elements of a programming language, but
 how many of them also offer such convenient debugging tools?
+
+[In the CBS directory, files ending in *.CBS are human-readable source
+code, and files ending in *.CBB or *.BIN are compiled binary files. Files
+ending in *.ANS are "ANSI art" files that should be viewed on a terminal
+that supports ANSI colors and commands.]
 
 
 Q. I regularly find leftover files in CONNECT's temporary directory.
@@ -830,7 +834,7 @@ Q. The `Destructive Backspace` function does not work within the
 terminal. If you enable it and close the terminal, then upon reopening
 the terminal, this flag turns out to be reset [to simple backspace].
 
-A.  This is determined by the setting of the `bs` parameter in the
+A. This is determined by the setting of the `bs` parameter in the
 `termcap` file. In ANSI emulation mode, this is controlled via the
 terminal menu.
 
@@ -838,13 +842,14 @@ terminal menu.
 Q. "Monday" is not displayed in full when pressing `Ctrl-Alt` (even if
 the clock is shifted all the way to the left).
 
-A.  It doesn't fit. In English mode, it does fit.
+A. It doesn't fit. In English mode, it does fit.
 
 
-Q.  Is it possible to configure macros so that they are triggered
+Q. Is it possible to configure macros so that they are triggered
 immediately via a hotkey, without having to press Alt-F8?
 
-A.  No. All hotkeys are already assigned to other functions. 
+A. [This answer used to be] No. All hotkeys are already assigned to other
+functions. 
 
 [However,] starting with the version dated 11-26-1997, this functionality
 became available for the editor, the file manager, and the terminal. To
@@ -865,17 +870,17 @@ A. Press Ctrl-F6 to edit the filename directly in the input field of the
 Q. Is it possible to configure the built-in editor recognize comments of
 the form `/* ... */`?
 
-A.  No. Multiline comments require text analysis that is too complex and
+A. No. Multiline comments require text analysis that is too complex and
 computationally intensive.
 
 
 Q. Are there any plans to incorporate features such as searching for text
 within archives, `UUE encoding/decoding`, or floppy disk formatting?
 
-A.  No. To search for text within archives, you should use the specific
-search option provided by the archiving utility itself [e.g., "arj w" to
-search for text in *.arj archives]. For all other tasks, it is best to
-rely on external utilities, especially since tools like
+A. No. To search for text within archives, you should use the specific
+search option provided by the archiving utility itself [e.g., "arj w"
+will search for text in *.arj archives]. For all other tasks, it is best
+to rely on external utilities, especially since tools like
 `uuencode/uudecode` (and similar ones) can be applied directly to text
 selected within the editor or viewer.
 
