@@ -154,4 +154,10 @@ The file `CNHCX.EXE` along with the auxiliary files `RTM.EXE` and
 `DPMI16BI.OVL` enables the compilation of large help files on `286+`
 machines equipped with extended memory.
 
+[NOTE: Input files must have DOS line endings, CRLF (carriage return,
+linefeed). The help compilers (CNHC or CNHCX) will fail with errror code
+#6 if the input file has Unix line endings, LF (linefeed only). This is
+especially important if saving to a git repository, which by default
+saves files with Unix line endings.]
+
 [eof]
