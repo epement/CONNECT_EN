@@ -155,9 +155,13 @@ The file `CNHCX.EXE` along with the auxiliary files `RTM.EXE` and
 machines equipped with extended memory.
 
 [NOTE: Input files must have DOS line endings, CRLF (carriage return,
-linefeed). The help compilers (CNHC or CNHCX) will fail with errror code
-#6 if the input file has Unix line endings, LF (linefeed only). This is
-especially important if saving to a git repository, which by default
-saves files with Unix line endings.]
+linefeed). If the input file has Unix line endings, LF (linefeed only),
+the help compilers (CNHC.EXE or CNHCX.EXE) will emit this message:
+
+  Error: filename.txt(6): Unterminated topic reference.
+
+The compiler will exit and send exit code 1 to the operating system.
+To fix the problem, convert the file to DOS-style line endings with
+a program like "unix2dos" or from within the text editor itself.]
 
 [eof]
