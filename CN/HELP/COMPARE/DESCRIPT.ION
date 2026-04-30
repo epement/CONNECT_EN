@@ -1,7 +1,11 @@
-"CN3.HLP" from CNSRC/connect_src.rar/CONNECT/CONNECT.HLP
-"CN2.HLP" from CNSRC/EXE/CONNECT.HLP
-"CN1.HLP" from CNSRC/connect/CONNECT.HLP
-"CN1.TXT" from CNSRC/connect/CONNECT.TXT (Unix nl)
-"CN2.TXT" from CNSRC/EXE/CONNECT.TXT (Unix nl)
-"CN3.TXT" from CNSRC/connect_src.rar/CONNECT/CONNECT.TXT (DOS nl)
-"CN4.TXT" from CNSRC/CNSRC.ZIP/CONNECT/CONNECT.TXT (DOS nl)
+CN01.HLP from CNSRC/connect/CONNECT.HLP
+CN02.HLP from CNSRC/EXE/CONNECT.HLP
+CN03.HLP from CNSRC/connect_src.rar/CONNECT/CONNECT.HLP
+CN1.TXT from CNSRC/connect/CONNECT.TXT (Unix nl, fails)
+CN2.TXT from CNSRC/EXE/CONNECT.TXT (Unix nl, fails)
+CN3.TXT from CNSRC/connect_src.rar/CONNECT/CONNECT.TXT (DOS nl,compiles,release)
+CN4.TXT from CNSRC/CNSRC.ZIP/CONNECT/CONNECT.TXT (DOS nl,compiles)
+CN1.HLP failed compile from CN1.TXT
+CN2.HLP failed compile from CN2.TXT
+CN3.HLP successful compile from CN3.TXT
+CN4.HLP successful compile from CN4.TXT
