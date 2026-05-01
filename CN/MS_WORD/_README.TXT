@@ -32,3 +32,18 @@ The normal process of file translation has 4 steps:
   4. SUBDIR-NAME_ENready.txt    # cleaned, ready to be compiled as HLP file
 
 2026-04-07 11:49:15
+
+---
+
+New process: CONNECT.TXT (orig name of CN3_RU.TXT) is the source code
+for the CONNECT.HLP file. However, it's 347,618 bytes in size and
+splitting it into 5K chunks for Google translate would require almost
+70 separate files, and I don't have the patience for that. DeepL
+(www.deepl.com) has good reviews for AI language translation. I paid
+$10.49 for one month or 300,000 chars, which gets me most of the
+way there. DeepL also supports file uploads in .txt format.
+
+The returned file ("CN3aa_RU en-US.docx") translation looks good and is
+adequate for export or copy/paste back to .txt format.
+
+2026/05/01 12:10 pm

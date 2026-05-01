@@ -1,3 +1,10 @@
 "CONNECT-FAQ_EN.docx" returned by Google Cloud Translation w/Classic translator (poor!)
 "CONNECT-FAQ_EN.TXT" returned by Google Translate w/Gemini model (very good!)
 "CONNECT-FAQ_RU.TXT" copy of CONNECT_RU.FAQ in CN/ dir
+"_README.TXT" History and use of these files
+"CN3_RU.TXT" Russian source to make CONNECT.HLP
+"CN3_RU.docx" CN3_RU.TXT wordwrapped as Microsoft Word
+"CN3aa_RU.docx" First 86 of CN3_RU, to fit limits of DeepL translator
+"CN3aa_RU en-US.docx" English translation returned by DeepL
+"HELP-CONN_RU.docx" should match CN3_RU.docx but has hard return everywhere
+"HELP-CONN_EN.docx" returned by Google Cloud: poor w hard returns throughout
