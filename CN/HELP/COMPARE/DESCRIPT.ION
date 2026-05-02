@@ -9,3 +9,5 @@ CN1.HLP failed compile from CN1.TXT
 CN2.HLP failed compile from CN2.TXT
 CN3.HLP successful compile from CN3.TXT
 CN4.HLP successful compile from CN4.TXT
+"CN_EN.TXT" English xlation of CN3.TXT (in progress), codepage 866
+"CN3aa_RU en-US.docx" First 6/7 of CN3_RU, to fit limits of DeepL translator
