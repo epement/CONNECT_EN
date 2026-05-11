@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------
 Translation from Russian to English via https://translate.google.com on
-2026-03-27. Content was lightly edited to better match the source file.
+2026-03-27. Words in [square brackets] were added by Eric Pement.
 
 View or edit this file with DOS-OEM codepage 437 because it contains
 box-drawing graphic characters. Try this on popular editors:
@@ -13,77 +13,138 @@ box-drawing graphic characters. Try this on popular editors:
  - SublimeText: use File > Reopen with Encoding > DOS (CP437).
 
 In the translation below, backticks (`...`) show when the text switched
-from Cyrillic/Russian to Latin/English characters. If the source text
-used symbols from codepage 866 not in CP437, they were replaced by hex
-codes as 0xHH. Words in [square brackets] are added by Eric Pement.
-This file contains embedded control codes (Ctrl-Y, 0x19) and (0xF9).
+from Russian to English characters. If the source text used symbols from
+codepage 866, they are represented as 0xHH (hex). This file contains
+control codes (0x19 and 0xF9) that do not display well in some consoles.
 -------------------------------------------------------------------------
 
 [Instructions for the CN Help Compiler]
 
 This program is designed to convert a text file into a help file that is
 format-compatible with the file `CONNECT.HLP (Turbo Vision Help File)`.
-The source file format for the `cnhc` utility is very simple. A topic
-identifier must begin with the word `.topic` at the first position of the
-line.  It may be followed by one or more identifiers used to reference this
-specific context. An identifier consists of a sequence of characters from
-the sets A..Z, a..z, _, and the digits 0..9, and must begin with a letter.
-Identifiers are separated by commas.  For example:
+The source file format for the `cnhc` utility is very simple.
+
+[1. Topic identifiers.]
+
+A topic identifier must begin with the word `.topic` at the first
+position of the line.  It may be followed by one or more identifiers used
+to reference this specific context. An identifier consists of a sequence
+of characters from the sets A..Z, a..z, _, and the digits 0..9, and must
+begin with a letter.  Identifiers are separated by commas.  For example:
 ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
 ³.topic movs, movsb, movsw, movsd³
 ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
 defines a single context for multiple references simultaneously.
 
-A reference consists either of the link text enclosed in curly braces, or
-of arbitrary text followed by a colon and the name of the topic identifier.
-For example, the reference `{MOVS}` points to the topic declared by the
-identifier `movs` (the case of the identifier is ignored).  Alternatively,
-a reference such as {String transfers:`movs`} may be used, which also
-points to the `movs` context.  If the help text itself needs to contain the
-characters `{` and `}`, they must be replaced in the `cnhc` source file
-with the characters corresponding to codes 243 and 242 (0xF3, 0xF2),
-respectively.  If the link text itself needs to contain the character `:`,
-it must be replaced with the character corresponding to code 247 (0xF7).
-If a line of text needs to begin with a `.`, it must be replaced with the
-character corresponding to code 249 (ù).  When the help file is displayed,
-lines starting at the first character position are automatically wrapped to
-fit within the window.  Lines starting with a space are displayed without
-wrapping.  Lines with a `;` in the first position are treated as comments
-and are ignored by the help file compiler.  To include a line in the help
-file that actually begins with a `;`, it must be written as `;;` in the
-source text.
+
+[2. References.]
+
+A reference consists either of the link text [i.e., the identifier]
+enclosed in curly braces, or else arbitrary text followed by a colon and
+the name of the topic identifier.  In the first case, the reference
+`{MOVS}` points to the topic declared by the identifier `movs`. The case
+of the identifier is ignored [i.e., it can be entered in uppercase or
+lowercase. The word "MOVS" will be highlighted as a hyperlink in the help
+file].
+
+In the second case, a reference such as `{String transfers:movs}` may be
+used, which also points to the `movs` identifier. [In the help menu, the
+user will only see the words before the colon; choosing that option will
+take them to the destination linked after the colon.]
+
+[Note that the beginning and ending curly braces {...} cannot wrap across
+two or more lines. A reference must fit on a single line.]
+
+
+[3. Special characters in references.]
+
+[Since references are defined by braces and colons, those characters must
+be treated specially inside references.]
+
+If the help text needs to contain the characters `{` and `}`, they must
+be replaced in the `cnhc` source file with the characters corresponding
+to [ASCII decimal] codes 243 and 242 (0xF3, 0xF2), respectively.
+
+If the link text needs to contain the character `:`, it must be replaced
+with the character corresponding to code 247 (0xF7).
+
+
+[4. Beginning a line with a dot.]
+
+[The dot at the start of a line normally signifies a compiler directive,
+such as ".topic" or ".include another-file", so you should avoid
+beginning a paragraph with a dot.  But] if a line of help text needs to
+begin with a `.`, replace it with the character corresponding to ASCII
+decimal code 249 (0xF9). [In both codepage 437 and 866, this character
+looks like a slightly elevated dot "ù", and it should be converted to a
+period when displayed in the Connect help menu.]
+
+
+[5. Controlling word-wrap.]
+
+When the help file is displayed, lines starting at the first character
+position [i.e., column 1] are automatically wrapped to fit within the
+window.
+
+Lines starting with a space are displayed without wrapping.
+
+
+[6. Comment lines.]
+
+Lines with a `;` in the first column are treated as comments and are
+ignored by the help file compiler.
+
+To include a line in the help file that actually begins with a `;`, it
+must be written as `;;` in the source text.
+
+
+[7. Include files.]
 
 It is possible to construct help text from multiple files. This is
 accomplished using the keyword `.Include filename`, which must appear at
-the very beginning of a line. Included files may be nested up to 50 levels
-deep. The `filename` can be specified either as a full path or simply as a
-filename. In the latter case, the included file is first sought in the
-current directory, and then in the directory where the main help file is
-located.
+the very beginning of a line. Included files may be nested up to 50
+levels deep. The `filename` can be specified either as a full path or
+simply as a filename. In the latter case, the included file is first
+sought in the current directory, and then in the directory where the main
+help file is located.
+
+
+[8. Colorized or invisible links.]
 
 Special pseudo-topics `Color_1`, `Color_2`, through `Color_5` are reserved;
 a link to one of these causes the link text itself to be displayed in the
 corresponding color, as configured in the "Colors | Help window" dialog.
 
-The pseudo-topic `Color_X` renders the link text invisible.
+The pseudo-topic `Color_X` renders the link text invisible. [This means
+that the label works as a destination to jump to, but the label itself
+will be invisible; the text below the label will display normally. See
+section 10, below.]
 
 The pseudo-topic `AbsColor_NNN` sets the text attributes for the link,
 where `NNN` is a decimal or hexadecimal value.
+
+
+[9. Links to other help files.]
 
 The pseudo-topic `OtherHelpFile` allows you to create a link to the default
 (zero) context of a specified help file. For example:
 ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
 ³Turbo Pascal help {TURBO:OtherHelpFile}.³
 ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
-links to the file `TURBO.HLP`, provided it resides in the same directory as
-the file containing the link. A different?and more flexible?method for
-achieving this is described below.
+links to the file `TURBO.HLP`, which must reside in the same directory as
+the file containing the link. A different and more flexible method for
+achieving this is described below [in section 13, "Advanced features of
+the $Help macro"].
 
-If a link label begins with the character 0x19 (ASCII #25), then upon
-activating that link, the system searches through the links and
-pseudo-links within the target topic to find a match for the link text
-itself. For example, suppose the following links are defined:
 
+[10. Linking to sections of a topic.]
+
+If a link label [immediately after the colon] begins with the character
+0x19 (ASCII #25), then upon activating that link, the system searches
+through the links and pseudo-links within the target topic to find a
+match for the link text itself. For example, suppose the following links
+are defined: [Note the char 0x19 before the first 2 labels; it should
+display as a small arrow pointing down.]
 ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
 ³{Text1:Text} {Text2:Text}  {Text3:Text}  ³
 ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
@@ -104,10 +165,16 @@ link, it will display it starting from the position of "Text2",
 respectively.  When following the `Text3` link, the help system will
 display the topic "Text" from the very beginning.  When navigating to the
 pseudo-link `Color_X`, the help system will place the cursor on the line
-immediately following that pseudo-link; when navigating to visible links or
-pseudo-links, the cursor is positioned directly on that link.
+immediately following that pseudo-link; when navigating to visible links
+or pseudo-links, the cursor is positioned directly on that link.
+
+
+[11. Topic limits.]
 
 The total number of topics must not exceed 16,384.
+
+
+[12. Launching external programs.]
 
 It is possible to launch external programs directly from within the help
 system.  To do this, you must create a special context (topic) where the
@@ -126,11 +193,14 @@ viewer to display the resulting help output.
 ³ -?                                                    ³
 ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
 
+
+[13. Advanced features of the $Help macro.]
+
 The command-line macro `$Help()` can accept a parameter specified directly
 on the command line. When such a macro is invoked, the help system searches
 for this parameter within the first context (topic) and navigates to it
 if found. Thus, it is now possible to create links from one help file to a
-specific context within another. 
+specific context within another.
 ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
 ³ {The Built-in Assembler:basm} ³
 ³                               ³
@@ -150,18 +220,41 @@ system's topics, while the second should contain a list of links
 specifically for context-sensitive searching. The topic number can be
 explicitly specified by adding the line `.topic First=0`.
 
-The file `CNHCX.EXE` along with the auxiliary files `RTM.EXE` and
-`DPMI16BI.OVL` enables the compilation of large help files on `286+`
-machines equipped with extended memory.
 
-[NOTE: Input files must have DOS line endings, CRLF (carriage return,
-linefeed). If the input file has Unix line endings, LF (linefeed only),
-the help compilers (CNHC.EXE or CNHCX.EXE) will emit this message:
+[14. Compiling large help files.]
+
+The file `CNHCX.EXE` along with the auxiliary files `RTM.EXE` [Run-Time
+Manager] and `DPMI16BI.OVL` [DOS Protected Mode Interface] enables the
+compilation of large help files on `286+` machines equipped with extended
+memory. [Try CNHCX.EXE if you run out of memory with CNHC.EXE.]
+
+
+[15. Handling error messages.]
+
+All text below this line is by Eric Pement.
+
+15.1. Compiler error messages.
+
+A message like "Error: CN_EN.TXT(211): Unterminated topic reference"
+means that for the file CN_EN.TXT, a brace-delimited topic reference was
+not closed. That is, one of the braces was missing, or else the brace was
+opened "{" on one line and closed "}" on a different line. The number in
+parentheses shows the line number where the error occurred.
+
+15.2. DOS line endings required.
+
+Input files must have standard MS-DOS line endings, in which each line
+ends in 2 consecutive bytes: carriage return+linefeed or (0x0D+0x0A).
+On Unix or Linux systems, text and source code lines end in a single
+byte: LF (linefeed), or 0x0A.
+
+If the input text file has Unix line endings, the help compilers CNHC.EXE
+or CNHCX.EXE will emit this message:
 
   Error: filename.txt(6): Unterminated topic reference.
 
-The compiler will exit and send exit code 1 to the operating system.
-To fix the problem, convert the file to DOS-style line endings with
-a program like "unix2dos" or from within the text editor itself.]
+The compiler will close and send exit code 1 to the operating system. To
+fix the problem, convert the file to DOS-style line endings with a
+program like "unix2dos" or from within the text editor itself.
 
 [eof]
