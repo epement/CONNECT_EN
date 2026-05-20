@@ -7,7 +7,8 @@ This integrated environment is designed for developing controller
 software and communicating with controllers via COM ports.
 
 -------------------------------------------------------------------------
-.rm 73 - Find "STOPPED HERE" to locate last translation update.
+rightmrg 73 - Find "STOPPED HERE" to locate last translation update.
+Find "CHECK THIS STATEMENT" to confirm the claim, before compiling.
 Codepage 866 (Cyrillic). To change to DOS-OEM codepage 437, do this:
 
  - vim: after the file is open, use ":e ++enc=cp437"
@@ -17,9 +18,16 @@ Codepage 866 (Cyrillic). To change to DOS-OEM codepage 437, do this:
  - PSPad: use Encoding > OEM United States (437), press Ctrl-R, "OK".
  - SublimeText: use File > Reopen with Encoding > DOS (CP437).
 
-Backticks (`...`) show when the text switches from Cyrillic to English
-chars. If the source text has symbols from CP866 not in CP437, they are
-replaced by 0xHH (hex). Words in [square brackets] added by Eric Pement.
+"Double quotes" are used for menu terms.
+'Single quotes' indicate keys or button symbols to press.
+`Back quotes` enclose variable names or special, literal strings.
+Up, Down, Left, Right refer to the cursor keys.
+
+If the source text had symbols from CP866 not in CP437, they are
+replaced by 0xHH (hex).
+
+At several points, I altered or clarified some A.I. translations.
+Anything in [square brackets] was added by Eric Pement.
 -------------------------------------------------------------------------
 
 By selecting any menu item and pressing the F1 key, you can open the Help
@@ -70,7 +78,7 @@ Enter.
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 
 The System menu item is located in the left corner of the main menu bar.
-It is marked with the symbol "". When you expand the "", you will see:
+It is marked with the symbol "". When you expand the "", you will see:
   {About:SAbout}
   {System information:SInfo}
   ──────────────────
@@ -95,7 +103,7 @@ It is marked with the symbol "". When you expand the "", you will see:
 .topic SAbout
  { │About :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀
-When you execute the About command under "" (System), a dialog box
+When you execute the "About" command under "" (System), a dialog box
 appears on the screen containing information about the program's version
 and copyright.
 
@@ -105,57 +113,54 @@ with the mouse.
 .topic SInfo
  { │System information (F11) :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-When you run the System information command under "" (System), a dialog
+When you run the "System information" command under "" (System), a dialog
 box appears on the screen containing information about your computer's
 current configuration.
 
-{When running under Windows NT:CN_NT} the System Information window
+{When running under Windows NT:CN_NT} the "System Information" window
 displays parameters specific to this operating system, as well as
 extended information about the processor (More CPU info...), obtained
 using the cpuid command.
 
-[STOPPED HERE]
-
-
 .topic SRefreshDisplay
  { │Refresh display :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Команда Refresh display перерисовывает содержимое экрана,
-а также реинициализирует "мышь" и аппаратный курсор.
+The "Refresh display" command redraws the screen contents and also
+reinitializes the mouse and the hardware cursor.
 
 .topic SClearDesktop
  { │Clear desktop :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Команда Clear desktop закрывает все окна на экране.
+The "Clear desktop" command closes all windows on the screen.
 
 .topic SClearHistory
  { │Clear history (Alt+Del) :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Команда Clear history удаляет из памяти все строки истории, не отмеченные
-как невытесняемые. Чтобы полностью очистить историю строк ввода, нужно
-при выполнении этой команды из меню удерживать клавишу Ctrl
-(Alt+Ctrl+Del нажимать не стоит).
+The "Clear history" command deletes all history entries from memory that
+are not marked as non-displaceable. To completely clear the input
+history, you must hold down the Ctrl key while executing this command
+from the menu (do not press Ctrl+Alt+Del!).
 
 .topic SMemoryMap
  { │Memory map :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-При выполнении команды Memory map пункта  (System) меню на экране
-появляется окно, содержащее карту памяти (размещение загруженных на
-данный момент программ в памяти).
+When you execute the "Memory map" command under the "" (System) menu, a
+window appears on the screen containing the memory map (the layout of
+currently loaded programs in memory).
 
 .topic SCode
  { │Code :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀
-При выполнении команды Code пункта  (System) меню на экране
-появляется окно кода {Code:Source}.
+When the "Code" command is executed from the "" (System) menu, a window
+containing the code {Code:Source} appears on the screen.
 
 .topic SDump
  { │Dump :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀
-При выполнении команды Dump пункта  (System) меню на экране
-появляется окно редактора памяти {Dump:Mem}.
+When you execute the "Dump" command under the "" (System) menu item, the
+memory editor window {Dump:Mem} appears on the screen.
 
-См.также
+See also:
 
  {Memory list:Mem}
  {CPU window:CPUWindow}
@@ -163,279 +168,284 @@ using the cpuid command.
 .topic SEnvDlg
  { │Environment (Alt+F11) :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-При выполнении команды Environment пункта  (System) меню на экране
-появляется диалоговое окно редактора окружения
+When you execute the "Environment" command from the "" (System) menu,
+the environment editor dialog box appears on the screen
 {Environment editor:EnvDlg}.
 
 .topic EnvDlg
  { Environment editor :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Диалоговое окно редактора окружения содержит:
+The environment editor dialog box contains:
 
- ■ список переменных окружения (Environment variables)
- ■ строку редактирования (Edit)
- ■ кнопки Modify, New, Delete, Copy, Done
+ ■ a list of environment variables
+ ■ an edit field ("Edit")
+ ■ Buttons for Modify, New, Delete, Copy, and Done
 
-Команда Modify делает активной строку редактирования с выбранной
-переменной окружения.
+The "Modify" command makes the edit line with the selected environment
+variable active.
 
-Команда New добавляет в список переменных пустую строку,
-после чего выполняет команду Modify.
+The "New" command adds an empty line to the list of variables, then
+executes the Modify command.
 
-Команда Delete удаляет выбранную переменную окружения из списка.
+The "Delete" command removes the selected environment variable from the
+list.
 
-Команда Copy копирует содержимое списка в {Clipboard}.
+The "Copy" command copies the contents of the list to the {Clipboard}.
 
-Команда Done закрывает диалоговое окно и обновляет список переменных
-окружения в памяти программы.
+The "Done" command closes the dialog box and updates the list of
+environment variables in the program's memory.
 
-Существует возможность резервировать место в окружении при помощи
-специальной переменной с именем $CNSAVE и значением, равным любой
-строке, начинающейся с символа '#' (ASCII 35), например:
+It is possible to reserve a place in the environment using a special
+variable named `$CNSAVE` with a value equal to any string beginning with
+the character '#' (ASCII 35). For example:
 
  $CNSAVE=################################
 
-Обнаружив такую переменную, редактор окружения будет автоматически
-сокращать ее длину при добавлении других переменных и расширять
-при сокращении других переменных.
+Upon detecting such a variable, the environment editor will automatically
+shorten its length when adding other variables and expand it when
+shortening other variables.
 
 .topic SASCIITable
  { │ASCII table (Alt+T) :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Команда ASCII table вызывает таблицу кодов IBM PC {ASCII table:ASCIITable}.
+The "ASCII table" command displays the IBM PC code table
+{ASCII table:ASCIITable}.
 
 .topic ASCIITable
  { ASCII Table :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀
-Таблица ASCII содержит полный набор символов IBM PC. Текущий символ
-выделен курсором. Для выбора символа можно пользоваться клавиатурой либо
-"мышью". Если таблица открыта над окном редактора, то при нажатии клавишы
-Enter либо двойном нажатии кнопки "мыши" текущий символ будет вставлен
-в позицию курсора; если при этом клавиша Ctrl была нажата, то окно таблицы
-закроется. Правой кнопкой "мыши" или клавишами Ctrl+Down, Ctrl+Up
-вызывается диалоговое окно {Key codes:KeyView}, показывающее расширенный
-скан-код нажатой клавиши или комбинации клавиш, например, Alt+Back ($0100).
+The ASCII table contains the full set of IBM PC characters. The current
+character is highlighted by the cursor. You can use the keyboard or the
+mouse to select a character. If the table is open above the editor
+window, pressing the Enter key or double-clicking the mouse will insert
+the current character at the cursor position; if the Ctrl key is held
+down while doing so, the table window will close. Right-clicking or
+pressing either Ctrl+Down or Ctrl+Up opens the {Key codes:KeyView} dialog
+box, which displays the extended scan code of the pressed key or key
+combination, for example, Alt+Back ($0100).
 
 .topic SCalculator
  { │Calculator (Alt+L) :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Команда Calculator вызывает на экран калькулятор программиста
+The "Calculator" command displays a programmer's calculator on the screen
 ({Calculator}).
 
 .topic Calculator
  { Calculator :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀
-Это многофункциональный калькулятор, работающий в шестнадцатиричной,
-десятичной, восьмиричной и двоичной системе исчисления. Работать с ним
-можно, используя клавиатуру либо нажимая кнопки калькулятора "мышью".
+This is a multifunctional calculator that operates in hexadecimal,
+decimal, octal, and binary number systems. You can use it by typing on
+the keyboard or clicking the calculator buttons with the mouse.
 
-Кнопка 'R' выполняет сброс; кнопка '' (клавиша BackSpace) стирает последний
-введенный символ; кнопки '!', '&', '|', '^' выполняют соответствующие
-логические функции (NOT, AND, OR, XOR); кнопка '_' присваивает величине
-знак "минус"; кнопка '' ('Ctrl+R') выполняет вычисление обратной величины;
-кнопки 'S' и 'Q' выполняют возведение в квадрат и вычисление квадратного корня
-соответственно.
+The 'R' button clears the display;
+the '' button (BackSpace key) deletes the last character entered;
+the '!', '&', '|', and '^' buttons perform the corresponding logical
+  functions (NOT, AND, OR, XOR);
+the '_' button assigns a minus sign to the value; [Note: the underscore
+appears in the help file, not a minus sign '-'; CHECK THIS STATEMENT!]
+the '' button ('Ctrl+R') calculates the reciprocal;
+the 'S' and 'Q' buttons square and calculate the square root, respectively.
 
-Для перехода между дисплеями используйте клавишу Tab или "мышь".
-Для перехода из одного {режима:ToggleHex} в другой на нижнем дисплее
-используйте клавишы Down, Up или "мышь" (двойное нажатие).
-Для перехода из одного {диапазона:ToggleCalc} в другой используйте
-клавишы Left, Right.
+To switch between displays, use the Tab key or the mouse. To switch from
+one {mode:ToggleHex} to another on the lower display, use the Down or Up
+keys, or the mouse (double-click). To switch from one {range:ToggleCalc}
+to another, use the Left and Right keys.
 
-Стрелки слева и справа от верхнего дисплея служат соответственно для
-{записи в память:CalcPush} и {извлечения из памяти:CalcPop}. Для
-выполнения этих операций нажмите соответствующую стрелку "мышкой" или
-нажмите клавиши Ctrl+, Ctrl+.
+The arrows to the left and right of the top display are used for
+{storing in memory:CalcPush} and {retrieving from memory:CalcPop},
+respectively. To perform these operations, click the corresponding arrow
+with the mouse or press the Ctrl+Up or Ctrl+Down keys.
 
 .topic ToggleHex
-Установка режима нижнего дисплея калькулятора (Hex, Octal, Binary).
+Setting the mode of the calculator's lower display (Hex, Octal, Binary).
 
 .topic ToggleCalc
-Установка диапазона работы калькулятора (Range):
+Setting the calculator's operating range (Range):
 
- ■ Real     (-1.7E38..1.7E38)
- ■ Shortint (-128..127)
- ■ Integer  (-32768..32767)
- ■ Longint  (-2147483648..2147483647)
- ■ Byte     (0..255)
- ■ Word     (0..65535)
+ ■ Real     (-1.7E38 .. 1.7E38)
+ ■ Shortint (-128 .. 127)
+ ■ Integer  (-32768 .. 32767)
+ ■ Longint  (-2147483648 .. 2147483647)
+ ■ Byte     (0 .. 255)
+ ■ Word     (0 .. 65535)
 
 .topic CalcPush
-Команда Push to memory (Ctrl+Up) записывает в память число на верхнем
-дисплее калькулятора. Извлечь числа из памяти можно командой
-{Pop from memory:CalcPop}.
+The "Push to memory" command (Ctrl+Up) saves the number on the
+calculator's top display to memory. You can retrieve numbers from memory
+using {Pop from memory:CalcPop}.
 
 .topic CalcPop
-Команда Pop from memory (Ctrl+Down) открывает окно с числами,
-записанными в память командой {Push to memory:CalcPush}. Выбранное
-число появится на верхнем дисплее калькулятора.
+The "Pop from memory" command (Ctrl+Down) opens a window with the number
+last stored in memory by the {Push to memory:CalcPush} command. The
+selected number will appear on the calculator's top display.
 
 .topic Expressions
-Команда Expressions (Ctrl+Enter) открывает диалоговое окно
+The "Expressions" command (Ctrl+Enter) opens the dialog box
 {Solve expressions:SolveExprDlg}.
 
 .topic SolveExprDlg
  { Solve expressions :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Диалоговое окно Solve expressions предназначено для вычисления
-{математических выражений:CtrlQM}.
+The "Solve expressions" dialog box is designed to evaluate
+{mathematical expressions:CtrlQM}.
 
-Окно состоит из строки для ввода выражений и панели, на которой
-отображается результат вычисления в различных форматах. Результат
-вычисления показывается на панели сразу в процессе изменения
-содержимого строки. Если в строке для ввода выражений текст частично
-выделен (Shift+Right, Shift+Left), вычисление производится только для
-выделенной части выражения. Панель также содержит переключатели
-Copy as для выбора формата представления результата при копировании
-в {Clipboard} командой Copy.
+The window consists of a line for entering expressions and a panel that
+displays the result of the calculation in various formats. The result of
+the calculation is shown on the panel immediately as the content of the
+line changes. If text is partially selected in the expression input line
+(Shift+Right, Shift+Left), the calculation is performed only for the
+selected part of the expression. The panel also contains "Copy as" radio
+buttons for selecting the format of the result when copying to the
+{Clipboard} using the "Copy" command.
 
-Команда Evaluate (Enter) служит для подставления получившегося
-результата вычисления (в десятичном формате) в строку для ввода
-выражений.
+The "Evaluate" (Enter) command is used to insert the resulting
+calculation (in decimal format) into the expression input line.
 
-Вы можете последовательно вводить выражения, содержащие переменные,
-например:
+You can enter expressions containing variables sequentially, for example:
 
   A5 := 14.78
   B := 23.91
   LN(2) * (A5 + SQRT(B))
 
-  Результат = 13.6340562039
+  Result = 13.6340562039
 
-Для того, чтобы при выполнении команды меню {Calculator:SCalculator}
-(Alt+L, Ctrl+Alt+L) всегда открывалось диалоговое окно
-Solve expressions вместо обычного {калькулятора:Calculator}, нужно
-включить флаг Always open this dialog box rather than Calculator window.
+To ensure that when executing the {Calculator:SCalculator} menu command
+(Alt+L, Ctrl+Alt+L) always opens the "Solve expressions" dialog box
+instead of the usual {calculator:Calculator}, you need to enable the flag
+"Always open this dialog box rather than Calculator window".
 
 .topic SCalendar
  { │Calendar (Alt+C) :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Команда Calendar вызывает на экран календарь ({Calendar}),
-показывающий текущий месяц и позволяющий просматривать любой месяц.
+The "Calendar" command displays a calendar ({Calendar}) showing the
+current month and allowing you to view any month.
 
 .topic Calendar
  { Calendar :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀
-Календарь показывает текущий месяц, выделяя сегодняшний день.
-Последующие и предыдущие месяцы можно посмотреть, нажимая соответственно
-клавиши '+' или '-' либо нажимая "мышью" символы  или .
+The calendar displays the current month, highlighting today's date. You
+can view the following and previous months by pressing the '+' or '-'
+keys, respectively, or by clicking the '' or '' symbols with the mouse.
 
 .topic SAlarm
  { │Alarm (Alt+<) :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Команда Alarm clock вызывает диалоговое окно {Alarm list:Alarm}.
+The "Alarm clock" command opens the {Alarm list:Alarm} dialog box.
 
 .topic Alarm
  { Alarm list :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀
-Диалоговое окно Alarm list содержит:
+The "Alarm list" dialog box contains:
 
- ■ список пунктов (Items)
- ■ кнопки Modify, New, Delete, Adjust
+ ■ a list of items
+ ■ Modify, New, Delete, and Adjust buttons
 
-Команда Modify вызывает диалоговое окно {Modify item:NewItem},
-в котором можно изменить параметры ранее введенного пункта.
+The "Modify" command opens the {Modify item:NewItem} dialog box, where
+you can change the parameters of a previously entered item.
 
-Команда New вызывает диалоговое окно {New item:NewItem},
-которое позволяет включить в список Items новый пункт.
+The "New" command opens the {New item:NewItem} dialog box, which allows
+you to add a new item to the Items list.
 
-Команда Delete удаляет пункт из списка Items.
+The "Delete" command removes an item from the Items list.
 
-Команда {Adjust:NewItemPos} позволяет переместить пункт на другое место
-в списке.
+The {Adjust:NewItemPos} command allows you to move an item to a
+different position in the list.
 
 .topic NewItem
  { New item / Modify item :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-В диалоговом окне New item / Modify item задается дата и время,
-о наступлении которого Вы хотите быть предупреждены, а также
-текст предупреждения. В указанный момент раздастся звуковой
-сигнал и появится окно с текстом предупреждения.
+In the "New item/Modify item" dialog box, you specify the date and time
+for which you want to be alerted, as well as the alert text. At the
+specified time, an audible alert will sound and a window with the alert
+text will appear.
 
-Если дата не указана, либо указана некорректно, программа ставит
-текущую дату; если не указано время, программа ставит 0 (ноль).
+If no date is specified, or if it is specified incorrectly, the program
+sets the current date; if no time is specified, the program sets 0
+(zero).
 
-Если включена опция Everyday, пункт будет выполняться ежедневно.
+If the "Everyday" option is enabled, the item will be executed daily.
 
-Если включена опция Execute if overdue, пункт будет выполняться,
-если время просрочено (программа в это время не работала).
+If the "Execute if overdue" option is enabled, the item will be executed
+if the time has passed (the program was not running at that time).
 
-Если включена опция Delete after execution, пункт будет удален
-после выполнения.
+If the "Delete after execution" option is enabled, the item will be
+deleted after execution.
 
 .topic SSpooler
  { │Spooler (Alt+>) :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Команда Spooler вызывает диалоговое окно {Spooler}.
+The "Spooler" command opens the {Spooler} dialog box.
 
 .topic Spooler
  { Spooler :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀
-Диалоговое окно Spooler содержит:
+The Spooler dialog box contains:
 
- ■ список окон или файлов в очереди принтера (Spooler queue)
- ■ кнопки File, Next, Delete, Abort
+ ■ a list of windows or files in the printer queue ("Spooler queue")
+ ■ File, Next, Delete, and Abort buttons
 
-Команда File позволяет с помощью {файлового диалога:FileDialog}
-выбрать и поместить в очередь принтера файл на диске (см.также
-директиву {$PRINT:Directives}).
+The "File" command allows you to use the {File Dialog:FileDialog}
+to select and place a file on disk into the printer queue (see also the
+{$PRINT:Directives} directive).
 
-Команда Next ставит выбранное окно или файл первым в очередь после
-текущего распечатываемого.
+The "Next" command places the selected window or file first in the queue
+after the one currently being printed.
 
-Команда Delete удаляет окно или файл из очереди принтера.
+The "Delete" command removes a window or file from the printer queue.
 
-Команда Abort очищает очередь и реинициализирует принтер.
+The "Abort" command clears the queue and reinitializes the printer.
 
 .topic SDialer
  { │Dialer (Alt+?) :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Команда Dialer вызывает диалоговое окно {Dialer}.
+The "Dialer" command opens the {Dialer} dialog box.
 
 .topic Dialer
  { Dialer :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀
-Диалоговое окно Dialer содержит:
+The Dialer dialog box contains:
 
- ■ список телефонных номеров в очереди
-   автодозвона
- ■ кнопки Redial, Abort, Insert, Load,
-   Paste, Delete, Adjust
+ ■ a list of phone numbers in the queue to auto-dial
+ ■ buttons for Redial, Abort, Insert, Load, Paste, Delete, Adjust
 
-В каждой строке списка помимо собственно телефонного номера может
-присутствовать комментарий, отделенный символом ';', например:
+In addition to the phone number itself, each line in the list may contain
+a comment separated by a ';' character. For example:
 
-  214-35-76; Иван Петрович
+  214-35-76; Ivan Petrovich
 
-Команда Redial начинает автодозвон с номера, на котором стоит курсор.
-Если при этом нажата клавиша Ctrl, диалоговое окно закрывается.
+The "Redial" command starts auto-dialing from the number where the cursor
+is located. If the Ctrl key is pressed at the same time, the dialog box
+closes.
 
-Программа поочередно звонит по каждому из номеров списка с задержкой,
-указанной в диалоговом окне {Modem setup:ModemSetup} до тех пор,
-пока не появится сигнал CD (Carrier Detect) или пока операция не будет
-прервана командой Abort (клавиша Esc в окне {Terminal}).
+The program dials each number in the list in turn with the delay
+specified in the {Modem setup:ModemSetup} dialog box until a CD (Carrier
+Detect) signal is received or until the operation is interrupted by the
+"Abort" command (the Esc key in the {Terminal} window).
 
-Список можно заполнять командами Insert (ввод номера вручную),
-Load (загрузка из текстового файла, выбранного с помощью
-{файлового диалога:FileDialog}), Paste (из окна {Clipboard}),
-а также из окон {Terminal} и {Phone list:PhoneBook} командой Dial.
+The list can be populated using the "Insert" command (manual entry of a
+number), the "Load" command (loading from a text file selected via
+{File Dialog:FileDialog}), or "Paste" (from the {Clipboard} window).
+Pasting can also be done from the {Terminal} and {Phone List:PhoneBook}
+windows under the "Dial command.
 
-Команда Delete удаляет текущий номер из очереди. Если при этом нажата
-клавиша Ctrl, очищается весь список.
+The "Delete" command removes the current number from the queue. If the
+Ctrl key is pressed while doing this, the entire list is cleared. [That
+is, Ctrl-Del should delete the entire list.]
 
-Команда {Adjust:NewItemPos} позволяет переместить номер на другое место
-в списке.
+The {Adjust:NewItemPos} command allows you to move a number to a
+different position in the list.
 
 .topic SCDPlayer
  { │CD Player (Ctrl+F11) :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Команда CD Player вызывает {проигрыватель компакт-дисков:CDPlayer}.
+The "CD Player" command invokes {CD player:CDPlayer}.
 
 .topic CDPlayer,CtrlCDPlayer
+
+of .topic CDPlayer,CtrlCDPlayer
  { CD Player :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀
-Окно CD Player предназначено для управления воспроизведением музыкальных
-компакт-дисков.
+The "CD Player" window is designed to control the playback of music CDs.
 
   {╔[:AbsColor_$3F}{■:AbsColor_$3A}{]═════════════ CD Player│Led Zeppelin (p) 1971 ═════════════[:AbsColor_$3F}{:AbsColor_$3A}{]╗:AbsColor_$3F}
   {║:AbsColor_$3F} ┌───Track───────Track time────┐                                 {║:AbsColor_$3F}
@@ -448,10 +458,10 @@ Load (загрузка из текстового файла, выбранного с помощью
   {║:AbsColor_$3F} {:AbsColor_$3E} {Stairway To Heaven:AbsColor_$3F} ███▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ {║:AbsColor_$3F}
   {╚═════════════════════════════════════════════════════════════════╝:AbsColor_$3F}
 
-Окно содержит дисплей для отображения номера композиции и текущего времени
-проигрывания, информационную строку, показывающую статус CD-ROM drive
-либо название воспроизводимой композиции, "ползунок", отображающий процесс
-воспроизведения, а также следующие кнопки:
+The window contains a display showing the track number and current
+playback time, an information bar showing the status of the CD-ROM drive
+or the name of the track being played, a "progress bar" showing the
+playback process, and the following buttons:
 
   [  ■■  ]     Stop
   [  ═  ]     Play
@@ -468,7 +478,7 @@ Load (загрузка из текстового файла, выбранного с помощью
   [   Mix   ]  Sound Mixer
   [ Options ]  CD Player options
 
-Команды окна CD Player:
+Keyboard commands for the CD Player:
 
   Ctrl+S, S    Stop
   Ctrl+P, P    Play
@@ -483,164 +493,168 @@ Load (загрузка из текстового файла, выбранного с помощью
   Ctrl+D       Toggle display time mode
   Ctrl+W       Track list
 
-  Right        Fast forward
-  Left         Rewind
-  Ctrl+Right   Skip forward
-  Ctrl+Left    Skip back
-  Ins,
-  Ctrl+Ins     Eject
-  Home         Begin track
-  End          Skip forward
-  Ctrl+Home    First track
-  Ctrl+End     Last track
+  Right         Fast forward
+  Left          Rewind
+  Ctrl+Right    Skip forward
+  Ctrl+Left     Skip back
+  Ins,Ctrl+Ins  Eject
+  Home          Begin track
+  End           Skip forward
+  Ctrl+Home     First track
+  Ctrl+End      Last track
 
-После установки компакт-диска в верхней части рамки дисплея появляются
-переключатели режимов отображения номера и времени звучания композиции:
+After inserting a CD, the display frame at the top shows the switches for
+the track number and playback time display modes:
 
-  Track        Номер текущей композиции
-  Total        Всего композиций на диске
+  Track        Current track number
+  Total        Total number of tracks on the disc
 
-  Track time   Текущее время звучания композиции
-  Track total  Общее время звучания текущей композиции
-  Track left   Время до окончания текущей композиции
-  Disk time    Текущее время звучания компакт-диска
-  Disk total   Общее время звучания компакт-диска
-  Disk left    Время до окончания компакт-диска
+  Track time   Current track duration
+  Track total  Total duration of the current track
+  Track left   Time remaining until the end of the current track
+  Disk time    Current CD playback time
+  Disk total   Total CD playback time
+  Disk left    Time remaining on the CD
 
-Эти режимы переключаются нажатием кнопки "мыши" либо клавишами Ctrl+T и
-Ctrl+D. Если удерживать клавишу Shift, режим отображения времени
-переключается в обратном направлении.
+These modes can be switched by clicking the mouse button or using the
+Ctrl+T and Ctrl+D keys. If you hold down the 'Shift' key, the time
+display mode switches in the opposite direction.
 
-Нажатие кнопки "мыши" в области отображения номера или числа композиций
-на дисплее приводит к выполнению команды Select track.
+Clicking the mouse button in the track number or track count display area
+executes the "Select track" command.
 
-Команда Stop останавливает воспроизведение и перемещает считывающую головку
-на начало компакт-диска. Если удерживать клавишу Ctrl, будет выполнена
-реинициализация CD-ROM drive.
+The "Stop" command stops playback and moves the read head to the
+beginning of the CD. If you hold down the Ctrl key, the CD-ROM drive will
+be reinitialized.
 
-Команда Play начинает воспроизведение.
+The "Play" command starts playback.
 
-Команда Pause приостанавливает или вновь начинает воспроизведение.
+The "Pause" command pauses or resumes playback.
 
-Команда Eject выдвигает или задвигает дверцу CD-ROM drive. Если удерживать
-клавишу Ctrl, команда будет выполнена даже в случае, если дверца заперта
-(см.также {Options│CD Player:OCDOptions}).
+The "Eject" command opens or closes the CD-ROM drive door. If you
+hold down the Ctrl key, the command will be executed even if the
+door is locked (see also {Options│CD Player:OCDOptions}).
 
-Команда Skip back выполняет перемотку до начала предыдущей композиции.
+The "Skip Back" command rewinds to the beginning of the previous
+track.
 
-Команда Rewind выполняет ускоренную перемотку назад.
+The "Rewind" command fast-rewinds.
 
-Команда Fast forward выполняет ускоренную перемотку вперед.
+The "Fast forward" command fast-forwards.
 
-Команда Skip forward выполняет перемотку до начала следующей композиции.
+The "Skip forward" command skips to the beginning of the next track.
 
-Команда Begin track выполняет перемотку до начала текущей композиции.
+The "Begin track" command rewinds to the beginning of the current
+track.
 
-Команда First track выполняет перемотку до начала первой композиции.
+The "First track" command rewinds to the beginning of the first
+track.
 
-Команда Last track выполняет перемотку до начала последней композиции.
+The "Last track" command skips to the beginning of the last track.
 
-Команда Select track открывает диалоговое окно
-{Select a track to play:CDTracks}, позволяющее выбрать номер композиции
-для воспроизведения.
+The "Select track" command opens the {Select a track to play:CDTracks},
+allowing you to select the track number to play.
 
-Команда Track list (Ctrl+W) открывает окно
+The "Track list" command (Ctrl+W) opens the
 {Track list window:CDTrackList}.
 
-Команда Album открывает в окне {текстового редактора:ASCIIEditor} файл,
-содержащий название альбома и перечень композиций данного компакт-диска
-(см.также {CD albums:CDAlbums}). Если в каталоге CD albums directory
-(см.также {Options│CD Player:OCDOptions}) такого файла нет, он создается и
-заполняется номерами композиций.
+The "Album" command opens a file in the {text editor:ASCIIEditor} window
+containing the album title and a list of tracks for the current CD (see
+also {CD albums:CDAlbums}). If no such file exists in the CD albums
+directory (see also {Options│CD Player:OCDOptions}), it is created and
+populated with track numbers.
 
-Название альбома отображается в рамке окна CD Player, название текущей
-композиции - в информационной строке под кнопками.
+The album title is displayed in the CD Player window frame, and the title
+of the current track is displayed in the information bar below the
+buttons.
 
-Команда Lyrics служит для просмотра текстов песен альбома
-(см.также {CD albums:CDAlbums}).
+The "Lyrics" command is used to view the lyrics of the album's songs
+(see also {CD albums:CDAlbums}).
 
-Команда Mix запускает программу Sound Mixer, указанную в строке
-Sound Mixer command диалогового окна {CD Player options:OCDOptions},
-которое можно вызвать командой Options.
+The "Mix" command launches the Sound Mixer program specified in the
+"Sound Mixer" command line of the {CD Player options:OCDOptions} dialog
+box, which can be opened with the "Options" command.
 
 .topic CDTracks
-Диалоговое окно Select a track to play позволяет выбрать для проигрывания
-любую композицию из имеющихся на компакт-диске. Окно содержит кнопки
-с номерами всех композиций, которые становятся активными при нажатии
-соответствующих цифровых клавиш, например, 04 или 12.
+The "Select a track to play" dialog box allows you to select any track
+from the CD for playback. The window contains buttons with the numbers of
+all tracks, which become active when you press the corresponding number
+keys, for example, 04 or 12.
 
 .topic CDTrackList
-Окно Track list window содержит список названий всех композиций, указанных
-в файле {CD album:CDAlbums}, соответствующем данному компакт-диску.
-{Проигрыватель компакт-дисков:CDPlayer} начинает воспроизведение с выбранной
-композиции.
+The "Track list window" contains a list of the titles of all tracks
+specified in the {CD album:CDAlbums} file corresponding to this CD.
+{CD Player:CDPlayer} starts playback from the selected track.
 
 .topic CDAlbums
-Для любого компакт-диска с помощью команды Album окна {CD Player:CDPlayer}
-можно создать текстовый файл с именем, соответствующим уникальным
-характеристикам этого диска, и расширением .CD, состоящий из следующих
-строк:
+For any CD, using the "Album" command in the {CD Player:CDPlayer} window,
+you can create a text file with a name corresponding to the unique
+characteristics of that disc and a .CD extension, consisting of the
+following lines:
 
- TITLE:         Название альбома               ; Общее время звучания
- $LYRICS:       Команда для просмотра текстов песен
- 01:            Название первой композиции     ; Время звучания
- 02:            Название второй композиции     ; Время звучания
-    * * * * * *
- 12:            Название последней композиции  ; Время звучания
 
-Файл создается в каталоге CD albums directory
-(см.также {Options│CD Player:OCDOptions}).
+  TITLE:     Album title                  ; Total playing time
+  $LYRICS:   Command to view song lyrics
+  01:        Title of the first track     ; Duration
+  02:        Title of the second track    ; Duration
+     * * *
+  12:        Title of the last track      ; Duration
 
-Директива {$LYRICS:Color_2} служит для просмотра текстов песен альбома
-при выполнении команды Lyrics. Примеры ее использования:
+The file is created in the CD albums directory (see also
+{Options│CD Player:OCDOptions}).
 
- $LYRICS:$HELP($CN\CD\LYRICS.HLP) [Search string]
+The {$LYRICS:Color_2} directive is used to view the album's song lyrics
+when the "Lyrics" command is executed. Examples of its use:
 
-или
+  $LYRICS:$HELP($CN\CD\LYRICS.HLP) [Search string]
 
- $LYRICS:$VIEW(D:\MUSIC\LYRICS\LYRICS.TXT)
+or
 
-В первом примере открывается окно Help с файлом LYRICS.HLP из подкаталога
-CD в рабочем каталоге программы и выполняется поиск строки Search string
-или, если она не указана, названия текущей композиции среди перечисленных
-в первом контексте пунктов.
-Во втором примере открывается окно {Text viewer:TextViewer} для просмотра
-файла LYRICS.TXT, находящегося в каталоге D:\MUSIC\LYRICS.
+  $LYRICS:$VIEW(D:\MUSIC\LYRICS\LYRICS.TXT)
 
-Директивы {$LYRICS:Color_2} с командной строкой могут также находиться
-после названия каждой композиции. При этом для каждой композиции будет
-выполняться своя команда просмотра текста, например:
+In the first example, the Help window opens with the LYRICS.HLP file from
+the CD subdirectory of the program's [Connect's] working directory, and a
+search is performed for the Search string or, if not specified, the title
+of the current track among the items listed in the first context. In the
+second example, the {Text viewer:TextViewer} window opens to view the
+LYRICS.TXT file located in the D:\MUSIC\LYRICS directory.
 
- 01:Название первой композиции $LYRICS:$VIEW(TRACK01.TXT)
- 02:Название второй композиции $LYRICS:$VIEW(TRACK02.TXT)
-    * * * * * *
- 12:Название последней композиции $LYRICS:$VIEW(TRACK12.TXT)
+The {$LYRICS:Color_2} directives with a command line can also appear
+after the name of each track. In this case, a separate text viewing
+command will be executed for each track, for example:
 
-Если для какой-либо композиции команда просмотра текста выполняться
-не должна (например, композиция чисто инструментальная), нужно использовать
-директиву {$NOLYRICS:Color_2}:
+  01:Title of the first track   $LYRICS:$VIEW(TRACK01.TXT)
+  02:Title of the second track  $LYRICS:$VIEW(TRACK02.TXT)
+     * * * *
+  12:Title of the last track    $LYRICS:$VIEW(TRACK12.TXT)
 
-    * * * * * *
- 04:Название четвертой композиции $NOLYRICS
-    * * * * * *
+If the lyric display command should not be executed for a particular
+track (e.g., a purely instrumental track), use the {$NOLYRICS:Color_2}
+directive:
 
-Для автоматического выполнения команды Lyrics при проигрывании каждой
-композиции служит директива {$AUTO:Color_2}, которая должна находиться
-в конце основной строки с директивой {$LYRICS:Color_2}:
+     * * * * * *
+  04:Title of the fourth track  $NOLYRICS
+     * * * * * *
 
- $LYRICS:$HELP($CN\CD\LYRICS.HLP) $AUTO
+To automatically execute the "Lyrics" command when playing each track,
+use the {$AUTO:Color_2} directive, which must be placed at the end of the
+main line containing the {$LYRICS:Color_2} directive:
 
-Порядок следования номеров и названий композиций используется при
-воспроизведении в режиме User order, при этом номера композиций могут
-повторяться.
+  $LYRICS:$HELP($CN\CD\LYRICS.HLP) $AUTO
+
+The order of track numbers and titles is used when playing in "User
+order" mode, and track numbers may be repeated.
+
+[STOPPED HERE]
 
 .topic File
  { File (Alt+F) :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Пункт меню File содержит команды, поддерживающие работу с файлами:
-их редактирование, сохранение, вывод на печать, а также команды
-изменения текущего каталога, временного выхода в DOS, выхода из
-программы. Раскрыв пункт File, Вы увидите:
+
+The "File" menu contains commands for working with files: editing,
+saving, and printing, as well as commands for changing the current
+directory, temporarily switching to DOS, and exiting the program. When
+you open the "File" menu, you will see:
 
   {Open:FOpen}
   {New:FNew}
@@ -670,44 +684,42 @@ CD в рабочем каталоге программы и выполняется поиск строки Search string
  │ ▒▒▒■▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  │
  └──────────────────────────────┘
 
-Список файлов содержит имена файлов в текущем каталоге в соответствии
-с маской-фильтром в строке ввода Name ({Input box:Name}), а также
-родительский каталог и все подкаталоги.
+The file list contains the names of files in the current directory that
+match the filter pattern in the "Name" input box ({Input box:Name}), as
+well as the parent directory and all subdirectories.})
 
  ┌──────────────────────────────────────────┐
  │ C:\DOC\SPEC\*.TXT                        │
  │ MYOWN.TXT    12552  Jul 14,1990  12:00pm │
  └──────────────────────────────────────────┘
 
-Информационная панель содержит путь, имя, дату, время создания и размер
-выбранного файла.
+The information pane displays the path, filename, filesize, creation
+date, and creation time of the selected file.
 
-Если включена опция поддержки длинных имен
-{Options│Setup│Enable Win95 LFN API:Setup},
-нажатие на клавиши Ctrl+F или щелчок кнопкой "мыши"
-на управляющем элементе [ ] Long name переключает режим
-отображения файлов в списке: одна или две колонки.
+If the long filename support option is enabled
+{Options│Setup│Enable Win95 LFN API:Setup}, pressing Ctrl+F or clicking
+the "[ ] Long name" control switches the file display mode in the list:
+one or two columns.
 
-Список файлов может быть отсортирован по имени, расширению,
-времени или размеру, а также в порядке возрастания или
-убывания с помощью локального меню, вызываемого правой кнопкой
-"мыши" либо нажатием клавиш Alt+F10.
+The file list can be sorted by name, extension, time, or size, as well as
+in ascending or descending order using the context menu accessed by
+right-clicking the mouse or pressing Alt+F10.
 
-Для вызова {диалогового окна выбора текущего диска:DriveDialog}
-нужно нажать клавиши Alt+D или щелкнуть кнопкой "мыши"
-на надписи Name.
+To open the {current drive selection dialog:DriveDialog}, press Alt+D
+or click the mouse button on the "Name" label.
 
 .topic DirDialog
  { Directory dialog :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Диалоговое окно Change directory состоит из строки ввода, списка
-каталогов, кнопок OK, Chdir и Revert.
+The "Change directory" dialog box consists of an input field, a list of
+directories, and the OK, Chdir, and Revert buttons.
 
  ┌ Directory Name ─────────────────────┐
  │                                     │
  └─────────────────────────────────────┘
 
-Строка ввода Directory Name служит для ввода пути нового каталога.
+The "Directory Name" input field is used to enter the path of the new
+directory.
 
  ┌ Directory Tree ─────────────────────┐
  │   Drives                            │
@@ -716,83 +728,83 @@ CD в рабочем каталоге программы и выполняется поиск строки Search string
  │       └──SPEC                       │
  └─────────────────────────────────────┘
 
-Список каталогов Directory Tree позволяет выбирать искомый каталог
-с помощью "мыши" или клавиатуры. Выбранный каталог становится текущим
-после нажатия клавиши Enter или кнопки OK.
+The "Directory Tree" allows you to select the desired directory using the
+mouse or keyboard. The selected directory becomes the current directory
+after pressing the Enter key or the OK button.
 
  ┌──────────┐
  │ [Chdir ] │
  └──────────┘
 
-Кнопка Chdir изменяет текущий каталог на выбранный либо введенный в
-строке ввода Directory Name.
+The "Chdir" button changes the current directory to the one selected or
+entered in the "Directory Name" input field.
 
  ┌──────────┐
  │ [Revert] │
  └──────────┘
 
-Кнопка Revert возвращает предыдущий каталог.
+The "Revert" button restores the previous directory.
 
 .topic ASCIIEditor,AltASCIIEditor
  { Edit window :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀
-В окне редактора файлов находится содержимое выбранного файла
-в ASCII-формате. Перемещаться по файлу можно с помощью "мыши" либо
-клавиатуры:
+The file editor window displays the contents of the selected file in
+ASCII format. You can navigate through the file using the mouse or the
+keyboard:
 
-  Up         Подняться на строку вверх
-  Down       Опуститься на строку вниз
-  Right      Сдвинуть на один символ вправо
-  Left       Сдвинуть на один символ влево
-  PgUp       Подняться на страницу вверх
-  PgDn       Опуститься на страницу вниз
-  Home       Вернуться на первую колонку
-  End        Переместиться на последнюю колонку
-  Ctrl+PgUp  Вернуться в начало файла
-  Ctrl+PgDn  Переместиться в конец файла
-  Ctrl+Left  Переместиться на слово влево
-  Ctrl+Right Переместиться на слово вправо
-  Ctrl+Home  Переместиться на верхнюю строку
-  Ctrl+End   Переместиться на нижнюю строку
+  Up         Move up one line
+  Down       Move down one line
+  Right      Move one character to the right
+  Left       Move one character to the left
+  PgUp       Move up one page
+  PgDn       Move down one page
+  Home       Go to the first column
+  End        Move to the last column
+  Ctrl+PgUp  Go to the beginning of the file
+  Ctrl+PgDn  Move to the end of the file
+  Ctrl+Left  Move one word to the left
+  Ctrl+Right Move one word to the right
+  Ctrl+Home  Move to the top line
+  Ctrl+End   Move to the bottom line
 
-Индикатор в левом нижнем углу окна показывает текущее положение курсора,
-десятичное значение символа, на котором стоит курсор, а также режим
-выделения блоков: сплошной [] или вертикальный [].
-Символ '*' означает, что файл в окне изменен.
+The indicator in the lower-left corner of the window shows the current
+cursor position, the decimal value of the character under the cursor, and
+the block selection mode: solid [] or vertical []. The '*' symbol
+indicates that the file in the window has been modified.
 
-Вы можете перемещать окно, изменять его размеры и закрывать, используя
-команды пункта меню {Window}.
+You can move the window, resize it, and close it using the commands in
+the {Window} menu.
 
-Меню окна текстового редактора вызывается правой кнопкой "мыши"
-либо нажатием клавиш Alt+F10.
+The text editor window menu is accessed by right-clicking or pressing
+Alt+F10.
 
-Команды ASCII-редактора:
+ASCII Editor Commands:
 
-  Backspace  Удаление символа перед курсором
-  Delete     Удаление символа в позиции курсора
-  Enter      Переход на следующую строку
-  Ins        Переключение режима вставки/замены
-  Alt+K      Переключение режима выделения блока
-  Alt+Y      Выбор установленной метки с помощью окна {Place markers:PlaceMarkerDlg}
-  Ctrl+A     Команда Select all (выделение всего текста)
-  Ctrl+B     Команда {Search again:SHSearchAgain} (повторный поиск строки, Backward)
-  Ctrl+L     Команда {Search again:SHSearchAgain} (повторный поиск строки)
-  Ctrl+T     Удаление слова справа
-  Ctrl+U     Команда {Search again:SHSearchAgain} (повторный поиск строки, Forward)
-  Ctrl+Back  Удаление слова слева
-  Ctrl+Y     Удаление строки
-  Ctrl+@     Режим последовательного поиска по буквам ({Incremental search:EditIncSearch})
-  Ctrl+Space Выбор слова в позиции курсора для команды {Search again:SHSearchAgain}
-  Ctrl+-     Дублирование строки
-  Ctrl+^     Дублирование символа над курсором
-  Ctrl+]     Перемена местами слов слева и справа от курсора
-  Ctrl+\     Переход в окно {File Manager:Panel} с поиском текущего файла
+  Backspace  Delete the character before the cursor
+  Delete     Deletes the character at the cursor position
+  Enter      Move to the next line
+  Ins        Toggle insert/overwrite mode
+  Alt+K      Toggle block selection mode
+  Alt+Y      Select a set marker using the {Place markers:PlaceMarkerDlg} dialog box
+  Ctrl+A     Select all command (select all text)
+  Ctrl+B     {Search again:SHSearchAgain} command (search for the string again, backward)
+  Ctrl+L     {Search again:SHSearchAgain} command (search for the string again)
+  Ctrl+U     {Search again:SHSearchAgain} command (search for the string again, forward)
+  Ctrl+T     Delete word to the right
+  Ctrl+Back  Delete word to the left
+  Ctrl+Y     Delete line
+  Ctrl+@     Incremental search mode ({Incremental search:EditIncSearch})
+  Ctrl+Space Select word at the cursor position for the {Search again:SHSearchAgain} command
+  Ctrl+-     Duplicate line
+  Ctrl+^     Duplicate the character above the cursor
+  Ctrl+]     Swap the words to the left and right of the cursor
+  Ctrl+\     Go to the {File Manager:Panel} window with the current file selected
 
-  Shift+F2   Подсчет числа слов и символов в выделенном блоке или во всем тексте
-  Shift+F4   Проверка правописания начиная со слова под курсором (Spell Check)
-  Shift+F8   Удаление слова под курсором из словаря Spell Checker
+  Shift+F2   Count words and characters in the selected block or the entire text
+  Shift+F4   Spell check starting from the word under the cursor
+  Shift+F8   Remove the word under the cursor from the Spell Checker dictionary
 
-См.также
+See also:
 
  {Ctrl+K commands:CtrlKPressed}
  {Ctrl+Q commands:CtrlQPressed}
@@ -801,81 +813,82 @@ CD в рабочем каталоге программы и выполняется поиск строки Search string
  {Block Drag-And-Drop:BlockDragAndDrop}
 
 .topic CtrlKPressed
-Команды текстового редактора при нажатии на клавиши Ctrl+K:
+Text editor commands when pressing Ctrl+K:
 
- { Ctrl+K A   Запись выделенного блока в конец другого файла          :CtrlKA}
- { Ctrl+K B   Обозначение начала выделяемого блока                    :CtrlKB}
- { Ctrl+K C   Копирование выделенного блока в позицию курсора         :CtrlKC}
- { Ctrl+K D   Очистка выделенного блока                               :CtrlKD}
- { Ctrl+K H   Переключение режима выделения блока                     :CtrlKH}
- { Ctrl+K I   Смещение выделенного блока на один символ вправо        :CtrlKI}
- { Ctrl+K K   Обозначение конца выделяемого блока                     :CtrlKK}
- { Ctrl+K L   Выделение строки                                        :CtrlKL}
- { Ctrl+K M   Перенос выделенного блока в позицию курсора с очисткой  :CtrlKM}
- { Ctrl+K n   Установка метки (n = 0..9)                              :CtrlKn}
- { Ctrl+K P   Вывод выделенного блока на печать                       :CtrlKP}
- { Ctrl+K R   Считывание другого файла в позицию курсора              :CtrlKR}
- { Ctrl+K S   Команда Save                                            :FSave}
- { Ctrl+K T   Выделение слова                                         :CtrlKT}
- { Ctrl+K U   Смещение выделенного блока на один символ влево         :CtrlKU}
- { Ctrl+K V   Перенос выделенного блока в позицию курсора с удалением :CtrlKV}
- { Ctrl+K W   Запись выделенного блока в другой файл                  :CtrlKW}
- { Ctrl+K Y   Удаление выделенного блока                              :CtrlKY}
+ { Ctrl+K A   Append the selected block to the end of another file     :CtrlKA}
+ { Ctrl+K B   Mark the start of the block to be selected               :CtrlKB}
+ { Ctrl+K C   Copy the selected block to the cursor position           :CtrlKC}
+ { Ctrl+K D   Clear the selected block                                 :CtrlKD}
+ { Ctrl+K H   Toggle block selection mode                              :CtrlKH}
+ { Ctrl+K I   Shift the selected block one character to the right      :CtrlKI}
+ { Ctrl+K K   Mark the end of the selected block                       :CtrlKK}
+ { Ctrl+K L   Select line                                              :CtrlKL}
+ { Ctrl+K M   Move the selected block to the cursor position and clear it: CtrlKM}
+ { Ctrl+K n   Set a bookmark (n = 0..9)                                :CtrlKn}
+ { Ctrl+K P   Print the selected block                                 :CtrlKP}
+ { Ctrl+K R   Read another file to the cursor position                 :CtrlKR}
+ { Ctrl+K S   Save command                                             :FSave}
+ { Ctrl+K T   Select word                                              :CtrlKT}
+ { Ctrl+K U   Shift the selected block one character to the left       :CtrlKU}
+ { Ctrl+K V   Move the selected block to the cursor position and delete :CtrlKV}
+ { Ctrl+K W   Write the selected block to another file                 :CtrlKW}
+ { Ctrl+K Y   Delete selected block                                    :CtrlKY}
 
-См.также
+See also:
 
  {Ctrl+Q commands:CtrlQPressed}
  {Ctrl+P commands:CtrlPPressed}
  {Ctrl+O commands:CtrlOPressed}
 
 .topic CtrlQPressed
-Команды текстового редактора при нажатии на клавиши Ctrl+Q:
+Text editor commands when pressing Ctrl+Q:
 
- { Ctrl+Q A      Команда Replace                                             :SHReplace}
- { Ctrl+Q B      Поиск начала выделенного блока                              :CtrlQB}
- { Ctrl+Q C      Выравнивание строки по центру относительно курсора          :CtrlQC}
- { Ctrl+Q D      Режим рисования линий (Double)                              :CtrlQD}
- { Ctrl+Q E      Выравнивание строки справа относительно курсора             :CtrlQE}
- { Ctrl+Q F      Команда Find                                                :SHFind}
- { Ctrl+Q G      Выравнивание строки слева относительно курсора              :CtrlQG}
- { Ctrl+Q H      Перевод всех символов в выделенном блоке из QWERTY в ЙЦУКЕН :CtrlQH}
- { Ctrl+Q I      Перевод заглавных символов в выделенном блоке в Uppercase   :CtrlQCaps}
- { Ctrl+Q J      Форматирование текущего абзаца с позиции курсора            :CtrlQJ}
- { Ctrl+Q K      Поиск конца выделенного блока                               :CtrlQK}
- { Ctrl+Q L      Перевод всех символов в выделенном блоке в Lowercase        :CtrlQL}
- { Ctrl+Q M      Математические операции                                     :CtrlQM}
- { Ctrl+Q N      Открыть файл с именем в позиции курсора                     :CtrlQNew}
- { Ctrl+Q n      Поиск установленной метки (n = 0..9)                        :CtrlQn}
- { Ctrl+Q O      Удаление лишних пробелов в тексте                           :CtrlQO}
- { Ctrl+Q P      Создать каталог с именем в позиции курсора                  :CtrlQPath}
- { Ctrl+Q Q      Перевод всех символов в выделенном блоке по таблице         :CtrlQW}
- { Ctrl+Q R      Форматирование текста                                       :CtrlQR}
- { Ctrl+Q S      Режим рисования линий (Single)                              :CtrlQS}
- { Ctrl+Q T      Вывод текущей даты/времени                                  :CtrlQT}
- { Ctrl+Q U      Перевод всех символов в выделенном блоке в Uppercase        :CtrlQU}
- { Ctrl+Q V      Перевод выделенного блока на Volapyuk                       :CtrlQV}
- { Ctrl+Q W      Перевод всех символов в выделенном блоке по таблице         :CtrlQW}
- { Ctrl+Q X      Сортировка строк в выделенном блоке                         :CtrlQX}
- { Ctrl+Q Y      Удаление с позиции курсора до конца строки                  :CtrlQY}
- { Ctrl+Q Z      Удаление с позиции курсора до конца файла                   :CtrlQZ}
- { Ctrl+Q Space  Удаление пустых строк в выделенном блоке или в файле        :CtrlQSpace}
- { Ctrl+Q ,      Перевод выделенного блока с Volapyuk на русский             :CtrlQV}
+ { Ctrl+Q A      Replace command                                                  :SHReplace}
+ { Ctrl+Q B      Search for the start of the selected block                       :CtrlQB}
+ { Ctrl+Q C      Center line relative to cursor                                   :CtrlQC}
+ { Ctrl+Q D      Line drawing mode (Double)                                       :CtrlQD}
+ { Ctrl+Q E      Align line to the right of the cursor                            :CtrlQE}
+ { Ctrl+Q F      Find command                                                     :SHFind}
+ { Ctrl+Q G      Align line to the left of the cursor                             :CtrlQG}
+ { Ctrl+Q H      Convert all chars in the selected block from QWERTY to YTsUKEN   :CtrlQH}
+ { Ctrl+Q I      Convert capital letters in the selected block to Uppercase       :CtrlQCaps}
+ { Ctrl+Q J      Format the current paragraph from the cursor position            :CtrlQJ}
+ { Ctrl+Q K      Search for the end of the selected block                         :CtrlQK}
+ { Ctrl+Q L      Convert all characters in the selected block to lowercase        :CtrlQL}
+ { Ctrl+Q M      Mathematical operations                                          :CtrlQM}
+ { Ctrl+Q N      Open the file named at the cursor position                       :CtrlQNew}
+ { Ctrl+Q n      Search for the set bookmark (n = 0..9)                           :CtrlQn}
+ { Ctrl+Q O      Remove extra spaces in text                                      :CtrlQO}
+ { Ctrl+Q P      Create a directory with the name at the cursor position          :CtrlQPath}
+ { Ctrl+Q Q      Translate all chars in selected block according to the table     :CtrlQW}
+ { Ctrl+Q R      Format text                                                      :CtrlQR}
+ { Ctrl+Q S      Line drawing mode (Single)                                       :CtrlQS}
+ { Ctrl+Q T      Display current date/time                                        :CtrlQT}
+ { Ctrl+Q U      Convert all characters in the selected block to uppercase        :CtrlQU}
+ { Ctrl+Q V      Translate the selected block into Volapyuk                       :CtrlQV}
+ { Ctrl+Q W      Translate all chars in the selected block according to the table :CtrlQW}
+ { Ctrl+Q X      Sort lines in the selected block                                 :CtrlQX}
+ { Ctrl+Q Y      Delete from the cursor position to the end of the line           :CtrlQY}
+ { Ctrl+Q Z      Delete from the cursor position to the end of the file           :CtrlQZ}
+ { Ctrl+Q Space  Delete empty lines in the selected block or in the file          :CtrlQSpace}
+ { Ctrl+Q ,      Translate the selected block from Volapyuk to Russian            :CtrlQV}
 
-См.также
+See also:
 
  {Ctrl+K commands:CtrlKPressed}
  {Ctrl+P commands:CtrlPPressed}
  {Ctrl+O commands:CtrlOPressed}
 
 .topic CtrlPPressed
-Некоторые символы, например,  (Ctrl+K),  (Ctrl+L),  (Ctrl+Y) и т.п.,
-являются для окна редактора управляющими. Чтобы ввести такой символ в
-редактируемый текст с клавиатуры, нужно предварительно нажать Ctrl+P.
-При помощи {ASCII table:ASCIITable} в текст можно ввести любой символ.
+Some characters, for example, (Ctrl+K), (Ctrl+L), (Ctrl+Y), etc., are
+control characters for the editor window. To enter such a character into
+the text being edited from the keyboard, you must first press Ctrl+P.
+Using the {ASCII table:ASCIITable}, you can enter any character into the
+text.
 
 .topic CtrlOPressed
-Нажатие клавиш Ctrl+O n, где n - один из нижеперечисленных символов,
-переключает соответствующие {локальные опции редактора:EditOptions}:
+Pressing "Ctrl+O n", where "n" is one of the characters listed below,
+toggles the corresponding {local editor options:EditOptions}:
 
  'C' - Create backup files;
  'I' - Insert mode;
@@ -894,10 +907,8 @@ CD в рабочем каталоге программы и выполняется поиск строки Search string
  'G' - Highlight current line;
  'O' - Highlight current column;
  'T' - Highlight page breaks;
- '<',
- '>' - Highlight boundaries;
- '-',
- '_' - Non-persistent blocks;
+ '<', '>' - Highlight boundaries;
+ '-', '_' - Non-persistent blocks;
  'V' - Overwrite blocks;
  ' ' - Keep trailing blanks;
  ']' - Wrap lines on Load;
@@ -905,63 +916,62 @@ CD в рабочем каталоге программы и выполняется поиск строки Search string
  'Y' - Literal key input;
  Tab - Enable smart tab cursor movement;
  '(' - Add matching chars;
- ',',
- '.',
- ':',
- ';',
- '!',
+ ',' - Auto-spaces after stops;
+ '.' - Auto-spaces after stops;
+ ':' - Auto-spaces after stops;
+ ';' - Auto-spaces after stops;
+ '!' - Auto-spaces after stops;
  '?' - Auto-spaces after stops;
  'E' - Esc closes;
- 'Q' - вызов диалогового окна {Editor options:EditOptions}
-       для установки локальных опций редактора.
+ 'Q' - Opens the {Editor options:EditOptions} dialog
+       to set local editor options.}
 
-См.также {Editor group list:CommentDlg}
+See also {Editor group list:CommentDlg}
 
 .topic DrawSingle,DrawDouble
-Для рисования линий перемещайте курсор стрелками, нажав на клавишу Shift.
-Для отмены режима рисования нажмите Esc.
+To draw lines, move the cursor with the arrow keys while holding down the
+"Shift" key. To exit drawing mode, press "Esc".
 
 .topic HexEditor,AltHexEditor
  { Hex-Edit window :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-В окне редактора файлов находится содержимое выбранного файла
-в Hex-формате. Перемещаться по файлу можно с помощью "мыши" либо
-клавиатуры:
+The file editor window displays the contents of the selected file in
+hexadecimal format. You can navigate through the file using the mouse or
+the keyboard:
 
-  Up         Подняться на строку вверх
-  Down       Опуститься на строку вниз
-  Right      Сдвинуть на один символ вправо
-  Left       Сдвинуть на один символ влево
-  PgUp       Подняться на страницу вверх
-  PgDn       Опуститься на страницу вниз
-  Home       Вернуться на первую колонку
-  End        Переместиться на последнюю колонку
-  Ctrl+PgUp  Вернуться в начало файла
-  Ctrl+PgDn  Переместиться в конец файла
-  Ctrl+Home  Переместиться на верхнюю строку
-  Ctrl+End   Переместиться на нижнюю строку
+  Up         Move up one line
+  Down       Move down one line
+  Right      Move one character to the right
+  Left       Move one character to the left
+  PgUp       Move up one page
+  PgDn       Move down one page
+  Home       Go to the first column
+  End        Move to the last column
+  Ctrl+PgUp  Go to the beginning of the file
+  Ctrl+PgDn  Move to the end of the file
+  Ctrl+Home  Move to the top line
+  Ctrl+End   Move to the bottom line
 
-Вы можете перемещать окно, изменять его размеры и закрывать, используя
-команды пункта меню {Window}.
+You can move the window, resize it, and close it using the commands in
+the {Window} menu.
 
-Меню окна Hex-редактора вызывается правой кнопкой "мыши"
-либо нажатием клавиш Alt+F10.
+The Hex Editor window menu is accessed by right-clicking or pressing Alt+F10.
 
-Команды Hex-редактора:
+Hex Editor commands:
 
-  Backspace  Удаление символа перед курсором
-  Delete     Удаление символа в позиции курсора
-  Enter      Переход на следующую строку
-  Ins        Переключение режима вставки/замены
-  Tab        Переключение активной области (Hex - ASCII)
-  Alt+Y      Выбор установленной метки с помощью окна {Place markers:PlaceMarkerDlg}
-  Ctrl+A     Команда Select all (выделение всего текста)
-  Ctrl+L     Команда {Search again:SHSearchAgain} (повторный поиск строки)
-  Ctrl+Y     Удаление строки
-  Ctrl+Space Выбор слова в позиции курсора для команды {Search again:SHSearchAgain}
-  Ctrl+\     Переход в окно {File Manager:Panel} с поиском текущего файла
+  Backspace  Delete the character before the cursor
+  Delete     Delete the character at the cursor position
+  Enter      Move to the next line
+  Ins        Toggle insert/delete mode
+  Tab        Switch active view (Hex - ASCII)
+  Alt+Y      Select the set marker using the {Place markers:PlaceMarkerDlg} dialog box
+  Ctrl+A     Select all command (select all text)
+  Ctrl+L     {Search again:SHSearchAgain} command (search for the string again)
+  Ctrl+Y     Delete line
+  Ctrl+Space Select the word at the cursor position for the {Search again:SHSearchAgain} command
+  Ctrl+\     Go to the {File Manager:Panel} window with the current file selected
 
-См.также
+See also:
 
  {Ctrl+K commands:HexCtrlKPressed}
  {Ctrl+Q commands:HexCtrlQPressed}
@@ -970,43 +980,43 @@ CD в рабочем каталоге программы и выполняется поиск строки Search string
  {Block Drag-And-Drop:BlockDragAndDrop}
 
 .topic HexCtrlKPressed
-Команды Hex-редактора при нажатии на клавиши Ctrl+K:
+Hex editor commands when pressing Ctrl+K:
 
- { Ctrl+K A   Запись выделенного блока в конец другого файла  :CtrlKA}
- { Ctrl+K B   Обозначение начала выделяемого блока            :CtrlKB}
- { Ctrl+K C   Копирование выделенного блока в позицию курсора :CtrlKC}
- { Ctrl+K H   Переключение режима выделения блока             :CtrlKH}
- { Ctrl+K K   Обозначение конца выделяемого блока             :CtrlKK}
- { Ctrl+K n   Установка метки (n = 0..9)                      :CtrlKn}
- { Ctrl+K P   Вывод выделенного блока на печать               :CtrlKP}
- { Ctrl+K R   Считывание другого файла в позицию курсора      :CtrlKR}
- { Ctrl+K S   Команда Save                                    :FSave}
- { Ctrl+K V   Перенос выделенного блока в позицию курсора     :CtrlKV}
- { Ctrl+K W   Запись выделенного блока в другой файл          :CtrlKW}
- { Ctrl+K Y   Удаление выделенного блока                      :CtrlKY}
+ { Ctrl+K A   Write the selected block to the end of another file  :CtrlKA}
+ { Ctrl+K B   Mark the start of the block to be selected           :CtrlKB}
+ { Ctrl+K C   Copy the selected block to the cursor position       :CtrlKC}
+ { Ctrl+K H   Toggle block selection mode                          :CtrlKH}
+ { Ctrl+K K   Mark the end of the selected block                   :CtrlKK}
+ { Ctrl+K n   Set a bookmark (n = 0..9)                            :CtrlKn}
+ { Ctrl+K P   Print the selected block                             :CtrlKP}
+ { Ctrl+K R   Read another file at the cursor position             :CtrlKR}
+ { Ctrl+K S   Save command                                         :FSave}
+ { Ctrl+K V   Move the selected block to the cursor position       :CtrlKV}
+ { Ctrl+K W   Write the selected block to another file             :CtrlKW}
+ { Ctrl+K Y   Delete selected block                                :CtrlKY}
 
-См.также
+See also:
 
  {Ctrl+Q commands:HexCtrlQPressed}
  {Ctrl+P commands:CtrlPPressed}
  {Ctrl+O commands:CtrlOPressed}
 
 .topic HexCtrlQPressed
-Команды Hex-редактора при нажатии на клавиши Ctrl+Q:
+Hex editor commands when pressing Ctrl+Q:
 
- { Ctrl+Q A   Команда Replace                                          :SHReplace}
- { Ctrl+Q B   Поиск начала выделенного блока                           :CtrlQB}
- { Ctrl+Q F   Команда Find                                             :SHFind}
- { Ctrl+Q K   Поиск конца выделенного блока                            :CtrlQK}
- { Ctrl+Q L   Перевод всех символов в выделенном блоке в Lowercase     :CtrlQL}
- { Ctrl+Q n   Поиск установленной метки (n = 0..9)                     :CtrlQn}
- { Ctrl+Q P   Вывод экрана на печать                                   :CtrlQPrint}
- { Ctrl+Q U   Перевод всех символов в выделенном блоке в Uppercase     :CtrlQU}
- { Ctrl+Q W   Перевод всех символов в выделенном блоке по таблице      :CtrlQW}
- { Ctrl+Q X   Логическая операция для всех символов в выделенном блоке :CtrlQI}
- { Ctrl+Q Z   Удаление с позиции курсора до конца файла                :CtrlQZ}
+ { Ctrl+Q A   Replace command                                          :SHReplace}
+ { Ctrl+Q B   Search for start of selected k                           :CtrlQB}
+ { Ctrl+Q F   Find command                                             :SHFind}
+ { Ctrl+Q K   Search for the end of the selected block                 :CtrlQK}
+ { Ctrl+Q L   Convert all chars in the selected block to lowercase     :CtrlQL}
+ { Ctrl+Q n   Search for a specified label (n = 0..9)                  :CtrlQn}
+ { Ctrl+Q P   Print screen                                             :CtrlQPrint}
+ { Ctrl+Q U   Convert all chars in the selected block to uppercase     :CtrlQU}
+ { Ctrl+Q W   Convert all chars in the selected block accd to the table  :CtrlQW}
+ { Ctrl+Q X   Logical operation on all characters in the selected block  :CtrlQI}
+ { Ctrl+Q Z   Delete from the cursor position to the end of the file     :CtrlQZ}
 
-См.также
+See also:
 
  {Ctrl+K commands:HexCtrlKPressed}
  {Ctrl+P commands:CtrlPPressed}
@@ -1015,68 +1025,70 @@ CD в рабочем каталоге программы и выполняется поиск строки Search string
 .topic TextViewer,WrapTextViewer,AltTextViewer
  { Text view window :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-В окне для просмотра текстовых файлов находится содержимое выбранного файла
-в ASCII-формате. Перемещаться по файлу можно с помощью "мыши" либо
-клавиатуры:
+The text file viewer window displays the contents of the selected file in
+ASCII format. You can navigate through the file using the mouse or the
+keyboard:
 
-  Up         Подняться на строку вверх
-  Down       Опуститься на строку вниз
-  Right      Сдвинуть на один символ вправо
-  Left       Сдвинуть на один символ влево
-  PgUp       Подняться на страницу вверх
-  PgDn       Опуститься на страницу вниз
-  Home       Вернуться на первую колонку
-  End        Переместиться на последнюю колонку
-  Ctrl+PgUp  Вернуться в начало файла
-  Ctrl+PgDn  Переместиться в конец файла
-  Ctrl+Left  Переместиться на слово влево
-  Ctrl+Right Переместиться на слово вправо
-  Ctrl+Home  Переместиться на верхнюю строку
-  Ctrl+End   Переместиться на нижнюю строку
+  Up         Move up one line
+  Down       Move down one line
+  Right      Move one character to the right
+  Left       Move one character to the left
+  PgUp       Move up one page
+  PgDn       Move down one page
+  Home       Go to the first column
+  End        Move to the last column
+  Ctrl+PgUp  Go to the beginning of the file
+  Ctrl+PgDn  Move to the end of the file
+  Ctrl+Left  Move one word to the left
+  Ctrl+Right Move one word to the right
+  Ctrl+Home  Move to the top line
+  Ctrl+End   Move to the bottom line
 
-Индикатор в левом нижнем углу окна показывает текущее положение курсора
-в строке, десятичное значение символа, на котором стоит курсор,
-приблизительную позицию в файле (%), а также режим выделения блоков:
-сплошной [] или вертикальный [].
+The indicator in the lower-left corner of the window shows the current
+cursor position in the line, the decimal value of the character the
+cursor is on, the approximate position in the file (%), and the block
+selection mode: solid [] or vertical [].
 
-Вы можете перемещать окно, изменять его размеры и закрывать, используя
-команды пункта меню {Window}.
+You can move the window, resize it, and close it using the commands in
+the {Window} menu.
 
-Команды окна Text viewer:
+Text Viewer window commands:
 
-  Alt+K      Переключение режима выделения блока
-  Alt+Y      Выбор установленной метки с помощью окна {Place markers:PlaceMarkerDlg}
-  Ctrl+A     Команда Select all (выделение всего текста)
-  Ctrl+B     Команда {Search again:SHSearchAgain} (повторный поиск строки, Backward)
-  Ctrl+L     Команда {Search again:SHSearchAgain} (повторный поиск строки)
-  Ctrl+U     Команда {Search again:SHSearchAgain} (повторный поиск строки, Forward)
-  Ctrl+@     Режим последовательного поиска по буквам ({Incremental search:EditIncSearch})
-  Space      Выбор слова в позиции курсора для команды {Search again:SHSearchAgain}
-  Ctrl+\     Переход в окно {File Manager:Panel} с поиском текущего файла
+  Alt+K      Toggle block selection mode
+  Alt+Y      Select a set marker using the {Place markers:PlaceMarkerDlg} window
+  Ctrl+A     Select all command (select all text)
+  Ctrl+B     {Search again:SHSearchAgain} command (search for the string again, backward)
+  Ctrl+L     {Search again:SHSearchAgain} command (search for the string again)
+  Ctrl+U     {Search again:SHSearchAgain} command (search for the string again, Forward)
+  Ctrl+@     Incremental search mode ({Incremental search:EditIncSearch})
+  Space      Select the word at the cursor position for the {Search again:SHSearchAgain} command
+  Ctrl+\     Go to the {File Manager:Panel} window with the current file selected
 
-Перейти от просмотра к редактированию можно с помощью команды
+You can switch from viewing to editing using the command
 {Reload as ASCII (Alt+A):WUpdateASCII}.
 
-Нажатие клавиш Ctrl+Q A открывает еще одно окно Text viewer c
-просматриваемым файлом.
+Pressing "Ctrl+Q A" opens another "Text viewer" window with the file
+being viewed.
 
-См.также
+See also:
 
  {Ctrl+K commands:ViewerCtrlKPressed}
  {Ctrl+Q commands:ViewerCtrlQPressed}
 
 .topic ViewerCtrlKPressed
-Команды окна просмотра текстовых файлов при нажатии на клавиши Ctrl+K:
+Commands for the text file viewer window when pressing Ctrl+K:
 
- { Ctrl+K B   Обозначение начала выделяемого блока   :CtrlKB}
- { Ctrl+K H   Переключение режима выделения блока    :CtrlKH}
- { Ctrl+K K   Обозначение конца выделяемого блока    :CtrlKK}
- { Ctrl+K L   Выделение строки                       :CtrlKL}
- { Ctrl+K n   Установка метки (n = 0..9)             :CtrlKn}
- { Ctrl+K T   Выделение слова                        :CtrlKT}
- { Ctrl+K W   Запись выделенного блока в другой файл :CtrlKW}
+ { Ctrl+K B   Mark the start of the selected block   :CtrlKB}
+ { Ctrl+K H   Toggle block selection mode            :CtrlKH}
+ { Ctrl+K K   Mark the end of the selected block     :CtrlKK}
+ { Ctrl+K L   Select a line                          :CtrlKL}
+ { Ctrl+K n   Set a bookmark (n = 0..9)              :CtrlKn}
+ { Ctrl+K T   Select word                            :CtrlKT}
+ { Ctrl+K W   Write selected block to another file   :CtrlKW}
 
-См.также {Ctrl+Q commands:ViewerCtrlQPressed}
+See also {Ctrl+Q commands:ViewerCtrlQPressed}
+
+[STOPPED HERE]
 
 .topic ViewerCtrlQPressed
 Команды окна просмотра текстовых файлов при нажатии на клавиши Ctrl+Q:
