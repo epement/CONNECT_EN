@@ -241,6 +241,12 @@ not closed. That is, one of the braces was missing, or else the brace was
 opened "{" on one line and closed "}" on a different line. The number in
 parentheses shows the line number where the error occurred.
 
+Warning: FILE(1388): Unresolved forward reference "PlaceMarkerDlg window"
+means that on line #1388, a brace-delimited topic reference had 2 words
+following the colon-separator, "PlaceMarkerDlg window", when it expected
+only one word. This was a fault of the translation mechanism. Remove the
+space and the word "window", save, and recompile.
+
 15.2. DOS line endings required.
 
 Input files must have standard MS-DOS line endings, in which each line

@@ -8,7 +8,7 @@ software and communicating with controllers via COM ports.
 
 -------------------------------------------------------------------------
 rightmrg 73 - Find "STOPPED HERE" to locate last translation update.
-Find "CHECK THIS STATEMENT" to confirm the claim, before compiling.
+Find "DOUBLECHECK" to confirm the claim, before compiling.
 Codepage 866 (Cyrillic). To change to DOS-OEM codepage 437, do this:
 
  - vim: after the file is open, use ":e ++enc=cp437"
@@ -242,7 +242,7 @@ the '' button (BackSpace key) deletes the last character entered;
 the '!', '&', '|', and '^' buttons perform the corresponding logical
   functions (NOT, AND, OR, XOR);
 the '_' button assigns a minus sign to the value; [Note: the underscore
-appears in the help file, not a minus sign '-'; CHECK THIS STATEMENT!]
+appears in the help file, not a minus sign '-'; DOUBLECHECK!]
 the '' button ('Ctrl+R') calculates the reciprocal;
 the 'S' and 'Q' buttons square and calculate the square root, respectively.
 
@@ -644,8 +644,6 @@ main line containing the {$LYRICS:Color_2} directive:
 
 The order of track numbers and titles is used when playing in "User
 order" mode, and track numbers may be repeated.
-
-[STOPPED HERE]
 
 .topic File
  { File (Alt+F) :AbsColor_$5F}▄
@@ -1105,39 +1103,40 @@ See also {Ctrl+Q commands:ViewerCtrlQPressed}
 .topic HexViewer,AltHexViewer
  { Hex view window :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-В окне для просмотра бинарных файлов находится содержимое выбранного файла
-в Hex-формате. Перемещаться по файлу можно с помощью "мыши" либо
-клавиатуры:
+The binary file viewer window displays the contents of the selected file
+in hexadecimal format. You can navigate through the file using the mouse
+or the keyboard:
 
-  Up         Подняться на строку вверх
-  Down       Опуститься на строку вниз
-  Right      Сдвинуть на один символ вправо
-  Left       Сдвинуть на один символ влево
-  PgUp       Подняться на страницу вверх
-  PgDn       Опуститься на страницу вниз
-  Home       Вернуться на первую колонку
-  End        Переместиться на последнюю колонку
-  Ctrl+PgUp  Вернуться в начало файла
-  Ctrl+PgDn  Переместиться в конец файла
-  Ctrl+Left  Переместиться на слово влево
-  Ctrl+Right Переместиться на слово вправо
-  Ctrl+Home  Переместиться на верхнюю строку
-  Ctrl+End   Переместиться на нижнюю строку
+  Up         Move up one line
+  Down       Move down one line
+  Right      Move one character to the right
+  Left       Move one character to the left
+  PgUp       Move up one page
+  PgDn       Move down one page
+  Home       Go to the first column
+  End        Move to the last column
+  Ctrl+PgUp  Go to the beginning of the file
+  Ctrl+PgDn  Move to the end of the file
+  Ctrl+Left  Move one word to the left
+  Ctrl+Right Move one word to the right
+  Ctrl+Home  Move to the top line
+  Ctrl+End   Move to the bottom line
 
-Вы можете перемещать окно, изменять его размеры и закрывать, используя
-команды пункта меню {Window}.
+You can move the window, resize it, and close it using the commands in
+the {Window} menu.
 
-Команды окна Hex viewer:
+Hex Viewer window commands:
 
-  Alt+Y      Выбор установленной метки с помощью окна {Place markers:PlaceMarkerDlg}
-  Ctrl+A     Команда Select all (выделение всего текста)
-  Ctrl+Space Выбор слова в позиции курсора для команды {Search again:SHSearchAgain}
-  Ctrl+\     Переход в окно {File Manager:Panel} с поиском текущего файла
+  Alt+Y      Select a set marker using the {Place markers:PlaceMarkerDlg} window
+  Ctrl+A     Select all (select all text)
+  Ctrl+Space Select the word at the cursor for the {Search again:SHSearchAgain} command
+  Ctrl+\     Go to the {File Manager:Panel} window and search for the current file
 
-Hex viewer позволяет редактировать содержимое просматриваемого файла
-только в режиме Overwrite, при этом измененные символы подсвечиваются.
-Если сделаны изменения, а окну необходимо загрузить в свой внутренний
-буфер очередную порцию файла (например, при скроллинге), появится запрос:
+The "Hex Viewer" allows you to edit the contents of the file being viewed
+only in Overwrite mode, with modified characters highlighted. If changes
+have been made and the window needs to load the next portion of the file
+into its internal buffer (for example, when scrolling), a prompt will
+appear:
 
  ╔═[■]══════════ Confirm ═══════════════╗
  ║                                      ║
@@ -1149,119 +1148,119 @@ Hex viewer позволяет редактировать содержимое просматриваемого файла
  ║          ▀▀▀▀▀▀▀▀    ▀▀▀▀▀▀▀▀        ║
  ╚══════════════════════════════════════╝
 
-Перейти от просмотра к полноценному редактированию можно с помощью команды
+You can switch from viewing to full editing using the command
 {Reload as Hex (Alt+H):WUpdateHex}.
 
-См.также
+See also:
 
  {Ctrl+K commands:HexViewerCtrlKPressed}
  {Ctrl+Q commands:HexViewerCtrlQPressed}
 
 .topic HexViewerCtrlKPressed
-Команды окна просмотра бинарных файлов при нажатии на клавиши Ctrl+K:
+Commands in the binary file viewer window when pressing Ctrl+K:
 
- { Ctrl+K B   Обозначение начала выделяемого блока   :CtrlKB}
- { Ctrl+K H   Переключение режима выделения блока    :CtrlKH}
- { Ctrl+K K   Обозначение конца выделяемого блока    :CtrlKK}
- { Ctrl+K L   Выделение строки                       :CtrlKL}
- { Ctrl+K n   Установка метки (n = 0..9)             :CtrlKn}
- { Ctrl+K S   Команда Save                           :FSave}
- { Ctrl+K T   Выделение слова                        :CtrlKT}
- { Ctrl+K W   Запись выделенного блока в другой файл :CtrlKW}
+ { Ctrl+K B   Mark the start of the selected block  :CtrlKB}
+ { Ctrl+K H   Toggle block selection mode           :CtrlKH}
+ { Ctrl+K K   Mark the end of the selected block    :CtrlKK}
+ { Ctrl+K L   Select a line                         :CtrlKL}
+ { Ctrl+K <n> Set a bookmark (n = 0..9)             :CtrlKn}
+ { Ctrl+K S   Save command                          :FSave}
+ { Ctrl+K T   Select word                           :CtrlKT}
+ { Ctrl+K W   Write selected block to another file  :CtrlKW}
 
-См.также {Ctrl+Q commands:HexViewerCtrlQPressed}
+See also: {Ctrl+Q commands:HexViewerCtrlQPressed}
 
 .topic HexViewerCtrlQPressed
-Команды окна просмотра бинарных файлов при нажатии на клавиши Ctrl+Q:
+Commands of the binary file viewer window when pressing Ctrl+Q:
 
- { Ctrl+Q B   Поиск начала выделенного блока       :CtrlQB}
- { Ctrl+Q F   Команда Find                         :SHFind}
- { Ctrl+Q K   Поиск конца выделенного блока        :CtrlQK}
- { Ctrl+Q n   Поиск установленной метки (n = 0..9) :CtrlQn}
+ { Ctrl+Q B   Goto the start of the selected block   :CtrlQB}
+ { Ctrl+Q F   Find command                           :SHFind}
+ { Ctrl+Q K   Goto the end of selected block         :CtrlQK}
+ { Ctrl+Q n   Goto the numeric marker (n = 0..9)     :CtrlQn}
 
-См.также {Ctrl+K commands:HexViewerCtrlKPressed}
+See also: {Ctrl+K commands:HexViewerCtrlKPressed}
 
 .topic CtrlKA
-Запись выделенного блока в конец другого файла.
+Write the selected block to the end of another file.
 
 .topic CtrlKB
-Обозначение начала выделяемого блока.
+Mark the beginning of the block to be selected.
 
 .topic CtrlKC
-Копирование выделенного блока в позицию курсора.
+Copy the selected block to the cursor position.
 
 .topic CtrlKD
-Очистка выделенного блока.
+Clear [delete? DOUBLECHECK] the selected block.
 
 .topic CtrlKH
-Переключение режима выделения блока.
+Toggle block selection mode.
 
 .topic CtrlKI
-Смещение выделенного блока на один символ вправо.
+Shift [Indent] the selected block one character to the right.
 
 .topic CtrlKL
-Выделение строки в позиции курсора.
+Select the line at the cursor position.
 
 .topic CtrlKK
-Обозначение конца выделяемого блока.
+Mark the end of the selected block.
 
 .topic CtrlKM
-Перенос выделенного блока в позицию курсора с очисткой.
+Move the selected block to the cursor position and clear it.
 
 .topic CtrlKn
-Установка метки (n = 0..9).
+Set a numeric bookmark (n = 0..9).
 
-См.также
+See also:
 
- {Поиск установленной метки:CtrlQn}
- {Выбор установленной метки с помощью окна Place markers:PlaceMarkerDlg}
+ {Search for a set marker:CtrlQn}
+ {Select a set marker using the Place markers dialog: PlaceMarkerDlg}
 
 .topic CtrlKP
-Вывод выделенного блока на печать.
+Print the selected block.
 
 .topic CtrlKR
-Считывание другого файла в позицию курсора.
+Read another file into the cursor position.
 
 .topic CtrlKT
-Выделение слова в позиции курсора.
+Select the word at the cursor position.
 
 .topic CtrlKU
-Смещение выделенного блока на один символ влево.
+Shift the selected block one character to the left.
 
 .topic CtrlKV
-Перенос выделенного блока в позицию курсора с удалением.
+Move the selected block to the cursor position and delete it.
 
 .topic CtrlKW
-Запись выделенного блока в другой файл.
+Write the selected block to another file.
 
 .topic CtrlKY
-Удаление выделенного блока.
+Delete the selected block.
 
 .topic CtrlQB
-Поиск начала выделенного блока.
+Goto the start of the selected block.
 
 .topic CtrlQC
-Выравнивание выделенного блока или строки по центру относительно курсора.
+Center-align the selected block or line relative to the cursor.
 
 .topic CtrlQD
-Режим {рисования линий:DrawSingle} (Double).
+{DrawSingle} mode (Double).)}
 
 .topic CtrlQE
-Выравнивание выделенного блока или строки справа относительно курсора.
+Align the selected block or line to the right of the cursor.
 
 .topic CtrlQG
-Выравнивание выделенного блока или строки слева относительно курсора.
+Align the selected block or line to the left relative to the cursor.
 
 .topic CtrlQH
-Перевод всех символов в выделенном блоке или текущей строке
-из QWERTY в ЙЦУКЕН.
+Convert all characters in the selected block or current line from QWERTY
+[keyboard layout] to YTsUKEN [Cyrillic keyboard layout].
 
 .topic CtrlQp
-Перевод всех символов в выделенном блоке или текущей строке
-из ЙЦУКЕН в QWERTY.
+Convert all characters in the selected block or current line from YTsUKEN
+[Cyrillic keyboard] to QWERTY [keyboard layout].
 
 .topic CtrlQI
-Логическая или арифметическая операция для всех символов в выделенном блоке:
+Logical or arithmetic operation on all characters in the selected block:
 
  Char AND Mask
  Char OR  Mask
@@ -1269,128 +1268,134 @@ Hex viewer позволяет редактировать содержимое просматриваемого файла
  Char +   Mask
  Char -   Mask
 
-Строка Mask может быть последовательностью шестнадцатиричных цифр
-или ASCII-символов (если она начинается с символа ' (ASCII 39)),
-например:
+The Mask string can be a sequence of hexadecimal digits or ASCII
+characters if the string begins with the apostrophe character (ASCII 39).
+For example:
 
  0B 1F 3D 15 81 6C
  $0B, $1F, $3D, $15, $81, $6C
  'Some password
 
 .topic CtrlQJ
-Форматирование текущего абзаца с позиции курсора.
+Format [Justify?] the current paragraph starting from the cursor
+position.
 
 .topic CtrlQK
-Поиск конца выделенного блока.
+Goto the end of the selected block.
 
 .topic CtrlQL
-Перевод всех символов в выделенном блоке или текущей строке в нижний регистр.
+Lowercase all characters in the selected block or current line.
 
 .topic CtrlQM
-Команда Math operation производит указанную в диалоговом окне
-математическую операцию над всеми числами в выделенном блоке
-(или текущей строке) и помещает результат в позицию курсора.
+The Math operation command performs the mathematical operation specified
+in the dialog box on all numbers in the selected block (or the current
+line) and places the result at the cursor position.
 
-Если выбран режим Formula, программа вычисляет значение выражения,
-которое может включать следующие функции и операторы:
+If "Formula" mode is selected, the program calculates the value of the
+expression, which may include the following functions and operators:
 
- ARCCOS, ARCSIN, ARCTG - Результат в радианах
- SING - Синус от угла в градусах
- SIN - Синус от угла в радианах
- COSG - Косинус от угла в градусах
- COS - Косинус от угла в радианах
- CTGG - Котангенс от угла в градусах
- CTG - Котангенс от угла в радианах
- TGG - Тангенс от угла в градусах
- TG - Тангенс от угла в радианах
- SQRT - Квадратный корень
- LG - Десятичный логарифм
- LN - Натуральный логарифм
- EXP10 - 10 в степени
- EXP - Экспонента
- ABS - Абсолютное значение
+ ARCCOS, ARCSIN, ARCTG - Result in radians
+ SING - Sine of an angle in degrees
+ SIN - Sine of an angle in radians
+ COSG - Cosine of an angle in degrees
+ COS - Cosine of an angle in radians
+ CTGG - Cotangent of an angle in degrees
+ CTG - Cotangent of an angle in radians
+ TGG - Tangent of an angle in degrees
+ TG - Tangent of an angle in radians
+ SQRT - Square root
+ LG - Common logarithm
+ LN - Natural logarithm
+ EXP10 - 10 to the power of
+ EXP - Exponential
+ ABS - Absolute value
 
- "+", "-", "*", "/" - основные
-   арифметические действия;
+ "+", "-", "*", "/" - basic arithmetic operations;
+ "^" - exponentiation (e.g., 2^8);
+ "%" - integer division [DOUBLECHECK: modulus?];
+ "&&", "||", "#", "<<", ">>", Not() - bitwise operations
+ "AND", "OR", "XOR", "SHL", "SHR", Not.
 
- "^" - возведение в степень (2^8);
-
- "%" - целочисленное деление;
-
- "&&", "||", "#", "<<", ">>" , Not() - битовые операции
-   "AND", "OR", "XOR", "SHL", "SHR", Not.
-
-Шестнадцатиричные числа вводятся с префиксом $, 0x или постфиксом H.
+Hexadecimal numbers are entered with the prefix $, 0x, or the suffix H.
  $1000, 0x1000, 1000h = 4096
-Двоичные числа вводятся с префиксом 0b или постфиксом B.
+
+Binary numbers are entered with the prefix 0b or the suffix B.
  0b1000, 1000b = 8
-Восмиричные числа вводятся с префиксом 0o или постфиксом O.
- 0o1000, 1000o = 512
-Возможен ввод чисел в формате \377 = 255, \e = 27, \n = 10.
 
-Поддерживается ввод чисел в специальном инженерном формате:
+Octal numbers are entered with the prefix 0o or the suffix O.
+ 0o1000, 1000o = 512.
 
-  1T = 1E12      (тера)
-  1G = 1E9       (гига)
-  1M = 1E6       (мега)
-  1k = 1K = 1E3  (кило)
-  1d = 1D = 1E1  (деци)
-  1s = 1E-2      (санти)
-  1m = 1E-3      (милли)
-  1u = 1E-6      (микро)
-  1n = 1E-9      (нано)
-  1p = 1E-12     (пика)
-  1f = 1E-15     (фемто)
-  1f = 1E-18     (атто)
+Octal numbers can also be prefixed with a backslash
+ \377 [octal] = 255 [decimal or base 10]
 
-Определена константа Pi = 3.1415926535
+Escape and newline can be prefixed with a backslash also.
+ \e = 27, \n = 10.
 
-Допускается любой уровень вложенности круглых скобок.
+Input of numbers in a special engineering format is supported:
 
-Длина формулы не должна превышать 255 символов (исключая пробелы).
+  1T = 1E12      (tera)
+  1G = 1E9       (giga)
+  1M = 1E6       (mega)
+  1k = 1K = 1E3  (kilo)
+  1d = 1D = 1E1  (deci)
+  1s = 1E-2      (santi)
+  1m = 1E-3      (milli)
+  1u = 1E-6      (micro)
+  1n = 1E-9      (nano)
+  1p = 1E-12     (pico)
+  1f = 1E-15     (femto)
+  1a = 1E-18     (atto)
 
-Режим Program позволяет вычислять выражения, содержащие переменные,
-например:
+The constant Pi is defined as 3.1415926535
+
+Any level of nesting of parentheses is allowed.
+
+The length of a formula must not exceed 255 characters (excluding spaces).
+
+Program mode allows you to evaluate expressions containing variables, for example:
 
   A5 := 14.78
   B := 23.91
   LN(2) * (A5 + SQRT(B))
 
-  Результат = 13.6340562039
+  Result = 13.6340562039
 
-Каждое выражение программы должно начинаться с новой строки в отличие
-от режима "Формула", который допускает перенос длинных строк при соблюдении
-условия максимальной длины в 255 символов, например:
+Each expression in the program must start on a new line, unlike "Formula"
+mode, which allows long lines to be wrapped, as long as the maximum length
+of 255 characters is not exceeded. For example:
 
   LN(2) * (14.78 +
   SQRT(23.91))
 
-Переменные могут иметь произвольные имена, состоящие из следующих
-символов: 0 .. 9, _, $, A .. Z, a .. z, регистр значения не имеет.
+Variables can have arbitrary names consisting of the following
+characters: 0 .. 9, _, $, A .. Z, a .. z; case is not significant.
 
 .topic CtrlQNew
-Команда Open file at cursor открывает новое окно редактора для
-файла с именем, на которое указывает курсор в текущем окне.
+The "Open file at cursor" command opens a new editor window for the file
+whose name is indicated by the cursor in the current window.
 
 .topic CtrlQPath
-Команда Make directory at cursor создает новый каталог с именем,
-на которое указывает курсор в текущем окне (если такой каталог уже имеется,
-ничего не происходит).
+The "Make directory at cursor" command creates a new directory with the
+name indicated by the cursor in the current window. (If a directory with
+that name already exists, nothing happens.)
 
 .topic CtrlQn
-Поиск установленной метки (n = 0..9).
+Search for a numeric bookmark (n = 0..9).
 
-См.также
+See also:
 
- {Установка метки:CtrlKn}
- {Выбор установленной метки с помощью окна Place markers:PlaceMarkerDlg}
+ {Setting a marker:CtrlKn}
+ {Selecting a set marker using Place markers:PlaceMarkerDlg}
 
 .topic CtrlQO
-Команда Unformat text позволяет удалить из выбранного текста лишние пробелы
-между словами, оставляя только один.
+The "Unformat text" command removes extra spaces between words from the
+selected text [usually added by justification, Ctrl-Q-J], leaving one
+space between words. [Think "only one space."]
 
 .topic CtrlQPrint
-Вывод экрана на печать.
+Print the screen.
+
+[STOPPED HERE]
 
 .topic CtrlQR
 Команда Reformat text позволяет переформатировать выбранный текст в
