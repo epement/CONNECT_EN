@@ -219,19 +219,19 @@ hardware authors will not be liable for it.
 Authors are thankful to all those who took part in discussions and
 suggestions, and especially the following companies, teams and persons:
 
-- [Borland International](http://www.borland.com)
+- [Borland International](https://en.wikipedia.org/wiki/Borland)
 
-- Async stuff and many more useful things: Copyright &copy; [TurboPower Software](http://www.tpower.com). Portions copyright &copy; Information Technology.
+- Async stuff and many more useful things: Copyright &copy; [TurboPower Software](https://www.turbopower.com). Portions copyright &copy; Information Technology.
 
-- "Weird Stream Tricks": Copyright [D.J.Murdoch](mailto:dmurdoch@mast.queensu.ca)
+- "Weird Stream Tricks": Copyright &copy; [D.J.Murdoch](mailto:dmurdoch@mast.queensu.ca)
 
 - File Manager interface concept: Copyright &copy; Norton Computing
 
 - Archive stuff (used by kind permission): Copyright &copy; Nazarenko S.V.
 
-- We wish to express our gratitude to [Dos Navigator](ftp://ftp.ritlabs.com/pub/dn) Team for ideas and inspiration
+- We wish to express our gratitude to the [Dos Navigator](https://www.ritlabs.com/en/products/dn/) team for ideas and inspiration
 
-- [CPU & CoCPU detection](http://cnit2.uniyar.ac.ru/user/BobbyZ/tmi0sdgl.htm): Copyright &copy; [B-coolWare](mailto:loki@cnit.uniyar.ac.ru)
+- [CPU & CoCPU detection](https://sources.ru/pascal/hardware/cpu116b.htm): Copyright &copy; [B-coolWare](mailto:loki@cnit.uniyar.ac.ru)
 
 - Regular expression stuff: Copyright &copy; Henry Spencer, University of Toronto
 
@@ -241,6 +241,6 @@ suggestions, and especially the following companies, teams and persons:
 
 - Disassembler stuff: Copyright &copy; William L. Peavy, Houston Texas
 
-- [Interrupt list](ftp://ftp.cs.cmu.edu/afs/cs/user/ralf/pub/): Copyright &copy; [Ralf Brown](http://www.pobox.com/~ralf)
+- [Interrupt list](https://www.cs.cmu.edu/~ralf/files.html): Copyright &copy; [Ralf Brown](https://www.cs.cmu.edu/~ralf)
 
-- UNIX style file name wild cards: Copyright &copy; Keith S. Brown
+- UNIX-style file name wildcards: Copyright &copy; Keith S. Brown
