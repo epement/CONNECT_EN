@@ -1084,21 +1084,35 @@ Commands for the text file viewer window when pressing Ctrl+K:
  { Ctrl+K T   Select word                            :CtrlKT}
  { Ctrl+K W   Write selected block to another file   :CtrlKW}
 
+ [memory hints: K- prefix for "block actions", for blocK
+  B = first letter in "B"lock,   K = last letter in bloc"K"
+  H = hide or unhide (toggle selection mode)
+  L = whole line
+  T = mark "this word", matches Ctrl+T (del word right in Editor)
+  W = write block to external file
+ ]
+
 See also {Ctrl+Q commands:ViewerCtrlQPressed}
 
-[STOPPED HERE]
-
 .topic ViewerCtrlQPressed
-Команды окна просмотра текстовых файлов при нажатии на клавиши Ctrl+Q:
+Commands in the text file viewer when pressing Ctrl+Q:
 
- { Ctrl+Q B   Поиск начала выделенного блока                      :CtrlQB}
- { Ctrl+Q F   Команда Find                                        :SHFind}
- { Ctrl+Q K   Поиск конца выделенного блока                       :CtrlQK}
- { Ctrl+Q n   Поиск установленной метки (n = 0..9)                :CtrlQn}
- { Ctrl+Q Q   Перевод всех символов в выделенном блоке по таблице :CtrlQW}
- { Ctrl+Q W   Перевод всех символов в выделенном блоке по таблице :CtrlQW}
+ { Ctrl+Q B   Search for beginning of the selected block           :CtrlQB}
+ { Ctrl+Q F   Find command                                         :SHFind}
+ { Ctrl+Q K   Search for end of selected block                     :CtrlQK}
+ { Ctrl+Q n   Search for the set numeric bookmark (n = 0..9)       :CtrlQn}
+ { Ctrl+Q Q   Translate all chars in block/line using a table      :CtrlQW}
+ { Ctrl+Q W   Translate all chars in block/line using CONNECT.TBL  :CtrlQW}
 
-См.также {Ctrl+K commands:ViewerCtrlKPressed}
+ [memory hints: Q- prefix for "quick find" or "quick change"
+  B = first letter in "B"lock
+  K = last letter in bloc"K"
+  F = find
+  Q = query, ask for table name
+  W = "with default table"
+ ]
+
+See also {Ctrl+K commands:ViewerCtrlKPressed}
 
 .topic HexViewer,AltHexViewer
  { Hex view window :AbsColor_$5F}▄
@@ -1277,8 +1291,8 @@ For example:
  'Some password
 
 .topic CtrlQJ
-Format [Justify?] the current paragraph starting from the cursor
-position.
+Reformat the current paragraph starting from the cursor position.
+[DOUBLECHECK - Does J stand for justify?]
 
 .topic CtrlQK
 Goto the end of the selected block.
@@ -1352,7 +1366,8 @@ Any level of nesting of parentheses is allowed.
 
 The length of a formula must not exceed 255 characters (excluding spaces).
 
-Program mode allows you to evaluate expressions containing variables, for example:
+Program mode allows you to evaluate expressions containing variables, for
+example:
 
   A5 := 14.78
   B := 23.91
@@ -1395,95 +1410,107 @@ space between words. [Think "only one space."]
 .topic CtrlQPrint
 Print the screen.
 
-[STOPPED HERE]
-
 .topic CtrlQR
-Команда Reformat text позволяет переформатировать выбранный текст в
-зависимости от установленных в диалоговом окне Reformat options
-параметров форматирования:
+The "Reformat text" command allows you to reformat the selected text
+according to the formatting parameters set in the "Reformat options"
+dialog box:
 
- ■ Line width - ширина строки
- ■ Left margin - отступ слева
-   (при переносе строк)
+ ■ Line width - maximum line width
+ ■ Left margin - use when wrapping lines
 
- ■ Global - весь текст
- ■ Selected text - отмеченный блок
+ ■ Global - all text [in the file]
+ ■ Selected text - selected block
 
-Если включена опция Paragraphs, то при форматировании текста будут
-соблюдаться абзацы (строки с отступом, превышающим Left margin,
-переноситься не будут).
+If the "Paragraphs" option is enabled, paragraphs will be preserved when
+formatting the text (lines with an indent exceeding the "Left margin"
+will not be hyphenated).
 
-Если включена опция Word hyphenation, то при необходимости программа будет
-переносить слова в соответствии с ее понятиями о том, как это делается.
+If the "Word hyphenation" option is enabled, the program will hyphenate
+words as needed according to its own rules.
 
-Если включена опция Expand lines, то при необходимости программа будет
-раздвигать переносимую строку пробелами до длины Line width.
+If the "Expand lines" option is enabled, the program will, if necessary,
+expand the hyphenated line with spaces up to the "Line width".
 
 .topic CtrlQS
-Режим {рисования линий:DrawSingle} (Single).
+Select Single {line drawing:DrawSingle} mode [to draw with single lines].
 
 .topic CtrlQT
-Команда Date/Time stamp вставляет в позицию курсора текущую дату и время
-в формате, определяемом установками диалога {Country settings:OCountry},
-например:
+The "Date/Time stamp" command inserts the current date and time at the
+cursor position in the format specified by the settings in the
+{Country settings:OCountry} dialog. For example:
 
- 19-03-96г. 08:35:54
+  March 19, 1996, 08:35:54
+  ["19-03-96r. 08:35:54"]
 
-При нажатии на клавиши Ctrl+Q \ будет вставлена только дата,
-а при нажатии на клавиши Ctrl+Q | - только время.
+Pressing Ctrl+Q-\ inserts only the date, while pressing Ctrl+Q-| inserts
+only the time.
 
 .topic CtrlQU
-Перевод всех символов в выделенном блоке или текущей строке в верхний регистр.
+Converts all characters in the selected block or current line to Uppercase.
 
 .topic CtrlQV
-{Ctrl+Q V:Color_2} - perevod vydelennogo bloka ili tekushcheij stroki na Volapyuk
+{Ctrl+Q V:Color_2} - convert the selected block or current line to Volapyuk
 (Moldovianizer:).
 
-{Ctrl+Q ,:Color_2} - обратный перевод.
+{Ctrl+Q ,:Color_2} - reverse the conversion.
+
+[Volapyuk was an attempt to create an international European language in
+the 1880s. In the context of CONNECT, these two commands appear to create
+a one-to-one transliteration between Cyrillic and Latin characters, and
+vice versa. DOUBLECHECK.]
 
 .topic CtrlQW
-Перевод всех символов в выделенном блоке или текущей строке с использованием
-таблицы для конвертирования, хранящейся в файле CONNECT.TBL (если были нажаты
-клавиши Ctrl+Q+Q, то для выбора файла открывается {файловый диалог:FileDialog}).
-Таблица представляет собой массив символов размером 256 байт.
+Convert all characters in the selected block or current line using the
+conversion table stored in the CONNECT.TBL file.
+
+If Ctrl+Q+Q was pressed, a {file dialog:FileDialog} opens to select the
+file. The table is a 256-byte character array.
 
 .topic CtrlQX
-Сортировка строк в выделенном блоке по алфавиту
-(по возрастанию или убыванию). Флаг Case sensitive указывает, что
-нужно различать большие и маленькие буквы. Если задана позиция в строке,
-сравнение строк выполняется с этой позиции.
+Sort the lines in the selected block alphabetically (ascending or
+descending). The "Case sensitive" flag indicates that the comparison
+should be case-sensitive. If a position in the string is specified, the
+comparison starts from that position.
 
 .topic CtrlQY
-Удаление с позиции курсора до конца строки.
+Delete from the cursor position to the end of the line.
 
 .topic CtrlQZ
-Удаление с позиции курсора до конца файла.
+Delete from the cursor position to the end of the file.
+
+[Memory hint: When CONNECT was developed, the end-of-file marker was
+often one or more Contol-Z characters.]
 
 .topic CtrlQCaps
-Перевод первых букв всех слов в выделенном блоке или текущей строке
-в верхний регистр (Capitalize).
+Capitalize the first letters of all words in the selected block or the
+current line. [This is often called "Title Case".]
 
 .topic CtrlQSpace
-Удаление пустых строк в выделенном блоке или во всем файле.
+Deletes blank lines in the selected block or throughout the file.
 
 .topic OtherCtrlQ
-Различные команды форматирования текста.
+Various text formatting commands. [DOUBLECHECK what this means.]
 
 .topic SetTextMode
-Команда Set UNIX/DOS text mode устанавливает соответствующий режим
-работы редактора с текстовыми файлами.
+The "Set UNIX/DOS text mode" command sets the editor's mode for working
+with text files. [This affects line endings in text files. Text files
+from Unix systems separate lines with a single character: linefeed (LF)
+or 0x0A. DOS files separate lines with two consecutive characters:
+carriage return (CR) or 0x0D, immediately followed by linefeed (LF).]
 
 .topic EditIncSearch
-Режим последовательного поиска текста по буквам с позиции курсора
+Incremental text search mode, starting from the cursor position
 (Incremental search).
 
-Последовательно нажимайте клавиши, соответствующие буквам искомого слова.
-Для поиска следующего слова, содержащего уже найденную подстроку,
-нажмите Ctrl+L, для поиска предыдущего - Ctrl+B. Для возврата на один шаг
-назад нажмите клавишу Backspace. Для выхода из режима последовательного
-поиска нажмите клавишу Esc или любую клавишу перемещения курсора.
+Press the keys corresponding to the letters of the search term one by
+one. To search for the next word containing the already found substring,
+press Ctrl+L; to search for the previous one, press Ctrl+B. To go back
+one step, press the Backspace key. To exit incremental search mode, press
+the Esc key or any cursor movement key.
 
-См.также {Search│Find:SHFind}.
+See also {Search│Find:SHFind}.
+
+[STOPPED HERE]
 
 .topic FOpen
  { File│Open (F3) :AbsColor_$5F}▄
