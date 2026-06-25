@@ -1510,94 +1510,93 @@ the Esc key or any cursor movement key.
 
 See also {Search│Find:SHFind}.
 
-[STOPPED HERE]
-
 .topic FOpen
  { File│Open (F3) :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Команда Open вызывает диалоговое окно {Open a text file:FileDialog}.
-Выбранный файл появится в новом {окне редактора файлов:ASCIIEditor}
-в ASCII-формате.
+The Open command displays the {Open a text file:FileDialog} dialog box.
+The selected file will appear in a new {file editor window:ASCIIEditor}
+in ASCII format.
 
 .topic FNew
  { File│New :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀
-Команда New открывает новое {окно редактора файлов:ASCIIEditor}
-в ASCII-формате.
+The New command opens a new {file editor window:ASCIIEditor} in ASCII
+format.
 
 .topic FOpenHex
  { File│Open Hex (Ctrl+F3) :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Команда Open Hex вызывает диалоговое окно {Open a binary file:FileDialog}.
-Выбранный файл появится в новом {окне редактора файлов:HexEditor}
-в Hex-формате.
+The Open Hex command will {Open a binary file:FileDialog} dialog
+box for an existing file. The selected file will appear in a new
+{file editor window:HexEditor} in Hex format.
 
 .topic FNewHex
  { File│New Hex :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Команда New Hex открывает новое {окно редактора файлов:HexEditor}
-в Hex-формате.
+The New Hex command opens a new {file editor window:HexEditor} in Hex
+format.
 
 .topic FSave
  { File│Save (F2) :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Команда Save сохраняет содержимое текущего окна редактора на диск.
+The Save command saves the contents of the current editor window to
+disk.
 
 .topic FSaveAs
  { File│Save as :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Команда Save as вызывает диалоговое окно {Save file as:FileDialog}.
-Содержимое текущего окна редактора будет сохранено на диске под именем
-выбранного файла.
+The Save as command opens the {Save file as:FileDialog} dialog box. The
+contents of the current editor window will be saved to disk under the
+name of the selected file.
 
 .topic FSaveAll
  { File│Save all :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Команда Save all сохраняет содержимое всех окон редактора на диск.
+The Save all command saves the contents of all editor windows to disk.
 
 .topic FPrint
  { File│Print :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀
-Команда Print помещает текущее окно редактора в очередь принтера {Spooler}.
-Содержимое окна будет выводиться на печать в "фоновом" режиме,
-т.е. в те моменты времени, когда программа ничем другим не занята.
+The Print command places the current editor window in the {Spooler}
+printer queue. The window's contents will be printed in the
+"background" mode, that is, at times when the program is not busy with
+anything else.
 
 .topic FChangeDir
  { File│Change dir (Alt+\) :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Команда Change dir вызывает диалоговое окно {Change directory:DirDialog},
-в котором Вы можете изменить текущий каталог.
+The Change dir command opens the {Change directory:DirDialog} dialog
+box, where you can change the current directory.
 
 .topic FDosShell
  { File│Dos shell (Alt+Q) :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-С помощью команды DOS shell Вы можете временно выйти из программы для
-выполнения команды DOS или запуска другой программы.
+Using the DOS shell command, you can temporarily exit the program to
+execute a DOS command or run another program.
 
-Для того, чтобы вернуться в программу, введите команду EXIT в
-строке-подсказке DOS.
+To return to the program, type the EXIT command at the DOS prompt.
 
 .topic FExit
  { File│Exit (Alt+X) :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Команда Exit осуществляет выход из программы.
+The Exit command exits the program.
 
 .topic Name
  ┌─ Name ──────────────────────────┐
  │                                 │
  └─────────────────────────────────┘
-
-Строка ввода Name служит для ввода имени файла или маски-фильтра, которую
-программа использует для составления списка файлов ({List box:FileDialog})
-(например, *.*).
+The Name input field is used to enter a file name or filter mask that
+the program uses to generate a list of files ({List box:FileDialog})
+(for example, *.* is a valid filter mask for this field).
 
 .topic Edit
  { Edit (Alt+E) :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Пункт меню Edit содержит команды, поддерживающие копирование, вставку
-и удаление выделенных в окне редактора блоков, а также команду Fill Hex,
-позволяющую заполнить любую область редактируемого в Hex-формате файла
-произвольным символом. Раскрыв пункт Edit, Вы увидите:
+The Edit menu contains commands that support copying, pasting, and
+deleting blocks selected in the editor window, as well as the Fill Hex
+command, which allows you to fill any area of the file being edited in
+Hex format with an arbitrary character. When you open the Edit menu,
+you will see:
 
   {Undo:EUndo}
   {Redo:ERedo}
@@ -1619,10 +1618,10 @@ See also {Search│Find:SHFind}.
 .topic EUndo
  { Edit│Undo (Alt+Back) :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Команда Undo восстанавливает в текущем окне редактора текст в том состоянии,
-в котором он находился перед последним сделанным изменением.
+The Undo command restores the text in the current editor window to the
+state it was in before the last change was made.
 
-См.также
+See also:
 
  {Redo:ERedo}
  {ASCII Editor commands:ASCIIEditor}
@@ -1631,10 +1630,10 @@ See also {Search│Find:SHFind}.
 .topic ERedo
  { Edit│Redo (Ctrl+Enter) :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Команда Redo восстанавливает в текущем окне редактора текст в том состоянии,
-в котором он находился перед последним выполнением команды {Undo:EUndo}.
+The Redo command restores the text in the current editor window to the
+state it was in before the last execution of the {Undo:EUndo} command.
 
-См.также
+See also:
 
  {ASCII Editor commands:ASCIIEditor}
  {Editor options:EditOptions}
@@ -1642,11 +1641,11 @@ See also {Search│Find:SHFind}.
 .topic ECut
  { Edit│Cut (Shift+Del) :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Команда Cut запоминает выделенный в окне редактора блок, удаляя его
-из текста. Вставить блок в любое из имеющихся окон редактора
-можно командой {Paste:EPaste}.
+The Cut command copies the selected block in the editor window,
+removing it from the text. You can paste the block into any of the
+available editor windows using the {Paste:EPaste} command.
 
-См.также
+See also:
 
  {ASCII Editor commands:ASCIIEditor}
  {Hex Editor commands:HexEditor}
@@ -1654,11 +1653,11 @@ See also {Search│Find:SHFind}.
 .topic ECopy
  { Edit│Copy (Ctrl+Ins) :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Команда Copy запоминает выделенный в окне текстового редактора блок.
-Вставить блок в любое из имеющихся окон редактора можно командой
-{Paste:EPaste}.
+The Copy command saves the block selected in the text editor window.
+You can paste the block into any of the available editor windows using
+the {Paste:EPaste}.
 
-См.также
+See also:
 
  {ASCII Editor commands:ASCIIEditor}
  {Hex Editor commands:HexEditor}
@@ -1666,11 +1665,11 @@ See also {Search│Find:SHFind}.
 .topic EPaste
  { Edit│Paste (Shift+Ins) :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Команда Paste вставляет запомненный ранее командами {Cut:ECut} или
-{Copy:ECopy} блок в любое из имеющихся окон редактора в том месте,
-где расположен курсор.
+The Paste command inserts the block previously saved by {Cut:ECut}
+or {Copy:ECopy} into any of the available editor windows at the
+cursor's current location.
 
-См.также
+See also:
 
  {ASCII Editor commands:ASCIIEditor}
  {Hex Editor commands:HexEditor}
@@ -1678,9 +1677,9 @@ See also {Search│Find:SHFind}.
 .topic EClear
  { Edit│Clear (Ctrl+Del) :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Команда Clear удаляет выделенный в окне текстового редактора блок.
+The Clear command deletes the block selected in the text editor window.
 
-См.также
+See also:
 
  {ASCII Editor commands:ASCIIEditor}
  {Hex Editor commands:HexEditor}
@@ -1688,105 +1687,112 @@ See also {Search│Find:SHFind}.
 .topic BlockDragAndDrop
  { Block Drag-And-Drop :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Нужно "взять" выделенный блок "мышью", нажав обе ее кнопки
-(левую и правую, причем сначала левую; для выполнения Move block
-нажмите клавишу Ctrl или Alt). На экране появится окошко, перемещающееся
-вместе с "мышью". После этого одну из кнопок, а также клавишу Ctrl (Alt)
-можно отпустить. Если поместить окошко над этим или другим окном редактора
-(ASCII или Hex) и отпустить его, будет выполнена операция Copy block или
-Move block, а если в любом другом месте - операция Delete block. Для отмены
-нажмите Esc.
+You need to "grab" the selected block with the mouse by pressing both
+buttons (left and right, starting with the left; to perform Move block,
+press the Ctrl or Alt key). A window will appear on the screen that
+moves along with the mouse. After that, you can release one of the
+buttons, as well as the Ctrl (or Alt) key. If you place the window over this
+or another editor window (ASCII or Hex) and release it, the Copy block
+or Move block operation will be performed; if you place it anywhere
+else, the Delete block operation will be performed. To cancel, press
+Esc. [DOUBLECHECK]
 
-См.также {Options│Setup│Mouse Drag-And-Drop:Setup}
+See also {Options│Setup│Mouse Drag-And-Drop:Setup}
 
 .topic Snipper
  { Snipper :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀
-Snipper - резидентная программа, позволяющая в текстовом режиме
-дисплея переносить содержимое экрана в {Clipboard}. Программа
-инициализируется нажатием клавиш Alt+Ctrl+W, при этом на экране
-появляется курсор. Начало и окончание выделения блока производится
-клавишей Enter, выделение - клавишами управления, отмена - клавишей Esc.
-Операцию запоминания можно выполнять до тех пор, пока не переполнится
-буфер, о чем свидетельствует звуковой сигнал. Для загрузки Snipper
-необходимо указать в командной строке запускающей программы CN.EXE
-следующие параметры:
+Snipper is a resident program that allows you to transfer the screen
+contents to the {Clipboard} in text display mode. The program is
+initialized by pressing Alt+Ctrl+W, at which point a cursor appears on
+the screen. Press the Enter key to start and end the selection of a
+block; use the arrow keys to select, and the Esc key to cancel. You can
+continue copying until the buffer overflows, which is indicated by an
+audible beep signal. To load Snipper, specify the following parameters
+on the command line of the CN.EXE launcher:
 
- [/Bxxxx]/S
- xxxx - размер буфера, Байт
- ( 2048 Байт по умолчанию )
+   [/Bxxxx]/S
+   where "xxxx" is the desired buffer size, in bytes
+   (If /Bxxxx is not used, the default size is 2048 bytes)
 
- Пример: CN/S или CN/B8192/S
+   Example: "CN /S" or "CN /B8192/S"
 
-Другой способ загрузки Snipper - запуск другой программы командой
-{Execute:UExecute} при включенном флаге Load Snipper и опции Unload.
+Another way to load Snipper is to run another program using the
+{Execute:UExecute} with the Load Snipper flag and the Unload option
+enabled.
+
+[DOUBLECHECK: The Snipper program is separate buffer storage that works
+like the DOS clipboard, but is separate from it.]
 
 .topic ECopyToAddClip
  { Edit│Copy to additional Clipboard (Ctrl+F12) :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Команда Copy to additional Clipboard копирует выделенный текст
-во временный файл CONNECT.CLP, находящийся в каталоге, задаваемом
-в диалоговом окне Setup ({Options│Setup│Swap file directory:Setup}).
+The Copy to additional Clipboard command copies the selected text to a
+temporary file named CONNECT.CLP, located in the directory specified in
+the Setup dialog box (at {Options│Setup│Swap file directory:Setup}).
 
-См.также {Edit│Paste from additional Clipboard:EPasteFromAddClip}
+See also {Edit│Paste from additional Clipboard:EPasteFromAddClip}
 
 .topic ECopyToWinClip
  { Edit│Copy to MS Windows Clipboard (Ctrl+F12) :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Команда Copy to MS Windows Clipboard копирует выделенный текст в
-системный буфер MS Windows Clipboard.
+The "Copy to MS Windows Clipboard" command copies the selected text to
+the Microsoft Windows Clipboard.
 
-См.также {Edit│Paste from MS Windows Clipboard:EPasteFromWinClip}
+See also {Edit│Paste from MS Windows Clipboard:EPasteFromWinClip}
 
 .topic EPasteFromAddClip
  { Edit│Paste from additional Clipboard (Shift+F12) :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Команда Paste from additional Clipboard копирует текст из
-временного файла CONNECT.CLP, находящегося в каталоге, задаваемом
-в диалоговом окне Setup ({Options│Setup│Swap file directory:Setup}),
-в позицию курсора текущего окна.
+The "Paste from additional Clipboard" command copies text from the
+temporary file CONNECT.CLP, located in the directory specified in the
+Setup dialog box (at {Options│Setup│Swap file directory:Setup}), to the
+cursor position in the current window.
 
-См.также {Edit│Copy to additional Clipboard:ECopyToAddClip}
+See also {Edit│Copy to additional Clipboard:ECopyToAddClip}
 
 .topic EPasteFromWinClip
  { Edit│Paste from MS Windows Clipboard (Shift+F12) :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Команда Paste from MS Windows Clipboard копирует текст из
-системного буфера MS Windows Clipboard в позицию курсора текущего окна.
+The "Paste from MS Windows Clipboard" command copies text from the
+Microsoft Windows Clipboard to the cursor position in the current
+window.
 
-См.также {Edit│Copy to MS Windows Clipboard:ECopyToWinClip}
+See also {Edit│Copy to MS Windows Clipboard:ECopyToWinClip}
 
 .topic EShowClipboard
  { Edit│Show clipboard (Alt+Ins) :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Команда Show clipboard вызывает окно {Clipboard}, которое представляет
-собой "хранилище" и редактор всех текстовых блоков, созданных командами
-{Cut:ECut} и {Copy:ECopy}.
+The Show clipboard command opens the {Clipboard} window, which serves
+as a "storage" and editor for all text blocks created by the {Cut:ECut}
+and {Copy:ECopy}.
 
 .topic Clipboard
  { Clipboard :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀
-Окно Clipboard представляет собой специальное
-{окно редактирования:ASCIIEditor}. Оно содержит текст, который Вы копируете
-либо вырезаете из других окон командами {Copy:ECopy} и {Cut:ECut}.
-Выделенный в окне Clipboard текст будет вставлен в позицию курсора в активном
-окне редактора при выполнении команды {Paste:EPaste}.
+The Clipboard window is a special {editing window:ASCIIEditor}. It
+contains text that you copy or cut from other windows using the
+{Copy:ECopy} and {Cut:ECut} commands. Text selected in the Clipboard
+window will be pasted at the cursor position in the active editor
+window when the {Paste:EPaste} command is executed.
 
 .topic ESaveClipData
  { Edit│Save Clipboard data on exit :AbsColor_$5F}▄
   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-Команда Save Clipboard data on exit переключает режим, при котором
-содержимое окна {Clipboard} сохраняется на диске при выходе из
-программы и может быть использовано при следующем запуске.
+The "Save Clipboard data on exit" command toggles a mode in which the
+contents of the {Clipboard} window are saved to disk when exiting the
+program, so the clipboard contents can be used the next time the
+program is launched.
 
- {ВНИМАНИЕ !!!:Color_4}
-При включенном режиме сохранения содержимого Clipboard данные на
-диске будут постоянно накапливаться. Для предотвращения ситуации,
-при которой данные перестанут помещаться в память программы,
-необходимо периодически перед запуском удалять файлы
-CNxxxxxx.@@@ и CNxxxxxx.###, находящиеся в каталоге, задаваемом в
-диалоговом окне Setup ({Options│Setup│Swap file directory:Setup}),
-либо время от времени отключать этот режим.
+ {ATTENTION !!!:Color_4}
+When "Save Clipboard data on exit" is enabled, data will continuously
+accumulate on the disk! To prevent a situation where data no longer
+fits in the program's memory, you must periodically delete the files
+CNxxxxxx.@@@ and CNxxxxxx.### located in the directory specified in the
+Setup dialog box ({Options│Setup│Swap file directory:Setup}), before
+running the program, or else disable this mode from time to time.
+
+[STOPPED HERE]
 
 .topic EToggleMarkMode
  { Edit│Mark columns of text (Alt+K) :AbsColor_$5F}▄
